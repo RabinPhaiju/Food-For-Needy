@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Food For Needy</title>
-    <link rel="shortcut icon" href="">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/gallery.css">
+    <link rel="stylesheet" href="css/indexgallery.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <body>
     <div class="container">
         <div class="navbar">
@@ -19,26 +20,56 @@
             <div class="nav1"><a href="">Donate</a></div>
         </div>
         <div class="slidershow middle">
-                <div class="slides">
-                  <input type="radio" name="r" id="r1" checked>
-                  <input type="radio" name="r" id="r2">
-                  <input type="radio" name="r" id="r3">
-                  <!-- <input type="radio" name="r" id="r4">
-                  <input type="radio" name="r" id="r5"> -->
-                  <div class="slide s1"><img src="files/children1.jpg" alt=""></div>
-                  <div class="slide"> <img src="files/children1.jpg" alt=""></div>
-                  <div class="slide"> <img src="files/children1.jpg" alt=""></div>
-                  <!-- <div class="slide"> <img src="files/children1.jpg" alt=""></div>
-                  <div class="slide"> <img src="files/children1.jpg" alt=""></div> -->
-                </div>
-                <div class="navigation">
-                  <label for="r1" class="bar"></label>
-                  <label for="r2" class="bar"></label>
-                  <label for="r3" class="bar"></label>
-                  <!-- <label for="r4" class="bar"></label>
-                  <label for="r5" class="bar"></label> -->
-                </div>
+            <div class="slides">
+                <input type="radio" name="r" id="r1" checked>
+                <input type="radio" name="r" id="r2">
+                <input type="radio" name="r" id="r3">
+                <input type="radio" name="r" id="r4">
+                <input type="radio" name="r" id="r5">
+                <div class="slide s1"><img src="files/children1.jpg" alt=""></div>
+                <div class="slide"><img src="files/children1.jpg" alt=""></div>
+                <div class="slide"><img src="files/children1.jpg" alt=""></div>
+                <div class="slide"><img src="files/children1.jpg" alt=""></div>
+                <div class="slide"><img src="files/children1.jpg" alt=""></div>
+            </div>
+            <div class="navigation">
+                <label for="r1" class="bar"></label>
+                <label for="r2" class="bar"></label>
+                <label for="r3" class="bar"></label>
+                <label for="r4" class="bar"></label>
+                <label for="r5" class="bar"></label>
+            </div>
+        </div>
+        <div class="search-suggest">
+            <div class="search">
+                <form>
+                    <input type="text" placeholder="search" onclick="showSearch()">
+                    <input type="button" value="Search">
+                </form>
+            </div>
+            <div class="suggest">
+                <form>
+                    <input type="button" value="suggest1">
+                    <input type="button" value="suggest2">
+                    <input type="button" value="suggest3">
+                    <div class="suggest-hide">
+                        <input type="button" value="suggest4">
+                        <input type="button" value="suggest5">
+                        <input type="button" value="suggest6">
+                        <input type="button" value="suggest7">
+                    </div>
+                </form>
+                <a class="suggestAnchor" onclick="showSuggest()">more</a>
+            </div>
+        </div>
+        <div class="About">
+            <div class="text">
+                <p>hello</p>
+            </div>
+            <div class="pic"></div>
         </div>
     </div>
+    <script src="js/script.js"></script>
 </body>
+
 </html>
