@@ -20,7 +20,7 @@
 }
 
 .bar {
-    border-radius: 7px;
+    /* border-radius: 5px; */
     width: 10px;
     height: 10px;
     border: 2px solid #000;
@@ -74,12 +74,8 @@ input[name="r"] {
     margin-left: -80%;
 }
 
-
-/* 
-@media only screen and (max-width: 800px) {
-    .slidershow {
-        margin-bottom: 80px;
-        margin-top: 13%;
-        height: 100%;
+@media only screen and (max-width: 370px) {
+    .navigation {
+        display: none;
     }
-} */
+}

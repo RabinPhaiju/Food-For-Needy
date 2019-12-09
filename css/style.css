@@ -1,122 +1,235 @@
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: 0;
-        }
-        
-        body {
-            font-size: 76.5%;
-            font-family: sans-serif;
-            background-color: rgb(211, 219, 226);
-        }
-        
-        .navbar {
-            display: flex;
-            flex-direction: row-reverse;
-            flex-wrap: wrap-reverse;
-            font-size: 1.5rem;
-            background-color: rgb(211, 219, 226);
-        }
-        
-        .navbar a {
-            text-decoration: none;
-            color: black;
-        }
-        
-        .navbar a:hover {
-            background-color: #918d8d;
-            padding: 15px 10px;
-            border-radius: 1px;
-        }
-        
-        .navbar>div {
-            width: 80px;
-            margin: 5px;
-            margin-bottom: 1%;
-            margin-top: 5px;
-            text-align: center;
-            line-height: 3rem;
-            font-size: 1.1rem;
-        }
-        
-        .container {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .search-suggest {
-            margin-top: -10%;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-        }
-        
-        .search-suggest .search {
-            margin-left: 10%;
-        }
-        
-        .search-suggest .suggest {
-            margin-left: 20%;
-        }
-        
-        .suggest .suggest-hide {
-            display: none;
-        }
-        
-        .suggest a {
-            /*text-decoration:none;*/
-            margin-left: 10%;
-            cursor: pointer;
-        }
-        
-        .suggest a:hover {
-            color: red;
-        }
-        
-        .search-suggest .suggest input[type=button] {
-            background-color: lightgrey;
-            /* background: transparent; */
-            color: black;
-            border-radius: 60%;
-            padding: 15px 10px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 1rem;
-            margin: auto;
-            -webkit-transition-duration: 0.4s;
-            /* Safari */
-            transition-duration: 0.4s;
-            cursor: pointer;
-        }
-        
-        .search-suggest .suggest input[type=button]:hover {
-            background-color: #555555;
-            color: white;
-        }
-        
-        .search-suggest .search input[type=text] {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        
-        .search-suggest .search input[type=button] {
-            width: 50%;
-            background-color: #4CAF50;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            display: none;
-        }
-        
-        .search-suggest .search input[type=button]:hover {
-            background-color: #45a049;
-        }
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: 0;
+}
+
+body {
+    font-size: 76.5%;
+    /* font-family: sans-serif; */
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
+    background-color: rgb(237, 237, 238);
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    font-size: 1.5rem;
+    justify-content: space-around;
+    /* background-color: rgb(211, 219, 226); */
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.navbar1 {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap-reverse;
+    font-size: 1.5rem;
+}
+
+.navbar1 p {
+    font-size: 1.5rem;
+    margin-top: -2%;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    padding: 6px;
+}
+
+.navbar .navbar1 a:hover {
+    background-color: #4CAF50;
+    border-radius: 5%;
+    color: white;
+}
+
+.navbar>div {
+    margin: 2px;
+    margin-bottom: 1%;
+    margin-right: 1%;
+    margin-top: 4px;
+    text-align: center;
+    font-size: 1.0rem;
+}
+
+.navbar .nav3,
+.navbar .nav0 {
+    margin-top: -4px;
+    cursor: pointer;
+}
+
+.navbar .nav0:hover {
+    transform: scale(1.2);
+    transition-duration: 0.5s;
+}
+
+@media only screen and (min-width: 577px) {
+    .navbar .nav3 {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 370px) {
+    .navbar {
+        display: none;
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-suggest {
+    margin-top: -10%;
+    margin-bottom: 2%;
+    ;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.search-suggest .search {
+    margin-left: 14%;
+}
+
+.search-suggest .suggest {
+    margin-left: 20%;
+}
+
+.suggest .suggest-hide {
+    display: none;
+}
+
+.suggest a {
+    /*text-decoration:none;*/
+    margin-left: 10%;
+    cursor: pointer;
+}
+
+.suggest p {
+    font-family: sans-serif;
+    color: rgb(108, 102, 102);
+    margin-bottom: 5px;
+    margin-left: 10px;
+    font-size: 1rem;
+}
+
+.suggest a:hover {
+    color: red;
+}
+
+.search-suggest .suggest input[type=button] {
+    background-color: rgb(229, 227, 227);
+    color: rgb(84, 82, 82);
+    border-radius: 35px;
+    padding: 15px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    margin: auto;
+    margin-bottom: 5px;
+    -webkit-transition-duration: 0.2s;
+    /* Safari */
+    transition-duration: 0.2s;
+    cursor: pointer;
+}
+
+.search-suggest .suggest input[type=button]:hover {
+    background-color: #555555;
+    color: white;
+}
+
+.search-suggest .search input[type=text] {
+    width: 100%;
+    padding: 10px 2px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.search-suggest .search input[type=button] {
+    width: 100px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    margin: 2px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: none;
+}
+
+.search-suggest .search input[type=button]:hover {
+    background-color: #45a049;
+}
+
+.container .About {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: rgb(222, 219, 219);
+    padding: 2%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container .About .pic {
+    margin-left: 3%;
+}
+
+.container .About .text {
+    font-size: 1rem;
+    margin-left: 3%;
+    width: 30%;
+    text-align: justify;
+}
+
+@media only screen and (max-width: 577px) {
+    .container .About .text {
+        width: 80%;
+    }
+}
+
+.container .About .text a {
+    text-decoration: none;
+    color: red;
+}
+
+.container .Goals {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    /* background-color: rgb(211, 219, 226); */
+    padding: 2%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container .Goals .pic {
+    margin-left: 3%;
+}
+
+.container .Goals .text {
+    font-size: 1rem;
+    margin-left: 2%;
+    width: 30%;
+    text-align: justify;
+}
+
+@media only screen and (max-width: 577px) {
+    .container .Goals .text {
+        width: 80%;
+    }
+}
+
+.container .Goals .text a {
+    text-decoration: none;
+    color: red;
+}
