@@ -1,0 +1,23 @@
+{
+  "name": "food-for-needy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "validator": "^12.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RabinPhaiju/Food-For-Needy.git"
+  },
+  "author": "Rabin Phaiju",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RabinPhaiju/Food-For-Needy/issues"
+  },
+  "homepage": "https://github.com/RabinPhaiju/Food-For-Needy#readme"
+}

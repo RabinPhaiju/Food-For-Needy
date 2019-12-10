@@ -15,13 +15,13 @@
     <div id="particles-js">
         <div class="navbar">
             <div class="nav0">
-                <a href="index.html"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
+                <a href="../index.html"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
             </div>
             <div class="navbar1">
                 <div class="nav3"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></div>
                 <div class="nav4"><a href="">CONTACT US</a></div>
                 <p>|</p>
-                <div class="nav2"><a href="html/login.html">JOIN US</a></div>
+                <div class="nav2"><a href="login.html">JOIN US</a></div>
                 <p>|</p>
                 <div class="nav1"><a href="">DONATE</a></div>
             </div>
@@ -37,11 +37,22 @@
                     <a href="#" class="social"><i class="fa fa-google" aria-hidden="true"></i></a>
                 </div>
                 <span>or use your email for registration</span>
-                <input type="text" placeholder="Name" />
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
-                <button>Sign Up</button>
+                <input type="text" placeholder="Name" required />
+                <input id="email" type="email" placeholder="Email" required/>
+                <input type="password" id="psw" placeholder="password" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                <div id="message">
+                    <p id="letter" class="invalid">lowercase</p>
+                    <p id="capital" class="invalid">uppercase</p>
+                    <p id="number" class="invalid">number</p>
+                    <p id="length" class="invalid">8 letter</p>
+                </div>
+                <input type="password" id="repsw" placeholder="Enter password again!" name="repsw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                <div id="messageVerify">
+                    <p id="match" class="invalid">Matched</p>
+                </div>
+                <button id="signupButton" class="invalid1">Sign Up</button>
             </form>
+
         </div>
         <div class="form-container sign-in-container">
             <form action="#">
@@ -78,8 +89,8 @@
     <script src="../js/particles.js"></script>
     <script src="../js/app.js"></script>
     <script>
-        var count_particles, stats, update;
-        stats = new Stats;
+        var count_particles, update;
+        let stats = new Stats;
         stats.setMode(0);
         stats.domElement.style.position = 'absolute';
         stats.domElement.style.left = '0px';
@@ -92,6 +103,116 @@
             requestAnimationFrame(update);
         };
         requestAnimationFrame(update);
+    </script>
+    <script>
+        var email = document.getElementById("email");
+        var button = document.getElementById("signupButton");
+
+        var myInput = document.getElementById("psw");
+        var myInputVerify = document.getElementById("repsw");
+        var letter = document.getElementById("letter");
+        var capital = document.getElementById("capital");
+        var number = document.getElementById("number");
+        var length = document.getElementById("length");
+
+        email.onkeyup = function() {
+            var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            if (filter.test(email.value)) {
+                button.classList.remove("invalid1");
+                button.classList.add("valid1");
+            } else {
+                button.classList.remove("valid1");
+                button.classList.add("invalid1");
+            }
+        }
+
+        // When the user clicks on the password field, show the message box
+        myInput.onfocus = function() {
+            document.getElementById("message").style.display = "block";
+        }
+        myInputVerify.onfocus = function() {
+            document.getElementById("messageVerify").style.display = "block";
+        }
+
+        // When the user clicks outside of the password field, hide the message box
+        myInput.onblur = function() {
+            document.getElementById("message").style.display = "none";
+        }
+        myInputVerify.onblur = function() {
+            document.getElementById("messageVerify").style.display = "none";
+        }
+
+        // When the user starts to type something inside the password field
+
+        myInput.onkeyup = function() {
+            // Validate lowercase letters
+            var lowerCaseLetters = /[a-z]/g;
+            if (myInput.value.match(lowerCaseLetters)) {
+                letter.classList.remove("invalid");
+                letter.classList.add("valid");
+                button.classList.remove("invalid1");
+                button.classList.add("valid1");
+            } else {
+                letter.classList.remove("valid");
+                letter.classList.add("invalid");
+                button.classList.remove("valid1");
+                button.classList.add("invalid1");
+            }
+
+            // Validate capital letters
+            var upperCaseLetters = /[A-Z]/g;
+            if (myInput.value.match(upperCaseLetters)) {
+                capital.classList.remove("invalid");
+                capital.classList.add("valid");
+                button.classList.remove("invalid1");
+                button.classList.add("valid1");
+            } else {
+                capital.classList.remove("valid");
+                capital.classList.add("invalid");
+                button.classList.remove("valid1");
+                button.classList.add("invalid1");
+            }
+
+            // Validate numbers
+            var numbers = /[0-9]/g;
+            if (myInput.value.match(numbers)) {
+                number.classList.remove("invalid");
+                number.classList.add("valid");
+                button.classList.remove("invalid1");
+                button.classList.add("valid1");
+            } else {
+                number.classList.remove("valid");
+                number.classList.add("invalid");
+                button.classList.remove("valid1");
+                button.classList.add("invalid1");
+            }
+
+            // Validate length
+            if (myInput.value.length >= 8) {
+                length.classList.remove("invalid");
+                length.classList.add("valid");
+                button.classList.remove("invalid1");
+                button.classList.add("valid1");
+            } else {
+                length.classList.remove("valid");
+                length.classList.add("invalid");
+                button.classList.remove("valid1");
+                button.classList.add("invalid1");
+            }
+        }
+        myInputVerify.onkeyup = function() {
+            if (myInput.value == myInputVerify.value && myInputVerify.value != "") {
+                match.classList.remove("invalid");
+                match.classList.add("valid");
+                button.classList.remove("invalid1");
+                button.classList.add("valid1");
+            } else {
+                match.classList.remove("valid");
+                match.classList.add("invalid");
+                button.classList.remove("valid1");
+                button.classList.add("invalid1");
+            }
+        }
     </script>
 </body>
 
