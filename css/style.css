@@ -139,11 +139,13 @@ body {
     /* Safari */
     transition-duration: 0.2s;
     cursor: pointer;
+    outline: none;
 }
 
 .search-suggest .suggest input[type=button]:hover {
     background-color: #555555;
     color: white;
+
 }
 
 .search-suggest .search input[type=text] {
