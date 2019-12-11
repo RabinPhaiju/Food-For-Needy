@@ -1,0 +1,156 @@
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        list-style: none;
+        text-decoration: none;
+    }
+    
+    .middle {
+        top: 100%;
+        left: 100%;
+        transform: translate(-90%, -0.2%);
+        display: none;
+        position: absolute;
+    }
+    
+    .menu {
+        width: 180px;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    
+    .item {
+        border-top: 1px solid #2980b9;
+        overflow: hidden;
+    }
+    
+    .btn {
+        display: block;
+        padding: 16px 20px;
+        background: #3498db;
+        color: white;
+        position: relative;
+    }
+    
+    .btn:before {
+        content: "";
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        background: #3498db;
+        left: 20px;
+        bottom: -7px;
+        transform: rotate(45deg);
+    }
+    
+    .btn i {
+        margin-right: 10px;
+    }
+    
+    .smenu {
+        background: #333;
+        overflow: hidden;
+        transition: max-height 0.3s;
+        max-height: 0;
+    }
+    
+    .smenu a {
+        display: block;
+        padding: 16px 26px;
+        color: white;
+        font-size: 14px;
+        margin: 4px 0;
+        position: relative;
+    }
+    
+    .smenu a:before {
+        content: "";
+        position: absolute;
+        width: 6px;
+        height: 100%;
+        background: #3498db;
+        left: 0;
+        top: 0;
+        transition: 0.3s;
+        opacity: 0;
+    }
+    
+    .smenu a:hover:before {
+        opacity: 1;
+    }
+    
+    .item:target .smenu {
+        max-height: 10em;
+    }
+    
+    .navbar {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap-reverse;
+        font-size: 1.1rem;
+        justify-content: space-around;
+        background-color: rgba(168, 201, 229, 0.298);
+        padding-top: 10px;
+        margin-bottom: -10%;
+    }
+    
+    .navbar1 {
+        display: flex;
+        flex-direction: row-reverse;
+        flex-wrap: wrap-reverse;
+        font-size: 1.1rem;
+    }
+    
+    .navbar1 p {
+        font-size: 1.1rem;
+        margin-top: -2%;
+    }
+    
+    .navbar a {
+        text-decoration: none;
+        color: black;
+        font-family: 'Montserrat', sans-serif;
+        padding: 6px;
+    }
+    
+    .navbar .navbar1 a:hover {
+        background-color: #4CAF50;
+        border-radius: 5%;
+        color: white;
+    }
+    
+    .navbar>div {
+        margin: 2px;
+        margin-bottom: 1%;
+        margin-right: 1%;
+        margin-top: 4px;
+        text-align: center;
+        font-size: 0.8rem;
+        z-index: 999;
+    }
+    
+    .navbar .nav3,
+    .navbar .nav0 {
+        margin-top: -4px;
+        cursor: pointer;
+        position: relative;
+        z-index: 3;
+    }
+    
+    .navbar .nav3:hover .middle {
+        color: green;
+        display: block;
+        z-index: 2;
+    }
+    
+    .navbar .nav0:hover {
+        transform: scale(1.2);
+        transition-duration: 0.5s;
+    }
+    
+    @media only screen and (max-width: 370px) {
+        .navbar {
+            display: none;
+        }
+    }
