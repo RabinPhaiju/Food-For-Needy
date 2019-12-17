@@ -90,7 +90,7 @@ body {
 .search-suggest {
     margin-top: -10%;
     margin-bottom: 2%;
-    ;
+    
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;

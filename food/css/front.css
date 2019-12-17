@@ -1,0 +1,69 @@
+
+/* navbar ko css */
+.nav{
+    width: 100%; position: absolute;
+    z-index: 1;
+}
+.nav #leftpart{    /* baki ko ul list right bako le home lai left ma rakhna */
+    text-align: left;float: left;
+}
+.nav ul{
+ text-align: right;
+}
+.nav ul li{
+font-size: 1.25em;
+list-style-type: none;
+display: inline-block;
+padding-right: 2em ;
+font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.nav a{
+    text-decoration: none;
+    color: brown;
+    text-align: left;
+} 
+/* hover part */
+.nav ul li a:hover {
+    background-color: grey;
+    padding: 0.5em 1em 0.5em 1em;
+    border-radius: 10px 10px 10px 10px;
+    opacity: 0.5;
+}
+/* image next wa preview garna */
+.click {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    color:white;
+    height:400px;
+    opacity: 0.1;
+    text-align: center;
+    line-height: 400px;
+}
+.click .prew{
+    background-color: rgb(27, 26, 26);flex:1;font-size: 100px; 
+    }
+.click .next{
+    background-color: rgb(27, 26, 26);flex:1;font-size: 100px; 
+    margin-right: 1.25%;
+    
+}
+.click .text{flex:3;font-size: 50px; }
+
+.click .next:hover,.click .prew:hover{
+    background-color: red;
+    border-radius: 10px 10px 10px 10px;
+    
+}
+/* Image slider ko css */
+#slider{
+    
+}
+#box{
+
+}
+#slider #box img{
+    width: 100%;
+    height: 400px;
+}
