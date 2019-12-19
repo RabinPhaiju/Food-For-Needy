@@ -6,27 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Food For Needy</title>
-    <link rel="stylesheet" href="css/front.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/indexgallery.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <script src="https://kit.fontawesome.com/1a56c74409.js" crossorigin="anonymous"></script> -->
 </head>
 
 <body>
     <div class="container">
-        <div class="navbar">
-            <div class="nav0">
+        <div id="slider">
+            <div id="box">
+                <img src="highway.png">
+            </div>
+        </div>
+
+        <div class="mainnav">
+            <div class="navbar0">
                 <a href="index.html"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
             </div>
             <div class="navbar1">
-                <div class="nav3"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></div>
-                <div class="nav4"><a href="">CONTACT US</a></div>
+                <!-- <div class="nav4"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></div> -->
+                <div class="nav3"><a href="">CONTACT US</a></div>
                 <p>|</p>
                 <div class="nav2"><a href="html/login.html">JOIN US</a></div>
                 <p>|</p>
                 <div class="nav1"><a href="">DONATE</a></div>
             </div>
         </div>
+        
         <div class="click">
             <div class="prew" onclick="prewImage()">
                 <i class="fa fa-chevron-left" aria-hidden="true"></i>
@@ -37,12 +43,8 @@
             <div class="next" onclick="nextImage()">
                 <i class="fa fa-chevron-right" aria-hidden="true"></i>
             </div>
-        </div>
-        <div id="slider">
-            <div id="box">
-                <img src="highway.png">
-            </div>
-        </div>
+        </div> 
+
         <div class="search-suggest">
             <div class="search">
                 <form>
@@ -53,47 +55,23 @@
             <div class="suggest">
                 <p>Search Suggestion</p>
                 <form>
-                    <input type="button" value="suggest1">
-                    <input type="button" value="suggest2">
-                    <input type="button" value="suggest3">
+                    <input type="button" value="suggest 1">
+                    <input type="button" value="suggest 2">
+                    <input type="button" value="suggest 3">
                     <div class="suggest-hide">
-                        <input type="button" value="suggest4">
-                        <input type="button" value="suggest5">
-                        <input type="button" value="suggest6">
-                        <input type="button" value="suggest7">
+                        <input type="button" value="suggest 4">
+                        <input type="button" value="suggest 5">
+                        <input type="button" value="suggest 6">
+                        <input type="button" value="suggest 7">
                     </div>
                 </form>
-                <a class="suggestAnchor" onclick="showSuggest()">more <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                <a class="suggestAnchor" onclick="showSuggest()">More <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+                <a class="suggestAnchor1" onclick="showSuggest1()">Hide <i class="fa fa-caret-up" aria-hidden="true"></i></a>
             </div>
         </div>
-        <div class="About">
-            <div class="pic">
-                <img src="files/HealthyFood.jpg" alt="About Food" width="auto" height="250px">
-            </div>
-            <div class="text">
-                <h1>ABOUT</h1>
-                <p>Groliste connect you to the food, the supplier, the producer, the land, the water, the farmer, the economic impact and your individual contribution to the society. Groliste intends to connect you right to the source and feel the importance
-                    of food. It intends to solve one of the biggest global problems of food waste, its impact on the society whethe...
-                    <a href=""><br>Read More</a>
-                </p>
-            </div>
-
-        </div>
-        <div class="Goals">
-            <div class="text">
-                <h1>GOALS</h1>
-                <p>Groliste connect you to the food, the supplier, the producer, the land, the water, the farmer, the economic impact and your individual contribution to the society. Groliste intends to connect you right to the source and feel the importance
-                    of food. It intends to solve one of the biggest global problems of food waste, its impact on the society whethe...
-                    <a href=""><br>Read More</a>
-                </p>
-            </div>
-            <div class="pic">
-                <img src="files/Goals.jpg" alt="About Goals" width="auto" height="250px">
-            </div>
-        </div>
+        
     </div>
     <script src="js/script.js"></script>
     <script src="js/imageslider.js"></script>
 </body>
-
 </html>
