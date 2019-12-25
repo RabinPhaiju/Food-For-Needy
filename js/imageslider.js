@@ -1,5 +1,5 @@
 var slider_content = document.getElementById('box');
-var image = ['volcano','beach', 'highway', 'beach','volcano'];
+var image = ['volcano','beach', 'highway', 'night'];
 var i = image.length;
 function nextImage(){
     if (i<image.length) {
