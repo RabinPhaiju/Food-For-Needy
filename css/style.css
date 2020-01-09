@@ -113,19 +113,25 @@ body {
     display: flex;align-items: center;
     height: 250px;
 }
-@media only screen and (max-width:577px){
+@media only screen and (max-width:650px){
     .search-suggest{
         align-items: center;
         padding-top: 3rem;
+        text-align: center;
+        flex-wrap: wrap;
+        flex-direction: column;
     }
+    
 }
     /* search part*/
     .search-suggest .search{
-        flex: 1;padding: 0% 5% 0% 5%;
+        flex: 1;
+        padding-left: 8%;
     }
     .search-suggest .search input[type="text"]{
         border-radius: 1.2em;
         padding: .75em;float: left;
+        
     }
     .search-suggest .search input:active{
         border-color: #4CAF50;
@@ -144,7 +150,7 @@ body {
         font-size: 1.5rem;
     }
     .search-suggest .suggest{
-        flex: 2;
+        flex: 1;padding-bottom: 1em; padding-left: 5%;
     }
     .search-suggest .suggest input[type=button] {
         background-color: rgb(229, 227, 227);
@@ -174,9 +180,57 @@ body {
     .search-suggest .suggest input:active{
         border-color: #4CAF50;
     }
-    @media only screen and (max-width: 577px) {
-        .container .search-suggest {
+    
+    /* suggest ko text part */
+    .search-suggest .suggest-text{
+        flex: 1;
+        text-align: justify;
+        margin: 0em 1.5em 0em 1.5em;
+    }
+
+    /* footer part */
+    .container .footer{
+        display: flex;
+        height: 250px;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .footer .footer1, .footer .footer2
+    , .footer .footer3,.footer .footer4
+    {
+        flex:1;
+    }
+    .footer .footer1 hr, .footer .footer2 hr
+    , .footer .footer3 hr,.footer .footer4 hr
+    {
+        width: 90%;
+        margin: 5% 5% 5% 5%;
+    }
+    
+    .footer .footer1 h4, .footer .footer2 h4
+    , .footer .footer3 h4,.footer .footer4 h4{
+        margin-left: 2em;
+    }
+    @media only screen and (max-width:650px){
+        .footer{
             flex-wrap: wrap;
             flex-direction: column;
+            
+        }
+        .footer .footer1 hr,.footer .footer2 hr,.footer .footer3 hr,.footer .footer4 hr{
+            width: 50%;
         }
     }
+    /* ending part */
+    .container .last-line hr{
+        width:98%;
+        margin: 0% 1% 1% 1%;
+    }
+    .end-div{
+        text-align: center;
+        font-family: 'Montserrat', sans-serif;
+        padding-top: 1em;
+        padding-bottom: 2em;
+        font-size: 1em;
+    }
+    
