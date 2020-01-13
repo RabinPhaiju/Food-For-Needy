@@ -5,19 +5,17 @@
     box-sizing: 0;
 }
 
-body {
+body { 
     font-family: 'Montserrat', sans-serif;
     background-color: #cae0e7;
 }
 
-
 /* Image slider ko css */
-
-#slider {}
-
-#box {}
-
-#slider #box img {
+#slider{
+}
+#box{
+}
+#slider #box img{
     width: 100%;
     height: 420px;
     z-index: -1;
@@ -26,8 +24,7 @@ body {
 
 
 /* navbar ko css */
-
-.mainnav {
+.mainnav{
     position: absolute;
     /* position: sticky; */
     display: flex;
@@ -125,61 +122,47 @@ body {
     }
 }
 
-
 /* image next wa preview garna */
-
 .click {
     width: 100%;
     display: flex;
-    color: white;
-    height: 420px;
+    color:white;
+    height:420px;
     opacity: 0.1;
     text-align: center;
     z-index: 0;
 }
-
-.click .prew {
-    flex: 1;
-    font-size: 100px;
-    line-height: 400px;
-    color: rgb(32, 32, 32);
-}
-
-.click .text {
-    flex: 4;
-    font-size: 30px;
-    align-self: center;
-}
-
-.click .next {
-    flex: 1;
-    font-size: 100px;
-    line-height: 400px;
-    color: grey;
-}
-
-.click .next:hover,
-.click .prew:hover {
-    background-color: rgb(151, 38, 38);
-    border-radius: 10px 10px 10px 10px;
-}
-
-@media only screen and (max-width: 550px) {
-    .click .next,
-    .click .prew {
-        font-size: 20px;
-        height: 100px;
-        line-height: 100px;
-        margin-top: 30%;
+    .click .prew{
+        flex:1;font-size: 100px; 
+        line-height: 400px;
+        color: rgb(32, 32, 32);
     }
-}
+        
+    .click .text{flex:4;font-size: 30px;align-self: center; }
 
+    .click .next{
+        flex:1;font-size: 100px; 
+        line-height: 400px; 
+        color: grey; 
+    }
+
+    .click .next:hover,.click .prew:hover{
+        background-color: rgb(151, 38, 38);
+        border-radius: 10px 10px 10px 10px;   
+    }
+
+    @media only screen and (max-width: 550px) {
+        .click .next, .click .prew {
+            font-size: 20px;
+            height: 100px;
+            line-height: 100px;
+            margin-top: 30%; 
+        }
+    }
 
 /* search and suggest part */
-
-.search-suggest {
-    display: flex;
-    align-items: center;
+.search-suggest{
+    display: flex;align-items: center;
     height: 250px;
 }
 @media only screen and (max-width:650px){
@@ -235,63 +218,6 @@ body {
     }
     .search-suggest .suggest .suggestAnchor1{
     display: none;
-    padding: 1em;
-    background-color: #4CAF50;
-    border: none;
-    border-radius: 5px;
-}
-
-
-/* suggest part */
-
-.suggest p {
-    font-family: sans-serif;
-    color: rgb(108, 102, 102);
-    font-size: 1.5rem;
-}
-
-.search-suggest .suggest {
-    flex: 2;
-}
-
-.search-suggest .suggest input[type=button] {
-    background-color: rgb(229, 227, 227);
-    color: rgb(84, 82, 82);
-    border-radius: 35px;
-    padding: 10px;
-    text-align: center;
-    font-size: 1rem;
-    -webkit-transition-duration: 0.2s;
-    /* Safari */
-    transition-duration: 0.2s;
-    cursor: pointer;
-    margin: 0% 0% 1% 0%;
-}
-
-.search-suggest .suggest .suggestAnchor1 {
-    display: none;
-}
-
-.search-suggest .suggest .suggest-hide {
-    display: none;
-}
-
-.search-suggest .suggest a:hover {
-    color: white;
-    background-color: #4CAF50;
-    border-radius: 10px;
-    padding: 5px;
-    cursor: pointer;
-}
-
-.search-suggest .suggest input:active {
-    border-color: #4CAF50;
-}
-
-@media only screen and (max-width: 577px) {
-    .container .search-suggest {
-        flex-wrap: wrap;
-        flex-direction: column;
     }
     .search-suggest .suggest .suggest-hide {
         display: none;
@@ -359,3 +285,4 @@ body {
         padding-bottom: 2em;
         font-size: 1em;
     }
+    
