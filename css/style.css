@@ -12,6 +12,7 @@ body {
 
 /* Image slider ko css */
 #slider{
+    animation: slide;
 }
 #box{
 }
