@@ -1,16 +1,3 @@
-function openNav() {
-    document.getElementById("mySidebar").style.marginLeft = "0";
-    document.getElementById("show").style.display = "none";
-    document.getElementById("hide").style.display = "block";
-}
-
-function closeNav() {
-    document.getElementById("mySidebar").style.marginLeft = "-198px";
-    document.getElementById("hide").style.display = "none";
-    document.getElementById("show").style.display = "block";
-}
-
-
 let ParentMenus = document.querySelectorAll(".sidemenu>ul>li");
 ParentMenus.forEach(function(value, key) {
     // ul>li>a

@@ -163,26 +163,3 @@
             display: none;
         }
     }
-    
-    .me #hide,
-    .me #show {
-        position: absolute;
-        transform: scale(2);
-        right: -75px;
-        bottom: 75px;
-        width: 35px;
-        height: 35px;
-        padding-top: 2px;
-        color: #FFF;
-        border-radius: 0%;
-        border-style: none;
-        background: rgba(0, 0, 0, 0);
-    }
-    
-    .me #show {
-        display: none;
-    }
-    
-    #mySidebar {
-        transition: 0.4s;
-    }
