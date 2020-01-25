@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="../css/loginindex.css">
     <link rel="stylesheet" href="css/editprofile.css">
+    <link rel="stylesheet" href="css/indexsearch.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
     <title>User Login</title>
 </head>
@@ -25,7 +26,7 @@
                             <a href="#profile" class="btn"><i class="far fa-user"></i>Profile</a>
                             <div class="smenu">
                                 <a href="#">Posts</a>
-                                <a href="editprofile.html">Edit Profile</a>
+                                <a href="editprofile" class="nav__links">Edit Profile</a>
                             </div>
                         </li>
 
@@ -45,14 +46,14 @@
                         </li>
 
                         <li class="item">
-                            <a class="btn" href="../index.html"><i class="fas fa-sign-out-alt"></i>Logout</a>
+                            <a class="btn" href="../index"><i class="fas fa-sign-out-alt"></i>Logout</a>
                         </li>
                     </div>
                 </div>
             </div>
             <div class="nav4"><a href="">CONTACT US</a></div>
 
-            <div class="nav2"><a href="login.html">JOIN US</a></div>
+            <div class="nav2"><a href="login">JOIN US</a></div>
 
             <div class="nav1"><a href="">DONATE</a></div>
         </div>
@@ -60,7 +61,7 @@
 
     </div>
     <div class="body_wrapper">
-        <div class="sidemenu">
+        <div class="sidemenu" id="mySidebar">
             <ul>
                 <!-- <li><a href="#"><span class="icon"><i class="fa fa-tachometer"></i></span><span></span></a></li> -->
 
@@ -73,10 +74,13 @@
                     </div>
 
                     <button class="setting">
-                        <a href="editprofile.html"><i class="fa fa-cog" aria-hidden="true"></i></a>
+                        <a href="editprofile" class="nav__links"><i class="fa fa-cog" aria-hidden="true"></i></a>
                     </button>
+                    <a id="hide" href="#" onclick="closeNav()"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                    <a id="show" href="#" onclick="openNav()"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+
                     <button class="cloud">
-                        <a href="index.html">DashBoard</a>
+                        <a href="index">DashBoard</a>
                     </button>
                 </div>
 
@@ -85,13 +89,13 @@
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Profile</span></a>
                     <ul>
                         <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Post</span></a></li>
-                        <li class=""><a href="editprofile.html"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Edit Profile</span></a></li>
+                        <li class=""><a href="editprofile"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Edit Profile</span></a></li>
                     </ul>
                 </li>
                 <li class="dropdown active">
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Food List</span></a>
                     <ul>
-                        <li><a href="addfood.html"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Add to List</span></a></li>
+                        <li><a href="addfood"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Add to List</span></a></li>
                         <li class="active_child"><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Your List</span></a></li>
                     </ul>
                 </li>
@@ -110,17 +114,21 @@
                     </ul>
                 </li>
                 <li><a href="#"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>
-                <li><a href="calender.html"><span class="icon"><i class="fa fa-calendar"></i></span><span>Calender</span></a></li>
+                <li><a href="calender" class="nav__links"><span class="icon"><i class="fa fa-calendar"></i></span><span>Calender</span></a></li>
 
             </ul>
         </div>
 
-        <div class="hello">
-            <p>hello</p>
-        </div>
+
+        <!-- Contents are loaded using jquery -->
+        <main class="main-container" id="content"></main>
+        <!-- End of main container -->'
 
     </div>
     <script src="js/index1.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="js/jquery.js"></script>
+
 </body>
 
 </html>
