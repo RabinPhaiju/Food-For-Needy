@@ -9,7 +9,7 @@
     .middle {
         top: 100%;
         left: 100%;
-        transform: translate(-90%, -0.2%);
+        transform: translate(-90%, -0.9%);
         display: none;
         position: absolute;
     }
@@ -21,14 +21,15 @@
     }
     
     .item {
-        border-top: 1px solid #2980b9;
+        border-top: 1px solid #000000;
         overflow: hidden;
     }
     
     .btn {
         display: block;
         padding: 16px 20px;
-        background: #3498db;
+        background: #777;
+        opacity: 1;
         color: white;
         position: relative;
     }
@@ -38,7 +39,7 @@
         position: absolute;
         width: 14px;
         height: 14px;
-        background: #3498db;
+        background: #a8a7a7;
         left: 20px;
         bottom: -7px;
         transform: rotate(45deg);
@@ -49,7 +50,7 @@
     }
     
     .smenu {
-        background: #333;
+        background: #555;
         overflow: hidden;
         transition: max-height 0.3s;
         max-height: 0;
@@ -69,7 +70,7 @@
         position: absolute;
         width: 6px;
         height: 100%;
-        background: #3498db;
+        background: #a8a7a7;
         left: 0;
         top: 0;
         transition: 0.3s;
@@ -81,7 +82,7 @@
     }
     
     .item:target .smenu {
-        max-height: 10em;
+        max-height: 8em;
     }
     
     .navbar {
@@ -90,9 +91,10 @@
         flex-wrap: wrap-reverse;
         font-size: 1.1rem;
         justify-content: space-around;
-        background-color: rgba(168, 201, 229, 0.298);
-        padding-top: 10px;
-        margin-bottom: -10%;
+        background-color: rgb(137, 143, 153);
+        padding-top: 8px;
+        /* padding-bottom: -5px; */
+        /* margin-bottom: -1%; */
     }
     
     .navbar1 {
@@ -115,7 +117,7 @@
     }
     
     .navbar .navbar1 a:hover {
-        background-color: #4CAF50;
+        background-color: #636372;
         border-radius: 5%;
         color: white;
     }
@@ -130,9 +132,16 @@
         z-index: 999;
     }
     
-    .navbar .nav3,
+    .navbar .nav3 {
+        margin-left: 10px;
+        margin-top: -7px;
+        cursor: pointer;
+        position: relative;
+        z-index: 3;
+    }
+    
     .navbar .nav0 {
-        margin-top: -4px;
+        margin-top: -3px;
         cursor: pointer;
         position: relative;
         z-index: 3;

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <title>Admin Login</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="nav0">
+            <a href="../index.html"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
+        </div>
+        <div class="navbar1">
+            <!-- <div class="nav3"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></div> -->
+            <div class="nav4"><a href="">CONTACT US</a></div>
+
+            <div class="nav2"><a href="../html/login.html">JOIN US</a></div>
+
+            <div class="nav1"><a href="">DONATE</a></div>
+        </div>
+    </div>
+    <div class="background-wrap">
+        <div class="background"></div>
+    </div>
+
+    <form id="accesspanel" action="index.html" method="post">
+        <h1 id="litheader">ADMIN LOGIN</h1>
+        <div class="inset">
+            <p>
+                <input type="text" name="username" id="email" placeholder="Email address" required="required">
+            </p>
+            <p>
+                <input type="password" name="password" id="password" placeholder="Password" required="required">
+            </p>
+            <div style="text-align: center;">
+                <div class="checkboxouter">
+                    <input type="checkbox" name="rememberme" id="remember" value="Remember">
+                    <label class="checkbox"></label>
+                </div>
+                <label for="remember">Remember me</label>
+            </div>
+            <input class="loginLoginValue" type="hidden" name="service" value="login" />
+        </div>
+        <p class="p-container">
+            <input type="submit" name="Login" id="go" value="Login">
+        </p>
+    </form>
+
+
+    <script src="js/script.js"></script>
+</body>
+
+
+</html>

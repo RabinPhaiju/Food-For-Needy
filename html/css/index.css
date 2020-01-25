@@ -1,0 +1,379 @@
+@import url("https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700|Quicksand:300,400,500,600,700&display=swap");
+*,
+*::after,
+*::before {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Quicksand", "SolaimanLipi", sans-serif;
+    font-size: 14px;
+}
+
+.body_wrapper {
+    width: 100%;
+    height: 100%;
+    background: #b0b0b0;
+    overflow: hidden;
+    /* margin-top: -6%; */
+}
+
+.body_wrapper>.header {
+    background: #3f4d67;
+    display: flex;
+}
+
+.body_wrapper>.header>.sidebarheader {
+    width: 230px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    color: #fff;
+    font-size: 1.5rem;
+    font-family: "Niconne", cursive;
+}
+
+.body_wrapper>.header>.sidebarheader>h1 {
+    padding-left: 10px;
+    font-size: 22px;
+}
+
+.body_wrapper>.header>.sidebarheader>.tg_btn {
+    position: relative;
+    margin-right: 20px;
+    display: block;
+    height: 20px;
+    width: 30px;
+    cursor: pointer;
+}
+
+.body_wrapper>.header>.sidebarheader>.tg_btn>.ToggleButton {
+    display: inline-block;
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    background: #fff;
+}
+
+.body_wrapper>.header>.sidebarheader>.tg_btn>.ToggleButton::before {
+    display: block;
+    content: "";
+    width: 80%;
+    height: 1px;
+    background-color: #fff;
+    position: absolute;
+    top: -7px;
+}
+
+.body_wrapper>.header>.sidebarheader>.tg_btn>.ToggleButton::after {
+    display: block;
+    content: "";
+    width: 90%;
+    height: 1px;
+    background-color: #fff;
+    position: absolute;
+    top: 8px;
+}
+
+.body_wrapper>.header>.task_bar {
+    width: calc(100% - 230px);
+    background: #fff;
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.body_wrapper>.header>.task_bar>.task_bar_menu {
+    height: 100%;
+    width: 60px;
+    margin-right: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.body_wrapper>.header>.task_bar>.task_bar_menu:last-child {
+    margin-right: 20px;
+}
+
+.body_wrapper>.header>.task_bar>.task_bar_menu>a {
+    position: relative;
+}
+
+.body_wrapper>.header>.task_bar>.task_bar_menu>a>.smg_count {
+    position: absolute;
+    top: 0px;
+    right: -6px;
+    font-size: 10px;
+    padding: 4px;
+    border-radius: 50%;
+    color: #fff;
+    background: #4e5f7e;
+}
+
+.body_wrapper>.header>.task_bar>.task_bar_menu>.profiles {
+    position: relative;
+}
+
+.body_wrapper>.header>.task_bar>.task_bar_menu>.profiles>.profiles_option {
+    position: absolute;
+    top: 150%;
+    left: -200px;
+    width: 250px;
+    border: 1px solid #c5bfbf;
+    background: #4e5f7e;
+}
+
+.body_wrapper>.header>.task_bar>.task_bar_menu>.profiles>.profiles_option::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    right: 25px;
+    width: 15px;
+    height: 15px;
+    background: #4e5f7e;
+    transform: rotate(45deg);
+    border-left: 1px solid #c5bfbf;
+    border-top: 1px solid #c5bfbf;
+}
+
+.body_wrapper>.header>.task_bar>.task_bar_menu>.profiles>.profiles_option>.profiles_option_wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.body_wrapper>.header>.task_bar>.task_bar_menu>.profiles>.profiles_option>.profiles_option_wrapper>.user_profile_img {
+    width: 50px;
+    height: 50px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 1px solid #e9ebec;
+    overflow: hidden;
+    box-sizing: border-box;
+    background: #637b92;
+}
+
+.body_wrapper>.header>.task_bar>.task_bar_menu>.profiles>.profiles_option>.profiles_option_wrapper>.user_profile_img>img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.body_wrapper>.header>.task_bar>.task_bar_menu>.profiles>.profiles_option>.profiles_option_wrapper>.user_info {
+    height: 60%;
+    align-items: center;
+    display: flex;
+    align-items: center;
+}
+
+.body_wrapper>.header>.task_bar>.task_bar_menu>.profiles>.profiles_option>.profiles_option_wrapper>.user_info>.user_info_box>h2 {
+    font-size: 16px;
+    color: #fff;
+}
+
+.body_wrapper>.header>.task_bar>.task_bar_menu>.profiles>.profiles_option>.profiles_option_wrapper>.user_info>.user_info_box>h5 {
+    color: #d4d4d3;
+    padding-left: 10px;
+    position: relative;
+}
+
+.body_wrapper>.header>.task_bar>.task_bar_menu>.profiles>.profiles_option>.profiles_option_wrapper>.user_info>.user_info_box>h5:before {
+    content: "";
+    position: absolute;
+    left: -1px;
+    bottom: 2px;
+    height: 10px;
+    width: 10px;
+    background: #38dd38;
+    border: 1px solid #e3dbdb;
+    border-radius: 50%;
+}
+
+.body_wrapper>.header>.task_bar>.task_bar_menu>.profiles>.profiles_option>.profile_setting_group {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 10px;
+}
+
+.body_wrapper>.header>.task_bar>.task_bar_menu>.profiles>.profiles_option>.profile_setting_group>.button_group {
+    height: fit-content;
+    width: fit-content;
+    display: inline-block;
+}
+
+.body_wrapper>.header>.task_bar>.task_bar_menu>.profiles>.profiles_option>.profile_setting_group>.button_group>a {
+    display: inline-block;
+    background: #607d8b;
+    color: #ffffff;
+    font-size: 13px;
+    margin-left: 1px;
+    border: 1px solid #979797;
+    transition: 0.3s;
+    padding: 4px 15px;
+}
+
+.body_wrapper>.header>.task_bar>.task_bar_menu>.profiles>.profiles_option>.profile_setting_group>.button_group>a:hover {
+    background: #636372;
+    border-color: #7c8199;
+}
+
+.body_wrapper>.header>.task_bar>.task_bar_menu>.profiles>.profile_img {
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 1px solid #c5bfbf;
+    cursor: pointer;
+}
+
+.body_wrapper>.header>.task_bar>.task_bar_menu>.profiles>.profile_img>img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+}
+
+.body_wrapper>.header>.task_bar>.task_bar_menu>.localization {
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 1px solid #c5bfbf;
+}
+
+.body_wrapper>.header>.task_bar>.task_bar_menu>.localization>a>img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+}
+
+.body_wrapper>.header>.task_bar>.task_bar_menu>a>span {
+    font-size: 25px;
+}
+
+.sidemenu {
+    width: 230px;
+    height: calc(100vh - 50px);
+    background: #4f5767;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.sidemenu::-webkit-scrollbar {
+    width: 1px;
+}
+
+.sidemenu::-webkit-scrollbar-track {
+    background: #3f4d67;
+}
+
+.sidemenu::-webkit-scrollbar-thumb {
+    background: #e6e0e0;
+}
+
+.sidemenu>ul {
+    background: #3f4d67;
+}
+
+.sidemenu>ul>li>a {
+    display: block;
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    padding: 15px;
+    background: #6666;
+}
+
+.sidemenu>ul>li>a:hover {
+    background: #49415482;
+}
+
+.sidemenu>ul>li>a>span {
+    margin-right: 7px;
+}
+
+.sidemenu>ul>li.active>a {
+    /* background: #252525; */
+    color: #97ffe2;
+}
+
+.sidemenu>ul>li.active>a::before {
+    display: block;
+    position: absolute;
+    content: "";
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 2px;
+    background-color: #d6d6d6;
+}
+
+.sidemenu>ul>li>ul>li+li {
+    border-top: 1px solid #695f5f;
+}
+
+.sidemenu>ul>li>ul>li>a {
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    color: #fff;
+    padding: 15px;
+    background: #3f4d67;
+    padding-left: 40px;
+}
+
+.sidemenu>ul>li>ul>li>a:hover {
+    background: #49415482;
+}
+
+.sidemenu>ul>li>ul>li>a>span {
+    margin-right: 7px;
+}
+
+.sidemenu>ul>li>ul>li.active_child>a {
+    color: #fff;
+}
+
+.sidemenu>ul>.dropdown>a {
+    position: relative;
+    display: block;
+}
+
+.sidemenu>ul>.dropdown>a::after {
+    content: "";
+    position: absolute;
+    top: 40%;
+    right: 10%;
+    display: block;
+    height: 9px;
+    width: 9px;
+    border-left: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    transition: 0.5s;
+    transform: rotate(-45deg);
+}
+
+.sidemenu>ul>.dropdown>ul {
+    overflow: hidden;
+    transform: 0.3s;
+    transition: 0.3s;
+    height: 0px;
+}
+
+.sidemenu>ul>.dropdown-open>a {
+    background: #49415482;
+}
+
+.sidemenu>ul>.dropdown-open>a::after {
+    transform: rotate(130deg);
+}
+
+.sidemenu>ul>.dropdown-open>ul {
+    transition: all 0.2s;
+}

@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="../css/loginindex.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <title>User Login</title>
 </head>
 
 <body>
@@ -21,7 +24,7 @@
                             <a href="#profile" class="btn"><i class="far fa-user"></i>Profile</a>
                             <div class="smenu">
                                 <a href="#">Posts</a>
-                                <a href="#">Picture</a>
+                                <a href="#">About</a>
                             </div>
                         </li>
 
@@ -30,7 +33,6 @@
                             <div class="smenu">
                                 <a href="#">new</a>
                                 <a href="#">Sent</a>
-                                <a href="#">Spam</a>
                             </div>
                         </li>
 
@@ -38,7 +40,6 @@
                             <a href="#settings" class="btn"><i class="fas fa-cog"></i>Settings</a>
                             <div class="smenu">
                                 <a href="#">Password</a>
-                                <a href="#">Recommendation</a>
                             </div>
                         </li>
 
@@ -49,15 +50,53 @@
                 </div>
             </div>
             <div class="nav4"><a href="">CONTACT US</a></div>
-            <p>|</p>
+
             <div class="nav2"><a href="login.html">JOIN US</a></div>
-            <p>|</p>
+
             <div class="nav1"><a href="">DONATE</a></div>
         </div>
 
 
     </div>
+    <div class="body_wrapper">
+        <div class="sidemenu">
+            <ul>
+                <!-- <li><a href="#"><span class="icon"><i class="fa fa-tachometer"></i></span><span>Dashbord</span></a></li> -->
+                <!-- <li><a href="#"><span class="icon"><i class="fa fa-compass"></i></span><span>Brand</span></a></li> -->
+                <li class="dropdown">
+                    <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Profile</span></a>
+                    <ul>
+                        <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Post</span></a></li>
+                        <li class=""><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>About</span></a></li>
+                    </ul>
+                </li>
+                <li class="dropdown active">
+                    <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Messages</span></a>
+                    <ul>
+                        <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>New</span></a></li>
+                        <li class="active_child"><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Sent</span></a></li>
+                    </ul>
+                </li>
+                <li class="dropdown ">
+                    <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Sub-Category</span></a>
+                    <ul>
+                        <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Add</span></a></li>
+                        <li class=""><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>List</span></a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Product</span></a>
+                    <ul>
+                        <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Add</span></a></li>
+                        <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>List</span></a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>
 
+            </ul>
+        </div>
+    </div>
+    <script src="js/index1.js"></script>
 </body>
 
 </html>
