@@ -1,0 +1,344 @@
+.sidemenu {
+    float: left;
+}
+
+.me {
+    position: relative;
+    width: calc(100% - 50px);
+    height: 140px;
+    /* background: #419fd9; */
+    padding: 15px 25px;
+    margin-bottom: 15px;
+}
+
+.me .image {
+    width: 70px;
+    height: 70px;
+    background: #FFF url(https://www.logolynx.com/images/logolynx/03/039b004617d1ef43cf1769aae45d6ea2.png) no-repeat center;
+    background-size: cover;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.me .setting {
+    position: absolute;
+    right: 0px;
+    bottom: 85px;
+    width: 40px;
+    height: 40px;
+    padding-top: 2px;
+    color: #FFF;
+    border-radius: 100%;
+    border-style: none;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.me .setting a,
+.me .cloud a {
+    color: #fff;
+}
+
+.me .setting:hover {
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.me .cloud {
+    position: absolute;
+    left: 115px;
+    bottom: 55px;
+    /* width: 40px; */
+    height: 20px;
+    color: #FFF;
+    border-style: none;
+    border-radius: 10%;
+    background: rgba(0, 0, 0, 0.09);
+}
+
+.me .cloud a {
+    padding: 15px 10px 15px 10px;
+}
+
+.me .cloud:hover {
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.me .myinfo {
+    position: absolute;
+    left: 40px;
+    bottom: 1px;
+    font-size: 14px;
+    color: #FFF;
+}
+
+.myinfo .name {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.myinfo .phone {
+    font-weight: 300;
+}
+
+
+/* edit profile */
+
+.profile-panel {
+    margin-top: 2%;
+    background-color: rgb(190, 192, 192);
+}
+
+.profile-panel .panel-heading {
+    padding: 10px 25px;
+    /* background: #4bb515; */
+    border-radius: 0;
+}
+
+.profile-panel .panel-heading h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #fff;
+    padding-left: 20px;
+}
+
+.profile-panel .panel-body {
+    padding-left: 10;
+    padding-right: 10;
+}
+
+.profile-panel .panel-body:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.profile-panel .panel-body h2 {
+    margin: 0;
+    font-weight: 100;
+    font-size: 20px;
+    color: #404040;
+}
+
+.profile-panel .panel-body header {
+    margin-bottom: 25px;
+}
+
+.profile-panel .panel-body .figure-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.profile-panel .panel-body .figure-wrapper img {
+    width: 100%;
+}
+
+.profile-panel .panel-body .profile-details h2 {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #404040;
+}
+
+.profile-panel .panel-body .profile-details li {
+    padding: 8px 0 8px 35px;
+    position: relative;
+    font-weight: normal;
+    color: #404040;
+    font-size: 15px;
+}
+
+.profile-panel .panel-body .profile-details li i {
+    font-size: 16px;
+    vertical-align: top;
+    line-height: 100%;
+    position: absolute;
+    left: 0;
+    width: 18px;
+    text-align: center;
+    top: 12px;
+}
+
+.profile-panel .panel-body .profile-block {
+    position: relative;
+}
+
+.profile-panel .panel-body .profile-block .profile-header h2 {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    color: #404040;
+}
+
+.profile-panel .panel-body .profile-block .profile-edit {
+    position: relative;
+    z-index: 1;
+    display: none;
+}
+
+.profile-panel .panel-body .profile-block.toggled .profile-edit {
+    display: block;
+}
+
+.profile-panel .panel-body .profile-block.toggled .profile-view {
+    display: none;
+}
+
+.profile-panel .panel-body ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.profile-panel .panel-body ul.actions {
+    position: absolute;
+    top: -2px;
+    right: 0;
+}
+
+.profile-panel .panel-body ul.actions i {
+    color: #404040;
+}
+
+.profile-panel .panel-body dt {
+    font-weight: normal;
+    color: #404040;
+}
+
+@media screen and (min-width: 1025px) {
+    .profile-panel .panel-body .dl-horizontal dt {
+        text-align: left;
+    }
+}
+
+.btn {
+    /* background: #4bb515;
+    border-color: #4bb515; */
+    border-radius: 3px;
+    padding: 10px 15px;
+    min-width: 90px;
+}
+
+.btn[disabled] {
+    background: #4bb515;
+    border-color: #4bb515;
+}
+
+.btn[disabled]:hover,
+.btn[disabled]:active,
+.btn[disabled]:focus {
+    background: #4bb515;
+    border-color: #4bb515;
+}
+
+.btn:hover,
+.btn:active,
+.btn:focus {
+    background: #164b06;
+    border-color: #164b06;
+}
+
+.btn.btn-outline {
+    background: transparent;
+    border-color: #4bb515;
+    color: #4bb515;
+}
+
+.btn.btn-outline:hover,
+.btn.btn-outline:active,
+.btn.btn-outline:focus {
+    background: #4bb515;
+    color: #fff;
+}
+
+.p-10 {
+    padding-top: 10px;
+}
+
+.btn-link {
+    color: #888888;
+    text-decoration: none;
+    border-radius: 2px;
+    padding: 6px 12px;
+    outline: 0;
+}
+
+.btn-link:hover {
+    color: #888888;
+    text-decoration: none;
+}
+
+
+/* navbar */
+
+.navbars {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    font-size: 1.1rem;
+    justify-content: space-around;
+    background-color: rgb(137, 143, 153);
+    padding-top: 10px;
+    /* margin-top: -2%; */
+    /* margin-bottom: -10%; */
+}
+
+.navbars1 {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap-reverse;
+    font-size: 1.1rem;
+}
+
+.navbars1 p {
+    font-size: 1.1rem;
+    margin-top: -2%;
+}
+
+.navbars a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    padding: 6px;
+    font-size: 12px;
+}
+
+.navbars .navbars1 a:hover {
+    /* background-color: #4CAF50; */
+    background-color: rgb(42, 127, 45);
+    border-radius: 5%;
+    /* color: white; */
+    color: #000;
+}
+
+.navbars>div {
+    margin: 2px;
+    margin-bottom: 1%;
+    margin-right: 1%;
+    margin-top: 4px;
+    text-align: center;
+    font-size: 0.8rem;
+    z-index: 999;
+}
+
+.navbars .nav3,
+.navbars .nav0 {
+    margin-top: -4px;
+    cursor: pointer;
+    position: relative;
+    z-index: 3;
+}
+
+.navbars .nav3:hover .middle {
+    /* color: green; */
+    color: #ffcc00;
+    display: block;
+    z-index: 2;
+}
+
+.navbars .nav0:hover {
+    transform: scale(1.2);
+    transition-duration: 0.5s;
+}
+
+@media only screen and (max-width: 370px) {
+    .navbars {
+        display: none;
+    }
+}

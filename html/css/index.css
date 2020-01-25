@@ -258,6 +258,7 @@ body {
 }
 
 .sidemenu {
+    float: left;
     width: 230px;
     height: calc(100vh - 50px);
     background: #4f5767;
