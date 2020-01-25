@@ -5,13 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/editprofile.css">
-    <link rel="stylesheet" href="../css/loginindex.css">
-
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/indexsearch.css">
+    <link rel="stylesheet" href="../css/loginindex.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
     <link rel="stylesheet" href="css/calender.css">
 
@@ -33,7 +28,7 @@
                             <a href="#profile" class="btn"><i class="far fa-user"></i>Profile</a>
                             <div class="smenu">
                                 <a href="#">Posts</a>
-                                <a href="editprofile" class="nav__links">Edit Profile</a>
+                                <a href="#">About</a>
                             </div>
                         </li>
 
@@ -70,40 +65,20 @@
     <div class="body_wrapper">
         <div class="sidemenu" id="mySidebar">
             <ul>
-                <!-- <li><a href="#"><span class="icon"><i class="fa fa-tachometer"></i></span><span></span></a></li> -->
-
-                <div class="me userBg">
-                    <div class="image"></div>
-
-                    <div class="myinfo">
-                        <p class="name">Name</p>
-                        <p class="phone">Email</p>
-                    </div>
-
-                    <button class="setting">
-                        <a href="" class="nav__links"><i class="fa fa-cog" aria-hidden="true"></i></a>
-                    </button>
-                    <a id="hide" href="#" onclick="closeNav()"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
-                    <a id="show" href="#" onclick="openNav()"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-
-                    <button class="cloud">
-                        <a href="index" class="nav__links">DashBoard</a>
-                    </button>
-                </div>
-
+                <!-- <li><a href="#"><span class="icon"><i class="fa fa-tachometer"></i></span><span>Dashbord</span></a></li> -->
                 <!-- <li><a href="#"><span class="icon"><i class="fa fa-compass"></i></span><span>Brand</span></a></li> -->
                 <li class="dropdown">
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Profile</span></a>
                     <ul>
                         <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Post</span></a></li>
-                        <li><a href="editprofile" class="nav__links"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Edit Profile</span></a></li>
+                        <li class=""><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>About</span></a></li>
                     </ul>
                 </li>
                 <li class="dropdown active">
-                    <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Food List</span></a>
+                    <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Messages</span></a>
                     <ul>
-                        <li><a href="addfood" class="nav__links"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Add to List</span></a></li>
-                        <li class="active_child"><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Your List</span></a></li>
+                        <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>New</span></a></li>
+                        <li class="active_child"><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Sent</span></a></li>
                     </ul>
                 </li>
                 <li class="dropdown ">
@@ -121,16 +96,9 @@
                     </ul>
                 </li>
                 <li><a href="#"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>
-                <li><a href="calender" class="nav__links"><span class="icon"><i class="fa fa-calendar"></i></span><span>Calender</span></a></li>
 
             </ul>
         </div>
-
-
-        <!-- Contents are loaded using jquery -->
-        <main class="main-container" id="content"></main>
-        <!-- End of main container -->'
-
     </div>
     <script src="js/index1.js"></script>
     <script src="../js/jquery.min.js"></script>
