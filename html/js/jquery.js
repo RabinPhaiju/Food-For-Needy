@@ -1,13 +1,13 @@
 //console.log("Its Working");
 $(document).ready(function() {
     //Loads initial index.html
-    $("#content").load("main.html");
+    $("#content").load("../main.html");
     //handle menu click
     $(".nav__links").click(function() {
         //load content without refreshing
         var page = $(this).attr("href");
         console.log("hello");
-        $("#content").load("" + page + ".html");
+        $("#content").load("../" + page + ".html");
         // console.log(page);
         // to remove the background color in index.html
         if (page != "main") {
