@@ -9,8 +9,9 @@
   position: absolute;
   z-index: 3;
   opacity: .8;
-  margin-top: 12vw;
-  margin-left: 10% ;
+  margin-top: 9vw;
+  margin-left: 8% ;
+  z-index: 3;
 }
 .card .flip-card-container {
     width: 20vw;
@@ -66,30 +67,31 @@
     opacity: 0.7;
     text-align: right;
     font-family: 'Kaushan Script', cursive;
-    padding: 2vw;
+    padding: 1.5vw;
 }
 .searchpart .outerLine{
-  transition: 2s ease;
-  border-radius: 10px;
+  transition: 4s ease;
+  border-radius: 7px;
 }
 .searchpart .outerLine:hover{
-  border: 2px solid white;
+  border: 1px solid white;
 }
-.searchpart form{
-  padding: 7vw;
+.searchpart .outerLine form{
+  padding: 5vw;
 }
- .searchpart form p{
+ .searchpart .outerLine form p{
   font-size: 6vw;
+  color: cornsilk;
 }
-.searchpart form input[type='text']{
-  padding: 1vw;
+.searchpart .outerLine form input[type='text']{
+  padding: 0.8vw;
   border-radius: 8px;
   width: 34vw;
   border: black;
   opacity: .6;
 }
 
-.searchpart button{
+.searchpart .outerLine form button{
   position: absolute;
   padding: 1vw; 
   border-radius: 10px;
@@ -100,12 +102,79 @@
   opacity: .6;
   border: black;
 } 
-.backgroundPage{
+
+/* background page of search and suggest */
+ .backgroundPage{
   background-color: white;
-  opacity: .8;
+  opacity: .3;
   width: 90%;
   margin-left: 5vw;
-  height: 200vw;
+  height: 38vw;
   z-index:1;
   margin-top: -15vw;
+}
+
+/* suggest part */
+.suggestpart{
+  width: 80%;
+  margin-left: 10%;
+  margin-top: -16.5vw;
+  background-image: linear-gradient(to top left, #EB5757,#000000);
+  position: relative;
+  z-index: 1;
+  opacity: 0.7;
+  font-family: 'Kaushan Script', cursive;
+  padding: 1.5vw;
+}
+.suggestpart .outerLine2{
+  transition: 4s ease;
+  border-radius: 7px;
+  padding: 2vw;
+}
+.suggestpart .outerLine2:hover{
+  border: 1px solid white;
+}
+.suggestpart .outerLine2 p{
+  font-size: 6vw;
+  color: cornsilk;
+}
+
+
+.suggestpart .outerLine2 ul{
+  list-style: none;
+  margin-top: 3vw;
+  margin-bottom: 3vw;
+} 
+
+.suggestpart .outerLine2 li {
+  display: inline-block;
+}
+
+.suggestpart .outerLine2 li .suggestbtn{
+  border-radius: 1px;
+  font-family: 'Montserrat', sans-serif;
+  background-color: black;
+  border-color: black;
+  padding: 1.5vw;
+  opacity: 0.7;
+  box-shadow: 10px 10px 10px 0px;
+  font-size: 1vw;
+  z-index: 4; 
+  
+}
+
+.suggestpart .outerLine2 li .suggestbtn:hover{
+  opacity: 0.5;
+  transform: scale(1.1);
+  transition:1s ease;
+  cursor: pointer;
+}
+.suggestpart .outerLine2 li .suggestbtn a{
+  color: cornsilk;
+}
+.suggestpart .outerLine2 li .suggestbtn a:hover{
+  opacity: 0.5;
+  transform: scale(1.1); 
+  color: #4CAF50;
+  transition:1s ease;
 }
