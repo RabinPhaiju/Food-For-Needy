@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 28, 2020 at 09:30 AM
+-- Generation Time: Jan 28, 2020 at 05:59 PM
 -- Server version: 10.1.40-MariaDB
 -- PHP Version: 7.3.5
 
@@ -59,6 +59,39 @@ CREATE TABLE `file` (
   `hits` bigint(20) NOT NULL DEFAULT '1',
   `status` tinyint(4) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `food`
+--
+
+CREATE TABLE `food` (
+  `updated_by` int(6) NOT NULL,
+  `food_id` int(10) UNSIGNED NOT NULL,
+  `pic` varchar(255) DEFAULT NULL,
+  `name` varchar(20) NOT NULL,
+  `location` varchar(30) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `verified` tinyint(1) NOT NULL DEFAULT '1',
+  `verifiedby_id` int(6) NOT NULL DEFAULT '0' COMMENT 'Verified By',
+  `remark` varchar(50) DEFAULT NULL,
+  `status` tinyint(4) DEFAULT '1',
+  `quantity` varchar(10) DEFAULT NULL,
+  `ExpDate` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `Description` varchar(50) NOT NULL,
+  `type` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `food`
+--
+
+INSERT INTO `food` (`updated_by`, `food_id`, `pic`, `name`, `location`, `created_at`, `updated_at`, `verified`, `verifiedby_id`, `remark`, `status`, `quantity`, `ExpDate`, `Description`, `type`) VALUES
+(1, 64, 'apple64.jpg', 'apple', 'Bhaktapur', '2020-01-28 15:13:33', '2020-01-28 20:58:34', 1, 0, NULL, 1, '1', '2020-01-08 18:15:00', 'apple', 'Vegetable'),
+(1, 65, 'banana65.jpg', 'banana', 'Kathmandu', '2020-01-28 15:49:22', '2020-01-28 21:34:22', 1, 0, NULL, 1, '3', '2020-01-22 18:15:00', 'apple', 'Meet & Popultry'),
+(1, 66, 'cat66.jpg', 'cat', 'Lalitpur', '2020-01-28 15:51:23', '2020-01-28 21:36:23', 1, 0, NULL, 1, '4', '2020-01-11 18:15:00', 'hello', 'Grains,Beans and Nuts');
 
 -- --------------------------------------------------------
 
@@ -147,6 +180,12 @@ ALTER TABLE `file`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `food`
+--
+ALTER TABLE `food`
+  ADD PRIMARY KEY (`food_id`);
+
+--
 -- Indexes for table `register`
 --
 ALTER TABLE `register`
@@ -173,6 +212,12 @@ ALTER TABLE `content`
 --
 ALTER TABLE `file`
   MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+
+--
+-- AUTO_INCREMENT for table `food`
+--
+ALTER TABLE `food`
+  MODIFY `food_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT for table `register`

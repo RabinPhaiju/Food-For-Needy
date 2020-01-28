@@ -25,8 +25,8 @@
                         <li class="item" id='profile'>
                             <a href="#profile" class="btn"><i class="far fa-user"></i>Profile</a>
                             <div class="smenu">
-                                <a href="#">Posts</a>
-                                <a href="editprofile.html">Edit Profile</a>
+                                <a href="post.php">Posts</a>
+                                <a href="editprofile.php">Edit Profile</a>
                             </div>
                         </li>
 
@@ -53,7 +53,7 @@
             </div>
             <div class="nav4"><a href="">CONTACT US</a></div>
 
-            <div class="nav2"><a href="login.html">JOIN US</a></div>
+            <div class="nav2"><a href="login.php">JOIN US</a></div>
 
             <div class="nav1"><a href="">DONATE</a></div>
         </div>
@@ -74,12 +74,12 @@
                     </div>
 
                     <button class="setting">
-                        <a href="editprofile.html"><i class="fa fa-cog" aria-hidden="true"></i></a>
+                        <a href="editprofile.php"><i class="fa fa-cog" aria-hidden="true"></i></a>
                     </button>
                     <a id="hide" href="#" onclick="closeNav()"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
                     <a id="show" href="#" onclick="openNav()"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                     <button class="cloud">
-                        <a href="index.html">DashBoard</a>
+                        <a href="index.php">DashBoard</a>
                     </button>
                 </div>
 
@@ -88,13 +88,13 @@
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Profile</span></a>
                     <ul>
                         <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Post</span></a></li>
-                        <li class=""><a href="editprofile.html"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Edit Profile</span></a></li>
+                        <li class=""><a href="editprofile.php"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Edit Profile</span></a></li>
                     </ul>
                 </li>
                 <li class="dropdown active">
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Food List</span></a>
                     <ul>
-                        <li><a href="addfood.html"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Add to List</span></a></li>
+                        <li><a href="addfood.php"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Add to List</span></a></li>
                         <li class="active_child"><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Your List</span></a></li>
                     </ul>
                 </li>

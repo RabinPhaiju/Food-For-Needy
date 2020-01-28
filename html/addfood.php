@@ -1,3 +1,83 @@
+<?php
+if (isset($_POST['add_food'])) {
+$b = $_POST['name'];
+$c = $_POST['location'];
+$d = $_POST['quantity'];
+$e = $_POST['ExpDate'];
+$f = $_POST['Description'];
+$g = $_POST['type'];
+//file
+$errors= array();
+$file_name =$_FILES['img']['name'];
+$file_size =$_FILES['img']['size'];
+$file_tmp =$_FILES['img']['tmp_name'];
+$file_type=$_FILES['img']['type'];
+$bb=strrpos($file_name,".")+1;
+$file_ext=substr($file_name,$bb);
+$extensions= array("jpeg","jpg","png");
+
+if(in_array($file_ext,$extensions)=== false){
+   $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+   echo "<script>alert('extension not allowed, please choose a JPEG or PNG file.');</script>";
+   echo "<script>window.location='addfood.php';</script>";
+   exit;
+   
+}
+if($file_size > 2097152){
+   $errors[]='File size must be less than or equal to 2 MB';
+   echo "<script>alert('File size must be less than or equal to 2 MB');</script>";
+   echo "<script>window.location='addfood.php';</script>";
+   exit;
+}
+//file end
+
+
+if(isset($_SESSION['usergoogle'])){
+    $a=1;
+    $sql = "INSERT INTO `food` (`updated_by`,`name`,`location`,`quantity`,`ExpDate`,`Description`,`type`) VALUES('$a','$b','$c','$d','$e','$f','$g')";
+       }
+        else{
+
+// $b=$_SESSION['username'];
+$a=1;
+$sql = "INSERT INTO `food` (`updated_by`,`name`,`location`,`quantity`,`ExpDate`,`Description`,`type`) VALUES('$a','$b','$c','$d','$e','$f','$g')";
+// echo $sql;exit;
+}
+// Create connection
+require_once("DBConnect.php");
+
+if (mysqli_query($conn, $sql)) {
+// echo "Record updated successfully";
+// echo "<script>alert('Update Changes Successfully!');</script>";
+// echo "<script>window.location='index.php';</script>";
+} else {
+echo "Error updating record: " . mysqli_error($conn);
+}
+
+$sql="SELECT * FROM `food` WHERE `name`='$b'and`location`='$c' and `quantity`='$d' and `ExpDate`='$e' and `type`='$g'";
+
+require_once("DBConnect.php");
+$resultpic = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($resultpic);
+
+    $bbb=$_POST['name'].$row["food_id"];//foodname + id
+
+    $bname=$bbb.".jpg";
+    if(empty($errors)==true){
+       move_uploaded_file($file_tmp,"files/".$bname);
+ 
+       $sql= "UPDATE `food` SET `pic`='$bname' WHERE `location`='$c'";
+       require_once("DBConnect.php");
+
+      if (mysqli_query($conn, $sql)) {
+          echo "<script>window.location='index.php';</script>";
+      } else {
+          echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+      } 
+    }
+    mysqli_close($conn);
+}
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +93,44 @@
     <link rel="stylesheet" href="css/index.css">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-    <title>User Login</title>
+    <title>Add Food</title>
+    <style>
+        .input-files {
+            position: relative;
+            overflow: hidden;
+            width: 150px;
+            height: 40px;
+            border: none;
+            background-color: #0077CC;
+            border-radius: 3px;
+            box-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
+            cursor: pointer;
+            transition: background-color .3s ease;
+            margin-bottom:5px;
+        }
+        
+        .input-files:hover {
+            background-color: #1788d8;
+        }
+        
+        .input-files [type=file] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+        
+        .input-files label {
+            font-family: 'arial';
+            color: #F1F1F1;
+            font-weight: bold;
+            font-size: 17px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
@@ -28,8 +145,8 @@
                         <li class="item" id='profile'>
                             <a href="#profile" class="btn"><i class="far fa-user"></i>Profile</a>
                             <div class="smenu">
-                                <a href="post.html">Posts</a>
-                                <a href="#">Edit Profile</a>
+                                <a href="post.php">Posts</a>
+                                <a href="editprofile.php">Edit Profile</a>
                             </div>
                         </li>
 
@@ -56,7 +173,7 @@
             </div>
             <div class="nav4"><a href="">CONTACT US</a></div>
 
-            <div class="nav2"><a href="login.html">JOIN US</a></div>
+            <div class="nav2"><a href="login.php">JOIN US</a></div>
 
             <div class="nav1"><a href="">DONATE</a></div>
         </div>
@@ -82,7 +199,7 @@
                     <a id="hide" href="#" onclick="closeNav()"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
                     <a id="show" href="#" onclick="openNav()"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                     <button class="cloud">
-                        <a href="index.html">DashBoard</a>
+                        <a href="index.php">DashBoard</a>
                     </button>
                 </div>
 
@@ -90,14 +207,14 @@
                 <li class="dropdown">
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Profile</span></a>
                     <ul>
-                        <li><a href="post.html"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Post</span></a></li>
+                        <li><a href="post.php"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Post</span></a></li>
                         <li class=""><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Edit Profile</span></a></li>
                     </ul>
                 </li>
                 <li class="dropdown active">
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Food List</span></a>
                     <ul>
-                        <li><a href="addfood.html"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Add to List</span></a></li>
+                        <li><a href="addfood.php"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Add to List</span></a></li>
                         <li class="active_child"><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Your List</span></a></li>
                     </ul>
                 </li>
@@ -116,7 +233,7 @@
                     </ul>
                 </li>
                 <li><a href="#"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>
-                <li><a href="calender.html"><span class="icon"><i class="fa fa-calendar"></i></span><span>Calender</span></a></li>
+                <li><a href="calender.php"><span class="icon"><i class="fa fa-calendar"></i></span><span>Calender</span></a></li>
 
             </ul>
         </div>
@@ -130,77 +247,86 @@
                         </div>
                     </div> -->
                     <!-- panel body -->
+                    <form action="addfood.php" method="POST" enctype="multipart/form-data">
                     <div class="panel-body">
                         <div class="row">
 
                             <div class="col-md-8">
                                 <div class="profile-block">
                                     <header class="profile-header">
-                                        <h2><i class="fa fa-user-cog"></i> Information</h2>
+                                        <h2><i class="fas fa-apple-alt"></i> New Food Information</h2>
 
                                     </header>
                                     <div class="profile-body">
-
-                                        <form action="">
                                             <div class="profile-view">
                                                 <dl class="dl-horizontal">
-                                                    <dt class="p-10">Full Name</dt>
+                                                    <dt class="p-10">Food Name</dt>
                                                     <dd>
                                                         <div class="fg-line">
-                                                            <input type="text" class="form-control" placeholder="eg. Joe Doe">
+                                                            <input type="text" class="form-control" required="required" name="name">
                                                         </div>
                                                     </dd>
                                                 </dl>
                                                 <dl class="dl-horizontal">
-                                                    <dt class="p-10">Role</dt>
+                                                    <dt class="p-10">Location</dt>
                                                     <dd>
                                                         <div class="fg-line">
-                                                            <select class="form-control">
-                                                                          <option>Business development</option>
-                                                                          <option>Business Analyst</option>
-                                                                          <option>Operations Manager</option>
+                                                            <select class="form-control" name="location">
+                                                                          <option value="Bhaktapur">Bhaktapur</option>
+                                                                          <option value="Kathmandu">Kathmandu</option>
+                                                                          <option value="Lalitpur">Lalitpur</option>
                                                                       </select>
                                                         </div>
                                                     </dd>
                                                 </dl>
                                                 <dl class="dl-horizontal">
-                                                    <dt class="p-10">Client Associated</dt>
+                                                    <dt class="p-10">Type</dt>
                                                     <dd>
                                                         <div class="fg-line">
-                                                            <select class="form-control">
-                                                                          <option>DHL</option>
-                                                                          <option>Pepsico</option>
-                                                                          <option>Addidas</option>
-                                                                          <option>Nike</option>
+                                                            <select class="form-control" name="type">
+                                                                          <option value="Vegetable">Vegetable</option>
+                                                                          <option value="Meet & Popultry">Meat & Poultry</option>
+                                                                          <option value="Fruits">Fruits</option>
+                                                                          <option value="Grains,Beans and Nuts">Grains,Beans and Nuts</option>
+                                                                          <option value="Dairy Foods">Dairy Foods</option>
+                                                                          <option value="Fish and Seafoods">Fish and Seafoods</option>
                                                                       </select>
                                                         </div>
                                                     </dd>
                                                 </dl>
                                                 <dl class="dl-horizontal">
-                                                    <dt class="p-10">Phone</dt>
+                                                    <dt class="p-10">Quanitity</dt>
                                                     <dd>
                                                         <div class="fg-line">
-                                                            <input type="text" class="form-control" placeholder="eg. 00971 12345678">
+                                                            <input type="text" class="form-control" name="quantity">
                                                         </div>
                                                     </dd>
                                                 </dl>
                                                 <dl class="dl-horizontal">
-                                                    <dt class="p-10">Email</dt>
+                                                    <dt class="p-10">Description</dt>
                                                     <dd>
                                                         <div class="fg-line">
-                                                            <input type="text" class="form-control" placeholder="eg. 00971 12345678">
+                                                            <input type="text" class="form-control" required="required" name="Description">
+                                                        </div>
+                                                    </dd>
+                                                </dl>
+                                                <dl class="dl-horizontal">
+                                                    <dt class="p-10">Exp. Date</dt>
+                                                    <dd>
+                                                        <div class="fg-line">
+                                                            <input type="date" class="form-control" required="required" name="ExpDate">
                                                         </div>
                                                     </dd>
                                                 </dl>
 
                                                 <div class="m-t-30">
-                                                    <button class="btn btn-primary btn-sm waves-effect">Save</button>
+                                                    <button class="btn btn-primary btn-sm waves-effect" name="add_food">Save</button>
 
                                                 </div>
                                                 <br>
-                                                <a href="index.html">Cancel</a>
+                                                <a href="index.php">Cancel</a>
                                             </div>
-                                        </form>
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -208,23 +334,34 @@
 
                                 <div class="profile-details">
                                     <h2>Picture</h2>
-                                    <ul>
-                                        <input type="file">
-                                    </ul>
+                                    <button class="input-files">
+                                        <input type="file" name="img" onchange="loadFile(event)"  accept="image/jpg, image/jpeg, image/png" id="file-inputs file" required="required">
+                                        <label for="file-inputs">UPLOAD</label>
+                                      </button>
+                                      <p><img id="outputs" width="150" /></p>
                                 </div>
+                                
                             </div>
                         </div>
                     </div>
+                    </form>
                     <!-- end panel body -->
                 </div>
             </div>
         </div>
     </div>
+    <script>
+var loadFile = function(event) {
+	var image = document.getElementById('outputs');
+	image.src = URL.createObjectURL(event.target.files[0]);
+};
+</script>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="js/editprofile.js"></script>
 
     <script src="js/index1.js"></script>
+
 
 </body>
 

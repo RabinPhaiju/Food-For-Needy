@@ -21,7 +21,7 @@
                 <div class="nav3"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></div>
                 <div class="nav4"><a href="">CONTACT US</a></div>
 
-                <div class="nav2"><a href="login.html">JOIN US</a></div>
+                <div class="nav2"><a href="login.php">JOIN US</a></div>
 
                 <div class="nav1"><a href="">DONATE</a></div>
             </div>
@@ -55,7 +55,7 @@
 
         </div>
         <div class="form-container sign-in-container">
-            <form action="index.html">
+            <form action="index.php">
                 <h1>Sign in</h1>
                 <div class="social-container">
                     <a href="#" class="social"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>

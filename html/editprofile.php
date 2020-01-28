@@ -28,7 +28,7 @@
                         <li class="item" id='profile'>
                             <a href="#profile" class="btn"><i class="far fa-user"></i>Profile</a>
                             <div class="smenu">
-                                <a href="post.html">Posts</a>
+                                <a href="post.php">Posts</a>
                                 <a href="#">Edit Profile</a>
                             </div>
                         </li>
@@ -56,7 +56,7 @@
             </div>
             <div class="nav4"><a href="">CONTACT US</a></div>
 
-            <div class="nav2"><a href="login.html">JOIN US</a></div>
+            <div class="nav2"><a href="login.php">JOIN US</a></div>
 
             <div class="nav1"><a href="">DONATE</a></div>
         </div>
@@ -90,14 +90,14 @@
                 <li class="dropdown">
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Profile</span></a>
                     <ul>
-                        <li><a href="post.html"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Post</span></a></li>
-                        <li class=""><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Edit Profile</span></a></li>
+                        <li><a href="post.php"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Post</span></a></li>
+                        <li class=""><a href="editprofile.php"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Edit Profile</span></a></li>
                     </ul>
                 </li>
                 <li class="dropdown active">
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Food List</span></a>
                     <ul>
-                        <li><a href="addfood.html"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Add to List</span></a></li>
+                        <li><a href="addfood.php"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Add to List</span></a></li>
                         <li class="active_child"><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Your List</span></a></li>
                     </ul>
                 </li>
@@ -116,7 +116,7 @@
                     </ul>
                 </li>
                 <li><a href="#"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>
-                <li><a href="calender.html"><span class="icon"><i class="fa fa-calendar"></i></span><span>Calender</span></a></li>
+                <li><a href="calender.php"><span class="icon"><i class="fa fa-calendar"></i></span><span>Calender</span></a></li>
 
             </ul>
         </div>
