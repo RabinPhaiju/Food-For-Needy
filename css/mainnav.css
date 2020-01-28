@@ -3,14 +3,15 @@
 @import url('https://fonts.googleapis.com/css?family=Kaushan+Script&display=swap');
 :root{font-size: 16px;}
 
+body{
+    background-image: linear-gradient(#abbaab,#ffffff);
+    background-repeat: no-repeat;
+}
 .wrapper-mainNav{
     display: flex;
     width: 100%;
     font-size: 1rem;
     z-index: 1;
-    /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    background-color: white;
-    opacity: 0.6; */
     margin-top: 20px;
 }
     .wrapper-mainNav .navbar0{
@@ -20,7 +21,7 @@
         
     }
     .wrapper-mainNav .navbar0 i{
-        color: white;
+        color: orange;
     }
         .wrapper-mainNav .navbar0 i:hover{
             transform: scale(1.4);
@@ -62,7 +63,107 @@
     }
 
 @media only screen and (max-width: 768px) {
-    .container .wrapper-mainNav .navbar1, .container .wrapper-mainNav .navbar0 {
+    .container .wrapper-mainNav {
         display: none;
     }
 }
+
+
+.firstpage{
+   margin-top: 10%;
+    display: flex;
+    position: relative;
+}
+.firstpage .firstPagetext{
+    padding-left: 5vw;
+    flex: 1;
+}
+.firstpage .firstPagetext h1{
+    font-family: 'Cormorant Garamond', serif;
+    color: black;
+    line-height: 6vw;
+    font-size: 4vw;
+    letter-spacing: .3vw;
+}
+ /* color change gar yaha */
+.firstpage .firstPagetext p{
+    font-family: 'Cormorant Garamond', serif;
+    color: black;
+    font-size: 1.5vw;
+    letter-spacing: .1vw;
+} 
+
+.firstpage .firstPagetext .line-btn button.aboutbtn{
+    border-radius: 1px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: black;
+    border-color: black;
+    padding: 1.5vw;
+    opacity: 0.7;
+    box-shadow: 10px 10px 10px 0px;
+    font-size: 1vw;
+    z-index: 4;
+    margin-left:1vw;
+    
+}
+.firstpage .firstPagetext .line-btn button.aboutbtn:hover{
+    opacity: 0.5;
+    transform: scale(1.1);
+    transition:1s ease;
+    cursor: pointer;
+}
+.firstpage .firstPagetext .line-btn button.aboutbtn a{
+    color: cornsilk;
+    
+}
+.firstpage .firstPagetext .line-btn button.aboutbtn a:hover{
+    opacity: 0.5;
+    transform: scale(1.1); 
+    color: #4CAF50;
+    transition:1s ease;
+}
+@media only screen and (width: 500px)
+{
+    .firstpage .firstPagetext .line-btn button.aboutbtn a:hover{
+        transform: scale(1.5); 
+    } 
+    .firstpage .firstPagetext .line-btn button.aboutbtn:hover{
+        transform: scale(1.5); 
+    }
+}
+
+.firstpage .searching{
+    flex: 1;
+}
+.firstpage .searching p{
+    font-family: 'Kaushan Script', cursive;
+    font-size: 6vw;
+    text-align: right;
+    padding-right: 15vw;
+    
+    color: black;
+}
+  
+  .searching form input[type='text']{
+    padding: 0.6vw;
+    border-radius: 8px;
+    width: 34vw;
+    border: black;
+    opacity: .6;
+  }
+  .searching form ::placeholder{
+      font-size: 1vw;
+  }
+  .searching form button{
+    position: absolute;
+    padding: 1vw; 
+    border-radius: 10px;
+    position: absolute;
+    margin-left: 1vw;
+    color: white;
+    background-color: black;
+    opacity: .6;
+    border: black;
+  }
+  
+  

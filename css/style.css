@@ -11,7 +11,7 @@
 }
 body {
   font-family: sans-serif;
-  background-image: linear-gradient(to top right,#22c1c3 10%,#fdbb2d );
+  /* background-image: linear-gradient(to top right,#22c1c3 10%,#fdbb2d ); */
 }
 .wrapper-nav{
   display: none;
