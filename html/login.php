@@ -23,7 +23,10 @@ if(isset($_POST['signin'])){
 		$_SESSION['username'] = $u;
 		$row = mysqli_fetch_assoc($result);
 		//echo "<pre>"; print_r($row);exit;
-		$_SESSION['reg_id'] = $row['reg_id'];
+        $_SESSION['reg_id'] = $row['reg_id'];
+        $_SESSION['name']=" ".$row['firstname']." ".$row['lastname'];
+        $_SESSION['email']=$row['email'];
+        $_SESSION['pic']=$row['pic'];
 		if(!empty($_POST["remember_me"])) {
 				setcookie ("login",$_POST["username"],time()+(60 * 60)); /* expire in 1 hour */
 			} else {

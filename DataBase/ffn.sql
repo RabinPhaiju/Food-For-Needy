@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 28, 2020 at 05:59 PM
+-- Generation Time: Jan 29, 2020 at 06:28 PM
 -- Server version: 10.1.40-MariaDB
 -- PHP Version: 7.3.5
 
@@ -91,7 +91,11 @@ CREATE TABLE `food` (
 INSERT INTO `food` (`updated_by`, `food_id`, `pic`, `name`, `location`, `created_at`, `updated_at`, `verified`, `verifiedby_id`, `remark`, `status`, `quantity`, `ExpDate`, `Description`, `type`) VALUES
 (1, 64, 'apple64.jpg', 'apple', 'Bhaktapur', '2020-01-28 15:13:33', '2020-01-28 20:58:34', 1, 0, NULL, 1, '1', '2020-01-08 18:15:00', 'apple', 'Vegetable'),
 (1, 65, 'banana65.jpg', 'banana', 'Kathmandu', '2020-01-28 15:49:22', '2020-01-28 21:34:22', 1, 0, NULL, 1, '3', '2020-01-22 18:15:00', 'apple', 'Meet & Popultry'),
-(1, 66, 'cat66.jpg', 'cat', 'Lalitpur', '2020-01-28 15:51:23', '2020-01-28 21:36:23', 1, 0, NULL, 1, '4', '2020-01-11 18:15:00', 'hello', 'Grains,Beans and Nuts');
+(1, 66, 'cat66.jpg', 'cat', 'Lalitpur', '2020-01-28 15:51:23', '2020-01-28 21:36:23', 1, 0, NULL, 1, '4', '2020-01-11 18:15:00', 'hello', 'Grains,Beans and Nuts'),
+(1, 67, 'biscuit67.jpg', 'biscuit', 'Kathmandu', '2020-01-29 02:03:27', '2020-01-29 07:48:27', 1, 0, NULL, 1, '100', '2020-01-28 18:15:00', 'test', 'Grains,Beans and Nuts'),
+(1, 68, 'carrot68.jpg', 'carrot', 'Kathmandu', '2020-01-29 02:16:22', '2020-01-29 08:01:22', 1, 0, NULL, 1, '20', '2020-01-14 18:15:00', 'fresh from libali bhaktapur', 'Vegetable'),
+(1, 69, 'niru69.jpg', 'niru', 'Bhaktapur', '2020-01-29 02:28:03', '2020-01-29 08:13:03', 1, 0, NULL, 1, '1', '2020-01-22 18:15:00', 'kumari', 'Vegetable'),
+(41, 70, 'apple70.jpg', 'apple', 'Bhaktapur', '2020-01-29 17:26:46', '2020-01-29 23:11:46', 1, 0, NULL, 1, '78', '2020-01-17 18:15:00', 'rabin', 'Vegetable');
 
 -- --------------------------------------------------------
 
@@ -125,7 +129,7 @@ CREATE TABLE `register` (
 --
 
 INSERT INTO `register` (`reg_id`, `username`, `pic`, `user_type`, `firstname`, `lastname`, `email`, `location`, `contact`, `dob`, `created_at`, `updated_at`, `password`, `secret_key`, `verified`, `verifiedby_id`, `remark`, `status`) VALUES
-(39, 'rbnph', 'rbnph.jpg', NULL, 'Rabin', 'Phaiju', 'rabinphaiju15@gmail.com', 'Bhaktapur', '9808215115', NULL, '2020-01-15 09:15:26', '2020-01-28 14:12:53', '672fe60e8f79e1494810a78ac5bd8e12', NULL, 1, 0, NULL, 1);
+(41, 'rbnph', 'rbnph', 'Donator', 'rabs', 'phaiju', 'rabinphaiju15@gmail.com', 'Bhaktapur', '9808215115', '2020-01-15', '2020-01-29 16:19:58', '2020-01-29 23:09:32', 'babd4a84418fb04015ac773f7459727c', NULL, 1, 0, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -217,13 +221,13 @@ ALTER TABLE `file`
 -- AUTO_INCREMENT for table `food`
 --
 ALTER TABLE `food`
-  MODIFY `food_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `food_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT for table `register`
 --
 ALTER TABLE `register`
-  MODIFY `reg_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `reg_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `user`

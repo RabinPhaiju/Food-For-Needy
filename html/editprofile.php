@@ -34,7 +34,7 @@ if($file_size > 2097152){
 }
 //file end
 
-$id=39;
+$id=$_SESSION['reg_id'];
 if(isset($_SESSION['usergoogle'])){
     $sql = " UPDATE `register` SET `user_type`='$d',`firstname`='$b',`lastname`='$c',`email`='$g',`location`='$e',`contact`='$f',`dob`='$h' WHERE `reg_id`='$id'";
        }
@@ -44,6 +44,7 @@ if(isset($_SESSION['usergoogle'])){
 $sql = " UPDATE `register` SET `user_type`='$d',`firstname`='$b',`lastname`='$c',`email`='$g',`location`='$e',`contact`='$f',`dob`='$h' WHERE `reg_id`='$id'";
 // echo $sql;exit;
 }
+$_SESSION['name']=" ".$b." ".$c;
 // Create connection
 require_once("DBConnect.php");
 
@@ -54,7 +55,7 @@ if (mysqli_query($conn, $sql)) {
 } else {
 echo "Error updating record: " . mysqli_error($conn);
 }
-$user="rbnph.jpg";
+$user=$_SESSION['username'];
 // $sql="SELECT * FROM `register` WHERE `name`='$b'and`location`='$c' and `quantity`='$d' and `ExpDate`='$e' and `type`='$g'";
 $sql = " UPDATE `register` SET `pic`='$user' WHERE `reg_id`='$id'";
 
@@ -171,7 +172,7 @@ $sql = " UPDATE `register` SET `pic`='$user' WHERE `reg_id`='$id'";
                         </li>
 
                         <li class="item">
-                            <a class="btn" href="../index.html"><i class="fas fa-sign-out-alt"></i>Logout</a>
+                            <a class="btn" href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
                         </li>
                     </div>
                 </div>
@@ -191,13 +192,13 @@ $sql = " UPDATE `register` SET `pic`='$user' WHERE `reg_id`='$id'";
                 <!-- <li><a href="#"><span class="icon"><i class="fa fa-tachometer"></i></span><span></span></a></li> -->
 
                 <div class="me userBg">
-                    <div class="images">
-                    <img src="files/user.png" width="60";>
+                <div class="images">
+                    <img style="margin-top:22px" src="files/<?php if($_SESSION['pic']==null){echo 'user.png';}else{ echo $_SESSION['pic'];}?>" width="60";>
                     </div>
 
                     <div class="myinfo">
-                        <p class="name">Name</p>
-                        <p class="phone">Email</p>
+                        <p class="name">Name :<?php echo $_SESSION['name']?></p>
+                        <!-- <p class="phone">Email<?php echo $_SESSION['email']?></p> -->
                     </div>
 
                     <button class="setting">
@@ -206,7 +207,7 @@ $sql = " UPDATE `register` SET `pic`='$user' WHERE `reg_id`='$id'";
                     <a id="hide" href="#" onclick="closeNav()"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
                     <a id="show" href="#" onclick="openNav()"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                     <button class="cloud">
-                        <a href="index.html">DashBoard</a>
+                        <a href="index.php">DashBoard</a>
                     </button>
                 </div>
 
@@ -271,7 +272,7 @@ $sql = " UPDATE `register` SET `pic`='$user' WHERE `reg_id`='$id'";
                                         <li><i class="fa fa-envelope"></i> joedoe@gmail.com</li>
                                     </ul> -->
                                     <?php
-    $id=39;
+    $id=$_SESSION['reg_id'];
    $sql = "SELECT * from `register` WHERE `reg_id`='$id'";// where `verified`='1' AND `status`='1'";
    require_once("DBConnect.php");
    $result = mysqli_query($conn, $sql);
@@ -280,7 +281,7 @@ $sql = " UPDATE `register` SET `pic`='$user' WHERE `reg_id`='$id'";
 <form action="editprofile.php" method="POST" enctype="multipart/form-data">
                                     <h2>Picture</h2>
                                     <!-- <p><img id="outputs" width="150" /></p> -->
-                                    <img id="outputs" src="files/<?php echo $row["pic"];?>" width="200">
+                                    <img id="outputs" src="files/<?php if($row["pic"]==null){echo 'user.png';}else{ echo $row["pic"];}?>" width="200">
 
                                     <div class="profile-details">
                                     
