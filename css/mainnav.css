@@ -104,6 +104,7 @@ body{
     font-size: 1vw;
     z-index: 4;
     margin-left:1vw;
+    margin-top: 2vw;
     
 }
 .firstpage .firstPagetext .line-btn button.aboutbtn:hover{
@@ -146,24 +147,26 @@ body{
   
   .searching form input[type='text']{
     padding: 0.6vw;
-    border-radius: 8px;
+    border-radius: .5vw;
     width: 34vw;
     border: black;
     opacity: .6;
+    float: left;
   }
   .searching form ::placeholder{
       font-size: 1vw;
   }
   .searching form button{
     position: absolute;
-    padding: 1vw; 
-    border-radius: 10px;
+    padding: .7vw; 
+    border-radius: .5vw;
     position: absolute;
     margin-left: 1vw;
     color: white;
     background-color: black;
     opacity: .6;
     border: black;
+    
   }
   
   
