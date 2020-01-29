@@ -139,13 +139,14 @@
                                     </figure>
                                 </div>
                                 <div class="profile-details">
-                                    <h2>Contact</h2>
+                                    <!-- <h2>Contact</h2>
                                     <ul>
                                         <li><i class="fa fa-tasks"></i> Business development</li>
                                         <li><i class="fa fa-users"></i> DHL</li>
                                         <li><i class="fa fa-phone"></i> 00971 12345678</li>
                                         <li><i class="fa fa-envelope"></i> joedoe@gmail.com</li>
-                                    </ul>
+                                    </ul> -->
+                                    <img  src="../files/mother.jpg" width="200">
                                 </div>
                             </div>
                             <div class="col-md-8">

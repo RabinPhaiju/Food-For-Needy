@@ -66,7 +66,7 @@ $row = mysqli_fetch_assoc($resultpic);
     if(empty($errors)==true){
        move_uploaded_file($file_tmp,"files/".$bname);
  
-       $sql= "UPDATE `food` SET `pic`='$bname' WHERE `location`='$c'";
+       $sql= "UPDATE `food` SET `pic`='$bname' WHERE `name`='$b'and`location`='$c' and `quantity`='$d' and `ExpDate`='$e' and `type`='$g'";
        require_once("DBConnect.php");
 
       if (mysqli_query($conn, $sql)) {
