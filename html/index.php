@@ -1,4 +1,6 @@
 <?php
+include 'session.php';
+// echo $_SESSION['username'].$_SESSION['reg_id'];
 $search=1;
 
 if (isset($_POST['searchsubmit'])) {
@@ -55,7 +57,7 @@ $search=0;
                         </li>
 
                         <li class="item">
-                            <a class="btn" href="../index.html"><i class="fas fa-sign-out-alt"></i>Logout</a>
+                            <a class="btn" href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
                         </li>
                     </div>
                 </div>

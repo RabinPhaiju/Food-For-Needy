@@ -1,4 +1,5 @@
 <?php
+include 'session.php';
 if (isset($_POST['add_food'])) {
 $b = $_POST['name'];
 $c = $_POST['location'];
@@ -33,13 +34,13 @@ if($file_size > 2097152){
 
 
 if(isset($_SESSION['usergoogle'])){
-    $a=1;
+    $a=$_SESSION['reg_id'];
     $sql = "INSERT INTO `food` (`updated_by`,`name`,`location`,`quantity`,`ExpDate`,`Description`,`type`) VALUES('$a','$b','$c','$d','$e','$f','$g')";
        }
         else{
 
 // $b=$_SESSION['username'];
-$a=1;
+$a=$_SESSION['reg_id'];
 $sql = "INSERT INTO `food` (`updated_by`,`name`,`location`,`quantity`,`ExpDate`,`Description`,`type`) VALUES('$a','$b','$c','$d','$e','$f','$g')";
 // echo $sql;exit;
 }
@@ -166,7 +167,7 @@ $row = mysqli_fetch_assoc($resultpic);
                         </li>
 
                         <li class="item">
-                            <a class="btn" href="../index.html"><i class="fas fa-sign-out-alt"></i>Logout</a>
+                            <a class="btn" href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
                         </li>
                     </div>
                 </div>
@@ -208,7 +209,7 @@ $row = mysqli_fetch_assoc($resultpic);
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Profile</span></a>
                     <ul>
                         <li><a href="post.php"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Post</span></a></li>
-                        <li class=""><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Edit Profile</span></a></li>
+                        <li class=""><a href="editprofile.php"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Edit Profile</span></a></li>
                     </ul>
                 </li>
                 <li class="dropdown active">
