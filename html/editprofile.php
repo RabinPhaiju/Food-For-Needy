@@ -45,6 +45,7 @@ $sql = " UPDATE `register` SET `user_type`='$d',`firstname`='$b',`lastname`='$c'
 // echo $sql;exit;
 }
 $_SESSION['name']=" ".$b." ".$c;
+$_SESSION['pic']=$_SESSION['username'];
 // Create connection
 require_once("DBConnect.php");
 
