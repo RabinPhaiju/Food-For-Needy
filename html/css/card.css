@@ -164,20 +164,20 @@
 .wrapper .inside {
     z-index: 9;
     background: #92879b;
-    width: 140px;
-    height: 140px;
+    width: 90px;
+    height: 90px;
     position: absolute;
-    top: -70px;
-    right: -70px;
-    border-radius: 0px 0px 200px 200px;
-    transition: all 0.3s, border-radius 0s, top 1s;
+    top: -40px;
+    right: -40px;
+    border-radius: 0px 0px 60px 60px;
+    transition: all 0.3s, border-radius 0s, top 0.3s;
     overflow: hidden;
 }
 
 .wrapper .inside .icon {
     position: absolute;
-    right: 85px;
-    top: 85px;
+    /* right: 85px; */
+    top: 50px;
     color: white;
     opacity: 1;
 }

@@ -180,7 +180,7 @@ $search=0;
                     </div>
                 </div>
                 <div class="inside">
-                    <div class="icon"><i class="material-icons">&nbsp&nbsp&nbsp&nbsp&nbspMore &nbsp&nbsp&nbsp&nbsp&nbspInfo</i></div>
+                    <div class="icon"><i class="material-icons">&nbsp&nbsp&nbspInfo</i></div>
                     <div class="contents">
                         <table>
                             <tr>
