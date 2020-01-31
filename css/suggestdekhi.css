@@ -7,6 +7,10 @@
   font-size: 18px;
 }
 
+.third-page{
+  margin-top: -2vw;
+  padding-bottom: 3vw;
+}
 /* flip cardss part */
 .third-page .card{
     position: absolute;
@@ -16,14 +20,14 @@
     width: 100%;
   }
 .third-page .card .flip-card-container {
-      width: 20vw;
-      height: 20vw; 
-      margin-left: 71%; 
-      margin-top: -23.8vw;  
+      width: 25vw;
+      height: 25vw; 
+      margin-left: 68%; 
+      margin-top: -24.3vw;  
     }
 .third-page .card .flip-card .flip-card-front img, .card .flip-card .flip-card-back img{
-      width: 25vw;
-      height: 30vw;
+      width: 100%;
+      height: 100%;
   }
 .third-page .card .flip-card {
       position: relative;
@@ -71,7 +75,7 @@
     z-index: 1;
     opacity: 0.8;
     font-family: 'Kaushan Script', cursive;
-    padding: 1.5vw;
+    padding: 1vw;
   }
 .third-page .suggestpart .outerLine2{
     transition: 4s ease;
@@ -89,8 +93,8 @@
   
 .third-page .suggestpart .outerLine2 ul{
     list-style: none;
-    margin-top: 3vw;
-    margin-bottom: 3vw;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
   } 
   
 .third-page .suggestpart .outerLine2 li {
@@ -104,7 +108,7 @@
     border-color: black;
     padding: 1.5vw;
    
-    box-shadow: 10px 10px 10px 0px;
+    box-shadow: 1vw 1vw 1vw 0vw;
     font-size: 1vw;
     z-index: 5; 
     

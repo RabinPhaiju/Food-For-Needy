@@ -13,6 +13,17 @@ body {
   font-family: sans-serif;
   /* background-image: linear-gradient(to top right,#22c1c3 10%,#fdbb2d ); */
 }
+.wrapper{
+  
+  
+  
+}
+.container{
+  background-image: linear-gradient(to right bottom,#ba5370,#f4e2d8);
+  margin-top: -20px;
+  padding-top: 2vw;
+  padding-bottom: 5vw;
+}
 .wrapper-nav{
   display: none;
 }

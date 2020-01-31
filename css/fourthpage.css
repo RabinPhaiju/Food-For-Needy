@@ -1,0 +1,48 @@
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script&display=swap');
+
+.fourth-page{
+    display: flex;
+    align-items: center;
+    z-index: 2;
+    position: relative;
+    margin-top:-2vw ;
+}
+.fourth-page .story{
+    flex: 1;
+    text-align: right;
+    margin-right: 2.5vw;
+    padding: 4vw;
+    font-size: 50px;
+    font-family: 'Cormorant Garamond', serif;
+    border-right: 2px solid black;
+}
+.fourth-page .story-text{
+    flex:3;
+    text-align: justify;
+    padding: 2vw;
+}
+.fourth-page .story-text h2{
+    font-family: 'Cormorant Garamond', serif;
+    line-height: 15vw;
+    display: none;
+}
+.fourth-page .story-text p{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+}
+
+@media only screen and (max-width:500px)
+{   
+    .fourth-page .story-text h2{
+        display: block;
+    }
+    .fourth-page .story{
+        display: none;
+    }
+    .fourth-page .story-text{
+        padding: 4vw 8vw 4vw 14vw;
+    }
+}
