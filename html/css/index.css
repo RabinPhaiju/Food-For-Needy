@@ -257,12 +257,18 @@ body {
     font-size: 25px;
 }
 
+@media only screen and (max-width: 380px) {
+    .sidemenu {
+        display: none;
+    }
+}
+
 .sidemenu {
     float: left;
     width: 230px;
     height: calc(100vh - 50px);
     background: #4f5767;
-    overflow-y: auto;
+    /* overflow-y: auto; */
     scrollbar-width: none;
 }
 

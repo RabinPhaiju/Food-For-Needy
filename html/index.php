@@ -153,8 +153,13 @@ $search=0;
 	$result = $conn-> query($sql);
 
 	if($result-> num_rows >0 && $search==1){
-		while($row = $result-> fetch_assoc()){   ?>
-
+		while($row = $result-> fetch_assoc()){  
+            $ids=$row["updated_by"];
+            $sql1="SELECT * from `register` where `reg_id`='$ids'";
+            $result1 = mysqli_query($conn, $sql1);
+            $row1 = mysqli_fetch_assoc($result1);
+            ?>
+            
             <div class="wrapper">
                 <div class="container">
                     <div class="top">
@@ -165,10 +170,10 @@ $search=0;
                         <div class="left">
                             <div class="details">
                                 <h2><?php echo $row["name"];?></h2>
-                                <p> <?php echo $row["updated_by"];?></p>
-                                <p> <?php echo $row["location"];?></p>
+                                <p> <?php echo " By: ".$row1["username"];?></p>
+                                <h5> <?php echo $row["location"];?></h5>
                             </div>
-                            <div class="buy"><i class="fa fa-eye" aria-hidden="true"></i>
+                            <div class="buy"><a href="viewfood.php?foodid=<?= $row['food_id'];?>"><i class="fa fa-eye" aria-hidden="true"></i></a>
                             <i><?php echo $row["quantity"];?></i>
                         </div>
                         </div>
@@ -185,9 +190,6 @@ $search=0;
                         <table>
                             <tr>
                                 <th><?php echo $row["location"];?></th>
-                            </tr>
-                            <tr>
-                                <th><?php echo $row["quantity"];?></th>
                             </tr>
                             <tr>
                                 <th><?php echo $row["type"];?></th>
@@ -210,8 +212,13 @@ $search=0;
              require_once("DBConnect.php");
              $result = $conn-> query($sql);
              if($result-> num_rows >0 && $search==0){
-                while($row = $result-> fetch_assoc()){   ?>
-        
+                while($row = $result-> fetch_assoc()){  
+                    $ids=$row["updated_by"];
+             $sql1="SELECT * from `register` where `reg_id`='$ids'";
+             $result1 = mysqli_query($conn, $sql1);
+             $row1 = mysqli_fetch_assoc($result1);
+                    ?>
+                
                     <div class="wrapper">
                         <div class="container">
                             <div class="top">
@@ -220,12 +227,12 @@ $search=0;
                             </div>
                             <div class="bottom">
                                 <div class="left">
-                                    <div class="details">
-                                        <h1><?php echo $row["name"];?></h1>
-                                        <p> <?php echo $row["updated_by"];?></p>
-                                        <p> <?php echo $row["location"];?></p>
-                                    </div>
-                                    <div class="buy"><i class="fa fa-eye" aria-hidden="true"></i>
+                                <div class="details">
+                                <h2><?php echo $row["name"];?></h2>
+                                <p> <?php echo " By: ".$row1["username"];?></p>
+                                <p> <?php echo $row["location"];?></p>
+                            </div>
+                                    <div class="buy"><a><i class="fa fa-eye" aria-hidden="true"></i></a>
                                     <i><?php echo $row["quantity"];?></i>
                                 </div>
                                 </div>
@@ -242,9 +249,6 @@ $search=0;
                                 <table>
                                     <tr>
                                         <th><?php echo $row["location"];?></th>
-                                    </tr>
-                                    <tr>
-                                        <th><?php echo $row["quantity"];?></th>
                                     </tr>
                                     <tr>
                                         <th><?php echo $row["type"];?></th>

@@ -158,9 +158,9 @@
         transition-duration: 0.5s;
     }
     
-    @media only screen and (max-width: 370px) {
+    @media only screen and (max-width: 380px) {
         .navbar {
-            display: none;
+            /* display: none; */
         }
     }
     
