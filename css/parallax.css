@@ -4,11 +4,11 @@
 
 .parallax1{
     width: 100%;
-    margin-top: 5vw;
+    margin-top: -3vw;
     background: url('../files/hungry.jpg') no-repeat center;
     background-size: cover;
     background-attachment: fixed;
-    height: 20vw;
+    height: 30vw;
     text-align: center;
     opacity: 0.9;
     letter-spacing: .1vw;
@@ -18,11 +18,11 @@
 .parallax1 p span.parallax-text{
     font-family: 'Cormorant Garamond', serif;
     color: whitesmoke;
-    font-size: 4vw ;
-    
+    font-size: 4vw ;    
 }
 .parallax1 p{
     font-family: 'Cormorant Garamond', serif;
     color: whitesmoke;
     font-size: 2.5vw ;
+    margin-top: 4vw;
 }

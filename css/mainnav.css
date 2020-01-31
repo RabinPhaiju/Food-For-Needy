@@ -3,10 +3,7 @@
 @import url('https://fonts.googleapis.com/css?family=Kaushan+Script&display=swap');
 :root{font-size: 16px;}
 
-body{
-    background-image: linear-gradient(#abbaab,#ffffff);
-    background-repeat: no-repeat;
-}
+
 .wrapper-mainNav{
     display: flex;
     width: 100%;
@@ -81,38 +78,47 @@ body{
 .firstpage .firstPagetext h1{
     font-family: 'Cormorant Garamond', serif;
     color: black;
-    line-height: 6vw;
-    font-size: 4vw;
+    line-height: 6.5vw;
+    font-size: 5vw;
     letter-spacing: .3vw;
 }
  /* color change gar yaha */
 .firstpage .firstPagetext p{
     font-family: 'Cormorant Garamond', serif;
     color: black;
-    font-size: 1.5vw;
+    font-size: 1.7vw;
     letter-spacing: .1vw;
 } 
-
-.firstpage .firstPagetext .line-btn button.aboutbtn{
+.firstpage .firstPagetext a{
+    padding-bottom: 2vw;
+    font-size: 16px;
+    text-decoration: none;
+    color: black;
+    margin-left: 15vw;
+}
+.firstpage .firstPagetext a:hover{
+    opacity: 0.5;
+    transition:1s ease;
+    cursor: pointer;
+}
+/* .firstpage .firstPagetext .line-btn button.aboutbtn{
     border-radius: 1px;
     font-family: 'Montserrat', sans-serif;
     background-color: black;
     border-color: black;
     padding: 1.5vw;
     opacity: 0.7;
-    box-shadow: 10px 10px 10px 0px;
+    box-shadow: 1vw 1vw 1vw 0vw;
     font-size: 1vw;
-    z-index: 4;
-    margin-left:1vw;
-    margin-top: 2vw;
-    
+    z-index: 5;
+    margin-left:11vw;    
 }
 .firstpage .firstPagetext .line-btn button.aboutbtn:hover{
     opacity: 0.5;
     transform: scale(1.1);
     transition:1s ease;
     cursor: pointer;
-}
+} */
 .firstpage .firstPagetext .line-btn button.aboutbtn a{
     color: cornsilk;
     
@@ -133,6 +139,9 @@ body{
     }
 }
 
+
+/* searching page */
+
 .firstpage .searching{
     flex: 1;
 }
@@ -141,7 +150,6 @@ body{
     font-size: 6vw;
     text-align: right;
     padding-right: 15vw;
-    
     color: black;
 }
   
@@ -168,5 +176,4 @@ body{
     border: black;
     
   }
-  
   

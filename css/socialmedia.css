@@ -1,14 +1,13 @@
 .second-page{}
 .second-page .share-buttons {
     position: fixed;
-    width: 300px;
+    width: 105px;
     height: 212px;
     margin-top: -20vw;    
     z-index: 5;
     margin-left: 2vw;
   }
 .second-page .share-buttons .share-button {
-    float: left;
     margin-top: 20px;
   }
 .second-page .share-buttons .share-button:first-child {
@@ -71,8 +70,7 @@
     display: block;
     height: 30px;
     text-align: left;
-    padding-left: 26px;
-    padding-right: 18px;
+    padding-left: 26px; 
     line-height: 30px;
     color: #242424;
     border-radius: 0 15px 15px 0;
