@@ -3,11 +3,49 @@ if(empty($_SESSION)){
     session_start();
 }
 $printerror="";
+$errorforget="";
+$done="";
+$signupmessage="";
 unset($_SESSION['username']);
 unset($_SESSION['reg_id']);
 setcookie ("login","");
 session_destroy();
 $error="";   
+if(isset($_POST['forget'])){
+	$uu = $_POST['username'];
+    $u=strtolower($uu);
+    $code=$_POST['code'];
+    $p1=$_POST['psws'];
+    $p2=$_POST['repsws'];
+	$psws = md5($_POST['psws']);
+if($p1==$p2){
+	$sql = "SELECT * FROM `register` WHERE (`username`='$u' OR `email`='$u') AND `code`='$code'";
+	//echo $sql;
+	require_once('DBConnect.php');
+	$result = mysqli_query($conn, $sql);
+	if (mysqli_num_rows($result) > 0) {
+				$sqlforget="UPDATE `register` SET `password`='$psws' WHERE (`username`='$u' OR `email`='$u') AND `code`='$code'";
+                if(mysqli_query($conn, $sqlforget)){
+                    $done="Password Changed Successfully";
+                }else{
+                    echo "Error1";
+                }
+    
+	
+
+		
+	}else{
+        // echo "<script>alert('Username or Password Incorrect111!');</script>";
+        $errorforget="Username or email not found!";
+        // echo $printerror;
+		// echo "<script>window.location='login.php';</script>";
+		
+    }
+}else{
+    $errorforget="Password dont match";
+}
+}
+
 if(isset($_POST['signin'])){
 	$uu = $_POST['username'];
 	$u=strtolower($uu);
@@ -98,6 +136,7 @@ else{
 
 	
 	if(mysqli_query($conn, $sql)){
+        $signupmessage="Registration Successfull";
 			$to = $d;
 			$subject = "Registration Successfull";
 			$message = "Thank you  $b  $c for registering Raktasanchar. Use this key  $k  to verify your email.";
@@ -111,10 +150,15 @@ else{
 			// }
 		}
 		else{
-			echo "Error1";
+            echo "Error1";
+            
+            
 		}
 		mysqli_close($conn);
-	}}  ?>
+    }
+    // echo '<script type="text/JavaScript" >container.classList.add("right-panel-active");</script>';
+    // echo "<script>alert('Username or Password Incorrect111!');</script>";
+    }  ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -128,7 +172,7 @@ else{
 
 </head>
 
-<body>
+<body <?php if($error!=null){ echo "onload='slide()'";}?> <?php if($errorforget!=null){ echo "onload='forget()'";}?> >
     <div id="particles-js">
         <div class="navbar">
             <div class="nav0">
@@ -154,6 +198,7 @@ else{
                     <a href="#" class="social"><i class="fa fa-google" aria-hidden="true"></i></a>
                 </div>
                 <span>or use your email for registration</span>
+                <p style="color:red;"><?php if($error!=null){echo $error;}    ?></p>
                 <input type="text" placeholder="username" name="username" required>
                 <input type="text" placeholder="First Name" name="firstname" required />
                 <input type="text" placeholder="Last Name" name="lastname" required />
@@ -173,6 +218,36 @@ else{
             </form>
 
         </div>
+        <div class="form-container forget-container">
+            <form action="login.php" method="POST">
+                <h1>Forget Password</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+                    <a href="#" class="social"><i class="fa fa-google" aria-hidden="true"></i></a>
+                </div>
+                <p style="color:red;"><?php if($errorforget!=null){echo $errorforget;}    ?></p>
+               <br/>
+               
+                <input type="text" placeholder="Enter username or email" name="username" required>
+                <div style="display:flex; ">
+                    <input style="width:62%;" type="text" placeholder="Enter 6 digit code" name="code" required>
+                    <a style="padding:0 0 0 5px;" href="#">Sent code</a>
+                </div>
+                <input type="password" id="psws" placeholder="password" name="psws" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                <div id="messages">
+                    <p id="letters" class="invalid">lowercase</p>
+                    <p id="capitals" class="invalid">uppercase</p>
+                    <p id="numbers" class="invalid">number</p>
+                    <p id="lengths" class="invalid">8 letter</p>
+                </div>
+                <input type="password" id="repsws" placeholder="Enter password again!" name="repsws" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                <div id="messageVerifys">
+                    <p id="matchs" class="invalid">Matched</p>
+                </div>
+                <button id="forgetButton" name="forget" class="invalid2">Change Password</button>
+            </form>
+
+        </div>
         <div class="form-container sign-in-container">
             <form action="login.php" method="POST">
                 <h1>Sign in</h1>
@@ -183,10 +258,12 @@ else{
                 <span>or use your account</span>
                 <br/>
                 <p style="color:red;"><?php if($printerror!=null){echo $printerror;}    ?></p>
+                <p style="color:green;"><?php if($done!=null){echo $done;}    ?></p>
+                <p style="color:green;"><?php if($signupmessage!=null){echo $signupmessage;}    ?></p>
                 
                 <input type="text" name="username" placeholder="Email or Username" required/>
                 <input type="password" name="password" placeholder="Password" required/>
-                <a href="#">Forgot your password?</a>
+                <a  href="#" onclick="forget()">Forgot your password?</a>
                 <button name="signin">Sign In</button>
             </form>
         </div>
@@ -203,7 +280,7 @@ else{
                     <p>Enter your personal details and start journey with us</p>
                     <br>
                     <button class="ghost" id="signUp">Sign Up</button>
-                    <p style="color:red;"><?php if($error!=null){echo $error;}    ?></p>
+                    
                 </div>
             </div>
         </div>
@@ -230,6 +307,7 @@ else{
     <script>
         var email = document.getElementById("email");
         var button = document.getElementById("signupButton");
+        var buttons = document.getElementById("forgetButton");
 
         var myInput = document.getElementById("psw");
         var myInputVerify = document.getElementById("repsw");
@@ -237,6 +315,13 @@ else{
         var capital = document.getElementById("capital");
         var number = document.getElementById("number");
         var length = document.getElementById("length");
+
+        var myInputs = document.getElementById("psws");
+        var myInputVerifys = document.getElementById("repsws");
+        var letters = document.getElementById("letters");
+        var capitals = document.getElementById("capitals");
+        var numbers = document.getElementById("numbers");
+        var lengths = document.getElementById("lengths");
 
         email.onkeyup = function() {
             var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
@@ -257,12 +342,27 @@ else{
             document.getElementById("messageVerify").style.display = "block";
         }
 
+        myInputs.onfocus = function() {
+            document.getElementById("messages").style.display = "block";
+        }
+        myInputVerifys.onfocus = function() {
+            document.getElementById("messageVerifys").style.display = "block";
+        }
+
+
         // When the user clicks outside of the password field, hide the message box
         myInput.onblur = function() {
             document.getElementById("message").style.display = "none";
         }
         myInputVerify.onblur = function() {
             document.getElementById("messageVerify").style.display = "none";
+        }
+
+        myInputs.onblur = function() {
+            document.getElementById("messages").style.display = "none";
+        }
+        myInputVerifys.onblur = function() {
+            document.getElementById("messageVerifys").style.display = "none";
         }
 
         // When the user starts to type something inside the password field
@@ -281,6 +381,7 @@ else{
                 button.classList.remove("valid1");
                 button.classList.add("invalid1");
             }
+            
 
             // Validate capital letters
             var upperCaseLetters = /[A-Z]/g;
@@ -334,6 +435,76 @@ else{
                 match.classList.add("invalid");
                 button.classList.remove("valid1");
                 button.classList.add("invalid1");
+            }
+        }
+        myInputs.onkeyup = function() {
+            // Validate lowercase letters
+            var lowerCaseLetters = /[a-z]/g;
+            if (myInputs.value.match(lowerCaseLetters)) {
+                letters.classList.remove("invalid");
+                letters.classList.add("valid");
+                buttons.classList.remove("invalid1");
+                buttons.classList.add("valid1");
+            } else {
+                letters.classList.remove("valid");
+                letters.classList.add("invalid");
+                buttons.classList.remove("valid1");
+                buttons.classList.add("invalid1");
+            }
+            
+
+            // Validate capital letters
+            var upperCaseLetters = /[A-Z]/g;
+            if (myInputs.value.match(upperCaseLetters)) {
+                capitals.classList.remove("invalid");
+                capitals.classList.add("valid");
+                buttons.classList.remove("invalid1");
+                buttons.classList.add("valid1");
+            } else {
+                capitals.classList.remove("valid");
+                capitals.classList.add("invalid");
+                buttons.classList.remove("valid1");
+                buttons.classList.add("invalid1");
+            }
+
+            // Validate numbers
+            var number = /[0-9]/g;
+            if (myInputs.value.match(number)) {
+                numbers.classList.remove("invalid");
+                numbers.classList.add("valid");
+                buttons.classList.remove("invalid1");
+                buttons.classList.add("valid1");
+            } else {
+                numbers.classList.remove("valid");
+                numbers.classList.add("invalid");
+                buttons.classList.remove("valid1");
+                buttons.classList.add("invalid1");
+            }
+
+            // Validate length
+            if (myInputs.value.length >= 8) {
+                lengths.classList.remove("invalid");
+                lengths.classList.add("valid");
+                buttons.classList.remove("invalid1");
+                buttons.classList.add("valid1");
+            } else {
+                lengths.classList.remove("valid");
+                lengths.classList.add("invalid");
+                buttons.classList.remove("valid1");
+                buttons.classList.add("invalid1");
+            }
+        }
+        myInputVerifys.onkeyup = function() {
+            if (myInputs.value == myInputVerifys.value && myInputVerifys.value != "") {
+                matchs.classList.remove("invalid");
+                matchs.classList.add("valid");
+                buttons.classList.remove("invalid1");
+                buttons.classList.add("valid1");
+            } else {
+                matchs.classList.remove("valid");
+                matchs.classList.add("invalid");
+                buttons.classList.remove("valid1");
+                buttons.classList.add("invalid1");
             }
         }
     </script>
