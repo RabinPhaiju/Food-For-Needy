@@ -67,7 +67,7 @@ if($p1==$p2){
                 }
 	}else{
         // echo "<script>alert('Username or Password Incorrect111!');</script>";
-        $errorforget="Username or email not found!";
+        $errorforget="email or code not found!";
         // echo $printerror;
 		// echo "<script>window.location='login.php';</script>";
 		
