@@ -6,11 +6,46 @@ $printerror="";
 $errorforget="";
 $done="";
 $signupmessage="";
+$sentemailcode="";
+$sentmails="";
+$sentemailcode=@$_GET['email'];
 unset($_SESSION['username']);
 unset($_SESSION['reg_id']);
 setcookie ("login","");
 session_destroy();
 $error="";   
+
+if($sentemailcode!=null){
+    $currentTimeinSeconds = time();
+    $sqlcheck = "SELECT * FROM `register` WHERE `email`='$sentemailcode'";
+	//echo $sql;
+	require_once('DBConnect.php');
+	$resultt = mysqli_query($conn, $sqlcheck);
+	if (mysqli_num_rows($resultt) > 0) {
+
+				$sqlcode="UPDATE `register` SET `code`='$currentTimeinSeconds' WHERE `email`='$sentemailcode'";
+                if(mysqli_query($conn, $sqlcode)){
+                    // echo "Sent";
+                    $sentmails="Mail sent. Check your inbox for code.";
+                                $to = $sentemailcode;
+                                $subject = "Code from FoodForNeedy";
+                                $txt = "Your code is".$currentTimeinSeconds;
+                                $headers = "From: foodforneedy@gmail.com" . "\r\n" .
+                                "CC: foodforneedy@gmail.com";
+                                mail($to,$subject,$txt,$headers);
+
+                    //sent email to this email address
+                }else{
+                    // echo "Error1";
+                    $sentmails="Cant sent mail";
+                }
+            }else{
+                // echo "Not found";
+                $sentmails="Enter correct email address";
+            }
+
+}
+
 if(isset($_POST['forget'])){
 	$uu = $_POST['username'];
     $u=strtolower($uu);
@@ -30,10 +65,6 @@ if($p1==$p2){
                 }else{
                     echo "Error1";
                 }
-    
-	
-
-		
 	}else{
         // echo "<script>alert('Username or Password Incorrect111!');</script>";
         $errorforget="Username or email not found!";
@@ -168,11 +199,12 @@ else{
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
     <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="css/toast.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    
 </head>
 
-<body <?php if($error!=null){ echo "onload='slide()'";}?> <?php if($errorforget!=null){ echo "onload='forget()'";}?> >
+<body <?php if($error!=null){ echo "onload='slide()'";}?> <?php if($errorforget!=null){ echo "onload='forget()'";}?> <?php if($sentmails!=null){ echo "onload='forget()'";}?> >
     <div id="particles-js">
         <div class="navbar">
             <div class="nav0">
@@ -219,19 +251,20 @@ else{
 
         </div>
         <div class="form-container forget-container">
-            <form action="login.php" method="POST">
+            <form action="login.php" method="POST" name="forgetform">
                 <h1>Forget Password</h1>
                 <div class="social-container">
                     <a href="#" class="social"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
                     <a href="#" class="social"><i class="fa fa-google" aria-hidden="true"></i></a>
                 </div>
                 <p style="color:red;"><?php if($errorforget!=null){echo $errorforget;}    ?></p>
+                <h4 style="color:red;"><?php if($sentmails!=null){echo $sentmails;}    ?></h4>
                <br/>
                
-                <input type="text" placeholder="Enter username or email" name="username" required>
+                <input type="email" value="<?php if($sentemailcode!=null){echo $sentemailcode;}?>" placeholder="Enter Email Address" name="username" required>
                 <div style="display:flex; ">
                     <input style="width:62%;" type="text" placeholder="Enter 6 digit code" name="code" required>
-                    <a style="padding:0 0 0 5px;" href="#">Sent code</a>
+                    <a style="padding:0 0 0 5px;" onclick="sentmail()" href="#">Sent code</a>
                 </div>
                 <input type="password" id="psws" placeholder="password" name="psws" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                 <div id="messages">
@@ -285,9 +318,11 @@ else{
             </div>
         </div>
     </div>
+    <div id="snackbar">Enter valid Email Address</div>
     <script src="../js/login.js"></script>
     <script src="../js/particles.js"></script>
     <script src="../js/app.js"></script>
+    <script src="js/toast.js"></script>
     <script>
         var count_particles, update;
         let stats = new Stats;
@@ -305,6 +340,17 @@ else{
         requestAnimationFrame(update);
     </script>
     <script>
+        function sentmail() {
+  var x = document.forms["forgetform"]["username"].value;
+  var filters = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  if ( filters.test(x)) {
+    window.location='login.php?email='+x;
+  }else{
+    document.forms["forgetform"]["username"].focus();
+    toast();
+  }
+}
+
         var email = document.getElementById("email");
         var button = document.getElementById("signupButton");
         var buttons = document.getElementById("forgetButton");
