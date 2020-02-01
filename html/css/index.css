@@ -257,7 +257,7 @@ body {
     font-size: 25px;
 }
 
-@media only screen and (max-width: 380px) {
+@media only screen and (max-width: 1050px) {
     .sidemenu {
         display: none;
     }

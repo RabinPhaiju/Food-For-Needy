@@ -56,7 +56,7 @@ if (mysqli_query($conn, $sql)) {
 } else {
 echo "Error updating record: " . mysqli_error($conn);
 }
-$user=$_SESSION['username'];
+$user=$_SESSION['username'].".jpg";
 // $sql="SELECT * FROM `register` WHERE `name`='$b'and`location`='$c' and `quantity`='$d' and `ExpDate`='$e' and `type`='$g'";
 $sql = " UPDATE `register` SET `pic`='$user' WHERE `reg_id`='$id'";
 
@@ -115,9 +115,25 @@ $sql = " UPDATE `register` SET `pic`='$user' WHERE `reg_id`='$id'";
             margin-top:5px;
             display:none;
         }
+        .input-fil {
+            /* position: relative; */
+            /* overflow: hidden; */
+            width: 200px;
+            height: 30px;
+            border: none;
+            background-color: #0077CC;
+            border-radius: 3px;
+            box-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
+            cursor: pointer;
+            transition: background-color .3s ease;
+            margin-bottom:10px;
+            margin-top:5px;
+            padding:6px 0 6px 2px;
+            margin-right:10px;
+        }
         
-        .input-files:hover {
-            background-color: #1788d8;
+        .input-files:hover,.input-fil:hover {
+            background-color: #1748d8;
         }
         
         .input-files [type=file] {
@@ -130,7 +146,7 @@ $sql = " UPDATE `register` SET `pic`='$user' WHERE `reg_id`='$id'";
             cursor: pointer;
         }
         
-        .input-files label {
+        .input-files label,.input-fil label {
             font-family: 'arial';
             color: #F1F1F1;
             font-weight: bold;
@@ -152,7 +168,7 @@ $sql = " UPDATE `register` SET `pic`='$user' WHERE `reg_id`='$id'";
                         <li class="item" id='profile'>
                             <a href="#profile" class="btn"><i class="far fa-user"></i>Profile</a>
                             <div class="smenu">
-                                <a href="post.php">Posts</a>
+                            <a href="changepassword.php">Change Password</a>
                                 <a href="#">Edit Profile</a>
                             </div>
                         </li>
@@ -160,15 +176,17 @@ $sql = " UPDATE `register` SET `pic`='$user' WHERE `reg_id`='$id'";
                         <li class="item" id="messages">
                             <a href="#messages" class="btn"><i class="far fa-envelope"></i>Messages</a>
                             <div class="smenu">
-                                <a href="#">new</a>
+                            <a href="#">New</a>
+                                <a href="#">Inbox</a>
                                 <a href="#">Sent</a>
                             </div>
                         </li>
 
                         <li class="item" id="settings">
-                            <a href="#settings" class="btn"><i class="fas fa-cog"></i>Settings</a>
+                            <a href="#settings" class="btn"><i class="fas fa-cog"></i>Food List</a>
                             <div class="smenu">
-                                <a href="#">Password</a>
+                                <a href="addfood.php">Add Food</a>
+                                <a href="post.php">Your List</a>
                             </div>
                         </li>
 
@@ -188,7 +206,7 @@ $sql = " UPDATE `register` SET `pic`='$user' WHERE `reg_id`='$id'";
 
     </div>
     <div class="body_wrapper">
-        <div class="sidemenu">
+        <div class="sidemenu" id="mySidebar">
             <ul>
                 <!-- <li><a href="#"><span class="icon"><i class="fa fa-tachometer"></i></span><span></span></a></li> -->
 
@@ -207,38 +225,40 @@ $sql = " UPDATE `register` SET `pic`='$user' WHERE `reg_id`='$id'";
                     </button>
                     <a id="hide" href="#" onclick="closeNav()"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
                     <a id="show" href="#" onclick="openNav()"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+
                     <button class="cloud">
                         <a href="index.php">DashBoard</a>
                     </button>
                 </div>
 
                 <!-- <li><a href="#"><span class="icon"><i class="fa fa-compass"></i></span><span>Brand</span></a></li> -->
-                <li class="dropdown">
+                <li class="dropdown active">
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Profile</span></a>
                     <ul>
-                        <li><a href="post.php"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Post</span></a></li>
-                        <li class=""><a href="editprofile.php"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Edit Profile</span></a></li>
+                        <li><a href="changepassword.php"><span class="icon"></span><span>Change Password</span></a></li>
+                        <li class=""><a href="#"><span class="icon"></span><span>Edit Profile</span></a></li>
                     </ul>
                 </li>
-                <li class="dropdown active">
+                <li class="dropdown">
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Food List</span></a>
                     <ul>
-                        <li><a href="addfood.php"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Add to List</span></a></li>
-                        <li class="active_child"><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Your List</span></a></li>
+                        <li><a href="addfood.php"><span class="icon"></span><span>Add to List</span></a></li>
+                        <li class="active_child"><a href="post.php"><span class="icon"></span><span>Your List</span></a></li>
                     </ul>
                 </li>
                 <li class="dropdown ">
-                    <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Sub-Category</span></a>
+                    <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Messages</span></a>
                     <ul>
-                        <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Add</span></a></li>
-                        <li class=""><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>List</span></a></li>
+                        <li><a href="#"><span class="icon"></span><span>New</span></a></li>
+                        <li><a href="#"><span class="icon"></span><span>Inbox</span></a></li>
+                        <li class=""><a href="#"><span class="icon"></span><span>Sent</span></a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Product</span></a>
                     <ul>
-                        <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Add</span></a></li>
-                        <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>List</span></a></li>
+                        <li><a href="#"><span class="icon"></span><span>Add</span></a></li>
+                        <li><a href="#"><span class="icon"></span><span>List</span></a></li>
                     </ul>
                 </li>
                 <li><a href="#"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>
@@ -301,8 +321,10 @@ $sql = " UPDATE `register` SET `pic`='$user' WHERE `reg_id`='$id'";
                                         <ul class="actions">
                                         
                                             <li class="dropdown">
+
+                                            <a class="input-fil" id="input-fil" href="changepassword.php"> <label for="file-inputs">Change Password</label> </a>
                                                 <a href="#" data-toggle="dropdown">
-                                                <i class="fa fa-pencil-square-o">Update</i>
+                                                <i class="fa fa-pencil-square-o">Update Info</i>
                                                 </a>
 
                                                 <ul class="dropdown-menu dropdown-menu-right">
@@ -413,7 +435,7 @@ $sql = " UPDATE `register` SET `pic`='$user' WHERE `reg_id`='$id'";
 
                                             <div class="m-t-30">
                                                 <button class="btn btn-primary btn-sm waves-effect" name="profile_edit">Save</button>
-                                                <button data-profile-action="reset" class="btn-link btn-cancel">Cancel</button>
+                                                <button href="#" data-profile-action="reset" class="btn-link btn-cancel">Cancel</button>
                                             </div>
                                         </div>
                                         </form>
@@ -427,19 +449,26 @@ $sql = " UPDATE `register` SET `pic`='$user' WHERE `reg_id`='$id'";
             </div>
         </div>
     </div>
+    
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="js/index1.js"></script>
     <script src="js/editprofile.js"></script>
 
-    <script src="js/index1.js"></script>
+    
     <script>
+  
     function showbuttom(){
     document.getElementById("uploadpic").style.display = "block";
+    document.getElementById("input-fil").style.display="none";
     }
+   
     var loadFile = function(event) {
 	var image = document.getElementById('outputs');
 	image.src = URL.createObjectURL(event.target.files[0]);
 };
+
     </script>
 
 </body>

@@ -167,16 +167,18 @@
     .me #hide,
     .me #show {
         position: absolute;
-        transform: scale(2);
-        right: -75px;
-        bottom: 75px;
-        width: 35px;
-        height: 35px;
+        transform: scale(1.5);
+        right: -60px;
+        bottom: 95px;
+        width: 20px;
+        /* height: 35px; */
         padding-top: 2px;
+        padding-left: 3px;
         color: #FFF;
         border-radius: 0%;
-        border-style: none;
-        background: rgba(0, 0, 0, 0);
+        border-style: initial;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.5);
     }
     
     .me #show {

@@ -36,7 +36,7 @@ $search=0;
                         <li class="item" id='profile'>
                             <a href="#profile" class="btn"><i class="far fa-user"></i>Profile</a>
                             <div class="smenu">
-                                <a href="#">Posts</a>
+                            <a href="changepassword.php">Change Password</a>
                                 <a href="editprofile.php">Edit Profile</a>
                             </div>
                         </li>
@@ -44,15 +44,17 @@ $search=0;
                         <li class="item" id="messages">
                             <a href="#messages" class="btn"><i class="far fa-envelope"></i>Messages</a>
                             <div class="smenu">
-                                <a href="#">new</a>
+                            <a href="#">New</a>
+                                <a href="#">Inbox</a>
                                 <a href="#">Sent</a>
                             </div>
                         </li>
 
                         <li class="item" id="settings">
-                            <a href="#settings" class="btn"><i class="fas fa-cog"></i>Settings</a>
+                            <a href="#settings" class="btn"><i class="fas fa-cog"></i>Food List</a>
                             <div class="smenu">
-                                <a href="#">Password</a>
+                                <a href="addfood.php">Add Food</a>
+                                <a href="#">Your List</a>
                             </div>
                         </li>
 
@@ -101,7 +103,7 @@ $search=0;
                 <li class="dropdown">
                     <a href="editprofile.php"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Profile</span></a>
                     <ul>
-                        <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Post</span></a></li>
+                        <li><a href="changepassword.php"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Change Password</span></a></li>
                         <li class=""><a href="editprofile.php"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Edit Profile</span></a></li>
                     </ul>
                 </li>
@@ -113,10 +115,11 @@ $search=0;
                     </ul>
                 </li>
                 <li class="dropdown ">
-                    <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Sub-Category</span></a>
+                    <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Messages</span></a>
                     <ul>
-                        <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Add</span></a></li>
-                        <li class=""><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>List</span></a></li>
+                        <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>New</span></a></li>
+                        <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Inbox</span></a></li>
+                        <li class=""><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Sent</span></a></li>
                     </ul>
                 </li>
                 <li class="dropdown">

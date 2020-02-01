@@ -54,7 +54,7 @@ if (mysqli_query($conn, $sql)) {
 } else {
 echo "Error updating record: " . mysqli_error($conn);
 }
-$foodnames=$b.$foodid;
+$foodnames=$b.$foodid.".jpg";
 // $sql="SELECT * FROM `register` WHERE `name`='$b'and`location`='$c' and `quantity`='$d' and `ExpDate`='$e' and `type`='$g'";
 $sql = " UPDATE `food` SET `pic`='$foodnames' WHERE `food_id`='$foodid'";
 
@@ -153,7 +153,7 @@ if (!isset($foodid)) {
                         <li class="item" id='profile'>
                             <a href="#profile" class="btn"><i class="far fa-user"></i>Profile</a>
                             <div class="smenu">
-                                <a href="post.php">Posts</a>
+                            <a href="changepassword.php">Change Password</a>
                                 <a href="#">Edit Profile</a>
                             </div>
                         </li>
@@ -161,15 +161,17 @@ if (!isset($foodid)) {
                         <li class="item" id="messages">
                             <a href="#messages" class="btn"><i class="far fa-envelope"></i>Messages</a>
                             <div class="smenu">
-                                <a href="#">new</a>
+                            <a href="#">New</a>
+                                <a href="#">Inbox</a>
                                 <a href="#">Sent</a>
                             </div>
                         </li>
 
                         <li class="item" id="settings">
-                            <a href="#settings" class="btn"><i class="fas fa-cog"></i>Settings</a>
+                            <a href="#settings" class="btn"><i class="fas fa-cog"></i>Food List</a>
                             <div class="smenu">
-                                <a href="#">Password</a>
+                                <a href="addfood.php">Add Food</a>
+                                <a href="post.php">Your List</a>
                             </div>
                         </li>
 
@@ -189,7 +191,7 @@ if (!isset($foodid)) {
 
     </div>
     <div class="body_wrapper">
-        <div class="sidemenu">
+        <div class="sidemenu" id="mySidebar">
             <ul>
                 <!-- <li><a href="#"><span class="icon"><i class="fa fa-tachometer"></i></span><span></span></a></li> -->
 
@@ -217,29 +219,30 @@ if (!isset($foodid)) {
                 <li class="dropdown">
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Profile</span></a>
                     <ul>
-                        <li><a href="post.php"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Post</span></a></li>
-                        <li class=""><a href="editprofile.php"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Edit Profile</span></a></li>
+                        <li><a href="changepassword.php"><span class="icon"></span><span>Change Password</span></a></li>
+                        <li class=""><a href="editprofile.php"><span class="icon"></span><span>Edit Profile</span></a></li>
                     </ul>
                 </li>
                 <li class="dropdown active">
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Food List</span></a>
                     <ul>
-                        <li><a href="addfood.php"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Add to List</span></a></li>
-                        <li class="active_child"><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Your List</span></a></li>
+                        <li><a href="addfood.php"><span class="icon"></span><span>Add to List</span></a></li>
+                        <li class="active_child"><a href="post.php"><span class="icon"></span><span>Your List</span></a></li>
                     </ul>
                 </li>
                 <li class="dropdown ">
-                    <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Sub-Category</span></a>
+                    <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Messages</span></a>
                     <ul>
-                        <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Add</span></a></li>
-                        <li class=""><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>List</span></a></li>
+                        <li><a href="#"><span class="icon"></span><span>New</span></a></li>
+                        <li><a href="#"><span class="icon"></span><span>Inbox</span></a></li>
+                        <li class=""><a href="#"><span class="icon"></span><span>Sent</span></a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Product</span></a>
                     <ul>
-                        <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Add</span></a></li>
-                        <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>List</span></a></li>
+                        <li><a href="#"><span class="icon"></span><span>Add</span></a></li>
+                        <li><a href="#"><span class="icon"></span><span>List</span></a></li>
                     </ul>
                 </li>
                 <li><a href="#"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>

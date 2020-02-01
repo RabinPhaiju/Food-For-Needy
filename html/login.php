@@ -1,7 +1,8 @@
 <?php
 if(empty($_SESSION)){
-	session_start();
+    session_start();
 }
+$printerror="";
 unset($_SESSION['username']);
 unset($_SESSION['reg_id']);
 setcookie ("login","");
@@ -20,8 +21,9 @@ if(isset($_POST['signin'])){
 		// echo "Login Successful";exit;
 		if(empty($_SESSION)) // if the session not yet started
    			session_start();
-		$_SESSION['username'] = $u;
-		$row = mysqli_fetch_assoc($result);
+		
+        $row = mysqli_fetch_assoc($result);
+        $_SESSION['username'] = $row['username'];
 		//echo "<pre>"; print_r($row);exit;
         $_SESSION['reg_id'] = $row['reg_id'];
         $_SESSION['name']=" ".$row['firstname']." ".$row['lastname'];
@@ -38,9 +40,11 @@ if(isset($_POST['signin'])){
 		echo "<script>window.location='index.php';</script>";		
         exit; 
 	}else{
-		echo "<script>alert('Username or Password Incorrect!');</script>";
-		echo "<script>window.location='login.php';</script>";
-		exit;
+        // echo "<script>alert('Username or Password Incorrect111!');</script>";
+        $printerror="Username or Password Incorrect!";
+        // echo $printerror;
+		// echo "<script>window.location='login.php';</script>";
+		
 	}
 }
 if(isset($_POST['signup'])) {
@@ -177,6 +181,9 @@ else{
                     <a href="#" class="social"><i class="fa fa-google" aria-hidden="true"></i></a>
                 </div>
                 <span>or use your account</span>
+                <br/>
+                <p style="color:red;"><?php if($printerror!=null){echo $printerror;}    ?></p>
+                
                 <input type="text" name="username" placeholder="Email or Username" required/>
                 <input type="password" name="password" placeholder="Password" required/>
                 <a href="#">Forgot your password?</a>
