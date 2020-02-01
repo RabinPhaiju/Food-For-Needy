@@ -60,8 +60,8 @@ $sql="SELECT * FROM `food` WHERE `name`='$b'and`location`='$c' and `quantity`='$
 require_once("DBConnect.php");
 $resultpic = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($resultpic);
-
-    $bbb=$_POST['name'].$row["food_id"];//foodname + id
+$bc = str_replace(' ', '', $b);
+    $bbb=$bc.$row["food_id"];//foodname + id
 
     $bname=$bbb.".jpg";
     if(empty($errors)==true){

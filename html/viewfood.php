@@ -54,7 +54,8 @@ if (mysqli_query($conn, $sql)) {
 } else {
 echo "Error updating record: " . mysqli_error($conn);
 }
-$foodnames=$b.$foodid.".jpg";
+$bc = str_replace(' ', '', $b);
+$foodnames=$bc.$foodid.".jpg";
 // $sql="SELECT * FROM `register` WHERE `name`='$b'and`location`='$c' and `quantity`='$d' and `ExpDate`='$e' and `type`='$g'";
 $sql = " UPDATE `food` SET `pic`='$foodnames' WHERE `food_id`='$foodid'";
 

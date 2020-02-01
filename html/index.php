@@ -2,6 +2,12 @@
 include 'session.php';
 // echo $_SESSION['username'].$_SESSION['reg_id'];
 $search=1;
+$all=0;
+$pos=@$_GET['pos'];
+if($pos==9999){
+    $pos=0;
+    $all=1;
+}
 
 if (isset($_POST['searchsubmit'])) {
 $search=0;
@@ -141,19 +147,50 @@ $search=0;
                 <input type="text" class="searchTerm" placeholder="Search" name="search" required="required">
                 <button type="submit" name="searchsubmit" class="searchButton">
                  <i class="fa fa-search"></i>
-              </button>
+                 </button>
+                 <a class="globe" href="index.php?pos=9999"><i class="fa fa-globe"></i></a>
+              
+              <div class="navi">
+                  <?php
+                          $sql = "SELECT * from `food`";// where `verified`='1' AND `status`='1'";
+                            require_once("DBConnect.php");
+                            $resulttotal = $conn-> query($sql);
+                            $total = mysqli_num_rows($resulttotal);?>
+
+              <?php if($pos==null){$pos=0;}?>
+              <?php if($pos>0){?>
+              <a class="navileft" href="index.php?pos=<?php echo $pos-10;?>"><i class="fa fa-chevron-left"></i></a>
+              <?php }else { ?>
+              <a class="navileft"><i class="fa fa-chevron-left"></i></a>
+              <?php } if($pos<$total){ ?>
+              <a class="naviright" href="index.php?pos=<?php echo $pos+10;?>"><i class="fa fa-chevron-right"></i></a>
+              <?php } else { ?>
+                <a class="naviright"><i class="fa fa-chevron-right"></i></a>
+              <?php } ?>
+              <p style="margin:8px 0 0 5px"><?php echo ($pos+1)." - ".($pos+10);?> out of <?php echo $total?></p>
+              </div>
+              
             </div>
+            
+            
         </div>
         </form>
+        
 
         <div class="cards">
             
         <!-- start -->
     <?php
-   
-    $sql = "SELECT * from food";// where `verified`='1' AND `status`='1'";
-    require_once("DBConnect.php");
-	$result = $conn-> query($sql);
+        if($pos==null){$pos=0;
+            $pos10=$pos+10;}else{
+                $pos10=10;
+            }
+            if($all==1){$pos=0; $pos10=$total;}
+             $sql = "SELECT * from `food` WHERE 1 Limit $pos, $pos10";// where `verified`='1' AND `status`='1'";
+         
+             require_once("DBConnect.php");
+             $result = $conn-> query($sql);
+             $total = mysqli_num_rows($result);
 
 	if($result-> num_rows >0 && $search==1){
 		while($row = $result-> fetch_assoc()){  
@@ -271,8 +308,8 @@ $search=0;
                 <?php      }}
 
         }else{
-            echo "<h1>List is Empty</h1>";
-        }       ?>
+            ?><h1>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspYou have reached the End.</h1>
+      <?php  }       ?>
             <!-- end -->
         </div>
 
