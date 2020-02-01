@@ -267,7 +267,7 @@ body {
     float: left;
     width: 230px;
     height: calc(100vh - 50px);
-    background: #4f5767;
+    background: #909bb0;
     /* overflow-y: auto; */
     scrollbar-width: none;
 }
@@ -285,7 +285,7 @@ body {
 }
 
 .sidemenu>ul {
-    background: #3f4d67;
+    background: #666d78;
 }
 
 .sidemenu>ul>li>a {
@@ -294,11 +294,11 @@ body {
     color: #fff;
     text-decoration: none;
     padding: 15px;
-    background: #6666;
+    background: rgba(87, 83, 83, 0.5);
 }
 
 .sidemenu>ul>li>a:hover {
-    background: #49415482;
+    background: #2e2e2e82;
 }
 
 .sidemenu>ul>li>a>span {
@@ -306,8 +306,8 @@ body {
 }
 
 .sidemenu>ul>li.active>a {
-    /* background: #252525; */
-    color: #97ffe2;
+    background: #383838;
+    color: #ffffff;
 }
 
 .sidemenu>ul>li.active>a::before {
@@ -331,12 +331,12 @@ body {
     width: 100%;
     color: #fff;
     padding: 15px;
-    background: #3f4d67;
+    background: #50555c;
     padding-left: 40px;
 }
 
 .sidemenu>ul>li>ul>li>a:hover {
-    background: #49415482;
+    background: #24232482;
 }
 
 .sidemenu>ul>li>ul>li>a>span {

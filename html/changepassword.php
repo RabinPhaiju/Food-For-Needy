@@ -110,6 +110,12 @@ echo "Error updating record: " . mysqli_error($conn);
                 <div class="nav3"><i class="fa fa-user fa-3x" aria-hidden="true"></i>
                     <div class="middle">
                         <div class="menu">
+                        <li class="item" id='dashboard'>
+                            <a href="#dashboard" class="btn"><i class="fa fa-home"></i>Dashboard</a>
+                            <div class="smenu">
+                            <a href="index.php">Home</a>
+                            </div>
+                        </li>
                             <li class="item" id='profile'>
                                 <a href="#profile" class="btn"><i class="far fa-user"></i>Profile</a>
                                 <div class="smenu">
