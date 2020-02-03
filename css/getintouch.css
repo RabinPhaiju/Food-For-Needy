@@ -1,0 +1,96 @@
+.getintouch{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 1vw;
+    margin-top: 5vw;
+   
+   
+}
+.getintouch .contact {
+    margin-left: 12vw;
+}
+.getintouch .contact .titlePart p{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3vw;
+}
+.getintouch .contact .titlePart span{
+    font-size: 5vw;
+    font-family: 'Cormorant Garamond', serif;
+}
+.getintouch .contact .infoPart {
+    margin-top: 2vw;
+}
+.getintouch .contact .infoPart ul{
+    list-style: none ;    
+}
+.getintouch .contact .infoPart li{
+    font-size: 1.5vw;
+    font-family: 'Montserrat', sans-serif;
+    text-align: left;
+    line-height: 3vw;
+}
+.getintouch .contact .infoPart li a{
+ text-decoration: none;
+ color: black;
+ cursor: pointer;
+}
+
+
+/* message part */
+.getintouch .message{
+    padding-left: 8vw;
+    border-left: 1px solid black;
+}
+.getintouch .message .titlePart1 p{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3vw;
+}
+.getintouch .message .titlePart1 span{
+    font-size: 5vw;
+    font-family: 'Cormorant Garamond', serif;
+}
+.getintouch .message .infoPart1 {
+    margin-top: 2vw;
+    display: flex;
+    
+}
+.getintouch .message .infoPart1 .leftPart, .getintouch .message .infoPart1 .rightPart{
+    flex: 1;
+}
+.getintouch .message .infoPart1 ul{
+    list-style: none;
+}
+.getintouch .message .infoPart1 .leftPart li, .getintouch .message .infoPart1 .rightPart li{
+    line-height: 5vw;
+    font-family: 'Montserrat', sans-serif;
+}
+.getintouch .message .infoPart1 .rightPart li textarea{
+    line-height: 1.5vw;
+    margin-top: 1vw;
+}
+.getintouch .message .infoPart1 .rightPart li input[type='text'],.getintouch .message .infoPart1 .rightPart li textarea{
+    padding-top: .8vw;
+    padding-bottom: .8vw;
+    padding-left: 1vw;
+    width: 19.8vw;
+    border-radius: .5vw;
+    opacity: .6;
+    /* border: black; */
+}
+.getintouch .message .infoPart1 .rightPart li input[type='submit']{
+    border-radius: 1px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: black;
+    border-color: black;
+    padding: 1vw 3vw;
+    box-shadow: 1vw 1vw 1vw 0vw;
+    font-size: 1vw;
+    z-index: 5; 
+    opacity: .7;
+    color: white;
+}
+.getintouch .message .infoPart1 .rightPart li input[type='submit']:hover{
+    transform: scale(1.1);
+    transition:1s ease;
+    cursor: pointer;
+}

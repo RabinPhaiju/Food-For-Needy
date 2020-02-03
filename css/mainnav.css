@@ -41,7 +41,8 @@
         opacity: 0.6;
     }
         .wrapper-mainNav .navbar1> div{
-            padding:1.2em;font-family: 'Montserrat', sans-serif;
+            padding:1.2em;
+            font-family: 'Montserrat', sans-serif;
             width: fit-content;color: black;
         }
         .wrapper-mainNav .navbar1 p{
@@ -91,10 +92,11 @@
 } 
 .firstpage .firstPagetext a{
     padding-bottom: 2vw;
-    font-size: 16px;
+    font-size: 2vw;
     text-decoration: none;
     color: black;
     margin-left: 15vw;
+    font-family: 'Cormorant Garamond', serif;
 }
 .firstpage .firstPagetext a:hover{
     opacity: 0.5;
