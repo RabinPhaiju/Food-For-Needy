@@ -20,3 +20,25 @@
     transform: skewY(-2.5deg);   
 }
 
+.designDiv2{
+    margin: 0;
+    display: flex;
+    margin-top: 3vw;
+   
+}
+.designDiv2 .sd1{
+    flex: 1;
+    position: relative;
+    background-color: white;
+    transform: skewY(10deg);
+    height: 7vw;
+}
+
+.designDiv2 .sd2{
+    flex: 4;
+    height: 7vw;
+    position: relative;
+    background-color: white;
+    transform: skewY(-2.5deg);   
+}
+

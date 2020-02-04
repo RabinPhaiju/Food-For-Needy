@@ -1,13 +1,13 @@
 .getintouch{
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: repeat(auto-fill,500px);
     grid-gap: 1vw;
     margin-top: 5vw;
    
    
 }
 .getintouch .contact {
-    margin-left: 12vw;
+    margin-left: 8vw;
 }
 .getintouch .contact .titlePart p{
     font-family: 'Cormorant Garamond', serif;

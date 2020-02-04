@@ -76,12 +76,12 @@
     padding-left: 5vw;
     flex: 1;
 }
-.firstpage .firstPagetext h1{
+.firstpage .firstPagetext p.title-note{
     font-family: 'Cormorant Garamond', serif;
     color: black;
-    line-height: 6.5vw;
+    line-height: 7vw;
     font-size: 5vw;
-    letter-spacing: .3vw;
+    letter-spacing: .2vw;
 }
  /* color change gar yaha */
 .firstpage .firstPagetext p{
@@ -148,8 +148,8 @@
     flex: 1;
 }
 .firstpage .searching p{
-    font-family: 'Kaushan Script', cursive;
-    font-size: 6vw;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5vw;
     text-align: right;
     padding-right: 15vw;
     color: black;
