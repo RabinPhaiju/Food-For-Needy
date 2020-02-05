@@ -1,0 +1,93 @@
+
+.fifth .main-header{
+    margin-left: 5rem;
+    margin-top: 5rem;
+    position: relative;
+}
+.fifth .main-header .title {
+    font-size: 3.2em;
+    text-transform: uppercase;
+    font-weight: 600;
+    
+  }
+.fifth .main-header .letter {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 10em;
+    opacity: 0.4;
+    position: absolute;
+    margin-top: -6.5rem;
+    margin-left: 2rem;
+  } 
+
+.fifth .teamMember{
+    width: 100%;
+    margin-top: 5vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(10rem,2fr));
+    grid-gap:3vw;   
+    padding:5vw;
+}
+
+.fifth .Teamcard1,.Teamcard2,.Teamcard3,.Teamcard4{
+    border-radius: 8px;
+    position: relative;
+}
+.fifth .Teamcard1 img,.Teamcard2 img,.Teamcard3 img,.Teamcard4 img{
+    width:100%;
+    height: 280px;
+    border-radius: 8px;
+}
+
+.fifth .teamMember .info{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 100%;
+    overflow: hidden;
+    width: 0;
+    height: 79.8%;
+    transition: .5s ease;
+}
+.fifth .teamMember .Teamcard1:hover .info,
+.fifth .teamMember .Teamcard2:hover .info,
+.fifth .teamMember .Teamcard3:hover .info,
+.fifth .teamMember .Teamcard4:hover .info{
+    width: 20%;
+    left: 0;
+    border-radius: 8px 0px 0px 0px;
+}
+
+.fifth .teamMember .memberName{
+    position: absolute;
+    bottom: .2rem;
+    left: 0;
+    right: 100%;
+    background-color: white;
+    opacity: .5;
+    overflow: hidden;
+    width: 0;
+    height: 19%;
+    transition: 1s ease;
+}
+.fifth .teamMember .Teamcard1:hover .memberName,
+.fifth .teamMember .Teamcard2:hover .memberName,
+.fifth .teamMember .Teamcard3:hover .memberName,
+.fifth .teamMember .Teamcard4:hover .memberName{
+    width: 100%;
+    left: 0;
+    border-radius: 0px 0px 8px 8px;
+    text-align: center;
+    white-space: nowrap;
+    padding-top:1.5vw;
+}
+
+.fifth .teamMember .info ul{
+    list-style: none;
+    margin-top: 75%;
+}
+.fifth .teamMember .info li{
+    color: red;
+    line-height: 40px;
+    margin-left: 40%;
+}
