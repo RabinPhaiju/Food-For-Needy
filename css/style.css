@@ -19,7 +19,9 @@ body {
   
 }
 .container{
-  background-image: linear-gradient(to right bottom,#ba5370,#f4e2d8);
+  background: url('../files/hands2.jpg') no-repeat center;
+  background-size: cover;
+  background-attachment: fixed;
   margin-top: -20px;
   padding-top: 2vw;
   padding-bottom: 5vw;

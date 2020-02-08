@@ -1,7 +1,7 @@
 .designDiv{
     margin: 0;
     display: flex;
-    margin-top: -3.6rem;
+    margin-top: -3.7rem;
    
 }
 .designDiv .sd1{
@@ -9,12 +9,12 @@
     position: relative;
     background-color: white;
     transform: skewY(10deg);
-    height: 4.5rem;
+    height: 5rem;
 }
 
 .designDiv .sd2{
     flex: 4;
-    height: 4.5rem;
+    height: 5rem;
     position: relative;
     background-color: white;
     transform: skewY(-2.5deg);   

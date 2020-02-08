@@ -2,7 +2,8 @@
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(20rem,1fr));
     grid-gap: 1vw;
-    margin-top: 4rem;   
+    margin-top: 4rem; 
+    z-index: 5;  
 }
 .getintouch .contact {
     margin-left: 7rem;
