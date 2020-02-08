@@ -78,7 +78,7 @@
     padding: 1vw;
   }
 .third-page .suggestpart .outerLine2{
-    transition: 4s ease;
+    transition: 2s ease;
     border-radius: 7px;
     padding: 2vw;
   }
@@ -87,7 +87,7 @@
   }
 .third-page .suggestpart .outerLine2 p{
     font-size: 6vw;
-    color: cornsilk;
+    color: wheat;
   }
   
   
@@ -120,12 +120,12 @@
     cursor: pointer;
   }
 .third-page .suggestpart .outerLine2 li .suggestbtn a{
-    color: cornsilk;
+    color: white;
   }
 .third-page .suggestpart .outerLine2 li .suggestbtn a:hover{
     opacity: 0.5;
     transform: scale(1.1); 
-    color: #4CAF50;
+    color: wheat;
     transition:1s ease;
   }
 

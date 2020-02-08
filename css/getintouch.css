@@ -1,20 +1,18 @@
 .getintouch{
     display: grid;
-    grid-template-columns: repeat(auto-fill,500px);
+    grid-template-columns: repeat(auto-fit,minmax(20rem,1fr));
     grid-gap: 1vw;
-    margin-top: 5vw;
-   
-   
+    margin-top: 4rem;   
 }
 .getintouch .contact {
-    margin-left: 8vw;
+    margin-left: 7rem;
 }
 .getintouch .contact .titlePart p{
     font-family: 'Cormorant Garamond', serif;
-    font-size: 3vw;
+    font-size: 2rem;
 }
 .getintouch .contact .titlePart span{
-    font-size: 5vw;
+    font-size: 4rem;
     font-family: 'Cormorant Garamond', serif;
 }
 .getintouch .contact .infoPart {
@@ -24,10 +22,10 @@
     list-style: none ;    
 }
 .getintouch .contact .infoPart li{
-    font-size: 1.5vw;
+    font-size: 1rem;
     font-family: 'Montserrat', sans-serif;
     text-align: left;
-    line-height: 3vw;
+    line-height: 1.5rem;
 }
 .getintouch .contact .infoPart li a{
  text-decoration: none;
@@ -37,42 +35,43 @@
 
 
 /* message part */
-.getintouch .message{
-    padding-left: 8vw;
-    border-left: 1px solid black;
-}
+
 .getintouch .message .titlePart1 p{
     font-family: 'Cormorant Garamond', serif;
-    font-size: 3vw;
+    font-size: 3rem;
 }
 .getintouch .message .titlePart1 span{
-    font-size: 5vw;
+    font-size: 4rem;
     font-family: 'Cormorant Garamond', serif;
 }
 .getintouch .message .infoPart1 {
-    margin-top: 2vw;
+    margin-top: 1.5rem;
     display: flex;
     
 }
-.getintouch .message .infoPart1 .leftPart, .getintouch .message .infoPart1 .rightPart{
+.getintouch .message .infoPart1 .leftPart{
     flex: 1;
+} 
+.getintouch .message .infoPart1 .rightPart{
+    flex: 3;
 }
 .getintouch .message .infoPart1 ul{
     list-style: none;
 }
 .getintouch .message .infoPart1 .leftPart li, .getintouch .message .infoPart1 .rightPart li{
-    line-height: 5vw;
+    line-height: 3rem;
     font-family: 'Montserrat', sans-serif;
 }
 .getintouch .message .infoPart1 .rightPart li textarea{
-    line-height: 1.5vw;
-    margin-top: 1vw;
+    line-height: 1.5rem;
+    margin-top: 1rem;
 }
-.getintouch .message .infoPart1 .rightPart li input[type='text'],.getintouch .message .infoPart1 .rightPart li textarea{
-    padding-top: .8vw;
-    padding-bottom: .8vw;
-    padding-left: 1vw;
-    width: 19.8vw;
+.getintouch .message .infoPart1 .rightPart li input[type='text'],
+.getintouch .message .infoPart1 .rightPart li textarea{
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    padding-left: 1rem;
+    width: 12rem;
     border-radius: .5vw;
     opacity: .6;
     /* border: black; */
@@ -82,9 +81,9 @@
     font-family: 'Montserrat', sans-serif;
     background-color: black;
     border-color: black;
-    padding: 1vw 3vw;
-    box-shadow: 1vw 1vw 1vw 0vw;
-    font-size: 1vw;
+    padding: 1rem 2rem;
+    box-shadow: 1rem 1rem 1rem 0rem;
+    font-size: 1rem;
     z-index: 5; 
     opacity: .7;
     color: white;
@@ -93,4 +92,14 @@
     transform: scale(1.1);
     transition:1s ease;
     cursor: pointer;
+}
+
+@media only screen and (max-width: 600px){
+    .getintouch .contact {
+        margin-left: 3.5rem;
+    }
+    .getintouch .message{
+        margin-top: 3rem;
+        margin-left: 3.5rem;
+    }
 }

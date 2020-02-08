@@ -1,28 +1,41 @@
 
+
 .fifth .main-header{
-    margin-left: 5rem;
     margin-top: 5rem;
     position: relative;
+    font-family: 'Cormorant Garamond', serif;
+    width: 100%;
 }
-.fifth .main-header .title {
+.fifth .textDesign{
+    margin:  0vw 10vw;
+    float: left;
+}
+
+.fifth .main-header .textDesign .title {
     font-size: 3.2em;
     text-transform: uppercase;
     font-weight: 600;
     
   }
-.fifth .main-header .letter {
+.fifth .main-header .textDesign .letter {
     text-transform: uppercase;
-    font-weight: 700;
     font-size: 10em;
-    opacity: 0.4;
-    position: absolute;
-    margin-top: -6.5rem;
-    margin-left: 2rem;
+    opacity: 0.6;
+    margin-top: -6.8rem;
+    margin-left: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
   } 
+  
+.fifth .fifthDivText{
+    font-size: 1.1rem;
+    margin-left: 15VW;
+}
+
+
 
 .fifth .teamMember{
     width: 100%;
-    margin-top: 5vw;
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(10rem,2fr));
     grid-gap:3vw;   
@@ -35,7 +48,7 @@
 }
 .fifth .Teamcard1 img,.Teamcard2 img,.Teamcard3 img,.Teamcard4 img{
     width:100%;
-    height: 280px;
+    height: 300px;
     border-radius: 8px;
 }
 
@@ -61,14 +74,16 @@
 .fifth .teamMember .memberName{
     position: absolute;
     bottom: .2rem;
-    left: 0;
-    right: 100%;
+    left: 50%;
+    top: 80%;
     background-color: white;
     opacity: .5;
     overflow: hidden;
     width: 0;
     height: 19%;
     transition: 1s ease;
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
 }
 .fifth .teamMember .Teamcard1:hover .memberName,
 .fifth .teamMember .Teamcard2:hover .memberName,

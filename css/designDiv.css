@@ -1,7 +1,7 @@
 .designDiv{
     margin: 0;
     display: flex;
-    margin-top: -5vw;
+    margin-top: -3.6rem;
    
 }
 .designDiv .sd1{
@@ -9,12 +9,12 @@
     position: relative;
     background-color: white;
     transform: skewY(10deg);
-    height: 7vw;
+    height: 4.5rem;
 }
 
 .designDiv .sd2{
     flex: 4;
-    height: 7vw;
+    height: 4.5rem;
     position: relative;
     background-color: white;
     transform: skewY(-2.5deg);   
@@ -23,7 +23,7 @@
 .designDiv2{
     margin: 0;
     display: flex;
-    margin-top: 3vw;
+    margin-top: 2rem;
    
 }
 .designDiv2 .sd1{
@@ -31,12 +31,12 @@
     position: relative;
     background-color: white;
     transform: skewY(10deg);
-    height: 7vw;
+    height: 4.5rem;
 }
 
 .designDiv2 .sd2{
     flex: 4;
-    height: 7vw;
+    height: 4.5rem;
     position: relative;
     background-color: white;
     transform: skewY(-2.5deg);   
