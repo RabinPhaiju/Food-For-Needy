@@ -25,6 +25,8 @@ body {
   margin-top: -20px;
   padding-top: 2vw;
   padding-bottom: 5vw;
+  max-width: 1200px;
+  margin: auto;
 }
 .wrapper-nav{
   display: none;
