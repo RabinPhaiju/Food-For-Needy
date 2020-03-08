@@ -8,7 +8,7 @@
     align-items: center;
     z-index: 2;
     position: relative;
-    margin-top:-2vw ;
+    margin-top:-4vw ;
 }
 .fourth-page .story{
     flex: 1;
@@ -22,7 +22,7 @@
 .fourth-page .story-text{
     flex:3;
     text-align: justify;
-    padding: 2vw;
+    padding: 8vw;
 }
 .fourth-page .story-text h2{
     font-family: 'Cormorant Garamond', serif;
@@ -34,7 +34,7 @@
     font-size: 1rem;
 }
 
-@media only screen and (max-width:500px)
+@media only screen and (max-width:630px)
 {   
     .fourth-page .story-text h2{
         display: block;

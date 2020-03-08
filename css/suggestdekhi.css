@@ -121,6 +121,7 @@
   }
 .third-page .suggestpart .outerLine2 li .suggestbtn a{
     color: white;
+    text-decoration: none;
   }
 .third-page .suggestpart .outerLine2 li .suggestbtn a:hover{
     opacity: 0.5;
