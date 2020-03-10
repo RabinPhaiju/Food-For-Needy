@@ -24,9 +24,8 @@ body {
   background-attachment: fixed;
   margin-top: -20px;
   padding-top: 2vw;
-  padding-bottom: 5vw;
-  max-width: 1200px;
-  margin: auto;
+  padding-bottom: 8vw;
+  height: 40rem;
 }
 .wrapper-nav{
   display: none;

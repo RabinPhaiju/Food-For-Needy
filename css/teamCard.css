@@ -29,13 +29,16 @@
   
 .fifth .fifthDivText{
     font-size: 1.1rem;
-    margin-left: 15VW;
+    padding-left: 8vw;
+    padding-right: 8vw;
+    text-align: justify;
 }
 
 
 
 .fifth .teamMember{
     width: 100%;
+    margin-top: 2rem;
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(10rem,2fr));
     grid-gap:3vw;   
