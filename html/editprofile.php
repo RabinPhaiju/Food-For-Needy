@@ -397,7 +397,6 @@ $sql = " UPDATE `register` SET `pic`='$user' WHERE `reg_id`='$id'";
                                                         <select class="form-control" name="user_type" required="required">
                                                                           <option value="Donator">Donator</option>
                                                                           <option value="Receiver">Receiver</option>
-                                                                          <option value="Organizer">Organizer</option>
                                                                       </select>
                                                     </div>
                                                 </dd>
