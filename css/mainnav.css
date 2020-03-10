@@ -82,20 +82,20 @@
 .firstpage .firstPagetext p.title-note{
     font-family: 'Cormorant Garamond', serif;
     color: black;
-    line-height: 7vw;
-    font-size: 5vw;
+    line-height: 4rem;
+    font-size: 4rem;
     letter-spacing: .2vw;
 }
  /* color change gar yaha */
 .firstpage .firstPagetext p{
     font-family: 'Cormorant Garamond', serif;
     color: black;
-    font-size: 1.7vw;
+    font-size: 1.2rem;
     letter-spacing: .1vw;
 } 
 .firstpage .firstPagetext a{
     
-    font-size: 2vw;
+    font-size: 1rem;
     text-decoration: none;
     color: black;
     font-family: 'Cormorant Garamond', serif;
@@ -124,7 +124,6 @@
     cursor: pointer;
 } */
 .firstpage .firstPagetext .line-btn button.aboutbtn a{
-    margin-top: 2rem;
     color: cornsilk;
     
 }
@@ -154,12 +153,11 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 3rem;
     text-align: center;
-   
     color: black;
 }
   
   .searching form input[type='text']{
-    padding: 0.6vw;
+    padding: 0.7rem;
     border-radius: .5vw;
     width: 34vw;
     border: black;
@@ -172,7 +170,7 @@
   }
   .searching form button{
     position: absolute;
-    padding: .7vw; 
+    padding: .7rem; 
     border-radius: .5vw;
     position: absolute;
     margin-left: 1vw;
