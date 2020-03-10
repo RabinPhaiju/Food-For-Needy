@@ -48,9 +48,22 @@ $sql = "INSERT INTO `food` (`updated_by`,`name`,`location`,`quantity`,`ExpDate`,
 require_once("DBConnect.php");
 
 if (mysqli_query($conn, $sql)) {
+    $sql0="SELECT `food_id` from `food` where `name`='$b'";
+    $result0 = mysqli_query($conn, $sql0);
+  $row0 = mysqli_fetch_assoc($result0);
+  $foodid=$row0["food_id"];
+  require_once("DBConnect.php");
+  $sql2="INSERT INTO `records` (`reg_id`,`food_id`) VALUES ('$a','$foodid')";
+//   echo "first";
+  if(mysqli_query($conn, $sql2)){
+    //   echo "done";
+  }
+  else {
+    echo "Error updating record: " . mysqli_error($conn);
+    }
 // echo "Record updated successfully";
 // echo "<script>alert('Update Changes Successfully!');</script>";
-// echo "<script>window.location='index.php';</script>";
+//echo "<script>window.location='index.php';</script>";
 } else {
 echo "Error updating record: " . mysqli_error($conn);
 }
@@ -71,7 +84,7 @@ $bc = str_replace(' ', '', $b);
        require_once("DBConnect.php");
 
       if (mysqli_query($conn, $sql)) {
-          echo "<script>window.location='index.php';</script>";
+        //   echo "<script>window.location='index.php';</script>";
       } else {
           echo "Error: " . $sql . "<br>" . mysqli_error($conn);
       } 
