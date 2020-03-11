@@ -14,7 +14,7 @@ if (isset($_POST['send'])) {
         require_once("DBConnect.php");
       $sql="INSERT INTO `messages` (`msg_to`,`msg_from`,`subject`,`message`) VALUES ('$a','$b','$c','$d')";
       if(mysqli_query($conn, $sql)){
-        echo "<script>window.location='sent.php';</script>";
+        echo "<script>window.location='new.php';</script>";
       }
       else {
         echo "Error updating record: " . mysqli_error($conn);
@@ -133,6 +133,28 @@ if (isset($_POST['send'])) {
  font-size: 16px;
  color: #444;
 }
+.panel table {
+			margin-top: 18px;
+		  font-family: arial, sans-serif;
+		  border-collapse: collapse;
+		  width: 100%;
+		}
+		.panel td, .panel th {
+		  border: 0px solid #dddddd;
+		  text-align: left;
+		  padding: 8px;
+		}
+		.panel tr:nth-child(even) {
+		  background-color: #dddddd;
+		}
+		@media only screen and (max-width: 1300px) {
+            .panel td,.panel th{
+					font-size: 8px;
+				}
+				.panel img{
+		    height:30px;
+        }
+    }
     </style>
 </head>
 
@@ -254,11 +276,9 @@ if (isset($_POST['send'])) {
 
         <div class="container">
             <div class="col-md-9 col-sm-9 contains">
+            <h3 style="margin-left:20px;"><i class="fa fa-envelope" aria-hidden="true"></i> Sent new Message</h3>
                 <div class="panel profile-panel">
                     <div class="panel-heading">
-                        <div class="text-left">
-                            <h2>Sent new Message</h2>
-                        </div>
                     </div>
                     <!-- panel body -->
                     <div class="container form-top">
@@ -303,6 +323,38 @@ if (isset($_POST['send'])) {
                     </div>
                 </div>
             </div>
+
+
+            <table>
+	<tr>
+		<td><b><h2>Sendt Messages</h2> <a href="sent.php">Show all</a></b></td>
+		<!-- <td><b>Address</b></td>
+		<td><b>Phone</b></td>
+		<td><b>Bloodtype</b></td> -->
+	</tr>
+    <?php
+    $count=1;
+    require_once("DBConnect.php");
+	if($conn-> connect_error){
+		die("Connection failed:". $conn-> connect_error);
+    }
+    $session_reg_id=$_SESSION['reg_id'];
+    $from=$_SESSION['username'];
+        $sql = "SELECT * from `messages` WHERE `msg_from`='$from' ORDER BY `message_id` DESC";
+	$result = $conn-> query($sql);
+    // echo $result-> num_rows;
+	if($result-> num_rows >0){
+            $del_count=0;
+            while($del_count<10 &&   $row = $result-> fetch_assoc()){
+              echo "<tr><td>".$count.") Subject : ".$row["subject"].". Message : ".$row["message"].". To ".$row["msg_to"]." "."</td></tr>";
+                $count++;
+               $del_count++;
+            }}else{
+                echo "<tr><td>No Messages</td></tr>";
+            }
+        echo "</table>";
+    
+        ?>
                     <!-- end panel body -->
                 </div>
             </div>

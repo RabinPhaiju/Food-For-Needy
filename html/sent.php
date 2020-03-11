@@ -1,5 +1,10 @@
 <?php
 include 'session.php';
+$pos=null;
+$pos_count=1;
+if(@$_GET['pos']){
+$pos=@$_GET['pos'];
+}
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -191,7 +196,7 @@ include 'session.php';
                         <li><a href="#"><span class="icon"></span><span>List</span></a></li>
                     </ul>
                 </li>
-                <li class="active"><a href="#"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>
+                <li><a href="records.php"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>
                 <li><a href="calender.php"><span class="icon"><i class="fa fa-calendar"></i></span><span>Calender</span></a></li>
 
             </ul>
@@ -199,6 +204,7 @@ include 'session.php';
 
         <div class="container">
             <div class="col-md-6 col-sm-9 contains">
+            <h3 style="margin-left:20px;"><i class="fa fa-paper-plane" aria-hidden="true"></i> Sent Messages.</h3>
                 <div class="panel profile-panel">
                     <!-- <div class="panel-heading">
                         <div class="text-left">
@@ -206,13 +212,31 @@ include 'session.php';
                         </div>
                     </div> -->
                     <!-- panel body -->
-                    <table>
-	<tr>
-		<td><b>Recent added Items (20)</b></td>
-		<!-- <td><b>Address</b></td>
-		<td><b>Phone</b></td>
-		<td><b>Bloodtype</b></td> -->
-	</tr>
+                    
+                    <h2>
+                    <?php
+                    $from=$_SESSION['username'];
+                          $sql = "SELECT * from `messages` where `msg_from`='$from'";// where `verified`='1' AND `status`='1'";
+                            require_once("DBConnect.php");
+                            $resulttotal = $conn-> query($sql);
+                            $total = mysqli_num_rows($resulttotal);?>
+                            
+
+              <?php if($pos==null){$pos=0;}?>
+              <?php if($pos>0){?>
+              
+              <a style="float:left;" href="sent.php?pos=<?php echo $pos-10;?>"><i class="fa fa-chevron-left"></i></a>
+              <?php }else { ?>
+              <a style="float:left;"><i class="fa fa-chevron-left"></i></a>
+              <?php }
+              if($pos<$total && $total-$pos>10){ ?>
+              <a style="float:left;" href="sent.php?pos=<?php echo $pos+10;?>"><i class="fa fa-chevron-right"></i></a>
+              <?php } else { ?>
+                <a style="float:left;"><i class="fa fa-chevron-right"></i></a>
+              <?php } ?>
+              <p style="margin:8px 0 0 5px;"><?php echo ($pos+1)." - ".($pos+10);?> out of <?php echo $total?></p>
+              </h2>
+     <table>
     <?php
     $count=1;
     require_once("DBConnect.php");
@@ -220,30 +244,27 @@ include 'session.php';
 		die("Connection failed:". $conn-> connect_error);
     }
     $session_reg_id=$_SESSION['reg_id'];
-        $sql = "SELECT * from records ";
+    $from=$_SESSION['username'];
+        $sql = "SELECT * from `messages` WHERE `msg_from`='$from' ORDER BY `message_id` DESC";
 	$result = $conn-> query($sql);
     // echo $result-> num_rows;
 	if($result-> num_rows >0){
-        if($result-> num_rows>20){
-            $del1=$result-> num_rows-20;
-            // $del=$result-> num_rows-$del1;
+        if($pos!=null){
+            while($row = $result-> fetch_assoc() && $pos_count<$pos){
+                $pos_count++;
+            }
+        }
+       
             $del_count=0;
-            while($del_count<$del1){
-                $row = $result-> fetch_assoc();
-                $record_ids=$row["record_id"];
-               $sql0= "DELETE FROM `records` WHERE `record_id`='$record_ids'";
-               require_once("DBConnect.php");
-               mysqli_query($conn, $sql0);
-               $del_count++;
-            }}
-            $sql = "SELECT * from records ORDER BY `date` DESC ";
-            $result = $conn-> query($sql);
-        
-        
-		while($row = $result-> fetch_assoc()){
-    echo "<tr><td>".$count.") ".$row["description"]."</td></tr>";
+            while($del_count<10 && $row = $result-> fetch_assoc()){
+                echo "<tr><td>".$count.") Subject : ".$row["subject"].". Message : ".$row["message"].". To ".$row["msg_to"]." "."</td></tr>";
             $count++;
-				}}
+               
+               $del_count++;
+            }}else{
+                echo "<tr><td>No Messages</td></tr>";
+            }
+        
 		
         echo "</table>";
     
