@@ -48,12 +48,16 @@ $sql = "INSERT INTO `food` (`updated_by`,`name`,`location`,`quantity`,`ExpDate`,
 require_once("DBConnect.php");
 
 if (mysqli_query($conn, $sql)) {
-    $sql0="SELECT `food_id` from `food` where `name`='$b'";
+    $sql0="SELECT * from `food` where `name`='$b'";
     $result0 = mysqli_query($conn, $sql0);
   $row0 = mysqli_fetch_assoc($result0);
   $foodid=$row0["food_id"];
+  $foodname=$row0["name"];
+  $foodlocation=$row0["location"];
+  $foodquantity=$row0["quantity"];
   require_once("DBConnect.php");
-  $sql2="INSERT INTO `records` (`reg_id`,`food_id`) VALUES ('$a','$foodid')";
+  $des=$_SESSION['username']." added ".$foodname." in ".$foodlocation." (".$foodquantity.").";
+  $sql2="INSERT INTO `records` (`description`,`reg_id`) VALUES ('$des','$a')";
 //   echo "first";
   if(mysqli_query($conn, $sql2)){
     //   echo "done";
@@ -257,7 +261,7 @@ $bc = str_replace(' ', '', $b);
                         <li><a href="#"><span class="icon"></span><span>List</span></a></li>
                     </ul>
                 </li>
-                <li><a href="#"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>
+                <li><a href="records.php"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>
                 <li><a href="calender.php"><span class="icon"><i class="fa fa-calendar"></i></span><span>Calender</span></a></li>
 
             </ul>

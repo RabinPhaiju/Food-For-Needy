@@ -1,5 +1,30 @@
 <?php
 include 'session.php';
+$error=null;
+if (isset($_POST['send'])) {
+    $a = $_POST['username'];
+    
+    $sqlcheck = "SELECT * FROM `register` WHERE `username`='$a'";
+	require_once('DBConnect.php');
+	$resultt = mysqli_query($conn, $sqlcheck);
+	if (mysqli_num_rows($resultt) > 0) {
+        $b = $_SESSION['username'];
+        $c = $_POST['subject'];
+        $d = $_POST['message'];
+        require_once("DBConnect.php");
+      $sql="INSERT INTO `messages` (`msg_to`,`msg_from`,`subject`,`message`) VALUES ('$a','$b','$c','$d')";
+      if(mysqli_query($conn, $sql)){
+        echo "<script>window.location='sent.php';</script>";
+      }
+      else {
+        echo "Error updating record: " . mysqli_error($conn);
+        }
+    }else{
+        $error="Recipient is not available! Search";
+    }
+  
+
+}
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +41,7 @@ include 'session.php';
     <link rel="stylesheet" href="css/index.css">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    
     <title>Add Food</title>
     <style>
         .input-files {
@@ -53,31 +79,60 @@ include 'session.php';
             font-size: 17px;
             cursor: pointer;
         }
-        .panel table {
-			margin-top: 18px;
-		  font-family: arial, sans-serif;
-		  border-collapse: collapse;
-		  width: 100%;
-		}
-		.panel td, .panel th {
-		  border: 0px solid #dddddd;
-		  text-align: left;
-		  padding: 8px;
-		}
-		.panel tr:nth-child(even) {
-		  background-color: #dddddd;
-		}
-		@media only screen and (max-width: 1300px) {
-            .panel td,.panel th{
-					font-size: 8px;
-				}
-				.panel img{
-		    height:30px;
-        }
-    }
-    .contains {
-        margin-left:5px;
-    }
+        .demo-ribbon {
+ width: 100%;
+ height: 100%;
+ /* background-color: #3F51B5; */
+ flex-shrink: 0;
+}
+
+.demo-main {
+ /* margin-top: -35vh; */
+ flex-shrink: 0;
+}
+
+.demo-header .mdl-layout__header-row {
+ padding-left: 40px;
+}
+
+.demo-container {
+ max-width: 1600px;
+ width: 100%;
+ margin: 0 auto;
+}
+
+.demo-content {
+ border-radius: 2px;
+ padding: 0px 56px 80px;
+}
+
+.demo-layout.is-small-screen .demo-content {
+ padding: 0px 28px 40px;
+}
+
+.demo-content h3 {
+ margin-top: 48px;
+}
+
+.demo-footer {
+ padding-left: 40px;
+}
+
+.demo-footer .mdl-mini-footer--link-list a {
+ font-size: 13px;
+}
+
+.mdl-textfield {
+ width: 100%
+}
+
+.success-help {
+ padding: 0 15px;
+ vertical-align: -3px;
+ display: none;
+ font-size: 16px;
+ color: #444;
+}
     </style>
 </head>
 
@@ -176,10 +231,10 @@ include 'session.php';
                         <li class="active_child"><a href="post.php"><span class="icon"></span><span>Your List</span></a></li>
                     </ul>
                 </li>
-                <li class="dropdown ">
+                <li class="dropdown active">
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Messages</span></a>
                     <ul>
-                        <li><a href="#"><span class="icon"></span><span>New</span></a></li>
+                        <li class="active_child"><a href="#"><span class="icon"></span><span>New</span></a></li>
                         <li><a href="#"><span class="icon"></span><span>Inbox</span></a></li>
                         <li class=""><a href="#"><span class="icon"></span><span>Sent</span></a></li>
                     </ul>
@@ -191,63 +246,63 @@ include 'session.php';
                         <li><a href="#"><span class="icon"></span><span>List</span></a></li>
                     </ul>
                 </li>
-                <li class="active"><a href="#"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>
+                <li><a href="records.php"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>
                 <li><a href="calender.php"><span class="icon"><i class="fa fa-calendar"></i></span><span>Calender</span></a></li>
 
             </ul>
         </div>
 
         <div class="container">
-            <div class="col-md-6 col-sm-9 contains">
+            <div class="col-md-9 col-sm-9 contains">
                 <div class="panel profile-panel">
-                    <!-- <div class="panel-heading">
+                    <div class="panel-heading">
                         <div class="text-left">
-                            <h2>Joe Doe</h2>
+                            <h2>Sent new Message</h2>
                         </div>
-                    </div> -->
+                    </div>
                     <!-- panel body -->
-                    <table>
-	<tr>
-		<td><b>Recent added Items (20)</b></td>
-		<!-- <td><b>Address</b></td>
-		<td><b>Phone</b></td>
-		<td><b>Bloodtype</b></td> -->
-	</tr>
-    <?php
-    $count=1;
-    require_once("DBConnect.php");
-	if($conn-> connect_error){
-		die("Connection failed:". $conn-> connect_error);
-    }
-    $session_reg_id=$_SESSION['reg_id'];
-        $sql = "SELECT * from records ";
-	$result = $conn-> query($sql);
-    // echo $result-> num_rows;
-	if($result-> num_rows >0){
-        if($result-> num_rows>20){
-            $del1=$result-> num_rows-20;
-            // $del=$result-> num_rows-$del1;
-            $del_count=0;
-            while($del_count<$del1){
-                $row = $result-> fetch_assoc();
-                $record_ids=$row["record_id"];
-               $sql0= "DELETE FROM `records` WHERE `record_id`='$record_ids'";
-               require_once("DBConnect.php");
-               mysqli_query($conn, $sql0);
-               $del_count++;
-            }}
-            $sql = "SELECT * from records ORDER BY `date` DESC ";
-            $result = $conn-> query($sql);
-        
-        
-		while($row = $result-> fetch_assoc()){
-    echo "<tr><td>".$count.") ".$row["description"]."</td></tr>";
-            $count++;
-				}}
-		
-        echo "</table>";
-    
-        ?>
+                    <div class="container form-top">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-1 col-sm-12 col-xs-12">
+                        <div class="panel panel-danger">
+                            <div class="panel-body">
+                                <form id="reused_form" action="new.php" method="POST" enctype="multipart/form-data">
+                                    <div class="form-group">
+                                        <label><i class="fa fa-user" aria-hidden="true"></i> To user</label>
+                                        <br>
+                                        <input type="text" list="usernames" placeholder="<?php if($error!=null){echo $error;}else{echo "Search";}?>" name="username" class="form-control" required>
+                                                <datalist id="usernames">
+                                                    <?php
+                                                require_once("DBConnect.php");
+                                                $sql = "SELECT * from register ORDER BY `username` ASC ";
+                                                 $result = $conn-> query($sql);
+		                                        while($row = $result-> fetch_assoc()){  
+                                                    if($row["username"]==$_SESSION['username']){
+                                                        continue;
+                                                    }
+                                                    ?> 
+                                                <option value="<?php echo $row["username"];?>">
+                                                <?php  }  ?>
+                                                </datalist>
+                                    </div>
+                                    <?php if($error!=null){echo "<p style='color:red'>Recipient not found!</p><br>";} ?>
+                                    <div class="form-group">
+                                        <label><i class="fa fa-envelope" aria-hidden="true"></i> Subject</label>
+                                        <input type="text" name="subject" placeholder="Enter Subject" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label><i class="fa fa-comment" aria-hidden="true"></i> Message</label>
+                                        <textarea rows="3" name="message" required class="form-control" placeholder="Type Your Message"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-raised btn-block btn-danger" name="send">Send Message &rarr;</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
                     <!-- end panel body -->
                 </div>
             </div>
@@ -258,7 +313,7 @@ include 'session.php';
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="js/editprofile.js"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/index1.js"></script>
 
 

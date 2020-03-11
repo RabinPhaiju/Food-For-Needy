@@ -20,8 +20,8 @@ $search=0;
     <link rel="stylesheet" href="css/indexsearch.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
     <link rel="stylesheet" href="css/card.css">
-
     <title>User Login</title>
+ 
 </head>
 
 <body>
@@ -135,7 +135,7 @@ $search=0;
                         <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>List</span></a></li>
                     </ul>
                 </li>
-                <li><a href="#"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>
+                <li><a href="records.php"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>
                 <li><a href="calender.php"><span class="icon"><i class="fa fa-calendar"></i></span><span>Calender</span></a></li>
 
             </ul>
@@ -215,7 +215,12 @@ $search=0;
                 </div>
             </div>
            
-        <?php      }}else{
+        <?php      }}
+        else if($result-> num_rows ==0 && $search==1){
+            
+            echo "<table><tr><td>You haven't added any items yet.</td></tr></table>";
+        }
+        else{
             $search=$_POST['search'];
              $sql = "SELECT * from food where `name`='$search' and `updated_by`='$session_reg_id'"; // where `verified`='1' AND `status`='1'";
              require_once("DBConnect.php");

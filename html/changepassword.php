@@ -213,7 +213,7 @@ echo "Error updating record: " . mysqli_error($conn);
                             <li><a href="#"><span class="icon"></span><span>List</span></a></li>
                         </ul>
                     </li>
-                    <li><a href="#"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>
+                    <li><a href="records.php"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>
                     <li><a href="calender.php"><span class="icon"><i class="fa fa-calendar"></i></span><span>Calender</span></a></li>
 
                 </ul>

@@ -49,6 +49,23 @@ $sql = " UPDATE `food` SET `name`='$b',`location`='$e',`quantity`='$c',`ExpDate`
 require_once("DBConnect.php");
 if (mysqli_query($conn, $sql)) {
 // echo "Record updated successfully";
+$sql0="SELECT * from `food` where `name`='$b'";
+$result0 = mysqli_query($conn, $sql0);
+$row0 = mysqli_fetch_assoc($result0);
+$foodid=$row0["food_id"];
+$foodname=$row0["name"];
+$foodlocation=$row0["location"];
+$foodquantity=$row0["quantity"];
+require_once("DBConnect.php");
+$des=$_SESSION['username']." updated ".$foodname." in ".$foodlocation." (".$foodquantity.").";
+$sql2="INSERT INTO `records` (`description`,`reg_id`) VALUES ('$des','$a')";
+//   echo "first";
+if(mysqli_query($conn, $sql2)){
+//   echo "done";
+}
+else {
+echo "Error updating record: " . mysqli_error($conn);
+}
 // echo "<script>alert('Update Changes Successfully!');</script>";
 // echo "<script>window.location='index.php';</script>";
 } else {
@@ -252,7 +269,7 @@ if (!isset($foodid)) {
                         <li><a href="#"><span class="icon"></span><span>List</span></a></li>
                     </ul>
                 </li>
-                <li><a href="#"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>
+                <li><a href="records.php"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>
                 <li><a href="calender.php"><span class="icon"><i class="fa fa-calendar"></i></span><span>Calender</span></a></li>
 
             </ul>
