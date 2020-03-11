@@ -177,9 +177,9 @@ $bc = str_replace(' ', '', $b);
                         <li class="item" id="messages">
                             <a href="#messages" class="btn"><i class="far fa-envelope"></i>Messages</a>
                             <div class="smenu">
-                                <a href="#">New</a>
-                                <a href="#">Inbox</a>
-                                <a href="#">Sent</a>
+                                <a href="new.php">New</a>
+                                <a href="inbox.php">Inbox</a>
+                                <a href="sent.php">Sent</a>
                             </div>
                         </li>
 
@@ -242,8 +242,8 @@ $bc = str_replace(' ', '', $b);
                 <li class="dropdown active">
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Food List</span></a>
                     <ul>
-                        <li><a href="#"><span class="icon"></span><span>Add to List</span></a></li>
-                        <li class="active_child"><a href="post.php"><span class="icon"></span><span>Your List</span></a></li>
+                        <li class="active_child"><a href="#"><span class="icon"></span><span>Add to List</span></a></li>
+                        <li><a href="post.php"><span class="icon"></span><span>Your List</span></a></li>
                     </ul>
                 </li>
                 <li class="dropdown ">

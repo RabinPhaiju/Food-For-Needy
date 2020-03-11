@@ -112,9 +112,9 @@ $pos=@$_GET['pos'];
                         <li class="item" id="messages">
                             <a href="#messages" class="btn"><i class="far fa-envelope"></i>Messages</a>
                             <div class="smenu">
-                                <a href="#">New</a>
-                                <a href="#">Inbox</a>
-                                <a href="#">Sent</a>
+                                <a href="new.php">New</a>
+                                <a href="inbox.php">Inbox</a>
+                                <a href="sent.php">Sent</a>
                             </div>
                         </li>
 
@@ -157,7 +157,7 @@ $pos=@$_GET['pos'];
                     </div>
 
                     <button class="setting">
-                        <a href="#"><i class="fa fa-cog" aria-hidden="true"></i></a>
+                        <a href="editprofile.php"><i class="fa fa-cog" aria-hidden="true"></i></a>
                     </button>
                     <a id="hide" href="#" onclick="closeNav()"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
                     <a id="show" href="#" onclick="openNav()"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
@@ -249,7 +249,12 @@ $pos=@$_GET['pos'];
         }
             $del_count=0;
             while($del_count<20 &&  $row = $result-> fetch_assoc()){
-                echo "<tr><td>".$count.") Subject : ".$row["subject"].". Message : ".$row["message"]." From : ".$row["msg_from"]." "."</td></tr>";
+                echo "<tr><td>".$count.") Subject : ".$row["subject"].". Message : ".$row["message"]." From : ".$row["msg_from"]." "."</td>";
+                ?>
+                 <td>
+                <a onclick="return confirm('Are you sure you want to delete this message?')" href="delete_message.php?msgid=<?= $row['message_id'];?>"><i style="color: red;" class="fa fa-trash" aria-hidden="true"></i></a>
+            </td></tr>
+            <?php
                 $count++;
                $del_count++;
             }}else{

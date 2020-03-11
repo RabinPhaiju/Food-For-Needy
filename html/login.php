@@ -163,7 +163,7 @@ else if($e!=$f){
 }
 
 else{
-        $sql = "INSERT INTO `register` (`username`,`firstname`,`lastname`,`email`,`password`) VALUES ('$a', '$b','$c','$d',md5('$e'))";
+        $sql = "INSERT INTO `register` (`username`,`firstname`,`lastname`,`email`,`password`,`code`) VALUES ('$a', '$b','$c','$d',md5('$e'),'$k')";
 
 	
 	if(mysqli_query($conn, $sql)){

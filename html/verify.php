@@ -1,106 +1,126 @@
 <?php
-include 'session.php';
-$foodid = @$_GET['foodid'];
-
-if (isset($_POST['food_edit'])) {
-    $foodid=$_POST['foodid'];
-$b = $_POST['name'];
-$c = $_POST['quantity'];
-$d = $_POST['type'];
-$e = $_POST['location'];
-$g = $_POST['Description'];
-$h = $_POST['ExpDate'];
-
-//file
-$errors= array();
-$file_name =$_FILES['img']['name'];
-$file_size =$_FILES['img']['size'];
-$file_tmp =$_FILES['img']['tmp_name'];
-$file_type=$_FILES['img']['type'];
-$bb=strrpos($file_name,".")+1;
-$file_ext=substr($file_name,$bb);
-$extensions= array("jpeg","jpg","png");
-
-if(in_array($file_ext,$extensions)=== false){
-   $errors[]="extension not allowed, please choose a JPEG or PNG file.";
-   echo "<script>alert('extension not allowed, please choose a JPEG or PNG file.');</script>";
-   echo "<script>window.location='editprofile.php';</script>";
-   exit;
-   
-}
-if($file_size > 2097152){
-   $errors[]='File size must be less than or equal to 2 MB';
-   echo "<script>alert('File size must be less than or equal to 2 MB');</script>";
-   echo "<script>window.location='editprofile.php';</script>";
-   exit;
-}
-//file end
-
-if(isset($_SESSION['usergoogle'])){
-    $sql = " UPDATE `food` SET `name`='$b',`location`='$e',`quantity`='$c',`ExpDate`='$h',`Description`='$g',`type`='$d' WHERE `food_id`='$foodid'";
-       }
-        else{
-
-// $b=$_SESSION['username'];
-$sql = " UPDATE `food` SET `name`='$b',`location`='$e',`quantity`='$c',`ExpDate`='$h',`Description`='$g',`type`='$d' WHERE `food_id`='$foodid'";
-// echo $sql;exit;
-}
-// Create connection
-require_once("DBConnect.php");
-if (mysqli_query($conn, $sql)) {
-// echo "Record updated successfully";
-$sql0="SELECT * from `food` where `name`='$b'";
-$result0 = mysqli_query($conn, $sql0);
-$row0 = mysqli_fetch_assoc($result0);
-$foodid=$row0["food_id"];
-$foodname=$row0["name"];
-$foodlocation=$row0["location"];
-$foodquantity=$row0["quantity"];
-require_once("DBConnect.php");
-$des=$_SESSION['username']." updated ".$foodname." in ".$foodlocation." (".$foodquantity.").";
-$sql2="INSERT INTO `records` (`description`,`reg_id`) VALUES ('$des','$a')";
-//   echo "first";
-if(mysqli_query($conn, $sql2)){
-//   echo "done";
-}
-else {
-echo "Error updating record: " . mysqli_error($conn);
-}
-// echo "<script>alert('Update Changes Successfully!');</script>";
-// echo "<script>window.location='index.php';</script>";
-} else {
-echo "Error updating record: " . mysqli_error($conn);
-}
-$bc = str_replace(' ', '', $b);
-$foodnames=$bc.$foodid.".jpg";
-// $sql="SELECT * FROM `register` WHERE `name`='$b'and`location`='$c' and `quantity`='$d' and `ExpDate`='$e' and `type`='$g'";
-$sql = " UPDATE `food` SET `pic`='$foodnames' WHERE `food_id`='$foodid'";
-
-// require_once("DBConnect.php");
-// $resultpic = mysqli_query($conn, $sql);
-// $row = mysqli_fetch_assoc($resultpic);
-
-//     $bbb=$_POST['name'].$row["food_id"];//foodname + id
-
-//     $bname=$bbb.".jpg";
-    if(empty($errors)==true){
-    //    move_uploaded_file($file_tmp,"files/".$bname);
-    move_uploaded_file($file_tmp,"files/".$foodnames);
- 
-    //    $sql= "UPDATE `food` SET `pic`='$bname' WHERE `name`='$b'and`location`='$c' and `quantity`='$d' and `ExpDate`='$e' and `type`='$g'";
-       require_once("DBConnect.php");
-
-      if (mysqli_query($conn, $sql)) {
-          echo "<script>window.location='index.php';</script>";
-      } else {
-          echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-      } 
+// echo $_COOKIE["member_login"];exit;
+if(empty($_SESSION)) // if the session not yet started
+   session_start();
+   if (isset($_POST['profile_edit'])) {
+    $b = $_POST['firstname'];
+    $c = $_POST['lastname'];
+    $d = $_POST['user_type'];
+    $e = $_POST['location'];
+    $f = $_POST['contact'];
+    $g = $_POST['email'];
+    $h = $_POST['dob'];
+    
+    //file
+    $errors= array();
+    $file_name =$_FILES['img']['name'];
+    $file_size =$_FILES['img']['size'];
+    $file_tmp =$_FILES['img']['tmp_name'];
+    $file_type=$_FILES['img']['type'];
+    $bb=strrpos($file_name,".")+1;
+    $file_ext=substr($file_name,$bb);
+    $extensions= array("jpeg","jpg","png");
+    
+    if(in_array($file_ext,$extensions)=== false){
+       $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+       echo "<script>alert('extension not allowed, please choose a JPEG or PNG file.');</script>";
+       echo "<script>window.location='editprofile.php';</script>";
+       exit;
+       
     }
-    mysqli_close($conn);
+    if($file_size > 2097152){
+       $errors[]='File size must be less than or equal to 2 MB';
+       echo "<script>alert('File size must be less than or equal to 2 MB');</script>";
+       echo "<script>window.location='editprofile.php';</script>";
+       exit;
+    }
+    //file end
+    
+    $id=$_SESSION['reg_id'];
+    if(isset($_SESSION['usergoogle'])){
+        $sql = " UPDATE `register` SET `user_type`='$d',`firstname`='$b',`lastname`='$c',`email`='$g',`location`='$e',`contact`='$f',`dob`='$h' WHERE `reg_id`='$id'";
+           }
+            else{
+    
+    // $b=$_SESSION['username'];
+    $sql = " UPDATE `register` SET `user_type`='$d',`firstname`='$b',`lastname`='$c',`email`='$g',`location`='$e',`contact`='$f',`dob`='$h' WHERE `reg_id`='$id'";
+    // echo $sql;exit;
+    }
+    $_SESSION['name']=" ".$b." ".$c;
+    $_SESSION['pic']=$_SESSION['username'];
+    // Create connection
+    require_once("DBConnect.php");
+    
+    if (mysqli_query($conn, $sql)) {
+    // echo "Record updated successfully";
+    // echo "<script>alert('Update Changes Successfully!');</script>";
+    // echo "<script>window.location='index.php';</script>";
+    } else {
+    echo "Error updating record: " . mysqli_error($conn);
+    }
+    $user=$_SESSION['username'].".jpg";
+    // $sql="SELECT * FROM `register` WHERE `name`='$b'and`location`='$c' and `quantity`='$d' and `ExpDate`='$e' and `type`='$g'";
+    $sql = " UPDATE `register` SET `pic`='$user' WHERE `reg_id`='$id'";
+    
+    // require_once("DBConnect.php");
+    // $resultpic = mysqli_query($conn, $sql);
+    // $row = mysqli_fetch_assoc($resultpic);
+    
+    //     $bbb=$_POST['name'].$row["food_id"];//foodname + id
+    
+    //     $bname=$bbb.".jpg";
+        if(empty($errors)==true){
+        //    move_uploaded_file($file_tmp,"files/".$bname);
+        move_uploaded_file($file_tmp,"files/".$user);
+     
+        //    $sql= "UPDATE `food` SET `pic`='$bname' WHERE `name`='$b'and`location`='$c' and `quantity`='$d' and `ExpDate`='$e' and `type`='$g'";
+           require_once("DBConnect.php");
+    
+          if (mysqli_query($conn, $sql)) {
+              echo "<script>window.location='editprofile.php';</script>";
+          } else {
+              echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+          } 
+        }
+        mysqli_close($conn);
+    }
+if(isset($_SESSION['usergoogle']) || isset($_SESSION['username']) ){
+    if(isset($_SESSION['usergoogle'])){
+        $p=$_SESSION['usergoogle'];
+        $fn= $_SESSION['givenName'];
+        $ln=$_SESSION['familyName'];
+        $n="null";
+        require_once('DBConnect.php');
+        $sql = "SELECT email from `register` where `email`='$p'";
+        $result2 = $conn-> query($sql);
+        if($result2-> num_rows ==0){
+            require_once('DBConnect.php');
+            $sql1 ="INSERT INTO `register`(`username`,`firstname`,`lastname`,`email`,`password`,`verified`,`status`) VALUES ('$n','$fn','$ln','$p','$n','1','1')";
+            if(mysqli_query($conn1, $sql1)){
+            }
+        }
+        
+    } 
+else{
+$p=$_SESSION['username'];
+require_once('DBConnect.php');
+if($conn-> connect_error){
+ 		die("Connection failed:". $conn-> connect_error);
+ 	}
+ 	$sql = "SELECT username from `register` where `username`='$p'";
+ 	$result2 = $conn-> query($sql);
+ 	if($result2-> num_rows ==0){
+echo "<script>window.location='login.php';</script>";
+	exit();
+
+	}
+}}
+else{
+       echo "<script>window.location='login.php';</script>";
+	exit();
+
 }
-if (!isset($foodid)) {
-	echo "<script>window.location='index.php';</script>";
-}
+
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -117,7 +137,7 @@ if (!isset($foodid)) {
     <link rel="stylesheet" href="css/index.css">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-    <title>Edit Profile</title>
+    <title>Add Food</title>
     <style>
         .input-files {
             position: relative;
@@ -131,8 +151,6 @@ if (!isset($foodid)) {
             cursor: pointer;
             transition: background-color .3s ease;
             margin-bottom:5px;
-            margin-top:5px;
-            display:none;
         }
         
         .input-files:hover {
@@ -156,28 +174,53 @@ if (!isset($foodid)) {
             font-size: 17px;
             cursor: pointer;
         }
+        .panel table {
+			margin-top: 18px;
+		  font-family: arial, sans-serif;
+		  border-collapse: collapse;
+		  width: 100%;
+		}
+		.panel td, .panel th {
+		  border: 0px solid #dddddd;
+		  text-align: left;
+		  padding: 8px;
+		}
+		.panel tr:nth-child(even) {
+		  background-color: #dddddd;
+		}
+		@media only screen and (max-width: 1300px) {
+            .panel td,.panel th{
+					font-size: 8px;
+				}
+				.panel img{
+		    height:30px;
+        }
+    }
+    .contains {
+        margin-left:20px;
+    }
     </style>
 </head>
 
-<body>
+<body onload="showbuttom()">
     <div class="navbars">
         <div class="nav0">
             <a href="../index.html"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
         </div>
         <div class="navbars1">
-            <div class="nav3"><i class="fa fa-user fa-3x" aria-hidden="true"></i>
+            <div class="nav3"><i class="fa fa-user fa-3x"></i>
                 <div class="middle">
                     <div class="menu">
                     <li class="item" id='dashboard'>
                             <a href="#dashboard" class="btn"><i class="fa fa-home"></i>Dashboard</a>
                             <div class="smenu">
-                            <a href="index.php">Home</a>
+                            <a href="#">Home</a>
                             </div>
                         </li>
                         <li class="item" id='profile'>
                             <a href="#profile" class="btn"><i class="far fa-user"></i>Profile</a>
                             <div class="smenu">
-                            <a href="changepassword.php">Change Password</a>
+                                <a href="#">Change Password</a>
                                 <a href="#">Edit Profile</a>
                             </div>
                         </li>
@@ -185,18 +228,17 @@ if (!isset($foodid)) {
                         <li class="item" id="messages">
                             <a href="#messages" class="btn"><i class="far fa-envelope"></i>Messages</a>
                             <div class="smenu">
-                            <div class="smenu">
-                                <a href="new.php">New</a>
-                                <a href="inbox.php">Inbox</a>
-                                <a href="sent.php">Sent</a>
+                                <a href="#">New</a>
+                                <a href="#">Inbox</a>
+                                <a href="#">Sent</a>
                             </div>
                         </li>
 
                         <li class="item" id="settings">
                             <a href="#settings" class="btn"><i class="fas fa-cog"></i>Food List</a>
                             <div class="smenu">
-                                <a href="addfood.php">Add Food</a>
-                                <a href="post.php">Your List</a>
+                                <a href="#">Add Food</a>
+                                <a href="#">Your List</a>
                             </div>
                         </li>
 
@@ -244,23 +286,23 @@ if (!isset($foodid)) {
                 <li class="dropdown">
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Profile</span></a>
                     <ul>
-                        <li><a href="changepassword.php"><span class="icon"></span><span>Change Password</span></a></li>
-                        <li class=""><a href="editprofile.php"><span class="icon"></span><span>Edit Profile</span></a></li>
+                        <li><a href="#"><span class="icon"></span><span>Change Password</span></a></li>
+                        <li class=""><a href="#"><span class="icon"></span><span>Edit Profile</span></a></li>
                     </ul>
                 </li>
-                <li class="dropdown active">
+                <li class="dropdown">
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Food List</span></a>
                     <ul>
-                        <li><a href="addfood.php"><span class="icon"></span><span>Add to List</span></a></li>
-                        <li class="active_child"><a href="post.php"><span class="icon"></span><span>Your List</span></a></li>
+                        <li><a href="#"><span class="icon"></span><span>Add to List</span></a></li>
+                        <li class="active_child"><a href="#"><span class="icon"></span><span>Your List</span></a></li>
                     </ul>
                 </li>
                 <li class="dropdown ">
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Messages</span></a>
                     <ul>
-                        <li><a href="new.php"><span class="icon"></span><span>New</span></a></li>
-                        <li><a href="inbox.php"><span class="icon"></span><span>Inbox</span></a></li>
-                        <li class=""><a href="sent.php"><span class="icon"></span><span>Sent</span></a></li>
+                        <li><a href="#"><span class="icon"></span><span>New</span></a></li>
+                        <li><a href="#"><span class="icon"></span><span>Inbox</span></a></li>
+                        <li class=""><a href="#"><span class="icon"></span><span>Sent</span></a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -270,14 +312,14 @@ if (!isset($foodid)) {
                         <li><a href="#"><span class="icon"></span><span>List</span></a></li>
                     </ul>
                 </li>
-                <li><a href="records.php"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>
-                <li><a href="calender.php"><span class="icon"><i class="fa fa-calendar"></i></span><span>Calender</span></a></li>
+                <li><a href="#"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>
+                <li><a href="#"><span class="icon"><i class="fa fa-calendar"></i></span><span>Calender</span></a></li>
 
             </ul>
         </div>
 
         <div class="container">
-            <div class="col-md-8 col-sm-9">
+            <div class="col-md-9 col-sm-6 contains">
                 <div class="panel profile-panel">
                     <!-- <div class="panel-heading">
                         <div class="text-left">
@@ -285,6 +327,8 @@ if (!isset($foodid)) {
                         </div>
                     </div> -->
                     <!-- panel body -->
+                    <h3 style="color:red">Your Account is not verified.</h3>
+      <h5 style="color:yellow">Update your Information and check back soon!</h5>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-4">
@@ -302,15 +346,17 @@ if (!isset($foodid)) {
                                         <li><i class="fa fa-envelope"></i> joedoe@gmail.com</li>
                                     </ul> -->
                                     <?php
-   $sql = "SELECT * from `food` WHERE `food_id`='$foodid'";// where `verified`='1' AND `status`='1'";
+    $id=$_SESSION['reg_id'];
+   $sql = "SELECT * from `register` WHERE `reg_id`='$id'";// where `verified`='1' AND `status`='1'";
    require_once("DBConnect.php");
    $result = mysqli_query($conn, $sql);
    $row = mysqli_fetch_assoc($result);
     ?>
-<form action="viewfood.php" method="POST" enctype="multipart/form-data">
+    
+<form action="verify.php" method="POST" enctype="multipart/form-data">
                                     <h2>Picture</h2>
                                     <!-- <p><img id="outputs" width="150" /></p> -->
-                                    <img id="outputs" src="files/<?php if($row["pic"]==null){echo 'food.png';}else{ echo $row["pic"];}?>" width="200">
+                                    <img id="outputs" src="files/<?php if($row["pic"]==null){echo 'user.png';}else{ echo $row["pic"];}?>" width="200">
 
                                     <div class="profile-details">
                                     
@@ -326,82 +372,50 @@ if (!isset($foodid)) {
                                 <div class="profile-block">
                                     <header class="profile-header">
                                         <h2><i class="fa fa-user"></i> Information</h2>
-                                        <ul class="actions">
+                                        <!-- <ul class="actions">
                                         
                                             <li class="dropdown">
+
+                                            <a class="input-fil" id="input-fil" href="changepassword.php"> <label for="file-inputs">Change Password</label> </a>
                                                 <a href="#" data-toggle="dropdown">
-                                                <i class="fa fa-pencil-square-o">Update</i>
+                                                <i class="fa fa-pencil-square-o">Update Info</i>
                                                 </a>
 
                                                 <ul class="dropdown-menu dropdown-menu-right">
-                                                    <li><?php if ($_SESSION['reg_id']==$row['updated_by']){?>
+                                                    <li>
                                                         <a data-profile-action="edit" href="#" onclick="showbuttom()">Edit</a>
-                                                    <?php } else { ?> <a href="#">Not Allowed</a><?php }?>
                                                     </li>
                                                 </ul>
                                             </li>
-                                        </ul>
+                                        </ul> -->
                                     </header>
                                     <div class="profile-body">
-                                        <div class="profile-view">
-                                        <dl class="dl-horizontal">
-                                                <dt>Food Id</dt>
-                                                <dd><?php echo $row["food_id"];?></dd>
-                                            </dl>
-                                            <dl class="dl-horizontal">
-                                                <dt>Food Type</dt>
-                                                <dd><?php echo $row["type"];?></dd>
-                                            </dl>
-                                            <dl class="dl-horizontal">
-                                                <dt>Food Name</dt>
-                                                <dd><?php echo $row["name"];?></dd>
-                                            </dl>
-                                            <dl class="dl-horizontal">
-                                                <dt>Quantity</dt>
-                                                <dd><?php echo $row["quantity"];?></dd>
-                                            </dl>
-                                            <dl class="dl-horizontal">
-                                                <dt>Location</dt>
-                                                <dd><?php echo $row["location"];?></dd>
-                                            </dl>
-                                            <dl class="dl-horizontal">
-                                                <dt>Description</dt>
-                                                <dd><?php echo $row["Description"];?></dd>
-                                            </dl>
-                                            <dl class="dl-horizontal">
-                                                <dt>Exp Date</dt>
-                                                <dd><?php echo $row["ExpDate"];?></dd>
-                                            </dl>
-                                        </div>
+                                        
                                     
-                                        <div class="profile-edit">
+                                        <div class="profile-body">
                                             <dl class="dl-horizontal">
-                                                <dt class="p-10">Food Name</dt>
-                                                <input type="hidden" name="foodid" value="<?php echo $row["food_id"];?>">
+                                                <dt class="p-10">First Name</dt>
                                                 <dd>
                                                     <div class="fg-line">
-                                                        <input type="text" class="form-control" name="name" required="required" value="<?php echo $row["name"];?>">
+                                                        <input type="text" class="form-control" name="firstname" required="required" value="<?php echo $row["firstname"];?>">
                                                     </div>
                                                 </dd>
                                             </dl>
                                             <dl class="dl-horizontal">
-                                                <dt class="p-10">Quantity</dt>
+                                                <dt class="p-10">Last Name</dt>
                                                 <dd>
                                                     <div class="fg-line">
-                                                        <input type="text" class="form-control" name="quantity" required="required" value="<?php echo $row["quantity"];?>">
+                                                        <input type="text" class="form-control" name="lastname" required="required" value="<?php echo $row["lastname"];?>">
                                                     </div>
                                                 </dd>
                                             </dl>
                                             <dl class="dl-horizontal">
-                                                <dt class="p-10">Food Type</dt>
+                                                <dt class="p-10">User Type</dt>
                                                 <dd>
                                                     <div class="fg-line">
-                                                        <select class="form-control" name="type" required="required">
-                                                        <option value="Vegetable">Vegetable</option>
-                                                                          <option value="Meet & Popultry">Meat & Poultry</option>
-                                                                          <option value="Fruits">Fruits</option>
-                                                                          <option value="Grains,Beans and Nuts">Grains,Beans and Nuts</option>
-                                                                          <option value="Dairy Foods">Dairy Foods</option>
+                                                        <select class="form-control" name="user_type" required="required">
+                                                                          <option value="Donator">Donator</option>
+                                                                          <option value="Receiver">Receiver</option>
                                                                       </select>
                                                     </div>
                                                 </dd>
@@ -419,25 +433,33 @@ if (!isset($foodid)) {
                                                 </dd>
                                             </dl>
                                             <dl class="dl-horizontal">
-                                                <dt class="p-10">Description</dt>
+                                                <dt class="p-10">Contact</dt>
                                                 <dd>
                                                     <div class="fg-line">
-                                                        <input type="text" class="form-control" value="<?php echo $row["Description"];?>" name="Description" required="required">
+                                                        <input type="text" class="form-control" name="contact" required="required" value="<?php echo $row["contact"];?>">
                                                     </div>
                                                 </dd>
                                             </dl>
                                             <dl class="dl-horizontal">
-                                                <dt class="p-10">Exp Date</dt>
+                                                <dt class="p-10">Email</dt>
                                                 <dd>
                                                     <div class="fg-line">
-                                                        <input type="date" class="form-control" value="<?php echo $row["ExpDate"];?>" name="ExpDate" required="required">
+                                                        <input type="email" class="form-control" value="<?php echo $row["email"];?>" name="email" required="required">
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                            <dl class="dl-horizontal">
+                                                <dt class="p-10">DoB</dt>
+                                                <dd>
+                                                    <div class="fg-line">
+                                                        <input type="date" class="form-control" value="<?php echo $row["dob"];?>" name="dob" required="required">
                                                     </div>
                                                 </dd>
                                             </dl>
 
                                             <div class="m-t-30">
-                                                <button class="btn btn-primary btn-sm waves-effect" name="food_edit">Save</button>
-                                                <button data-profile-action="reset" class="btn-link btn-cancel">Cancel</button>
+                                                <button class="btn btn-primary btn-sm waves-effect" name="profile_edit">Save</button>
+                                                <a href="logout.php">Logout</a>
                                             </div>
                                         </div>
                                         </form>
@@ -451,20 +473,27 @@ if (!isset($foodid)) {
             </div>
         </div>
     </div>
+    <script>
+</script>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="js/editprofile.js"></script>
 
     <script src="js/index1.js"></script>
     <script>
+  
     function showbuttom(){
     document.getElementById("uploadpic").style.display = "block";
+    document.getElementById("input-fil").style.display="none";
     }
+   
     var loadFile = function(event) {
 	var image = document.getElementById('outputs');
 	image.src = URL.createObjectURL(event.target.files[0]);
 };
+
     </script>
+
 
 </body>
 

@@ -184,9 +184,9 @@ if (isset($_POST['send'])) {
                         <li class="item" id="messages">
                             <a href="#messages" class="btn"><i class="far fa-envelope"></i>Messages</a>
                             <div class="smenu">
-                                <a href="#">New</a>
-                                <a href="#">Inbox</a>
-                                <a href="#">Sent</a>
+                                <a href="new.php">New</a>
+                                <a href="inbox.php">Inbox</a>
+                                <a href="sent.php">Sent</a>
                             </div>
                         </li>
 
@@ -229,7 +229,7 @@ if (isset($_POST['send'])) {
                     </div>
 
                     <button class="setting">
-                        <a href="#"><i class="fa fa-cog" aria-hidden="true"></i></a>
+                        <a href="editprofile.php"><i class="fa fa-cog" aria-hidden="true"></i></a>
                     </button>
                     <a id="hide" href="#" onclick="closeNav()"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
                     <a id="show" href="#" onclick="openNav()"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
@@ -327,7 +327,7 @@ if (isset($_POST['send'])) {
 
             <table>
 	<tr>
-		<td><b><h2>Sendt Messages</h2> <a href="sent.php">Show all</a></b></td>
+		<td><b><h2>Sent Messages</h2> <a href="sent.php">Show all</a></b></td>
 		<!-- <td><b>Address</b></td>
 		<td><b>Phone</b></td>
 		<td><b>Bloodtype</b></td> -->

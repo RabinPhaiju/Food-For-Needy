@@ -38,4 +38,14 @@ else{
 	exit();
 
 }
+$p=$_SESSION['username'];
+require_once('DBConnect.php');
+if($conn-> connect_error){
+ 		die("Connection failed:". $conn-> connect_error);
+ 	}
+ 	$sql = "SELECT username from `register` where `username`='$p' and `verified`=1";
+ 	$result2 = $conn-> query($sql);
+     if($result2-> num_rows ==0){
+        echo "<script>window.location='verify.php';</script>";
+     }
 ?>

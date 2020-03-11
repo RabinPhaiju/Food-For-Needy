@@ -40,9 +40,9 @@
                         <li class="item" id="messages">
                             <a href="#messages" class="btn"><i class="far fa-envelope"></i>Messages</a>
                             <div class="smenu">
-                            <a href="#">New</a>
-                                <a href="#">Inbox</a>
-                                <a href="#">Sent</a>
+                                <a href="new.php">New</a>
+                                <a href="inbox.php">Inbox</a>
+                                <a href="sent.php">Sent</a>
                             </div>
                         </li>
 
