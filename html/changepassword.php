@@ -201,10 +201,10 @@ echo "Error updating record: " . mysqli_error($conn);
                     <li class="dropdown ">
                         <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Messages</span></a>
                         <ul>
-                            <li><a href="#"><span class="icon"></span><span>New</span></a></li>
-                            <li><a href="#"><span class="icon"></span><span>Inbox</span></a></li>
-                            <li class=""><a href="#"><span class="icon"></span><span>Sent</span></a></li>
-                        </ul>
+                        <li><a href="new.php"><span class="icon"></span><span>New</span></a></li>
+                        <li><a href="inbox.php"><span class="icon"></span><span>Inbox</span></a></li>
+                        <li class=""><a href="sent.php"><span class="icon"></span><span>Sent</span></a></li>
+                    </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Product</span></a>

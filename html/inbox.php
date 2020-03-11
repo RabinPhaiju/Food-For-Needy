@@ -176,12 +176,12 @@ include 'session.php';
                         <li class="active_child"><a href="post.php"><span class="icon"></span><span>Your List</span></a></li>
                     </ul>
                 </li>
-                <li class="dropdown ">
+                <li class="dropdown active">
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Messages</span></a>
                     <ul>
-                        <li><a href="#"><span class="icon"></span><span>New</span></a></li>
+                        <li><a href="new.php"><span class="icon"></span><span>New</span></a></li>
                         <li><a href="#"><span class="icon"></span><span>Inbox</span></a></li>
-                        <li class=""><a href="#"><span class="icon"></span><span>Sent</span></a></li>
+                        <li class=""><a href="sent.php"><span class="icon"></span><span>Sent</span></a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -208,7 +208,7 @@ include 'session.php';
                     <!-- panel body -->
                     <table>
 	<tr>
-		<td><b>Recent added Items (20)</b></td>
+		<td><b><h2>Inbox</h2></b></td>
 		<!-- <td><b>Address</b></td>
 		<td><b>Phone</b></td>
 		<td><b>Bloodtype</b></td> -->
@@ -220,7 +220,8 @@ include 'session.php';
 		die("Connection failed:". $conn-> connect_error);
     }
     $session_reg_id=$_SESSION['reg_id'];
-        $sql = "SELECT * from records ";
+    $from=$_SESSION['username'];
+        $sql = "SELECT * from `messages` WHERE `msg_from`='$from'";
 	$result = $conn-> query($sql);
     // echo $result-> num_rows;
 	if($result-> num_rows >0){
@@ -230,18 +231,18 @@ include 'session.php';
             $del_count=0;
             while($del_count<$del1){
                 $row = $result-> fetch_assoc();
-                $record_ids=$row["record_id"];
-               $sql0= "DELETE FROM `records` WHERE `record_id`='$record_ids'";
+                
+               $sql0= "DELETE FROM `messages` WHERE `msg_from`='$from'";
                require_once("DBConnect.php");
                mysqli_query($conn, $sql0);
                $del_count++;
             }}
-            $sql = "SELECT * from records ORDER BY `date` DESC ";
+            $sql = "SELECT * from `messages` WHERE `msg_from`='$from' ORDER BY `message_id` DESC ";
             $result = $conn-> query($sql);
         
         
 		while($row = $result-> fetch_assoc()){
-    echo "<tr><td>".$count.") ".$row["description"]."</td></tr>";
+    echo "<tr><td>".$count.") ".$row["message"]." from ".$row["msg_to"]." "."</td></tr>";
             $count++;
 				}}
 		

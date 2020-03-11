@@ -234,9 +234,9 @@ if (isset($_POST['send'])) {
                 <li class="dropdown active">
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Messages</span></a>
                     <ul>
-                        <li class="active_child"><a href="#"><span class="icon"></span><span>New</span></a></li>
-                        <li><a href="#"><span class="icon"></span><span>Inbox</span></a></li>
-                        <li class=""><a href="#"><span class="icon"></span><span>Sent</span></a></li>
+                        <li><a href="#"><span class="icon"></span><span>New</span></a></li>
+                        <li><a href="inbox.php"><span class="icon"></span><span>Inbox</span></a></li>
+                        <li class=""><a href="sent.php"><span class="icon"></span><span>Sent</span></a></li>
                     </ul>
                 </li>
                 <li class="dropdown">

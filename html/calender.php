@@ -102,7 +102,7 @@
                         <li class=""><a href="editprofile.php"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Edit Profile</span></a></li>
                     </ul>
                 </li>
-                <li class="dropdown active">
+                <li class="dropdown">
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Food List</span></a>
                     <ul>
                         <li><a href="addfood.php"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Add to List</span></a></li>
@@ -112,9 +112,9 @@
                 <li class="dropdown ">
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Messages</span></a>
                     <ul>
-                        <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>New</span></a></li>
-                        <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Inbox</span></a></li>
-                        <li class=""><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Sent</span></a></li>
+                        <li><a href="new.php"><span class="icon"></span><span>New</span></a></li>
+                        <li><a href="inbox.php"><span class="icon"></span><span>Inbox</span></a></li>
+                        <li class=""><a href="sent.php"><span class="icon"></span><span>Sent</span></a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -125,7 +125,7 @@
                     </ul>
                 </li>
                 <li><a href="records"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>
-                <li><a href="#"><span class="icon"><i class="fa fa-calendar"></i></span><span>Calender</span></a></li>
+                <li class="dropdown"><a href="#"><span class="icon"><i class="fa fa-calendar"></i></span><span>Calender</span></a></li>
 
             </ul>
         </div>

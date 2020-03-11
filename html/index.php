@@ -126,12 +126,12 @@ $search=0;
                         <li class="active_child"><a href="post.php"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Your List</span></a></li>
                     </ul>
                 </li>
-                <li class="dropdown ">
+                <li class="dropdown">
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Messages</span></a>
                     <ul>
-                        <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>New</span></a></li>
-                        <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Inbox</span></a></li>
-                        <li class=""><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Sent</span></a></li>
+                        <li><a href="new.php"><span class="icon"></span><span>New</span></a></li>
+                        <li><a href="inbox.php"><span class="icon"></span><span>Inbox</span></a></li>
+                        <li class=""><a href="sent.php"><span class="icon"></span><span>Sent</span></a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
