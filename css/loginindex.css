@@ -12,6 +12,7 @@
         transform: translate(-90%, -0.9%);
         display: none;
         position: absolute;
+        font-size: 20px;
     }
     
     .menu {
@@ -21,8 +22,9 @@
     }
     
     .item {
-        border-top: 1px solid #000000;
+        border-top: 0px solid #000000;
         overflow: hidden;
+        /* margin-top: -8px; */
     }
     
     .btn {
@@ -91,7 +93,12 @@
         flex-wrap: wrap-reverse;
         font-size: 1.1rem;
         justify-content: space-around;
-        background-color: rgb(137, 143, 153);
+        background: #2c3e50;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to left, #3498db, #41586f);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to left, #3498db, #41586f);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         padding-top: 8px;
         /* padding-bottom: -5px; */
         /* margin-bottom: -1%; */
@@ -112,19 +119,20 @@
     .navbar a {
         text-decoration: none;
         color: black;
-        font-family: 'Montserrat', sans-serif;
+        font-size: 1.01rem;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         padding: 6px;
     }
     
     .navbar .navbar1 a:hover {
-        background-color: #636372;
+        background-color: rgb(42, 127, 45);
         border-radius: 5%;
         color: white;
     }
     
     .navbar>div {
         margin: 2px;
-        margin-bottom: 1%;
+        margin-bottom: 10px;
         margin-right: 1%;
         margin-top: 4px;
         text-align: center;

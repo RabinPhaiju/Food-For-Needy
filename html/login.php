@@ -206,6 +206,7 @@ else{
 
 <body <?php if($error!=null){ echo "onload='slide()'";}?> <?php if($errorforget!=null){ echo "onload='forget()'";}?> <?php if($sentmails!=null){ echo "onload='forget()'";}?> >
     <div id="particles-js">
+        <img src="../files/background.jpg" alt="">
         <div class="navbar">
             <div class="nav0">
                 <a href="../index.html"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
@@ -226,10 +227,10 @@ else{
             <form action="login.php" method="POST">
                 <h1>Create Account</h1>
                 <div class="social-container">
-                    <a href="#" class="social"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
-                    <a href="#" class="social"><i class="fa fa-google" aria-hidden="true"></i></a>
+                    <!-- <a href="#" class="social"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+                    <a href="#" class="social"><i class="fa fa-google" aria-hidden="true"></i></a> -->
                 </div>
-                <span>or use your email for registration</span>
+                <!-- <span>or use your email for registration</span> -->
                 <p style="color:red;"><?php if($error!=null){echo $error;}    ?></p>
                 <input type="text" placeholder="username" name="username" required>
                 <input type="text" placeholder="First Name" name="firstname" required />
@@ -254,8 +255,8 @@ else{
             <form action="login.php" method="POST" name="forgetform">
                 <h1>Forget Password</h1>
                 <div class="social-container">
-                    <a href="#" class="social"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
-                    <a href="#" class="social"><i class="fa fa-google" aria-hidden="true"></i></a>
+                    <!-- <a href="#" class="social"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+                    <a href="#" class="social"><i class="fa fa-google" aria-hidden="true"></i></a> -->
                 </div>
                 <p style="color:red;"><?php if($errorforget!=null){echo $errorforget;}    ?></p>
                 <h4 style="color:red;"><?php if($sentmails!=null){echo $sentmails;}    ?></h4>
@@ -284,11 +285,11 @@ else{
         <div class="form-container sign-in-container">
             <form action="login.php" method="POST">
                 <h1>Sign in</h1>
-                <div class="social-container">
+                <!-- <div class="social-container">
                     <a href="#" class="social"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
                     <a href="#" class="social"><i class="fa fa-google" aria-hidden="true"></i></a>
                 </div>
-                <span>or use your account</span>
+                <span>or use your account</span> -->
                 <br/>
                 <p style="color:red;"><?php if($printerror!=null){echo $printerror;}    ?></p>
                 <p style="color:green;"><?php if($done!=null){echo $done;}    ?></p>
