@@ -26,6 +26,7 @@ $search=0;
     <link rel="stylesheet" href="css/indexsearch.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
     <link rel="stylesheet" href="css/card.css">
+    <link rel="stylesheet" href="css/datetime.css">
 
     <title>User Login</title>
 </head>
@@ -37,6 +38,7 @@ $search=0;
         </div>
         <div class="navbar1">
             <div class="nav3"><i class="fa fa-user fa-2x" aria-hidden="true"></i>
+            
                 <div class="middle">
                     <div class="menu">
                     <li class="item" id='dashboard'>
@@ -91,9 +93,22 @@ $search=0;
                 <!-- <li><a href="#"><span class="icon"><i class="fa fa-tachometer"></i></span><span></span></a></li> -->
 
                 <div class="me userBg">
-                <div class="images">
+                <!-- <div class="images">
                     <img style="margin-top:22px" src="files/<?php if($_SESSION['pic']==null){echo 'user.png';}else{ echo $_SESSION['pic'];}?>" width="60";>
-                    </div>
+                    </div> -->
+                <div class="holders">
+                <a href="schedule.php"> 
+                            <div class="cells">
+                            <time class="icons" id="four">
+                                <strong></strong>
+                                <h6></h6>
+                                <em></em>
+                            </time>
+                            </div>
+                            
+                            </a>
+                            </div>
+                    
 
                     <div class="myinfo">
                         <p class="name">Name :<?php echo $_SESSION['name']?></p>
@@ -101,7 +116,7 @@ $search=0;
                     </div>
 
                     <button class="setting">
-                        <a href="editprofile.php"><i class="fa fa-cog" aria-hidden="true"></i></a>
+                        <a href="editprofile.php">  <img src="files/<?php if($_SESSION['pic']==null){echo 'user.png';}else{ echo $_SESSION['pic'];}?>"></a>
                     </button>
                     <a id="hide" href="#" onclick="closeNav()"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
                     <a id="show" href="#" onclick="openNav()"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
@@ -174,8 +189,8 @@ $search=0;
                 <a class="naviright"><i class="fa fa-chevron-right"></i></a>
               <?php } ?>
               <p style="margin:8px 0 0 5px"><?php echo ($pos+1)." - ".($pos+10);?> out of <?php echo $total?></p>
-              </div>
-              
+                                        </div>
+                            
             </div>
             
             
@@ -322,6 +337,7 @@ $search=0;
     </div>
     <script src="js/index1.js"></script>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="js/datetime.js"></script>
 </body>
 
 </html>

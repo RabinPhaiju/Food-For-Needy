@@ -1,0 +1,73 @@
+.holders {
+    margin: -10px 0 0 -10px;
+    width: 70%;
+    max-width: 500px;
+    min-width: 490px;
+    padding-bottom: 30px;
+    /* border-bottom: 1px solid #cccccc; */
+}
+
+.holders a:hover {
+    cursor: auto;
+}
+
+.cells {
+    display: inline-block;
+    /* width:32.5%; */
+    -webkit-user-select: none;
+}
+
+#four {
+    border-radius: 0.6em;
+}
+
+
+/*cal*/
+
+.icons {
+    font-size: 1em;
+    display: block;
+    position: relative;
+    width: 8em;
+    height: 8em;
+    background-color: #fff;
+    box-shadow: 0 0 0 1px #e6e6e6, 0 2px 0 #bdbdbd;
+    overflow: hidden;
+    font-family: Roboto, sans-serif;
+    transition: all 0.1s linear;
+    margin: 0px auto;
+}
+
+.icons:hover {
+    cursor: default;
+}
+
+.icons * {
+    position: absolute;
+    width: 100%;
+    font-size: 1.5em;
+    font-weight: 100;
+    font-style: normal;
+    text-align: center;
+    transition: all 0.2s linear;
+}
+
+.icons strong {
+    top: 0;
+    padding: 0.5em 0;
+    color: #fff;
+    background-color: #43B4FA;
+}
+
+.icons em {
+    bottom: 0em;
+    color: #43B4FA;
+    font-size: 1.3em;
+    letter-spacing: 1px;
+}
+
+.icons h6 {
+    font-size: 2.8em;
+    top: 45%;
+    color: #2f2f2f;
+}

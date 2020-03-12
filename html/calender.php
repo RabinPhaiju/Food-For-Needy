@@ -124,8 +124,8 @@
                         <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>List</span></a></li>
                     </ul>
                 </li>
-                <li><a href="records"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>
-                <li class="dropdown"><a href="#"><span class="icon"><i class="fa fa-calendar"></i></span><span>Calender</span></a></li>
+                <li><a href="records.php"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>
+                <li class="active"><a href="#"><span class="icon"><i class="fa fa-calendar"></i></span><span>Calender</span></a></li>
 
             </ul>
         </div>
