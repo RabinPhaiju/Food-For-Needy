@@ -241,6 +241,13 @@ else{
                                 <a href="#">Your List</a>
                             </div>
                         </li>
+                        <li class="item">
+                            <a class="btn" href="#"><i class="fas fa-compass"></i>Records</a>
+                        </li>
+
+                        <li class="item">
+                            <a class="btn" href="#"><i class="fa fa-calendar"></i>Schedule</a>
+                        </li>
 
                         <li class="item">
                             <a class="btn" href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
@@ -313,7 +320,7 @@ else{
                     </ul>
                 </li>
                 <li><a href="#"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>
-                <li><a href="#"><span class="icon"><i class="fa fa-calendar"></i></span><span>Calender</span></a></li>
+                <li><a href="#"><span class="icon"><i class="fa fa-calendar"></i></span><span>Schedule</span></a></li>
 
             </ul>
         </div>

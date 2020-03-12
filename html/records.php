@@ -69,7 +69,7 @@ include 'session.php';
 		}
 		@media only screen and (max-width: 1300px) {
             .panel td,.panel th{
-					font-size: 8px;
+					font-size: 14px;
 				}
 				.panel img{
 		    height:30px;
@@ -120,6 +120,13 @@ include 'session.php';
                                 <a href="post.php">Your List</a>
                             </div>
                         </li>
+                        <li class="item">
+                            <a class="btn" href="#"><i class="fas fa-compass"></i>Records</a>
+                        </li>
+
+                        <li class="item">
+                            <a class="btn" href="schedule.php"><i class="fas fa-calendar"></i>Schedule</a>
+                        </li>
 
                         <li class="item">
                             <a class="btn" href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
@@ -152,7 +159,7 @@ include 'session.php';
                     </div>
 
                     <button class="setting">
-                        <a href="#"><i class="fa fa-cog" aria-hidden="true"></i></a>
+                        <a href="editprofile.php"><i class="fa fa-cog" aria-hidden="true"></i></a>
                     </button>
                     <a id="hide" href="#" onclick="closeNav()"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
                     <a id="show" href="#" onclick="openNav()"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
@@ -190,9 +197,9 @@ include 'session.php';
                         <li><a href="#"><span class="icon"></span><span>Add</span></a></li>
                         <li><a href="#"><span class="icon"></span><span>List</span></a></li>
                     </ul>
-                </li>
-                <li class="active"><a href="#"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>
-                <li><a href="calender.php"><span class="icon"><i class="fa fa-calendar"></i></span><span>Calender</span></a></li>
+                    </li>
+                <li><a href="records.php"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>
+                <li><a href="schedule.php"><span class="icon"><i class="fa fa-calendar"></i></span><span>Schedule</span></a></li>
 
             </ul>
         </div>

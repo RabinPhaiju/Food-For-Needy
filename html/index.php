@@ -8,6 +8,11 @@ if($pos==9999){
     $pos=0;
     $all=1;
 }
+$today_time=date("Y-m-d");
+$sql_schedule="DELETE FROM `schedule` WHERE `date`<'$today_time'";
+require_once('DBConnect.php');
+mysqli_query($conn, $sql_schedule);
+
 
 if (isset($_POST['searchsubmit'])) {
 $search=0;
@@ -73,6 +78,15 @@ $search=0;
                         </li>
 
                         <li class="item">
+                            <a class="btn" href="records.php"><i class="fas fa-compass"></i>Records</a>
+                        </li>
+
+                        <li class="item">
+                            <a class="btn" href="schedule.php"><i class="fas fa-calendar"></i>Schedule</a>
+                        </li>
+                        
+
+                        <li class="item">
                             <a class="btn" href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
                         </li>
                     </div>
@@ -102,7 +116,7 @@ $search=0;
                             <time class="icons" id="four">
                                 <strong></strong>
                                 <h6></h6>
-                                <em></em>
+                                <h5></h5>
                             </time>
                             </div>
                             
@@ -155,9 +169,9 @@ $search=0;
                         <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Donor</span></a></li>
                         <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Receiver</span></a></li>
                     </ul>
-                </li>
+                    </li>
                 <li><a href="records.php"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>
-                <li><a href="calender.php"><span class="icon"><i class="fa fa-calendar"></i></span><span>Calender</span></a></li>
+                <li><a href="schedule.php"><span class="icon"><i class="fa fa-calendar"></i></span><span>Schedule</span></a></li>
 
             </ul>
         </div>

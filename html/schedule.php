@@ -1,5 +1,34 @@
 <?php
 include 'session.php';
+$error=null;
+if (isset($_POST['submit'])) {
+    $a = $_SESSION['username'];
+    $b = $_POST['day'];
+    $c = $_POST['location'];
+    $d = $_POST['start_time'];
+    $e = $_POST['end_time'];
+    $f = $_POST['date'];
+    $g = $_POST['tittle'];
+    $h = $_POST['description'];
+    require_once("DBConnect.php");
+      $sql="INSERT INTO `schedule` (`updated_by`,`day`,`start_time`,`end_time`,`date`,`title`,`description`,`location`) VALUES ('$a','$b','$d','$e','$f','$g','$h','$c')";
+      if(mysqli_query($conn, $sql)){
+                require_once("DBConnect.php");
+                $des=$_SESSION['username']." schedule at ".$c." in ".$b." from ".$d." to ".$e." title: ".$g;
+                $sql2="INSERT INTO `records` (`description`,`reg_id`) VALUES ('$des',0)";
+                //   echo "first";
+                if(mysqli_query($conn, $sql2)){
+                //   echo "done";
+                }
+                else {
+                echo "Error updating record: " . mysqli_error($conn);
+                }
+        // echo "<script>window.location='schedule.php';</script>";
+      }
+      else {
+        echo "Error updating record: " . mysqli_error($conn);
+        }
+}
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,6 +44,30 @@ include 'session.php';
     <link rel="stylesheet" href="../css/loginindex.css">
     <link rel="stylesheet" href="css/editprofile.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/datetime.css">
+    <link rel="stylesheet" href="css/toast.css">
+    <style>
+    .plus {
+        margin-left:30px;
+        color:#4286f4; 
+    }
+.tooltiptext {
+  display:none;
+  width: 100px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 3px 0;
+  size:0.8rem;
+  position: absolute;
+  z-index: 1;
+}
+
+.plus:hover .tooltiptext {
+  display:inline;
+}
+    </style>
     
     <script>
         document.getElementsByTagName("html")[0].className += " js";
@@ -23,7 +76,7 @@ include 'session.php';
     <title>Schedule</title>
    </head>
 
-<body>
+<body onload=toast()>
     <div class="navbars">
         <div class="nav0">
             <a href="../index.html"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
@@ -62,6 +115,13 @@ include 'session.php';
                                 <a href="post.php">Your List</a>
                             </div>
                         </li>
+                        <li class="item">
+                            <a class="btn" href="records.php"><i class="fas fa-compass"></i>Records</a>
+                        </li>
+
+                        <li class="item">
+                            <a class="btn" href="#"><i class="fas fa-calendar"></i>Schedule</a>
+                        </li>
 
                         <li class="item">
                             <a class="btn" href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
@@ -84,9 +144,21 @@ include 'session.php';
                 <!-- <li><a href="#"><span class="icon"><i class="fa fa-tachometer"></i></span><span></span></a></li> -->
 
                 <div class="me userBg">
-                <div class="images">
+                <!-- <div class="images">
                     <img style="margin-top:22px" src="files/<?php if($_SESSION['pic']==null){echo 'user.png';}else{ echo $_SESSION['pic'];}?>" width="60";>
-                    </div>
+                    </div> -->
+                    <div class="holders">
+                <a href="schedule.php"> 
+                            <div class="cells">
+                            <time class="icons" id="four">
+                                <strong></strong>
+                                <h6></h6>
+                                <h5></h5>
+                            </time>
+                            </div>
+                            
+                            </a>
+                            </div>
 
                     <div class="myinfo">
                         <p class="name">Name :<?php echo $_SESSION['name']?></p>
@@ -94,7 +166,7 @@ include 'session.php';
                     </div>
 
                     <button class="setting">
-                        <a href="#"><i class="fa fa-cog" aria-hidden="true"></i></a>
+                        <a href="editprofile.php">  <img src="files/<?php if($_SESSION['pic']==null){echo 'user.png';}else{ echo $_SESSION['pic'];}?>"></a>
                     </button>
                     <a id="hide" href="#" onclick="closeNav()"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
                     <a id="show" href="#" onclick="openNav()"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
@@ -134,20 +206,74 @@ include 'session.php';
                     </ul>
                 </li>
                 <li><a href="records.php"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>
-                <li><a href="calender.php"><span class="icon"><i class="fa fa-calendar"></i></span><span>Calender</span></a></li>
+                <li class="active"><a href="#"><span class="icon"><i class="fa fa-calendar"></i></span><span>Schedule</span></a></li>
 
             </ul>
         </div>
 
         <div class="container">
-            <div class="col-md-9 col-sm-9 contains">
+            <div class="col-md-9 col-sm-10 contains">
                 <div class="panel profile-panel">
-                    <!-- <div class="panel-heading">
-                        <div class="text-left">
-                            <h2>Joe Doe</h2>
+                <div class="container">
+                    <h3 style="margin:20px 0 -20px 100px;">Schedule for 7 days 
+                    <a class="plus class="btn btn-success data-toggle="modal" data-target="#popUpWindow" href="#"><i class="fa fa-plus fa-2x" aria-hidden="true"></i>
+                    <span class="tooltiptext">Add</span></a></h3>
+
+                    <div id="snackbar">Click Plus to add new Schedule</div>      
+
+                        <div class="modal fade" id="popUpWindow">
+                            <div class="modal-dialog">
+                            <div class="modal-content">
+                                <!-- header -->
+                                <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h3 class="modal-title">Login Form</h3>
+                                </div>
+                                <!-- body -->
+                                <div class="modal-header">
+                                                <form role="form" action="schedule.php" method="POST" enctype="multipart/form-data">
+                                                    <div class="form-group">
+                                                             <label for="Day">Choose a day:</label>
+                                                            <select class="form-control" name="day">
+                                                                <option value="Sunday">Sunday</option>
+                                                                <option value="Monday">Monday</option>
+                                                                <option value="Tuesday">Tuesday</option>
+                                                                <option value="Wednusday">Wednusday</option>
+                                                                <option value="Thursday">Thursday</option>
+                                                                <option value="Friday">Friday</option>
+                                                                <option value="Saturday">Saturday</option>
+                                                            </select> 
+                                                            <label for="Location">Choose a Location:</label>
+                                                            <select class="form-control" name="location">
+                                                                <option value="Bhaktapur">Bhaktapur</option>
+                                                                <option value="Kathmandu">Kathmandu</option>
+                                                                <option value="Lalitpur">Lalitpur</option>
+                                                            </select> 
+                                                            <br>
+                                                            <label for="Starting time">Starting time: (9 AM to 6 PM)</label>
+                                                    <input type="time" class="form-control" name="start_time" required/>
+                                                             <label for="Ending time">Ending time: (9 AM to 6 PM)</label>
+                                                    <input type="time" class="form-control" name="end_time" required/>
+                                                            <label for="date">Date: ( Next 7 days only.)</label>
+                                                    <input type="date" class="form-control" name="date" required/>
+                                                    <br>
+                                                    <label for="Tittle">Tittle:</label>
+                                                    <input type="text" class="form-control" placeholder="Enter tittle" name="tittle" required/>
+                                                    <br>
+                                                    <label for="description">Description:</label>
+                                                    <textarea name="description" class="form-control" rows="4" cols="50">Enter Schedule description.</textarea>                                                   
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <input type="submit" name="submit" value="Add" class="btn btn-primary btn-block"/>
+                                                    </div>
+                                                 </form>
+                                </div>   
+                            </div>
+                            </div>
                         </div>
-                    </div> -->
-                    <!-- panel body -->
+                        
+                        </div> 
+                  <!-- panel body -->
                    
     <div class="cd-schedule cd-schedule--loading margin-top-lg margin-bottom-lg js-cd-schedule">
         <div class="cd-schedule__timeline">
@@ -177,189 +303,52 @@ include 'session.php';
 
         <div class="cd-schedule__events">
             <ul>
-            <li class="cd-schedule__group">
-                    <div class="cd-schedule__top-info"><span>Sunday</span></div>
-
-                    <ul>
-                        <li class="cd-schedule__event">
-                            <a data-start="09:30" data-end="10:30" data-content="event-abs-circuit" data-event="event-1" href="#0">
-                                <em class="cd-schedule__name">Circuit</em>
-                            </a>
-                        </li>
-
-                        <li class="cd-schedule__event">
-                            <a data-start="11:00" data-end="11:30" data-content="event-rowing-workout" data-event="event-2" href="#0">
-                                <em class="cd-schedule__name">Workout</em>
-                            </a>
-                        </li>
-
-                        <li class="cd-schedule__event">
-                            <a data-start="14:00" data-end="14:15" data-content="event-yoga-1" data-event="event-3" href="#0">
-                                <em class="cd-schedule__name">Yoga</em>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="cd-schedule__group">
-                    <div class="cd-schedule__top-info"><span>Monday</span></div>
-
-                    <ul>
-                        <li class="cd-schedule__event">
-                            <a data-start="09:30" data-end="10:30" data-content="event-abs-circuit" data-event="event-1" href="#0">
-                                <em class="cd-schedule__name">Abs Circuit</em>
-                            </a>
-                        </li>
-
-                        <li class="cd-schedule__event">
-                            <a data-start="11:00" data-end="12:30" data-content="event-rowing-workout" data-event="event-2" href="#0">
-                                <em class="cd-schedule__name">Rowing Workout</em>
-                            </a>
-                        </li>
-
-                        <li class="cd-schedule__event">
-                            <a data-start="14:00" data-end="15:15" data-content="event-yoga-1" data-event="event-3" href="#0">
-                                <em class="cd-schedule__name">Yoga Level 1</em>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+            <?php 
+            $today_time=date("Y-m-d");
+            $mydate=getdate(date("U"));
+            $today_day=$mydate['weekday'];
+            // $today_day="Friday";
+            if($today_day=="Sunday"){
+                $weeks = array("Sunday", "Monday", "Tuesday","Wednusday","Thursday","Friday","Saturday");
+            }else if($today_day=="Monday"){
+                $weeks = array("Monday", "Tuesday","Wednusday","Thursday","Friday","Saturday","Sunday");
+            }else if($today_day=="Tuesday"){
+                $weeks = array("Tuesday","Wednusday","Thursday","Friday","Saturday","Sunday","Monday");
+            }else if($today_day=="Wednusday"){
+                $weeks = array("Wednusday","Thursday","Friday","Saturday","Sunday","Monday","Tuesday");
+            }else if($today_day=="Thursday"){
+                $weeks = array("Thursday","Friday","Saturday","Sunday","Monday","Tuesday","Wednusday");
+            }else if($today_day=="Friday"){
+                $weeks = array("Friday","Saturday","Sunday","Monday","Tuesday","Wednusday","Thursday");
+            }else{
+                $weeks = array("Saturday","Sunday","Monday","Tuesday","Wednusday","Thursday","Friday");
+            }
+            $i=0;
+            while($i!=7){
+                ?>
 
                 <li class="cd-schedule__group">
-                    <div class="cd-schedule__top-info"><span>Tuesday</span></div>
-
+                    <div class="cd-schedule__top-info"><span><?php echo $weeks[$i];?></span></div>
                     <ul>
+                    <?php 
+                $sql="SELECT * FROM `schedule` WHERE `date`>='$today_time' and `day`='$weeks[$i]' ";
+                require_once("DBConnect.php");
+	            $result = $conn-> query($sql);
+
+	            if($result-> num_rows >0){
+                    while($row = $result-> fetch_assoc()){ 
+                         ?>
                         <li class="cd-schedule__event">
-                            <a data-start="10:00" data-end="11:00" data-content="event-rowing-workout" data-event="event-2" href="#0">
-                                <em class="cd-schedule__name">Rowing Workout</em>
+                            <a data-start="<?=$row["start_time"]?>" data-end="<?=$row["end_time"]?>" data-content="event-abs-circuit" data-event="event-1" href="#0">
+                                <em class="cd-schedule__name"><?=$row["title"]?></em>
+                                <em class="cd-schedule__content"><?=$row["description"]?></em>
                             </a>
                         </li>
-
-                        <li class="cd-schedule__event">
-                            <a data-start="11:30" data-end="13:00" data-content="event-restorative-yoga" data-event="event-4" href="#0">
-                                <em class="cd-schedule__name">Restorative Yoga</em>
-                            </a>
-                        </li>
-
-                        <li class="cd-schedule__event">
-                            <a data-start="13:30" data-end="15:00" data-content="event-abs-circuit" data-event="event-1" href="#0">
-                                <em class="cd-schedule__name">Abs Circuit</em>
-                            </a>
-                        </li>
-
-                        <li class="cd-schedule__event">
-                            <a data-start="15:45" data-end="16:45" data-content="event-yoga-1" data-event="event-3" href="#0">
-                                <em class="cd-schedule__name">Yoga Level 1</em>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="cd-schedule__group">
-                    <div class="cd-schedule__top-info"><span>Wednesday</span></div>
-
-                    <ul>
-                        <li class="cd-schedule__event">
-                            <a data-start="09:00" data-end="10:15" data-content="event-restorative-yoga" data-event="event-4" href="#0">
-                                <em class="cd-schedule__name">Restorative Yoga</em>
-                            </a>
-                        </li>
-
-                        <li class="cd-schedule__event">
-                            <a data-start="10:45" data-end="11:45" data-content="event-yoga-1" data-event="event-3" href="#0">
-                                <em class="cd-schedule__name">Yoga Level 1</em>
-                            </a>
-                        </li>
-
-                        <li class="cd-schedule__event">
-                            <a data-start="12:00" data-end="13:45" data-content="event-rowing-workout" data-event="event-2" href="#0">
-                                <em class="cd-schedule__name">Rowing Workout</em>
-                            </a>
-                        </li>
-
-                        <li class="cd-schedule__event">
-                            <a data-start="13:45" data-end="15:00" data-content="event-yoga-1" data-event="event-3" href="#0">
-                                <em class="cd-schedule__name">Yoga Level 1</em>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="cd-schedule__group">
-                    <div class="cd-schedule__top-info"><span>Thursday</span></div>
-
-                    <ul>
-                        <li class="cd-schedule__event">
-                            <a data-start="09:30" data-end="10:30" data-content="event-abs-circuit" data-event="event-1" href="#0">
-                                <em class="cd-schedule__name">Abs Circuit</em>
-                            </a>
-                        </li>
-
-                        <li class="cd-schedule__event">
-                            <a data-start="12:00" data-end="13:45" data-content="event-restorative-yoga" data-event="event-4" href="#0">
-                                <em class="cd-schedule__name">Restorative Yoga</em>
-                            </a>
-                        </li>
-
-                        <li class="cd-schedule__event">
-                            <a data-start="15:30" data-end="16:30" data-content="event-abs-circuit" data-event="event-1" href="#0">
-                                <em class="cd-schedule__name">Abs Circuit</em>
-                            </a>
-                        </li>
-
-                        <li class="cd-schedule__event">
-                            <a data-start="17:00" data-end="18:30" data-content="event-rowing-workout" data-event="event-2" href="#0">
-                                <em class="cd-schedule__name">Rowing Workout</em>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="cd-schedule__group">
-                    <div class="cd-schedule__top-info"><span>Friday</span></div>
-
-                    <ul>
-                        <li class="cd-schedule__event">
-                            <a data-start="10:00" data-end="11:00" data-content="event-rowing-workout" data-event="event-2" href="#0">
-                                <em class="cd-schedule__name">Rowing Workout</em>
-                            </a>
-                        </li>
-
-                        <li class="cd-schedule__event">
-                            <a data-start="12:30" data-end="14:00" data-content="event-abs-circuit" data-event="event-1" href="#0">
-                                <em class="cd-schedule__name">Abs Circuit</em>
-                            </a>
-                        </li>
-
-                        <li class="cd-schedule__event">
-                            <a data-start="15:45" data-end="16:45" data-content="event-yoga-1" data-event="event-3" href="#0">
-                                <em class="cd-schedule__name">Yoga Level 1</em>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="cd-schedule__group">
-                    <div class="cd-schedule__top-info"><span>saturday</span></div>
-
-                    <ul>
-                        <li class="cd-schedule__event">
-                            <a data-start="09:30" data-end="10:30" data-content="event-abs-circuit" data-event="event-1" href="#0">
-                                <em class="cd-schedule__name">hello</em>
-                            </a>
-                        </li>
-
-                        <li class="cd-schedule__event">
-                            <a data-start="11:00" data-end="12:30" data-content="event-rowing-workout" data-event="event-2" href="#0">
-                                <em class="cd-schedule__name">Rowing done</em>
-                            </a>
-                        </li>
-
-                        <li class="cd-schedule__event">
-                            <a data-start="14:00" data-end="15:15" data-content="event-yoga-1" data-event="event-3" href="#0">
-                                <em class="cd-schedule__name">Yoga Level 100</em>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                    <?php
+                 } }?>
+            </ul>
+            </li>
+                             <?php $i++; } ?>
             </ul>
         </div>
 
@@ -397,6 +386,8 @@ include 'session.php';
     <script src="js/index1.js"></script>
     <script src="js/util.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/datetime.js"></script>
+    <script src="js/toast.js"></script>
 
 
 </body>

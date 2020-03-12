@@ -125,6 +125,13 @@ $pos=@$_GET['pos'];
                                 <a href="post.php">Your List</a>
                             </div>
                         </li>
+                        <li class="item">
+                            <a class="btn" href="records.php"><i class="fas fa-compass"></i>Records</a>
+                        </li>
+
+                        <li class="item">
+                            <a class="btn" href="schedule.php"><i class="fas fa-calendar"></i>Schedule</a>
+                        </li>
 
                         <li class="item">
                             <a class="btn" href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
@@ -195,9 +202,9 @@ $pos=@$_GET['pos'];
                         <li><a href="#"><span class="icon"></span><span>Add</span></a></li>
                         <li><a href="#"><span class="icon"></span><span>List</span></a></li>
                     </ul>
-                </li>
+                    </li>
                 <li><a href="records.php"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>
-                <li><a href="calender.php"><span class="icon"><i class="fa fa-calendar"></i></span><span>Calender</span></a></li>
+                <li><a href="schedule.php"><span class="icon"><i class="fa fa-calendar"></i></span><span>Schedule</span></a></li>
 
             </ul>
         </div>

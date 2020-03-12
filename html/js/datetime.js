@@ -7,7 +7,7 @@
   //Set icon text with the date data
   $('strong').html(monthToStr(mm));
   $('h6').html(dd);
-  $('em').html(dayToStr(day));
+  $('h5').html(dayToStr(day));
 
   //Get month as a string
   function monthToStr(data) {
