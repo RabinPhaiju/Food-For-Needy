@@ -6,7 +6,7 @@ $c = $_POST['lastname'];
 $d = $_POST['user_type'];
 $e = $_POST['location'];
 $f = $_POST['contact'];
-$g = $_POST['email'];
+// $g = $_POST['email'];
 $h = $_POST['dob'];
 
 //file
@@ -41,7 +41,7 @@ if(isset($_SESSION['usergoogle'])){
         else{
 
 // $b=$_SESSION['username'];
-$sql = " UPDATE `register` SET `user_type`='$d',`firstname`='$b',`lastname`='$c',`email`='$g',`location`='$e',`contact`='$f',`dob`='$h' WHERE `reg_id`='$id'";
+$sql = " UPDATE `register` SET `user_type`='$d',`firstname`='$b',`lastname`='$c',`location`='$e',`contact`='$f',`dob`='$h' WHERE `reg_id`='$id'";
 // echo $sql;exit;
 }
 $_SESSION['name']=" ".$b." ".$c;
@@ -432,7 +432,7 @@ $sql = " UPDATE `register` SET `pic`='$user' WHERE `reg_id`='$id'";
                                                 <dt class="p-10">Email</dt>
                                                 <dd>
                                                     <div class="fg-line">
-                                                        <input type="email" class="form-control" value="<?php echo $row["email"];?>" name="email" required="required">
+                                                        <input type="email" class="form-control" value="<?php echo $row["email"];?>" name="email" required="required" readonly>
                                                     </div>
                                                 </dd>
                                             </dl>

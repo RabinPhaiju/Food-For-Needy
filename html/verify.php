@@ -10,6 +10,7 @@ if(empty($_SESSION)) // if the session not yet started
     $f = $_POST['contact'];
     $g = $_POST['email'];
     $h = $_POST['dob'];
+    $i = $_POST['code'];
     
     //file
     $errors= array();
@@ -34,16 +35,27 @@ if(empty($_SESSION)) // if the session not yet started
        echo "<script>window.location='editprofile.php';</script>";
        exit;
     }
+    $id=$_SESSION['reg_id'];
+    $sql="SELECT * FROM `register` WHERE `reg_id`='$id'";
+    require_once("DBConnect.php");
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    $code_id=$row["code"];
+    if($i!=$code_id){
+       echo "<script>alert('Invalid code!');</script>";
+       echo "<script>window.location='verify.php';</script>";
+       exit;
+    }
     //file end
     
-    $id=$_SESSION['reg_id'];
+    // $id=$_SESSION['reg_id'];
     if(isset($_SESSION['usergoogle'])){
         $sql = " UPDATE `register` SET `user_type`='$d',`firstname`='$b',`lastname`='$c',`email`='$g',`location`='$e',`contact`='$f',`dob`='$h' WHERE `reg_id`='$id'";
            }
             else{
     
     // $b=$_SESSION['username'];
-    $sql = " UPDATE `register` SET `user_type`='$d',`firstname`='$b',`lastname`='$c',`email`='$g',`location`='$e',`contact`='$f',`dob`='$h' WHERE `reg_id`='$id'";
+    $sql = " UPDATE `register` SET `user_type`='$d',`firstname`='$b',`lastname`='$c',`email`='$g',`location`='$e',`contact`='$f',`dob`='$h',`verified`=1 WHERE `reg_id`='$id'";
     // echo $sql;exit;
     }
     $_SESSION['name']=" ".$b." ".$c;
@@ -77,7 +89,7 @@ if(empty($_SESSION)) // if the session not yet started
            require_once("DBConnect.php");
     
           if (mysqli_query($conn, $sql)) {
-              echo "<script>window.location='editprofile.php';</script>";
+              echo "<script>window.location='login.php';</script>";
           } else {
               echo "Error: " . $sql . "<br>" . mysqli_error($conn);
           } 
@@ -335,7 +347,7 @@ else{
                     </div> -->
                     <!-- panel body -->
                     <h3 style="color:red">Your Account is not verified.</h3>
-      <h5 style="color:yellow">Update your Information and check back soon!</h5>
+      <h5 style="color:#f3f">Update your Information to verify!</h5>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-4">
@@ -460,6 +472,14 @@ else{
                                                 <dd>
                                                     <div class="fg-line">
                                                         <input type="date" class="form-control" value="<?php echo $row["dob"];?>" name="dob" required="required">
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                            <dl class="dl-horizontal">
+                                                <dt class="p-10">Code</dt>
+                                                <dd>
+                                                    <div class="fg-line">
+                                                        <input type="text" class="form-control" name="code" placeholder="Enter code from email" required="required">
                                                     </div>
                                                 </dd>
                                             </dl>

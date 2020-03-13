@@ -215,7 +215,7 @@ include 'session.php';
                     <!-- panel body -->
                     <table>
 	<tr>
-		<td><b>Recent added Items (20)</b></td>
+		<td><b style="font-size:25px">Recent Records (20)</b></td>
 		<!-- <td><b>Address</b></td>
 		<td><b>Phone</b></td>
 		<td><b>Bloodtype</b></td> -->

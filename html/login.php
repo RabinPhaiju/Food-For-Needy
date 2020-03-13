@@ -25,15 +25,30 @@ if($sentemailcode!=null){
 
 				$sqlcode="UPDATE `register` SET `code`='$currentTimeinSeconds' WHERE `email`='$sentemailcode'";
                 if(mysqli_query($conn, $sqlcode)){
-                    // echo "Sent";
-                    $sentmails="Mail sent. Check your inbox for code.";
-                                $to = $sentemailcode;
-                                $subject = "Code from FoodForNeedy";
-                                $txt = "Your code is".$currentTimeinSeconds;
-                                $headers = "From: foodforneedy@gmail.com" . "\r\n" .
-                                "CC: foodforneedy@gmail.com";
-                                mail($to,$subject,$txt,$headers);
+                    require('phpmailer/class.phpmailer.php');
+                    require('phpmailer/class.smtp.php');
+                    $email=$sentemailcode;
+                    $otp=$currentTimeinSeconds;
+                
+                    $message_body = "Use this code to verify your account. :<br/><br/>" . $otp;
+                    $mail = new PHPMailer();
+                    $mail->IsSMTP();
+                    $mail->SMTPDebug = 0;
+                    $mail->SMTPAuth = TRUE;
+                    $mail->SMTPSecure = 'tls'; // tls or ssl
+                    $mail->Port     = "587";
+                    $mail->Username = "karmacharyasuraj2@gmail.com";
+                    $mail->Password = "khwopa75";
+                    $mail->Host     = "smtp.gmail.com";
+                    $mail->Mailer   = "smtp";
+                    $mail->SetFrom("karmacharyasuraj2@gmail.com", "Food for needy");
+                    $mail->AddAddress($email);
+                    $mail->Subject = "Code to verify your email address";
+                    $mail->MsgHTML($message_body);
+                    $mail->IsHTML(true);		
+                    $result = $mail->Send();
 
+                    $sentmails="Mail sent. Check your inbox for code.";
                     //sent email to this email address
                 }else{
                     // echo "Error1";
@@ -62,6 +77,28 @@ if($p1==$p2){
 				$sqlforget="UPDATE `register` SET `password`='$psws' WHERE (`username`='$u' OR `email`='$u') AND `code`='$code'";
                 if(mysqli_query($conn, $sqlforget)){
                     $done="Password Changed Successfully";
+                    require('phpmailer/class.phpmailer.php');
+                    require('phpmailer/class.smtp.php');
+                    $email=$u;
+                
+                    $message_body = "Password successfully changed. :<br/><br/>";
+                    $mail = new PHPMailer();
+                    $mail->IsSMTP();
+                    $mail->SMTPDebug = 0;
+                    $mail->SMTPAuth = TRUE;
+                    $mail->SMTPSecure = 'tls'; // tls or ssl
+                    $mail->Port     = "587";
+                    $mail->Username = "karmacharyasuraj2@gmail.com";
+                    $mail->Password = "khwopa75";
+                    $mail->Host     = "smtp.gmail.com";
+                    $mail->Mailer   = "smtp";
+                    $mail->SetFrom("karmacharyasuraj2@gmail.com", "Food for needy");
+                    $mail->AddAddress($email);
+                    $mail->Subject = "Password change successfully";
+                    $mail->MsgHTML($message_body);
+                    $mail->IsHTML(true);		
+                    $result = $mail->Send();
+
                 }else{
                     echo "Error1";
                 }
@@ -168,17 +205,28 @@ else{
 	
 	if(mysqli_query($conn, $sql)){
         $signupmessage="Registration Successfull";
-			$to = $d;
-			$subject = "Registration Successfull";
-			$message = "Thank you  $b  $c for registering Raktasanchar. Use this key  $k  to verify your email.";
-			$headers = "From: foodforneedy@gmail.com";
-			// if(mail($to,$subject,$message,$headers)){
-			 
-			 
-			// }
-			// else{
-			//     echo "Error2";
-			// }
+
+            require('phpmailer/class.phpmailer.php');
+            require('phpmailer/class.smtp.php');
+            $email=$d;
+        
+            $message_body = "Thank you  $b  $c for registering Raktasanchar. Use this key ".$k." to verify your email.";
+            $mail = new PHPMailer();
+            $mail->IsSMTP();
+            $mail->SMTPDebug = 0;
+            $mail->SMTPAuth = TRUE;
+            $mail->SMTPSecure = 'tls'; // tls or ssl
+            $mail->Port     = "587";
+            $mail->Username = "karmacharyasuraj2@gmail.com";
+            $mail->Password = "khwopa75";
+            $mail->Host     = "smtp.gmail.com";
+            $mail->Mailer   = "smtp";
+            $mail->SetFrom("foodforneedy@gmail.com", "Food for needy Registration");
+            $mail->AddAddress($email);
+            $mail->Subject = "Registration Successfull";
+            $mail->MsgHTML($message_body);
+            $mail->IsHTML(true);		
+            $result = $mail->Send();
 		}
 		else{
             echo "Error1";

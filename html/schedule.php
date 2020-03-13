@@ -21,12 +21,12 @@ if (isset($_POST['submit'])) {
     $cal_date=round($datediff / (60 * 60 * 24));
     // echo $cal_date;
 
-    if($cal_date<=0 || $cal_date>7 || $cal_date=='-0'){
+    if($cal_date<0 || $cal_date>6){
         $error="Date must be for next 7 days";
         // echo $error;
     }else if($total_time>300){
         $error="Duration cannot be more than 5 hours";
-     }else if($d<"09:00:00" || $e>"18:00:00"){
+     }else if($d<"08:59:59" || $e>"18:00:01" || $e<"08:59:59" || $d>"18:00:01"){
         $error="Time must be greater than 9 AM and less than 6PM";
      }
     else{
