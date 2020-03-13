@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 13, 2020 at 06:52 AM
+-- Generation Time: Mar 13, 2020 at 12:35 PM
 -- Server version: 10.1.40-MariaDB
 -- PHP Version: 7.3.5
 
@@ -98,8 +98,7 @@ INSERT INTO `food` (`food_id`, `updated_by`, `pic`, `name`, `location`, `created
 (94, 44, 'honey94.jpg', 'honey', 'Bhaktapur', '2020-03-10 04:43:01', '2020-03-10 10:28:01', 1, 0, NULL, 1, '30', '2020-03-03 18:15:00', 'this is honey', 'Dairy Foods'),
 (95, 44, 'biscuit95.jpg', 'biscuit', 'Bhaktapur', '2020-03-10 04:48:48', '2020-03-10 10:33:48', 1, 0, NULL, 1, '80', '2020-03-09 18:15:00', 'marie biscuit', 'Dairy Foods'),
 (96, 44, 'noodle96.jpg', 'noodle', 'Bhaktapur', '2020-03-10 04:49:41', '2020-03-10 10:34:41', 1, 0, NULL, 1, '90', '2020-03-16 18:15:00', 'WAI WAI noodle', 'Grains,Beans and Nuts'),
-(97, 44, 'pickle97.jpg', 'pickle', 'Bhaktapur', '2020-03-10 04:51:23', '2020-03-10 10:36:23', 1, 0, NULL, 1, '35', '2020-03-17 18:15:00', 'this is pickle', 'Vegetable'),
-(98, 41, 'rabin98.jpg', 'rabin', 'Bhaktapur', '2020-03-12 10:45:25', '2020-03-12 16:45:55', 1, 0, NULL, 1, '12', '2020-12-11 18:15:00', 'hello', 'Vegetable');
+(97, 44, 'pickle97.jpg', 'pickle', 'Bhaktapur', '2020-03-10 04:51:23', '2020-03-10 10:36:23', 1, 0, NULL, 1, '35', '2020-03-17 18:15:00', 'this is pickle', 'Vegetable');
 
 -- --------------------------------------------------------
 
@@ -161,7 +160,12 @@ INSERT INTO `records` (`record_id`, `description`, `reg_id`, `date`) VALUES
 (110, 'rbnph schedule at Bhaktapur in Monday from 09:30 to .10:30 title: rabin', 0, '2020-03-12 19:21:20'),
 (111, 'rbnph schedule at Bhaktapur in Sunday from 09:00 to 10:00 title: sdf', 0, '2020-03-12 20:36:06'),
 (112, 'rbnph schedule at Bhaktapur in Saturday from 13:00 to 15:00 title: satru', 0, '2020-03-13 10:37:22'),
-(113, 'rbnph schedule at Bhaktapur in Thursday from 06:00 to 09:00 title: hello', 0, '2020-03-13 10:46:53');
+(113, 'rbnph schedule at Bhaktapur in Thursday from 06:00 to 09:00 title: hello', 0, '2020-03-13 10:46:53'),
+(114, 'rbnph schedule at Bhaktapur in Sunday from 14:00 to 10:00 title: ghj', 0, '2020-03-13 16:48:26'),
+(115, 'rbnph schedule at Bhaktapur in Saturday from 09:00 to 11:00 title: d', 0, '2020-03-13 16:58:35'),
+(116, 'rbnph schedule at Bhaktapur in Friday from 13:00 to 15:00 title: hj', 0, '2020-03-13 16:59:39'),
+(117, 'rbnph schedule at Bhaktapur in Saturday from 13:00 to 15:00 title: sd', 0, '2020-03-13 17:00:26'),
+(118, 'rbnph schedule at Bhaktapur in Friday from 09:00 to 11:00 title: ioio', 0, '2020-03-13 17:02:29');
 
 -- --------------------------------------------------------
 
@@ -196,10 +200,8 @@ CREATE TABLE `register` (
 --
 
 INSERT INTO `register` (`reg_id`, `username`, `pic`, `user_type`, `firstname`, `lastname`, `email`, `location`, `contact`, `dob`, `created_at`, `updated_at`, `password`, `secret_key`, `verified`, `verifiedby_id`, `remark`, `status`, `code`) VALUES
-(41, 'rbnph', 'rbnph.jpg', 'Donator', 'rabs', 'phaiju', 'rabinphaiju15@gmail.com', 'Bhaktapur', '9808215115', '2020-01-15', '2020-01-29 16:19:58', '2020-03-11 19:42:43', 'c7a9c47b3a80b5d600747872dc702b80', NULL, 1, 0, NULL, 1, '1580577014'),
-(43, 'sabin', NULL, NULL, 'sabin', 'sabin', 'sabin@sabin.com', NULL, NULL, NULL, '2020-02-01 12:12:37', '2020-02-01 18:00:20', '0f4c5675bf0cf972ae7362fe08b39516', NULL, 1, 0, NULL, 1, 'abcabc'),
 (44, 'roshan', NULL, NULL, 'roshan', 'ok', 'roshan@gmail.com', NULL, NULL, NULL, '2020-03-10 02:26:25', NULL, 'b0ad80266fc30c141ff3f8734a3897cd', NULL, 1, 0, NULL, 1, NULL),
-(46, 'babin', 'babin.jpg', 'Donator', 'babin', 'suwal', 'babinsuwal@gmail.com', 'Bhaktapur', '1234567890', '1212-12-12', '2020-03-11 14:03:58', '2020-03-11 20:04:48', 'ab9d16285f61409933d37b6e754d4611', NULL, 0, 0, NULL, 1, 'suwal2010');
+(47, 'rbnph', 'rbnph.jpg', 'Donator', 'rabin', 'phaiju', 'rabinphaiju15@gmail.com', 'Bhaktapur', '9087654321', '2020-03-27', '2020-03-13 07:28:53', '2020-03-13 17:11:13', 'babd4a84418fb04015ac773f7459727c', NULL, 1, 0, NULL, 1, '1584085334');
 
 -- --------------------------------------------------------
 
@@ -224,10 +226,11 @@ CREATE TABLE `schedule` (
 --
 
 INSERT INTO `schedule` (`schedule_id`, `updated_by`, `day`, `start_time`, `end_time`, `date`, `title`, `description`, `location`) VALUES
-(1, '44', 'Sunday', '11:00:00', '12:00:00', '2020-04-08 15:04:24', 'lunch', 'best snacks', 'bhaktapur'),
+(1, 'roshan', 'Sunday', '11:00:00', '12:00:00', '2020-04-08 15:04:24', 'lunch', 'best snacks', 'bhaktapur'),
 (11, 'rbnph', 'Monday', '09:30:00', '10:30:00', '2020-03-23 00:00:00', 'rabin', 'Enter Schedule description.', 'Bhaktapur'),
 (12, 'rbnph', 'Sunday', '09:00:00', '10:00:00', '2020-03-23 00:00:00', 'sdf', 'Enter Schedule description.', 'Bhaktapur'),
-(13, 'rbnph', 'Saturday', '13:00:00', '15:00:00', '2020-03-14 00:00:00', 'satru', 'Enter Schedule description.', 'Bhaktapur');
+(18, 'rbnph', 'Saturday', '13:00:00', '15:00:00', '2020-03-21 00:00:00', 'sd', 'Enter Schedule description.', 'Bhaktapur'),
+(19, 'rbnph', 'Friday', '09:00:00', '11:00:00', '2020-03-20 00:00:00', 'ioio', 'Enter Schedule description.', 'Bhaktapur');
 
 -- --------------------------------------------------------
 
@@ -349,19 +352,19 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `records`
 --
 ALTER TABLE `records`
-  MODIFY `record_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
+  MODIFY `record_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
 
 --
 -- AUTO_INCREMENT for table `register`
 --
 ALTER TABLE `register`
-  MODIFY `reg_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `reg_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `schedule`
 --
 ALTER TABLE `schedule`
-  MODIFY `schedule_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `schedule_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `user`
