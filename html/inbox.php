@@ -259,7 +259,7 @@ $pos=@$_GET['pos'];
                 echo "<tr><td>".$count.") Subject : ".$row["subject"].". Message : ".$row["message"]." From : ".$row["msg_from"]." "."</td>";
                 ?>
                  <td>
-                <a onclick="return confirm('Are you sure you want to delete this message?')" href="delete_message.php?msgid=<?= $row['message_id'];?>"><i style="color: red;" class="fa fa-trash" aria-hidden="true"></i></a>
+                <a onclick="return confirm('Are you sure you want to delete this message?')" href="delete_message.php?msgid_inbox=<?= $row['message_id'];?>"><i style="color: red;" class="fa fa-trash" aria-hidden="true"></i></a>
             </td></tr>
             <?php
                 $count++;
