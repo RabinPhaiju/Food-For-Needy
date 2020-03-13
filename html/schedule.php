@@ -3,13 +3,36 @@ include 'session.php';
 $error=null;
 if (isset($_POST['submit'])) {
     $a = $_SESSION['username'];
-    $b = $_POST['day'];
     $c = $_POST['location'];
     $d = $_POST['start_time'];
     $e = $_POST['end_time'];
     $f = $_POST['date'];
     $g = $_POST['tittle'];
     $h = $_POST['description'];
+
+    $to_time = strtotime($e);
+    $from_time = strtotime($d);
+    $total_time=round(abs($to_time - $from_time) / 60,2);
+    // echo $total_time;
+
+    $now_date=time();
+    $your_date=strtotime($f);
+    $datediff = $your_date - $now_date;
+    $cal_date=round($datediff / (60 * 60 * 24));
+    // echo $cal_date;
+
+    if($cal_date<=0 || $cal_date>7 || $cal_date=='-0'){
+        $error="Date must be for next 7 days";
+        // echo $error;
+    }else if($total_time>300){
+        $error="Duration cannot be more than 5 hours";
+     }else if($d<"09:00:00" || $e>"18:00:00"){
+        $error="Time must be greater than 9 AM and less than 6PM";
+     }
+    else{
+    $b = date('l', $your_date);
+    // echo $b;
+    
     require_once("DBConnect.php");
       $sql="INSERT INTO `schedule` (`updated_by`,`day`,`start_time`,`end_time`,`date`,`title`,`description`,`location`) VALUES ('$a','$b','$d','$e','$f','$g','$h','$c')";
       if(mysqli_query($conn, $sql)){
@@ -28,6 +51,7 @@ if (isset($_POST['submit'])) {
       else {
         echo "Error updating record: " . mysqli_error($conn);
         }
+    }
 }
  ?>
 <!DOCTYPE html>
@@ -76,7 +100,7 @@ if (isset($_POST['submit'])) {
     <title>Schedule</title>
    </head>
 
-<body onload=toast()>
+<body onload=toast();>
     <div class="navbars">
         <div class="nav0">
             <a href="../index.html"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
@@ -219,7 +243,9 @@ if (isset($_POST['submit'])) {
                     <a class="plus class="btn btn-success data-toggle="modal" data-target="#popUpWindow" href="#"><i class="fa fa-plus fa-2x" aria-hidden="true"></i>
                     <span class="tooltiptext">Add</span></a></h3>
 
-                    <div id="snackbar">Click Plus to add new Schedule</div>      
+                    <!-- <div id="snackbar">Click Plus to add new Schedule</div>  -->
+                    <div id="snackbar"><?php if($error!=null){?><p style="color:red;"><?php echo $error;?></p> <?php }else{echo "Click Plus to add new Schedule";} ?></div>    
+                      
 
                         <div class="modal fade" id="popUpWindow">
                             <div class="modal-dialog">
@@ -232,17 +258,7 @@ if (isset($_POST['submit'])) {
                                 <!-- body -->
                                 <div class="modal-header">
                                                 <form role="form" action="schedule.php" method="POST" enctype="multipart/form-data">
-                                                    <div class="form-group">
-                                                             <label for="Day">Choose a day:</label>
-                                                            <select class="form-control" name="day">
-                                                                <option value="Sunday">Sunday</option>
-                                                                <option value="Monday">Monday</option>
-                                                                <option value="Tuesday">Tuesday</option>
-                                                                <option value="Wednusday">Wednusday</option>
-                                                                <option value="Thursday">Thursday</option>
-                                                                <option value="Friday">Friday</option>
-                                                                <option value="Saturday">Saturday</option>
-                                                            </select> 
+                                                    <div class="form-group"> 
                                                             <label for="Location">Choose a Location:</label>
                                                             <select class="form-control" name="location">
                                                                 <option value="Bhaktapur">Bhaktapur</option>

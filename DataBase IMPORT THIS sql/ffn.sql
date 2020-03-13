@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 12, 2020 at 03:54 PM
+-- Generation Time: Mar 13, 2020 at 06:52 AM
 -- Server version: 10.1.40-MariaDB
 -- PHP Version: 7.3.5
 
@@ -124,8 +124,6 @@ INSERT INTO `messages` (`message_id`, `msg_to`, `msg_from`, `subject`, `message`
 (2, 'sabin', 'roshan', 'hello', 'i am fine', '2020-03-03 18:15:00'),
 (5, 'sabin', 'roshan', 'hello sabin', 'hello', '2020-03-12 18:15:00'),
 (6, 'sabin', 'roshan', 'hello', 'how are you', '2020-03-11 11:20:22'),
-(7, 'rbnph', 'roshan', 'dkfj', 'dfkj', '2020-03-11 12:16:25'),
-(8, 'rbnph', 'roshan', 'ok', 'dlk', '2020-03-11 12:16:43'),
 (9, 'sabin', 'roshan', 'ok ', 'din', '2020-03-11 12:16:54'),
 (10, 'rbnph', 'roshan', 'k xa', 'fine', '2020-03-11 12:17:02'),
 (11, 'sabin', 'roshan', 'hello ', 'world', '2020-03-11 12:17:17'),
@@ -161,7 +159,9 @@ INSERT INTO `records` (`record_id`, `description`, `reg_id`, `date`) VALUES
 (108, 'rbnph updated rabin in Bhaktapur (12).', 0, '2020-03-12 16:34:17'),
 (109, 'rbnph updated rabin in Bhaktapur (12).', 0, '2020-03-12 16:45:55'),
 (110, 'rbnph schedule at Bhaktapur in Monday from 09:30 to .10:30 title: rabin', 0, '2020-03-12 19:21:20'),
-(111, 'rbnph schedule at Bhaktapur in Sunday from 09:00 to 10:00 title: sdf', 0, '2020-03-12 20:36:06');
+(111, 'rbnph schedule at Bhaktapur in Sunday from 09:00 to 10:00 title: sdf', 0, '2020-03-12 20:36:06'),
+(112, 'rbnph schedule at Bhaktapur in Saturday from 13:00 to 15:00 title: satru', 0, '2020-03-13 10:37:22'),
+(113, 'rbnph schedule at Bhaktapur in Thursday from 06:00 to 09:00 title: hello', 0, '2020-03-13 10:46:53');
 
 -- --------------------------------------------------------
 
@@ -225,12 +225,9 @@ CREATE TABLE `schedule` (
 
 INSERT INTO `schedule` (`schedule_id`, `updated_by`, `day`, `start_time`, `end_time`, `date`, `title`, `description`, `location`) VALUES
 (1, '44', 'Sunday', '11:00:00', '12:00:00', '2020-04-08 15:04:24', 'lunch', 'best snacks', 'bhaktapur'),
-(2, '44', 'Monday', '13:00:00', '14:00:00', '2020-03-12 15:04:24', 'lunch', 'best snacks', 'bhaktapur'),
-(3, '44', 'Tuesday', '14:00:00', '15:00:00', '2020-03-12 15:04:24', 'lunch', 'best snacks', 'bhaktapur'),
-(4, '44', 'Wednusday', '13:00:00', '14:00:00', '2020-03-12 15:04:24', 'lunch', 'best snacks', 'bhaktapur'),
-(5, '44', 'Thursday', '13:00:00', '14:00:00', '2020-03-12 15:04:24', 'lunch', 'best snacks', 'bhaktapur'),
 (11, 'rbnph', 'Monday', '09:30:00', '10:30:00', '2020-03-23 00:00:00', 'rabin', 'Enter Schedule description.', 'Bhaktapur'),
-(12, 'rbnph', 'Sunday', '09:00:00', '10:00:00', '2020-03-23 00:00:00', 'sdf', 'Enter Schedule description.', 'Bhaktapur');
+(12, 'rbnph', 'Sunday', '09:00:00', '10:00:00', '2020-03-23 00:00:00', 'sdf', 'Enter Schedule description.', 'Bhaktapur'),
+(13, 'rbnph', 'Saturday', '13:00:00', '15:00:00', '2020-03-14 00:00:00', 'satru', 'Enter Schedule description.', 'Bhaktapur');
 
 -- --------------------------------------------------------
 
@@ -346,13 +343,13 @@ ALTER TABLE `food`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `message_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `message_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `records`
 --
 ALTER TABLE `records`
-  MODIFY `record_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
+  MODIFY `record_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
 
 --
 -- AUTO_INCREMENT for table `register`
@@ -364,7 +361,7 @@ ALTER TABLE `register`
 -- AUTO_INCREMENT for table `schedule`
 --
 ALTER TABLE `schedule`
-  MODIFY `schedule_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `schedule_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `user`
