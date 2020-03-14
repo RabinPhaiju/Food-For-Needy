@@ -2,7 +2,7 @@
     margin: 0;
     display: flex;
     margin-top: -1rem;
-   
+  
 }
 .designDiv .sd1{
     flex: 1;
@@ -10,6 +10,7 @@
     background-color: white;
     transform: skewY(10deg);
     height: 3rem;
+    z-index: 3;
 }
 
 .designDiv .sd2{
@@ -17,7 +18,8 @@
     height: 3rem;
     position: relative;
     background-color: white;
-    transform: skewY(-2.5deg);   
+    transform: skewY(-2.5deg); 
+    z-index: 3;  
 }
 
 .designDiv2{

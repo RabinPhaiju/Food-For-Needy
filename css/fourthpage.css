@@ -3,13 +3,13 @@
 @import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Kaushan+Script&display=swap');
 
+
 .fourth-page{
     display: flex;
     align-items: center;
     z-index: 2;
-    position: relative;
-    margin-top:-4vw ;
 }
+
 .fourth-page .story{
     flex: 1;
     text-align: right;
@@ -22,7 +22,7 @@
 .fourth-page .story-text{
     flex:3;
     text-align: justify;
-    padding: 8vw;
+    padding: 5rem 6rem 5rem 3rem;
 }
 .fourth-page .story-text h2{
     font-family: 'Cormorant Garamond', serif;
