@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 13, 2020 at 12:35 PM
+-- Generation Time: Mar 15, 2020 at 05:30 PM
 -- Server version: 10.1.40-MariaDB
 -- PHP Version: 7.3.5
 
@@ -128,7 +128,8 @@ INSERT INTO `messages` (`message_id`, `msg_to`, `msg_from`, `subject`, `message`
 (11, 'sabin', 'roshan', 'hello ', 'world', '2020-03-11 12:17:17'),
 (12, 'sabin', 'roshan', 'urgent', 'funny', '2020-03-11 12:17:30'),
 (13, 'sabin', 'roshan', 'timi', 'bina', '2020-03-11 12:17:40'),
-(14, 'sabin', 'roshan', 'good', 'evening', '2020-03-11 12:17:50');
+(14, 'sabin', 'roshan', 'good', 'evening', '2020-03-11 12:17:50'),
+(15, 'roshan', 'rbnph', 'hello', 'hello', '2020-03-15 02:05:54');
 
 -- --------------------------------------------------------
 
@@ -148,24 +149,26 @@ CREATE TABLE `records` (
 --
 
 INSERT INTO `records` (`record_id`, `description`, `reg_id`, `date`) VALUES
-(101, 'hello', 2, '2020-03-11 08:02:46'),
-(102, 'hello', 2, '2020-03-11 08:02:50'),
-(103, 'hello', 2, '2020-03-11 08:02:53'),
-(104, 'done', 4, '2020-03-11 08:06:00'),
-(105, 'done', 4, '2020-03-11 08:09:20'),
-(106, 'roshan updated Rice in Bhaktapur (19).', 0, '2020-03-11 08:28:36'),
-(107, 'rbnph added rabin in Bhaktapur (12).', 41, '2020-03-12 16:30:25'),
-(108, 'rbnph updated rabin in Bhaktapur (12).', 0, '2020-03-12 16:34:17'),
-(109, 'rbnph updated rabin in Bhaktapur (12).', 0, '2020-03-12 16:45:55'),
-(110, 'rbnph schedule at Bhaktapur in Monday from 09:30 to .10:30 title: rabin', 0, '2020-03-12 19:21:20'),
-(111, 'rbnph schedule at Bhaktapur in Sunday from 09:00 to 10:00 title: sdf', 0, '2020-03-12 20:36:06'),
-(112, 'rbnph schedule at Bhaktapur in Saturday from 13:00 to 15:00 title: satru', 0, '2020-03-13 10:37:22'),
-(113, 'rbnph schedule at Bhaktapur in Thursday from 06:00 to 09:00 title: hello', 0, '2020-03-13 10:46:53'),
-(114, 'rbnph schedule at Bhaktapur in Sunday from 14:00 to 10:00 title: ghj', 0, '2020-03-13 16:48:26'),
-(115, 'rbnph schedule at Bhaktapur in Saturday from 09:00 to 11:00 title: d', 0, '2020-03-13 16:58:35'),
 (116, 'rbnph schedule at Bhaktapur in Friday from 13:00 to 15:00 title: hj', 0, '2020-03-13 16:59:39'),
 (117, 'rbnph schedule at Bhaktapur in Saturday from 13:00 to 15:00 title: sd', 0, '2020-03-13 17:00:26'),
-(118, 'rbnph schedule at Bhaktapur in Friday from 09:00 to 11:00 title: ioio', 0, '2020-03-13 17:02:29');
+(118, 'rbnph schedule at Bhaktapur in Friday from 09:00 to 11:00 title: ioio', 0, '2020-03-13 17:02:29'),
+(119, 'rbnph schedule at Bhaktapur in Thursday from 09:00 to 12:00 title: april', 0, '2020-03-15 19:57:31'),
+(120, 'rbnph schedule at Bhaktapur in Tuesday from 09:00 to 12:00 title: april', 0, '2020-03-15 19:58:16'),
+(121, 'rbnph schedule at Bhaktapur in Monday from 09:00 to 11:00 title: voli', 0, '2020-03-15 20:16:16'),
+(122, 'rbnph schedule at Bhaktapur in Sunday from 09:00 to 10:00 title: today', 0, '2020-03-15 20:16:55'),
+(123, 'rbnph schedule at Bhaktapur in Sunday from 13:00 to 14:00 title: next sunday', 0, '2020-03-15 20:17:34'),
+(124, 'rbnph schedule at Bhaktapur in Sunday from 13:00 to 14:00 title: next sunday', 0, '2020-03-15 20:19:37'),
+(125, 'rbnph schedule at Bhaktapur in Wednesday from 11:00 to 13:00 title: wed', 0, '2020-03-15 20:20:02'),
+(126, 'rbnph schedule at Bhaktapur in Tuesday from 09:00 to 10:00 title: tue', 0, '2020-03-15 20:39:20'),
+(127, 'rbnph schedule at Bhaktapur in Friday from 15:00 to 17:00 title: fri', 0, '2020-03-15 20:39:40'),
+(128, 'rbnph schedule at Bhaktapur in Saturday from 13:00 to 15:00 title: sat', 0, '2020-03-15 20:40:08'),
+(129, 'rbnph schedule at Bhaktapur in Thursday from 11:00 to 12:00 title: thu', 0, '2020-03-15 20:40:25'),
+(130, 'rbnph schedule at Bhaktapur in Sunday from 10:00 to 11:00 title: sun', 0, '2020-03-15 20:40:43'),
+(131, 'rbnph schedule at Bhaktapur in Tuesday from 12:00 to 15:00 title: tue', 0, '2020-03-15 20:43:14'),
+(132, 'rbnph schedule at Bhaktapur in Wednesday from 15:00 to 16:00 title: wed', 0, '2020-03-15 20:44:40'),
+(133, 'rbnph schedule at Bhaktapur in Monday from 10:00 to 11:00 title: mon', 0, '2020-03-15 20:47:10'),
+(134, 'rbnph schedule at Bhaktapur in Monday from 09:00 to 11:00 title: next monday', 0, '2020-03-15 21:55:31'),
+(135, 'rbnph schedule at Bhaktapur in Tuesday from 13:00 to 14:00 title: april 14', 0, '2020-03-15 21:56:06');
 
 -- --------------------------------------------------------
 
@@ -200,8 +203,8 @@ CREATE TABLE `register` (
 --
 
 INSERT INTO `register` (`reg_id`, `username`, `pic`, `user_type`, `firstname`, `lastname`, `email`, `location`, `contact`, `dob`, `created_at`, `updated_at`, `password`, `secret_key`, `verified`, `verifiedby_id`, `remark`, `status`, `code`) VALUES
-(44, 'roshan', NULL, NULL, 'roshan', 'ok', 'roshan@gmail.com', NULL, NULL, NULL, '2020-03-10 02:26:25', NULL, 'b0ad80266fc30c141ff3f8734a3897cd', NULL, 1, 0, NULL, 1, NULL),
-(47, 'rbnph', 'rbnph.jpg', 'Donator', 'rabin', 'phaiju', 'rabinphaiju15@gmail.com', 'Bhaktapur', '9087654321', '2020-03-27', '2020-03-13 07:28:53', '2020-03-13 17:11:13', 'babd4a84418fb04015ac773f7459727c', NULL, 1, 0, NULL, 1, '1584085334');
+(44, 'roshan', NULL, NULL, 'roshan', 'ok', 'roshan@gmail.com', NULL, NULL, NULL, '2020-03-10 02:26:25', '2020-03-15 10:50:09', 'b0ad80266fc30c141ff3f8734a3897cd', NULL, 1, 0, NULL, 1, NULL),
+(47, 'rbnph', 'rbnph.jpg', 'Donator', 'rabin', 'phaiju', 'rabinphaiju15@gmail.com', 'Bhaktapur', '9087654321', '2020-03-27', '2020-03-13 07:28:53', '2020-03-15 13:16:36', '279cb0d7637c74a0a9db05f9957462d9', NULL, 1, 0, NULL, 1, '1584257483');
 
 -- --------------------------------------------------------
 
@@ -226,11 +229,15 @@ CREATE TABLE `schedule` (
 --
 
 INSERT INTO `schedule` (`schedule_id`, `updated_by`, `day`, `start_time`, `end_time`, `date`, `title`, `description`, `location`) VALUES
-(1, 'roshan', 'Sunday', '11:00:00', '12:00:00', '2020-04-08 15:04:24', 'lunch', 'best snacks', 'bhaktapur'),
-(11, 'rbnph', 'Monday', '09:30:00', '10:30:00', '2020-03-23 00:00:00', 'rabin', 'Enter Schedule description.', 'Bhaktapur'),
-(12, 'rbnph', 'Sunday', '09:00:00', '10:00:00', '2020-03-23 00:00:00', 'sdf', 'Enter Schedule description.', 'Bhaktapur'),
-(18, 'rbnph', 'Saturday', '13:00:00', '15:00:00', '2020-03-21 00:00:00', 'sd', 'Enter Schedule description.', 'Bhaktapur'),
-(19, 'rbnph', 'Friday', '09:00:00', '11:00:00', '2020-03-20 00:00:00', 'ioio', 'Enter Schedule description.', 'Bhaktapur');
+(28, 'rbnph', 'Friday', '15:00:00', '17:00:00', '2020-03-20 00:00:00', 'fri', 'Enter Schedule description.', 'Bhaktapur'),
+(29, 'rbnph', 'Saturday', '13:00:00', '15:00:00', '2020-03-21 00:00:00', 'sat', 'Enter Schedule description.', 'Bhaktapur'),
+(30, 'rbnph', 'Thursday', '11:00:00', '12:00:00', '2020-03-19 00:00:00', 'thu', 'Enter Schedule description.', 'Bhaktapur'),
+(31, 'rbnph', 'Sunday', '10:00:00', '11:00:00', '2020-03-15 00:00:00', 'sun', 'Enter Schedule description.', 'Bhaktapur'),
+(32, 'rbnph', 'Tuesday', '12:00:00', '15:00:00', '2020-03-17 00:00:00', 'tue', 'Enter Schedule description.', 'Bhaktapur'),
+(33, 'rbnph', 'Wednesday', '15:00:00', '16:00:00', '2020-03-18 00:00:00', 'wed', 'Enter Schedule description.', 'Bhaktapur'),
+(34, 'rbnph', 'Monday', '10:00:00', '11:00:00', '2020-03-16 00:00:00', 'mon', 'Enter Schedule description.', 'Bhaktapur'),
+(35, 'rbnph', 'Monday', '09:00:00', '11:00:00', '2020-03-23 00:00:00', 'next monday', 'Enter Schedule description.', 'Bhaktapur'),
+(36, 'rbnph', 'Tuesday', '13:00:00', '14:00:00', '2020-04-14 00:00:00', 'april 14', 'Enter Schedule description.', 'Bhaktapur');
 
 -- --------------------------------------------------------
 
@@ -340,7 +347,7 @@ ALTER TABLE `file`
 -- AUTO_INCREMENT for table `food`
 --
 ALTER TABLE `food`
-  MODIFY `food_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
+  MODIFY `food_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 
 --
 -- AUTO_INCREMENT for table `messages`
@@ -352,19 +359,19 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `records`
 --
 ALTER TABLE `records`
-  MODIFY `record_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
+  MODIFY `record_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
 
 --
 -- AUTO_INCREMENT for table `register`
 --
 ALTER TABLE `register`
-  MODIFY `reg_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `reg_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `schedule`
 --
 ALTER TABLE `schedule`
-  MODIFY `schedule_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `schedule_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `user`

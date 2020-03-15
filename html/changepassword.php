@@ -214,12 +214,13 @@ echo "Error updating record: " . mysqli_error($conn);
                     </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Product</span></a>
-                        <ul>
-                            <li><a href="#"><span class="icon"></span><span>Add</span></a></li>
-                            <li><a href="#"><span class="icon"></span><span>List</span></a></li>
-                        </ul>
-                        </li>
+                    <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Member</span></a>
+                    <ul>
+                        <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Sponser</span></a></li>
+                        <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Donor</span></a></li>
+                        <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Receiver</span></a></li>
+                    </ul>
+                    </li>
                 <li><a href="records.php"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>
                 <li><a href="schedule.php"><span class="icon"><i class="fa fa-calendar"></i></span><span>Schedule</span></a></li>
 
