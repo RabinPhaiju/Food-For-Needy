@@ -20,9 +20,14 @@ $e="10:00:00";
 
 if($d < "09:00:00" || $e > "18:00:00"){
     $error="Time must be greater than 9 AM and less than 6PM";
-    echo $error;
+    // echo $error;
  }
- echo $d;
- echo $e;
+//  echo $d;
+//  echo $e;
 
 ?>
+<?php
+$sentmails="Mail sent. Check your inbox for code.";
+$email="rabinphaiju15@gmail.com";
+echo "<script>window.location='login.php?sentmails=$sentmails?email=$email';</script>";	
+                    ?>

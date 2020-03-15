@@ -2,6 +2,37 @@
 // echo $_COOKIE["member_login"];exit;
 if(empty($_SESSION)) // if the session not yet started
    session_start();
+$code=null;
+$p_username=$_SESSION['username'];
+require_once('DBConnect.php');
+if($conn-> connect_error){
+ 		die("Connection failed:". $conn-> connect_error);
+ 	}
+ 	$sql = "SELECT username from `register` where `username`='$p_username' and `verified`=1";
+ 	$result2 = $conn-> query($sql);
+     if($result2-> num_rows >0){
+        echo "<script>window.location='index.php';</script>";
+     }
+
+$code_id = @$_GET['code'];
+if(isset($code_id)){
+    // echo "entered";    
+    $user_name=$_SESSION['username'];
+	$sql = "SELECT * FROM `register` WHERE `username`='$user_name' AND `code`='$code_id';";
+	//echo $sql;
+	require_once('DBConnect.php');
+	$result = mysqli_query($conn, $sql);
+	if (mysqli_num_rows($result) > 0) {
+        // echo "greater than 0";
+        $sql6 = " UPDATE `register` SET `verified`=1 WHERE `username`='$user_name'";
+        require_once("DBConnect.php");
+            if (mysqli_query($conn, $sql6)) {
+                // echo "sql6";
+                echo "<script>window.location='editprofile.php';</script>";
+            }
+    }
+}
+    
    if (isset($_POST['profile_edit'])) {
     $b = $_POST['firstname'];
     $c = $_POST['lastname'];

@@ -6,8 +6,8 @@ $printerror="";
 $errorforget="";
 $done="";
 $signupmessage="";
-$sentemailcode="";
-$sentmails="";
+$sentemailcode=null;
+$sentmails=null;
 $sentemailcode=@$_GET['email'];
 unset($_SESSION['username']);
 unset($_SESSION['reg_id']);
@@ -15,104 +15,9 @@ setcookie ("login","");
 session_destroy();
 $error="";   
 
-if($sentemailcode!=null){
-    $currentTimeinSeconds = time();
-    $sqlcheck = "SELECT * FROM `register` WHERE `email`='$sentemailcode'";
-	//echo $sql;
-	require_once('DBConnect.php');
-	$resultt = mysqli_query($conn, $sqlcheck);
-	if (mysqli_num_rows($resultt) > 0) {
+$sentmails=@$_GET['sentmails'];
+// echo $sentmails;
 
-				$sqlcode="UPDATE `register` SET `code`='$currentTimeinSeconds' WHERE `email`='$sentemailcode'";
-                if(mysqli_query($conn, $sqlcode)){
-                    require('phpmailer/class.phpmailer.php');
-                    require('phpmailer/class.smtp.php');
-                    $email=$sentemailcode;
-                    $otp=$currentTimeinSeconds;
-                
-                    $message_body = "Use this code to verify your account. :<br/><br/>" . $otp;
-                    $mail = new PHPMailer();
-                    $mail->IsSMTP();
-                    $mail->SMTPDebug = 0;
-                    $mail->SMTPAuth = TRUE;
-                    $mail->SMTPSecure = 'tls'; // tls or ssl
-                    $mail->Port     = "587";
-                    $mail->Username = "karmacharyasuraj2@gmail.com";
-                    $mail->Password = "khwopa75";
-                    $mail->Host     = "smtp.gmail.com";
-                    $mail->Mailer   = "smtp";
-                    $mail->SetFrom("karmacharyasuraj2@gmail.com", "Food for needy");
-                    $mail->AddAddress($email);
-                    $mail->Subject = "Code to verify your email address";
-                    $mail->MsgHTML($message_body);
-                    $mail->IsHTML(true);		
-                    $result = $mail->Send();
-
-                    $sentmails="Mail sent. Check your inbox for code.";
-                    //sent email to this email address
-                }else{
-                    // echo "Error1";
-                    $sentmails="Cant sent mail";
-                }
-            }else{
-                // echo "Not found";
-                $sentmails="Enter correct email address";
-            }
-
-}
-
-if(isset($_POST['forget'])){
-	$uu = $_POST['username'];
-    $u=strtolower($uu);
-    $code=$_POST['code'];
-    $p1=$_POST['psws'];
-    $p2=$_POST['repsws'];
-	$psws = md5($_POST['psws']);
-if($p1==$p2){
-	$sql = "SELECT * FROM `register` WHERE (`username`='$u' OR `email`='$u') AND `code`='$code'";
-	//echo $sql;
-	require_once('DBConnect.php');
-	$result = mysqli_query($conn, $sql);
-	if (mysqli_num_rows($result) > 0) {
-				$sqlforget="UPDATE `register` SET `password`='$psws' WHERE (`username`='$u' OR `email`='$u') AND `code`='$code'";
-                if(mysqli_query($conn, $sqlforget)){
-                    $done="Password Changed Successfully";
-                    require('phpmailer/class.phpmailer.php');
-                    require('phpmailer/class.smtp.php');
-                    $email=$u;
-                
-                    $message_body = "Password successfully changed. :<br/><br/>";
-                    $mail = new PHPMailer();
-                    $mail->IsSMTP();
-                    $mail->SMTPDebug = 0;
-                    $mail->SMTPAuth = TRUE;
-                    $mail->SMTPSecure = 'tls'; // tls or ssl
-                    $mail->Port     = "587";
-                    $mail->Username = "karmacharyasuraj2@gmail.com";
-                    $mail->Password = "khwopa75";
-                    $mail->Host     = "smtp.gmail.com";
-                    $mail->Mailer   = "smtp";
-                    $mail->SetFrom("karmacharyasuraj2@gmail.com", "Food for needy");
-                    $mail->AddAddress($email);
-                    $mail->Subject = "Password change successfully";
-                    $mail->MsgHTML($message_body);
-                    $mail->IsHTML(true);		
-                    $result = $mail->Send();
-
-                }else{
-                    echo "Error1";
-                }
-	}else{
-        // echo "<script>alert('Username or Password Incorrect111!');</script>";
-        $errorforget="email or code not found!";
-        // echo $printerror;
-		// echo "<script>window.location='login.php';</script>";
-		
-    }
-}else{
-    $errorforget="Password dont match";
-}
-}
 
 if(isset($_POST['signin'])){
 	$uu = $_POST['username'];
@@ -152,9 +57,60 @@ if(isset($_POST['signin'])){
 		// echo "<script>window.location='login.php';</script>";
 		
 	}
+}else if(isset($_POST['forget'])){
+	$uu = $_POST['username'];
+    $u=strtolower($uu);
+    $code=$_POST['code'];
+    $p1=$_POST['psws'];
+    $p2=$_POST['repsws'];
+	$psws = md5($_POST['psws']);
+if($p1==$p2){
+	$sql = "SELECT * FROM `register` WHERE (`username`='$u' OR `email`='$u') AND `code`='$code'";
+	//echo $sql;
+	require_once('DBConnect.php');
+	$result = mysqli_query($conn, $sql);
+	if (mysqli_num_rows($result) > 0) {
+				$sqlforget="UPDATE `register` SET `password`='$psws' WHERE (`username`='$u' OR `email`='$u') AND `code`='$code'";
+                if(mysqli_query($conn, $sqlforget)){
+                    $done="Password Changed Successfully";
+                    require('phpmailer/class.phpmailer.php');
+                    require('phpmailer/class.smtp.php');
+                    $email=$u;
+                
+                    $message_body = "Password successfully changed. :<br/><br/>";
+                    $mail = new PHPMailer();
+                    $mail->IsSMTP();
+                    $mail->SMTPDebug = 0;
+                    $mail->SMTPAuth = TRUE;
+                    $mail->SMTPSecure = 'tls'; // tls or ssl
+                    $mail->Port     = "587";
+                    $mail->Username = "karmacharyasuraj2@gmail.com";
+                    $mail->Password = "khwopa75";
+                    $mail->Host     = "smtp.gmail.com";
+                    $mail->Mailer   = "smtp";
+                    $mail->SetFrom("karmacharyasuraj2@gmail.com", "Food for needy");
+                    $mail->AddAddress($email);
+                    $mail->Subject = "Password change successfully";
+                    $mail->MsgHTML($message_body);
+                    $mail->IsHTML(true);		
+                    $result = $mail->Send();
+                    echo "<script>window.location='login.php';</script>";	
+                }else{
+                    echo "Error1";
+                }
+	}else{
+        // echo "<script>alert('Username or Password Incorrect111!');</script>";
+        $errorforget="email or code not found!";
+
+        // echo $printerror;
+		// echo "<script>window.location='login.php';</script>";
+		
+    }
+}else{
+    $errorforget="Password dont match";
 }
-if(isset($_POST['signup'])) {
-    
+
+}else if(isset($_POST['signup'])) {
 $aa=$_POST['username'];
 $a=strtolower($aa);
 $b=$_POST['firstname'];
@@ -210,7 +166,8 @@ else{
             require('phpmailer/class.smtp.php');
             $email=$d;
         
-            $message_body = "Thank you  $b  $c for registering Raktasanchar. Use this key ".$k." to verify your email.";
+            $message_body = "Thank you  $b  $c for registering Raktasanchar. Use this key ".$k." to verify your email.<br> OR 
+            <a href='http://localhost/Food-For-Needy/html/verify.php?code=$k'>Click here to verify</a>";
             $mail = new PHPMailer();
             $mail->IsSMTP();
             $mail->SMTPDebug = 0;
@@ -237,7 +194,12 @@ else{
     }
     // echo '<script type="text/JavaScript" >container.classList.add("right-panel-active");</script>';
     // echo "<script>alert('Username or Password Incorrect111!');</script>";
-    }  ?>
+    }else{
+        // echo "<script>window.location='login.php';</script>";
+    }
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -393,7 +355,7 @@ else{
   var x = document.forms["forgetform"]["username"].value;
   var filters = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
   if ( filters.test(x)) {
-    window.location='login.php?email='+x;
+    window.location='sentcode.php?email='+x;
   }else{
     document.forms["forgetform"]["username"].focus();
     toast();
