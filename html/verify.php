@@ -3,6 +3,9 @@
 if(empty($_SESSION)) // if the session not yet started
    session_start();
 $code=null;
+$sentmails=null;
+$sentmails=@$_GET['sentmails'];
+// echo $sentmails;
 $p_username=$_SESSION['username'];
 require_once('DBConnect.php');
 if($conn-> connect_error){
@@ -178,6 +181,7 @@ else{
     <link rel="stylesheet" href="../css/loginindex.css">
     <link rel="stylesheet" href="css/editprofile.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/toast.css">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
     <title>Add Food</title>
@@ -245,7 +249,7 @@ else{
     </style>
 </head>
 
-<body onload="showbuttom()">
+<!-- <body  <?php if($sentmails!=null){echo "onload='toast()'";}?> > <body onload="showbuttom()"> -->
     <div class="navbars">
         <div class="nav0">
             <a href="../index.html"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
@@ -403,7 +407,7 @@ else{
    $row = mysqli_fetch_assoc($result);
     ?>
     
-<form action="verify.php" method="POST" enctype="multipart/form-data">
+<form action="verify.php" method="POST" enctype="multipart/form-data" name="form">
                                     <h2>Picture</h2>
                                     <!-- <p><img id="outputs" width="150" /></p> -->
                                     <img id="outputs" src="files/<?php if($row["pic"]==null){echo 'user.png';}else{ echo $row["pic"];}?>" width="200">
@@ -511,6 +515,7 @@ else{
                                                 <dd>
                                                     <div class="fg-line">
                                                         <input type="text" class="form-control" name="code" placeholder="Enter code from email" required="required">
+                                                        <a style="padding:0 0 0 5px; color:black" onclick="sentmail()" href="#">Sent code</a>
                                                     </div>
                                                 </dd>
                                             </dl>
@@ -531,6 +536,7 @@ else{
             </div>
         </div>
     </div>
+    <div id="snackbar"><?php if($sentmails!=null){echo $sentmails;}else { echo "Enter valid Email Address".$sentmails;}?></div>
     <script>
 </script>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
@@ -538,21 +544,30 @@ else{
     <script src="js/editprofile.js"></script>
 
     <script src="js/index1.js"></script>
+    <script src="js/toast.js"></script>
     <script>
-  
     function showbuttom(){
     document.getElementById("uploadpic").style.display = "block";
     document.getElementById("input-fil").style.display="none";
     }
-   
     var loadFile = function(event) {
 	var image = document.getElementById('outputs');
 	image.src = URL.createObjectURL(event.target.files[0]);
 };
-
     </script>
+     <script>
+        function sentmail() {
+  var x = document.forms["form"]["email"].value;
+  var filters = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  if ( filters.test(x)) {
+    window.location='codeverify.php?email='+x;
+  }else{
+    document.forms["form"]["email"].focus();
+    toast();
+  }
+}
+</script>
 
 
 </body>
-
 </html>
