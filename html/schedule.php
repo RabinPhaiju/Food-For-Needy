@@ -1,5 +1,7 @@
 <?php
 include 'session.php';
+$pos=0;
+$pos=@$_GET['pos'];
 $error=null;
 if (isset($_POST['submit'])) {
     $a = $_SESSION['username'];
@@ -15,16 +17,18 @@ if (isset($_POST['submit'])) {
     $total_time=round(abs($to_time - $from_time) / 60,2);
     // echo $total_time;
 
-    $now_date=time();
+    // $now_date=time();
     $your_date=strtotime($f);
-    $datediff = $your_date - $now_date;
-    $cal_date=round($datediff / (60 * 60 * 24));
+    // $datediff = $your_date - $now_date;
+    // $cal_date=round($datediff / (60 * 60 * 24));
     // echo $cal_date;
 
-    if($cal_date<0 || $cal_date>6){
-        $error="Date must be for next 7 days";
-        // echo $error;
-    }else if($total_time>300){
+    // if($cal_date<0 || $cal_date>6){
+    //     $error="Date must be for next 7 days";
+    //     // echo $error;
+    // }else 
+    
+    if($total_time>300){
         $error="Duration cannot be more than 5 hours";
      }else if($d<"08:59:59" || $e>"18:00:01" || $e<"08:59:59" || $d>"18:00:01"){
         $error="Time must be greater than 9 AM and less than 6PM";
@@ -239,9 +243,32 @@ if (isset($_POST['submit'])) {
             <div class="col-md-9 col-sm-10 contains">
                 <div class="panel profile-panel">
                 <div class="container">
-                    <h3 style="margin:20px 0 -20px 100px;">Schedule for 7 days 
+                    <h3 style="margin:20px 0 -20px 100px;">Schedule
                     <a class="plus class="btn btn-success data-toggle="modal" data-target="#popUpWindow" href="#"><i class="fa fa-plus fa-2x" aria-hidden="true"></i>
-                    <span class="tooltiptext">Add</span></a></h3>
+                    <span class="tooltiptext">Add</span></a>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <?php
+                    if($pos>0){?>
+                        <a href="schedule.php?pos=<?php echo $pos-1;?>" style="color:black"><i class="fa fa-caret-square-o-left" aria-hidden="true"></i><a>
+                <?php    }else{?>
+                    <a href="#"><i class="fa fa-caret-square-o-left" aria-hidden="true"></i><a>
+              <?php  }
+                    ?>
+                    
+                    <?php
+                    $currentWeekNumber = date('W');
+                    $pos_check=0;
+                    if($pos!=0){
+                        while($pos_check!=$pos){
+                            $currentWeekNumber++;
+                            $pos_check++;
+                        }
+                    }
+                    
+                    echo '<a style="color:black">Week :'.$currentWeekNumber.'</a>';
+                    ?>
+                    <a href="schedule.php?pos=<?php echo $pos+1;?>" style="color:black"><i class="fa fa-caret-square-o-right" aria-hidden="true"></i></a>
+                    </h3>
 
                     <!-- <div id="snackbar">Click Plus to add new Schedule</div>  -->
                     <div id="snackbar"><?php if($error!=null){?><p style="color:red;"><?php echo $error;?></p> <?php }else{echo "Click Plus to add new Schedule";} ?></div>    
@@ -270,7 +297,7 @@ if (isset($_POST['submit'])) {
                                                     <input type="time" class="form-control" name="start_time" required/>
                                                              <label for="Ending time">Ending time: (9 AM to 6 PM)</label>
                                                     <input type="time" class="form-control" name="end_time" required/>
-                                                            <label for="date">Date: ( Next 7 days only.)</label>
+                                                            <label for="date">Date:</label>
                                                     <input type="date" class="form-control" name="date" required/>
                                                     <br>
                                                     <label for="Tittle">Tittle:</label>
@@ -320,37 +347,44 @@ if (isset($_POST['submit'])) {
         <div class="cd-schedule__events">
             <ul>
             <?php 
-            $today_time=date("Y-m-d");
             $mydate=getdate(date("U"));
             $today_day=$mydate['weekday'];
+            
             // $today_day="Friday";
             if($today_day=="Sunday"){
-                $weeks = array("Sunday", "Monday", "Tuesday","Wednusday","Thursday","Friday","Saturday");
+                $weeks = array("Sunday", "Monday", "Tuesday","Wednesday","Thursday","Friday","Saturday");
             }else if($today_day=="Monday"){
-                $weeks = array("Monday", "Tuesday","Wednusday","Thursday","Friday","Saturday","Sunday");
+                $weeks = array("Monday", "Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday");
             }else if($today_day=="Tuesday"){
-                $weeks = array("Tuesday","Wednusday","Thursday","Friday","Saturday","Sunday","Monday");
-            }else if($today_day=="Wednusday"){
-                $weeks = array("Wednusday","Thursday","Friday","Saturday","Sunday","Monday","Tuesday");
+                $weeks = array("Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday","Monday");
+            }else if($today_day=="Wednesday"){
+                $weeks = array("Wednesday","Thursday","Friday","Saturday","Sunday","Monday","Tuesday");
             }else if($today_day=="Thursday"){
-                $weeks = array("Thursday","Friday","Saturday","Sunday","Monday","Tuesday","Wednusday");
+                $weeks = array("Thursday","Friday","Saturday","Sunday","Monday","Tuesday","Wednesday");
             }else if($today_day=="Friday"){
-                $weeks = array("Friday","Saturday","Sunday","Monday","Tuesday","Wednusday","Thursday");
+                $weeks = array("Friday","Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday");
             }else{
-                $weeks = array("Saturday","Sunday","Monday","Tuesday","Wednusday","Thursday","Friday");
+                $weeks = array("Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday","Friday");
             }
+
+
+            $inc_date=0;
+            if($pos!=0){
+                $inc_date=$pos*7;
+            }
+            
             $i=0;
             while($i!=7){
+                $today_time = date("Y-m-d", strtotime("$inc_date days"));
+                //  echo $today_time;
                 ?>
-
                 <li class="cd-schedule__group">
-                    <div class="cd-schedule__top-info"><span><?php echo $weeks[$i];?></span></div>
+                    <div class="cd-schedule__top-info"><span><?php echo "&nbsp&nbsp&nbsp".$weeks[$i]."<br>".$today_time;?></span></div>
                     <ul>
                     <?php 
-                $sql="SELECT * FROM `schedule` WHERE `date`>='$today_time' and `day`='$weeks[$i]' ";
+                $sql="SELECT * FROM `schedule` WHERE `date`='$today_time' and `day`='$weeks[$i]' ";
                 require_once("DBConnect.php");
 	            $result = $conn-> query($sql);
-
 	            if($result-> num_rows >0){
                     while($row = $result-> fetch_assoc()){ 
                          ?>
@@ -363,8 +397,12 @@ if (isset($_POST['submit'])) {
                     <?php
                  } }?>
             </ul>
-            </li>
-                             <?php $i++; } ?>
+            </li><?php $i++; $inc_date++; } ?>
+                             
+
+
+
+
             </ul>
         </div>
 

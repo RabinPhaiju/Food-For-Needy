@@ -274,7 +274,7 @@ else{
                
                 <input type="email" value="<?php if($sentemailcode!=null){echo $sentemailcode;}?>" placeholder="Enter Email Address" name="username" required>
                 <div style="display:flex; ">
-                    <input style="width:62%;" type="text" placeholder="Enter 6 digit code" name="code" required>
+                    <input style="width:62%;" type="text" placeholder="Enter code" name="code" required>
                     <a style="padding:0 0 0 5px;" onclick="sentmail()" href="#">Sent code</a>
                 </div>
                 <input type="password" id="psws" placeholder="password" name="psws" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
