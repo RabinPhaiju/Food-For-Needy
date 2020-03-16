@@ -24,11 +24,11 @@ if($sentemailcode!=null){
                     $mail->SMTPAuth = TRUE;
                     $mail->SMTPSecure = 'tls'; // tls or ssl
                     $mail->Port     = "587";
-                    $mail->Username = "karmacharyasuraj2@gmail.com";
-                    $mail->Password = "khwopa75";
+                    $mail->Username = "fforneedy@gmail.com";
+                    $mail->Password = "FOODISLIFE2020";
                     $mail->Host     = "smtp.gmail.com";
                     $mail->Mailer   = "smtp";
-                    $mail->SetFrom("karmacharyasuraj2@gmail.com", "Food for needy");
+                    $mail->SetFrom("fforneedy@gmail.com", "Food for needy");
                     $mail->AddAddress($email);
                     $mail->Subject = "Code to change your password";
                     $mail->MsgHTML($message_body);

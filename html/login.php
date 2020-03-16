@@ -18,6 +18,16 @@ $error="";
 $sentmails=@$_GET['sentmails'];
 // echo $sentmails;
 
+if(isset($_POST['signup'])) {
+    $captcha=$_POST["g-recaptcha-response"];
+    $secretkey="6Lc5gOEUAAAAAIpiTS11QAncgeDmGL0zA06I369a";
+    // 6LfVguEUAAAAAOFeDAHrPb-0xy3hnSRFG7Os6l4H
+    $url='https://www.google.com/recaptcha/api/siteverify?secret='.urldecode($secretkey).'&response='.urldecode($captcha).'';
+    $response=file_get_contents($url);
+    $responseKey= json_decode($response,TRUE);
+    // print_r($responseKey);
+}
+
 
 if(isset($_POST['signin'])){
 	$uu = $_POST['username'];
@@ -84,11 +94,11 @@ if($p1==$p2){
                     $mail->SMTPAuth = TRUE;
                     $mail->SMTPSecure = 'tls'; // tls or ssl
                     $mail->Port     = "587";
-                    $mail->Username = "karmacharyasuraj2@gmail.com";
-                    $mail->Password = "khwopa75";
+                    $mail->Username = "fforneedy@gmail.com";
+                    $mail->Password = "FOODISLIFE2020";
                     $mail->Host     = "smtp.gmail.com";
                     $mail->Mailer   = "smtp";
-                    $mail->SetFrom("karmacharyasuraj2@gmail.com", "Food for needy");
+                    $mail->SetFrom("fforneedy@gmail.com", "Food for needy");
                     $mail->AddAddress($email);
                     $mail->Subject = "Password change successfully";
                     $mail->MsgHTML($message_body);
@@ -111,6 +121,7 @@ if($p1==$p2){
 }
 
 }else if(isset($_POST['signup'])) {
+    if($responseKey["success"]){
 $aa=$_POST['username'];
 $a=strtolower($aa);
 $b=$_POST['firstname'];
@@ -166,7 +177,7 @@ else{
             require('phpmailer/class.smtp.php');
             $email=$d;
         
-            $message_body = "Thank you  $b  $c for registering Raktasanchar. Use this key ".$k." to verify your email.<br> OR 
+            $message_body = "Thank you  $b  $c for registering Raktasanchar. Use this key ".$k." to verify your email.<br> OR Login and  
             <a href='http://localhost/Food-For-Needy/html/verify.php?code=$k'>Click here to verify</a>";
             $mail = new PHPMailer();
             $mail->IsSMTP();
@@ -174,11 +185,11 @@ else{
             $mail->SMTPAuth = TRUE;
             $mail->SMTPSecure = 'tls'; // tls or ssl
             $mail->Port     = "587";
-            $mail->Username = "karmacharyasuraj2@gmail.com";
-            $mail->Password = "khwopa75";
+            $mail->Username = "fforneedy@gmail.com";
+            $mail->Password = "FOODISLIFE2020";
             $mail->Host     = "smtp.gmail.com";
             $mail->Mailer   = "smtp";
-            $mail->SetFrom("foodforneedy@gmail.com", "Food for needy Registration");
+            $mail->SetFrom("fforneedy@gmail.com", "Food for needy");
             $mail->AddAddress($email);
             $mail->Subject = "Registration Successfull";
             $mail->MsgHTML($message_body);
@@ -195,9 +206,10 @@ else{
     // echo '<script type="text/JavaScript" >container.classList.add("right-panel-active");</script>';
     // echo "<script>alert('Username or Password Incorrect111!');</script>";
     }else{
-        // echo "<script>window.location='login.php';</script>";
+        $error="Enter captcha!";
     }
-    
+}else{
+}    
 ?>
 
 <!DOCTYPE html>
@@ -211,6 +223,7 @@ else{
     <link rel="stylesheet" href="../css/login.css">
     <link rel="stylesheet" href="css/toast.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     
 </head>
 
@@ -243,20 +256,28 @@ else{
                 <!-- <span>or use your email for registration</span> -->
                 <p style="color:red;"><?php if($error!=null){echo $error;}    ?></p>
                 <input type="text" placeholder="username" name="username" required>
-                <input type="text" placeholder="First Name" name="firstname" required />
-                <input type="text" placeholder="Last Name" name="lastname" required />
+        <table><tr>
+              <td>  <input type="text" placeholder="First Name" name="firstname" required /></td>
+                <td><input type="text" placeholder="Last Name" name="lastname" required /></td>
+        </tr></table>
                 <input id="email" type="email" name="email" placeholder="Email" required/>
-                <input type="password" id="psw" placeholder="password" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+        <table><tr>
+               <td> <input type="password" id="psw" placeholder="password" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                 <div id="message">
                     <p id="letter" class="invalid">lowercase</p>
                     <p id="capital" class="invalid">uppercase</p>
                     <p id="number" class="invalid">number</p>
                     <p id="length" class="invalid">8 letter</p>
-                </div>
-                <input type="password" id="repsw" placeholder="Enter password again!" name="repsw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                </div></td>
+
+               <td> <input type="password" id="repsw" placeholder="Enter again" name="repsw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                 <div id="messageVerify">
                     <p id="match" class="invalid">Matched</p>
-                </div>
+                </div></td>
+                </tr></table>
+                <div class="g-recaptcha" data-sitekey="6Lc5gOEUAAAAADokFsP3Xe8v9MPGqHwRffIrvFCp"></div>
+                <!-- 6LfVguEUAAAAADpXmcofx5m40kp_nwpHNzMZX3ns -->
+                <br/>
                 <button id="signupButton" name="signup" class="invalid1">Sign Up</button>
             </form>
 
