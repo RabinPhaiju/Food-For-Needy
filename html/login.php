@@ -179,6 +179,7 @@ else{
         
             $message_body = "Thank you  $b  $c for registering Raktasanchar. Use this key ".$k." to verify your email.<br> OR Login and  
             <a href='http://localhost/Food-For-Needy/html/verify.php?code=$k'>Click here to verify</a>";
+            // <a href='http://foodforneedy.000webhostapp.com/html/verify.php?code=$k'>Click here to verify</a>";
             $mail = new PHPMailer();
             $mail->IsSMTP();
             $mail->SMTPDebug = 0;

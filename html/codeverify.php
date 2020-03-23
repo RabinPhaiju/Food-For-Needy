@@ -19,6 +19,8 @@ if($sentemailcode!=null){
                 
                     $message_body = "Use this code to change your password. :<br>".$otp."<br> OR 
                     <a href='http://localhost/Food-For-Needy/html/verify.php?code=$otp'>Click here to verify</a>";
+                    // <a href='http://foodforneedy.000webhostapp.com/html/verify.php?code=$otp'>Click here to verify</a>";
+                    
                     $mail = new PHPMailer();
                     $mail->IsSMTP();
                     $mail->SMTPDebug = 0;

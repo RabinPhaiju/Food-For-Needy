@@ -186,9 +186,9 @@ $search=0;
                     <div class="bottom">
                         <div class="left">
                             <div class="details">
-                                <h2><?php echo $row["name"];?></h2>
-                                <p> <?php echo " By: ".$row1["username"];?></p>
-                                <h5> <?php echo $row["location"];?></h5>
+                                <p><span style="font-weight:bold"><?php echo $row["name"];?></span></br>
+                                 <?php echo " By: ".$row1["username"];?><br>
+                                <?php echo $row["location"];?></p>
                             </div>
                             <div class="buy"><a href="viewfood.php?foodid=<?= $row['food_id'];?>"><i class="fa fa-eye" aria-hidden="true"></i></a>
                             <i><?php echo $row["quantity"];?></i>

@@ -60,7 +60,40 @@ if (mysqli_query($conn, $sql)) {
   $sql2="INSERT INTO `records` (`description`,`reg_id`) VALUES ('$des','$a')";
 //   echo "first";
   if(mysqli_query($conn, $sql2)){
-    //   echo "done";
+    //   echo "done";//sent mail to the organization who are near to the location.
+
+                    require('phpmailer/class.phpmailer.php');
+                    require('phpmailer/class.smtp.php');
+                    $sentEmail=$_SESSION['email'];
+                    $sentBy=$_SESSION['name'];
+                
+                    $message_body = "$b is added from: $c <br> By :$sentBy<br>Email : $sentEmail<br/>
+                    <a href='http://localhost/Food-For-Needy/html/index.php?name=$b'>Click to view</a><br/>";
+                    // <a href='http://foodforneedy.000webhostapp.com/html/index.php?name=$b'>Click to view</a><br/>";
+                    $mail = new PHPMailer();
+                    $mail->IsSMTP();
+                    $mail->SMTPDebug = 0;
+                    $mail->SMTPAuth = TRUE;
+                    $mail->SMTPSecure = 'tls'; // tls or ssl
+                    $mail->Port     = "587";
+                    $mail->Username = "fforneedy@gmail.com";
+                    $mail->Password = "FOODISLIFE2020";
+                    $mail->Host     = "smtp.gmail.com";
+                    $mail->Mailer   = "smtp";
+                    $mail->SetFrom("fforneedy@gmail.com", "Food for needy");
+                    $mail->Subject = "New food added";
+                    $mail->MsgHTML($message_body);
+                    $mail->IsHTML(true);	
+                    $sqlEmail="SELECT `email` from `register` where `user_type`='Receiver'";
+                    require_once("DBConnect.php");
+                    $resultEmail = $conn-> query($sqlEmail);
+                        if($resultEmail-> num_rows >0){
+                             while($rowEmail = $resultEmail-> fetch_assoc()){
+                                    $email=$rowEmail["email"];
+                                    $mail->AddAddress($email);	
+                                    $result = $mail->Send();
+                                }
+                             }
   }
   else {
     echo "Error updating record: " . mysqli_error($conn);
@@ -229,7 +262,7 @@ $bc = str_replace(' ', '', $b);
                     </div>
 
                     <button class="setting">
-                        <a href="#"><i class="fa fa-cog" aria-hidden="true"></i></a>
+                        <a href="editprofile.php"><i class="fa fa-cog" aria-hidden="true"></i></a>
                     </button>
                     <a id="hide" href="#" onclick="closeNav()"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
                     <a id="show" href="#" onclick="openNav()"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
@@ -240,7 +273,7 @@ $bc = str_replace(' ', '', $b);
 
                 <!-- <li><a href="#"><span class="icon"><i class="fa fa-compass"></i></span><span>Brand</span></a></li> -->
                 <li class="dropdown">
-                    <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Profile</span></a>
+                    <a href="editprofile.php"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Profile</span></a>
                     <ul>
                         <li><a href="changepassword.php"><span class="icon"></span><span>Change Password</span></a></li>
                         <li class=""><a href="editprofile.php"><span class="icon"></span><span>Edit Profile</span></a></li>

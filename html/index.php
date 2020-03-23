@@ -2,6 +2,7 @@
 include 'session.php';     
 // echo $_SESSION['username'].$_SESSION['reg_id'];
 $search=1;
+$searchEmail=1;
 $all=0;
 $pos=@$_GET['pos'];
 if($pos==9999){
@@ -13,6 +14,12 @@ $sql_schedule="DELETE FROM `schedule` WHERE `date`<'$today_time'";
 require_once('DBConnect.php');
 mysqli_query($conn, $sql_schedule);
 
+$searchName=null;
+$searchName=@$_GET['name'];
+if(isset($searchName)){
+    $search=0; 
+    $searchEmail=0;
+}
 
 if (isset($_POST['searchsubmit'])) {
 $search=0;
@@ -245,9 +252,9 @@ $search=0;
                     <div class="bottom">
                         <div class="left">
                             <div class="details">
-                                <h2><?php echo $row["name"];?></h2>
-                                <p> <?php echo " By: ".$row1["username"];?></p>
-                                <h5> <?php echo $row["location"];?></h5>
+                                <p><span style="font-weight:bold"><?php echo $row["name"];?></span></br>
+                                 <?php echo " By: ".$row1["username"];?><br>
+                                <?php echo $row["location"];?></p>
                             </div>
                             <div class="buy"><a href="viewfood.php?foodid=<?= $row['food_id'];?>"><i class="fa fa-eye" aria-hidden="true"></i></a>
                             <i><?php echo $row["quantity"];?></i>
@@ -283,7 +290,12 @@ $search=0;
             </div>
            
         <?php      }}else if($search==0) {
-            $search=$_POST['search'];
+            if($searchEmail==0){
+                    $search=@$_GET['name'];
+            }else{
+                    $search=$_POST['search'];
+                }
+
              $sql = "SELECT * from food where `name`='$search'"; // where `verified`='1' AND `status`='1'";
              require_once("DBConnect.php");
              $result = $conn-> query($sql);
@@ -304,11 +316,11 @@ $search=0;
                             <div class="bottom">
                                 <div class="left">
                                 <div class="details">
-                                <h2><?php echo $row["name"];?></h2>
-                                <p> <?php echo " By: ".$row1["username"];?></p>
-                                <p> <?php echo $row["location"];?></p>
+                                <p><span style="font-weight:bold"><?php echo $row["name"];?></span></br>
+                                 <?php echo " By: ".$row1["username"];?><br>
+                                <?php echo $row["location"];?></p>
                             </div>
-                                    <div class="buy"><a><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                    <div class="buy"><a href="viewfood.php?foodid=<?= $row['food_id'];?>"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                     <i><?php echo $row["quantity"];?></i>
                                 </div>
                                 </div>

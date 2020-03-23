@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2020 at 05:30 PM
+-- Generation Time: Mar 16, 2020 at 04:03 AM
 -- Server version: 10.1.40-MariaDB
 -- PHP Version: 7.3.5
 
@@ -204,7 +204,7 @@ CREATE TABLE `register` (
 
 INSERT INTO `register` (`reg_id`, `username`, `pic`, `user_type`, `firstname`, `lastname`, `email`, `location`, `contact`, `dob`, `created_at`, `updated_at`, `password`, `secret_key`, `verified`, `verifiedby_id`, `remark`, `status`, `code`) VALUES
 (44, 'roshan', NULL, NULL, 'roshan', 'ok', 'roshan@gmail.com', NULL, NULL, NULL, '2020-03-10 02:26:25', '2020-03-15 10:50:09', 'b0ad80266fc30c141ff3f8734a3897cd', NULL, 1, 0, NULL, 1, NULL),
-(47, 'rbnph', 'rbnph.jpg', 'Donator', 'rabin', 'phaiju', 'rabinphaiju15@gmail.com', 'Bhaktapur', '9087654321', '2020-03-27', '2020-03-13 07:28:53', '2020-03-15 13:16:36', '279cb0d7637c74a0a9db05f9957462d9', NULL, 1, 0, NULL, 1, '1584257483');
+(51, 'rbnph', NULL, NULL, 'rabin', 'phaiju', 'rabinphaiju15@gmail.com', NULL, NULL, NULL, '2020-03-16 02:50:49', '2020-03-16 08:36:09', '279cb0d7637c74a0a9db05f9957462d9', NULL, 1, 0, NULL, 1, 'phaiju2313');
 
 -- --------------------------------------------------------
 
@@ -232,7 +232,6 @@ INSERT INTO `schedule` (`schedule_id`, `updated_by`, `day`, `start_time`, `end_t
 (28, 'rbnph', 'Friday', '15:00:00', '17:00:00', '2020-03-20 00:00:00', 'fri', 'Enter Schedule description.', 'Bhaktapur'),
 (29, 'rbnph', 'Saturday', '13:00:00', '15:00:00', '2020-03-21 00:00:00', 'sat', 'Enter Schedule description.', 'Bhaktapur'),
 (30, 'rbnph', 'Thursday', '11:00:00', '12:00:00', '2020-03-19 00:00:00', 'thu', 'Enter Schedule description.', 'Bhaktapur'),
-(31, 'rbnph', 'Sunday', '10:00:00', '11:00:00', '2020-03-15 00:00:00', 'sun', 'Enter Schedule description.', 'Bhaktapur'),
 (32, 'rbnph', 'Tuesday', '12:00:00', '15:00:00', '2020-03-17 00:00:00', 'tue', 'Enter Schedule description.', 'Bhaktapur'),
 (33, 'rbnph', 'Wednesday', '15:00:00', '16:00:00', '2020-03-18 00:00:00', 'wed', 'Enter Schedule description.', 'Bhaktapur'),
 (34, 'rbnph', 'Monday', '10:00:00', '11:00:00', '2020-03-16 00:00:00', 'mon', 'Enter Schedule description.', 'Bhaktapur'),
@@ -365,7 +364,7 @@ ALTER TABLE `records`
 -- AUTO_INCREMENT for table `register`
 --
 ALTER TABLE `register`
-  MODIFY `reg_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `reg_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `schedule`
