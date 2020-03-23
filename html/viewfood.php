@@ -156,7 +156,20 @@ if (!isset($foodid)) {
             font-size: 17px;
             cursor: pointer;
         }
-    </style>
+       .button_delete a:link,.button_delete a:visited {
+        background-color: #f44336;
+        color: white;
+        padding: 10px 20px;
+        margin-left:10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        }
+
+        .button_delete a:hover,.button_delete a:active {
+        background-color: red;
+        }
+</style>
 </head>
 
 <body>
@@ -444,7 +457,8 @@ if (!isset($foodid)) {
                                             </dl>
 
                                             <div class="m-t-30">
-                                                <button class="btn btn-primary btn-sm waves-effect" name="food_edit">Save</button>
+                                                <button class="btn btn-primary btn-sm waves-effect" style="float:left" name="food_edit">Save</button>
+                                                <div class="button_delete"><a href="delete_food.php?food_id=<?= $row['food_id'];?>">Delete</a></div>
                                                 <button data-profile-action="reset" class="btn-link btn-cancel">Cancel</button>
                                             </div>
                                         </div>
