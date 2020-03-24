@@ -29,13 +29,21 @@ if($d < "09:00:00" || $e > "18:00:00"){
 <?php
 $sentmails="Mail sent. Check your inbox for code.";
 $email="rabinphaiju15@gmail.com";
-echo "<script>window.location='login.php?sentmails=$sentmails?email=$email';</script>";	
+// echo "<script>window.location='login.php?sentmails=$sentmails?email=$email';</script>";	
                     ?>
 <?php 
-    //the date 30 days from now.
-//     $i=12;
-// $thirtyDays = date("Y-m-d", strtotime("$i days"));
-// echo $thirtyDays;
+    // the date 30 days from now.
+    $i=12;
+$thirtyDays = date("Y-m-d", strtotime("$i days"));
+echo $thirtyDays;
     
   
-  ?>
+//   ?>
+// <script>
+//    var res = "copy success";
+// </script>
+// <?php
+// $print="<script>document.writeln(res);</script>";
+//    echo $print;
+// ?>
+ 

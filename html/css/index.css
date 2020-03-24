@@ -266,7 +266,7 @@ body {
 .sidemenu {
     float: left;
     width: 230px;
-    height: calc(100vh - 50px);
+    height: calc(100vh - 10px);
     background: #909bb0;
     /* overflow-y: auto; */
     scrollbar-width: none;

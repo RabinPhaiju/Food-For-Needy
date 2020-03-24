@@ -180,6 +180,9 @@ if (isset($_POST['send'])) {
                                 <a href="editprofile.php">Edit Profile</a>
                             </div>
                         </li>
+                        <li class="item">
+                            <a class="btn" href="chat.php"><i class="fas fa-commenting"></i>Conversation</a>
+                        </li>
 
                         <li class="item" id="messages">
                             <a href="#messages" class="btn"><i class="far fa-envelope"></i>Messages</a>
@@ -260,6 +263,7 @@ if (isset($_POST['send'])) {
                         <li class="active_child"><a href="post.php"><span class="icon"></span><span>Your List</span></a></li>
                     </ul>
                 </li>
+                <li><a href="chat.php"><span class="icon"><i class="fa fa-commenting"></i></span><span>Conversation</span></a></li>
                 <li class="dropdown active">
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Messages</span></a>
                     <ul>
