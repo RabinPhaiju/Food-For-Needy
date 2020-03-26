@@ -7,7 +7,7 @@ $d = $_POST['quantity'];
 $e = $_POST['ExpDate'];
 $f = $_POST['Description'];
 $g = $_POST['type'];
-//file
+// file
 $errors= array();
 $file_name =$_FILES['img']['name'];
 $file_size =$_FILES['img']['size'];
