@@ -32,11 +32,11 @@
 
     <body>
         <!-- page loader undo the comment when finish -->
-        <div class="loader_bg">
+        <!-- <div class="loader_bg">
             <div class="load">
                 <hr/><hr/><hr/><hr/>
             </div>
-        </div>
+        </div> -->
 
         <div class="container">
             <div class="first">
@@ -133,43 +133,139 @@
             </div>
 
             <div class="fifth">
-                <div class="history-tl-container">
-                    <ul class="tl">
-                      <li class="tl-item" ng-repeat="item in retailer_history">
-                        <div class="timestamp">
-                          3rd March 2015<br> 7:00 PM
-                        </div>
-                        <div class="item-title">Start from Shire</div>
-                        <div class="item-detail">Don't forget the ring</div>
-                      </li>
-                      <li class="tl-item" ng-repeat="item in retailer_history">
-                        <div class="timestamp">
-                          19th March 2015<br> 3:00 PM
-                        </div>
-                        <div class="item-title">Kill some Orcs</div>
-                        <div class="item-detail">Don't enter the caves!!</div>
-                      </li>
-                      <li class="tl-item" ng-repeat="item in retailer_history">
-                        <div class="timestamp">
-                          1st June 2015<br> 7:00 PM
-                        </div>
-                        <div class="item-title">Throw that goddamn ring in the lava</div>
-                        <div class="item-detail">Also, throw that Gollum too</div>
-                      </li>                  
-                    </ul>  
-                </div>
                 <div class="schedule">
                     <p class="scheduletitle">Schedule</p>
+                </div>
+                <section class="cd-horizontal-timeline">
+                    <div class="timeline">
+                        <div class="events-wrapper">
+                            <div class="events">
+                                <ol>
+                                    <li><a href="#0" data-date="16/01/2014" class="selected">16 Jan</a></li>
+                                    <li><a href="#0" data-date="28/02/2014">28 Feb</a></li>
+                                    <li><a href="#0" data-date="20/04/2014">20 Mar</a></li>
+                                    <li><a href="#0" data-date="20/05/2014">20 May</a></li>
+                                    <li><a href="#0" data-date="09/07/2014">09 Jul</a></li>
+                                    <li><a href="#0" data-date="30/08/2014">30 Aug</a></li>
+                                    <li><a href="#0" data-date="19/09/2014">19 Sep</a></li>
+                                    <li><a href="#0" data-date="01/11/2014">01 Nov</a></li>
+                                    <li><a href="#0" data-date="10/12/2014">10 Dec</a></li>
+                                    <li><a href="#0" data-date="19/01/2015">29 Jan</a></li>
+                                    <li><a href="#0" data-date="03/03/2015">3 Mar</a></li>
+                                </ol>
+                
+                                <span class="filling-line" aria-hidden="true"></span>
+                            </div> <!-- .events -->
+                        </div> <!-- .events-wrapper -->
+                            
+                        <ul class="cd-timeline-navigation">
+                            <li><a href="#0" class="prev inactive">Prev</a></li>
+                            <li><a href="#0" class="next">Next</a></li>
+                        </ul> <!-- .cd-timeline-navigation -->
+                    </div> <!-- .timeline -->
+                
+                    <div class="events-content">
+                        <ol>
+                            <li class="selected" data-date="16/01/2014">
+                                <h2>Horizontal Timeline</h2>
+                                <em>January 16th, 2014</em>
+                                <p>	
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+                                </p>
+                            </li>
+                
+                            <li data-date="28/02/2014">
+                                <h2>Event title here</h2>
+                                <em>February 28th, 2014</em>
+                                <p>	
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+                                </p>
+                            </li>
+                
+                            <li data-date="20/04/2014">
+                                <h2>Event title here</h2>
+                                <em>March 20th, 2014</em>
+                                <p>	
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+                                </p>
+                            </li>
+                
+                            <li data-date="20/05/2014">
+                                <h2>Event title here</h2>
+                                <em>May 20th, 2014</em>
+                                <p>	
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+                                </p>
+                            </li>
+                
+                            <li data-date="09/07/2014">
+                                <h2>Event title here</h2>
+                                <em>July 9th, 2014</em>
+                                <p>	
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+                                </p>
+                            </li>
+                
+                            <li data-date="30/08/2014">
+                                <h2>Event title here</h2>
+                                <em>August 30th, 2014</em>
+                                <p>	
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+                                </p>
+                            </li>
+                
+                            <li data-date="15/09/2014">
+                                <h2>Event title here</h2>
+                                <em>September 15th, 2014</em>
+                                <p>	
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+                                </p>
+                            </li>
+                
+                            <li data-date="01/11/2014">
+                                <h2>Event title here</h2>
+                                <em>November 1st, 2014</em>
+                                <p>	
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+                                </p>
+                            </li>
+                
+                            <li data-date="10/12/2014">
+                                <h2>Event title here</h2>
+                                <em>December 10th, 2014</em>
+                                <p>	
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+                                </p>
+                            </li>
+                
+                            <li data-date="19/01/2015">
+                                <h2>Event title here</h2>
+                                <em>January 19th, 2015</em>
+                                <p>	
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+                                </p>
+                            </li>
+                
+                            <li data-date="03/03/2015">
+                                <h2>Event title here</h2>
+                                <em>March 3rd, 2015</em>
+                                <p>	
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+                                </p>
+                            </li>
+                        </ol>
+                    </div> <!-- .events-content -->
+                </section>
+                <div class="schedule">
                     <p class="scheduletext">Want to add your own Schedules?<br>So, 
-                        people can know when & where <br>to join your program!!!<br>
-                        click more info.
+                        people can know when & where to join your program.
+                        click below for more info.
                     </p>
                     <button>
                         <a href="#">More Info &nbsp; <i class="fa fa-arrow-right"></i></a>
                     </button>
                 </div>
             </div>
-
             <div class="sixth">
                 <div class="aboutus">
                     <p class="abouthead">About <span style="color: hsl(34, 100%, 60%);">Us</span></p>
@@ -199,14 +295,14 @@
                 </div>
             </div>
             
-            <div class="parallax1">
+            <!-- <div class="parallax1">
                    <p data-aos="zoom-in-down" data-aos-duration="2000" >
                        " <span class="parallax-text">THE BEST </span><br>
                        AMONG THOSE YOU ARE THOSE<br>
                        WHO BRING GREATEST BENEFITS<br>
                        TO MANY OTHERS. "
                     </p>
-            </div>
+            </div> -->
             <div class="heroslider">
                 <div class="herotitle">
                     <p>Food <br>Rescue <br><span style="color: hsl(34, 100%, 60%);">Hero</span></p>
@@ -247,9 +343,9 @@
             </div>
             
             <div class="testimonial-container">
+                <h2>Testimonials</h2>
                 <div class="dk-container">
                     <div class="cd-testimonials-wrapper cd-container">
-                        <h2>Testimonials</h2>
                         <ul class="cd-testimonials">
                             <li>
                                 <div class="testimonial-content">
@@ -335,7 +431,7 @@
             </div>
 
             <div class="ninth">
-                
+                <p style="font-size: 40px;"><span style="color:aqua">In</span><span style="color: aquamarine;">Need.</span></p>
             </div>
            
         </div>
@@ -370,6 +466,8 @@
         <script src="js/mobileMenu.js"></script>
         <script src=" https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="js/slider.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="js/timeline.js"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.1/jquery.flexslider.min.js"></script>
         <script src="js/testimonials.js"></script>

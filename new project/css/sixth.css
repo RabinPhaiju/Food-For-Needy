@@ -4,11 +4,11 @@
 .container .sixth{
     font-family: 'Montserrat', sans-serif;
     background-color: rgb(247, 247, 247);
-    margin: -2% 2% 0% 2%;
+    margin: 0% 2% 0% 2%;
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(15rem,1fr));
     column-gap: 3rem;
-    padding: 5vw;
+    padding: 2vw;
 }
 
 .container .sixth .aboutus{

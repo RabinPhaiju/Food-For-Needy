@@ -3,15 +3,16 @@
 
 .container .fourth{
     background-color: rgb(247, 247, 247);
-    margin: 2%;
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(25rem,1fr));
+    z-index: 4;
+    margin: 0% 2%;
 }
-@media screen and ( max-width:765px){
+/* @media screen and ( max-width:765px){
     .container .fourth{
-        margin-top: 4rem;
+        margin-top: 2.5rem;
     }
-}
+} */
 
 .container .fourth .ourStory{
     padding-left: 6vw;
@@ -25,8 +26,8 @@
 }
 
 .container .fourth .ourStory p.story{
-    margin-top : -1rem;
     font-weight: 5;
+    margin-top: -3rem;
 }
 
 .container .fourth .choice{

@@ -2,7 +2,7 @@ button{
     border-radius: 2rem;
     padding: .8rem 1.5rem;
     border: none;
-    background-image: linear-gradient(to left top,#4AC29A ,#BDFFF3);
+    background-image: linear-gradient(to left top,#ff7e5f,#feb47b);
     margin-top: 1rem;
     cursor: pointer;
 } 
@@ -15,7 +15,7 @@ button a{
 }
 button:hover{
     background-image: linear-gradient(white,white);
-    border: 1px solid #4AC29A;
+    border: 1px solid hsl(34, 100%, 60%);;
     opacity: .6;
 }
 button:hover a{
