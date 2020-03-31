@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+.tenth{
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    background-color: rgb(247, 247, 247);
+    padding: 10px 0px 5px 0px;
+    text-align: center;
+}
+.tenth ul{
+    list-style-type: none;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+.tenth li{
+    display: inline-block;
+    padding-left: 2rem;
+}
+.tenth a{
+    text-decoration: none;
+    color: black;
+}
+.tenth a:hover{
+    color: hsl(34, 100%, 60%);
+}

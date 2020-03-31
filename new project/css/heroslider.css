@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+.container .heroslider{
+    margin: 5%;
+    font-family: 'Montserrat', sans-serif;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(15rem,1fr));
+    column-gap: 4rem;
+    align-items: center;
+}
+.heroslider .herotitle{
+    font-size: 3rem;
+    font-weight: 600;
+}
+  .carousel {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: 'Quicksand', sans-serif;
+    overflow-x: hidden;
+    position: relative;
+  }
+  .carousel .card-carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .carousel .card-carousel .my-card {
+    height: 20rem;
+    width: 170px;
+    position: relative;
+    z-index: 1;
+    -webkit-transform: scale(0.6) translateY(-2rem);
+    transform: scale(0.6) translateY(-2rem);
+    opacity: 0;
+    cursor: pointer;
+    pointer-events: none;
+    background: #2e5266;
+    background: linear-gradient(to top, #2e5266, #6e8898);
+    transition: 1s;
+  }
+  .carousel .card-carousel .my-card.active {
+    z-index: 3;
+    -webkit-transform: scale(1) translateY(0) translateX(0);
+    transform: scale(1) translateY(0) translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+    transition: 1s;
+  }
+  .carousel .card-carousel .my-card.prev, .carousel .card-carousel .my-card.next {
+    z-index: 2;
+    opacity: 0.6;
+    pointer-events: auto;
+    transition: 1s;
+  }
+  .carousel .card-carousel .my-card.prev {
+    -webkit-transform: scale(0.8) translateY(-1rem) translateX(26rem);
+    transform: scale(0.8) translateY(-1rem) translateX(26rem);
+  }
+  .carousel .card-carousel .my-card.next {
+    -webkit-transform: scale(0.8) translateY(-1rem) translateX(-26rem);
+    transform: scale(0.8) translateY(-1rem) translateX(-26rem);
+  }
+  
+  .heroslider .tojoin{
+    font-size: 3rem;
+    font-weight: 600;  
+  }

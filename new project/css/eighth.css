@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+.container .eighth{
+    font-family: 'Montserrat', sans-serif;
+    background-color: rgb(247, 247, 247);
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(15rem,1fr));
+    grid-gap: 1rem;
+    padding: 4vw 8vw;
+    align-items: center;
+}
+
+.container .eighth .getintouch p{
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.container .eighth .contactdetail ul{
+    list-style: none;
+    margin-left: -2rem;
+}
+.container .eighth .contactdetail a{
+    text-decoration: none;
+    color: black;
+}
+.container .eighth .contactdetail a:hover{
+    color: hsl(34, 100%, 60%);
+}
+
+/* contact form */
+.container .eighth .contactform{
+    align-self: center;
+}
+
+.container .eighth .contactform input,
+.container .eighth .contactform textarea{
+    width: 20rem;
+    padding-top: .8rem;
+    padding-bottom: .8rem;
+    padding-left: 1rem;
+    margin-top:1rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid rgb(94, 93, 93);
+    border-radius: 5px;
+    box-shadow: 0px 10px 20px -15px ;
+    background: transparent;
+}
+
+.container .eighth .contactform input:hover,
+.container .eighth .contactform textarea:hover{
+    border-color: rgb(137, 207, 207);
+    background: transparent;
+}
+.container .eighth .contactform input::placeholder,
+.container .eighth .contactform textarea::placeholder{
+    color: hsl(34, 60%, 57%);
+}
