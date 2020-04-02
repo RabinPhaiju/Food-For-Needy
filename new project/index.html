@@ -22,12 +22,20 @@
     <link rel="stylesheet" href="css/ninth.css">
     <link rel="stylesheet" href="css/tenth.css">
 
+    <link rel="stylesheet" href="css/scrollup.css">
     <link rel="stylesheet" href="css/heroslider.css">
     <link rel="stylesheet" href="css/D-R-DCounts.css">
     <link rel="stylesheet" href="css/testimonials.css">
     <link rel="stylesheet" href="css/parallax.css">
     
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    
+    <style>
+        html{
+        scroll-behavior: smooth;
+        }
+    </style>
+
     </head>
 
     <body>
@@ -92,6 +100,12 @@
                         </button>
                     </div>
                 </div>               
+            </div>
+
+            <div class="scrollup" id="up">
+                <a href="#">
+                    <i class="fa fa-arrow-up fa-2x"></i>
+                </a>
             </div>
 
             <div class="fourth">
@@ -256,7 +270,7 @@
                         </ol>
                     </div> <!-- .events-content -->
                 </section>
-                <div class="schedule">
+                <div class="schedule1">
                     <p class="scheduletext">Want to add your own Schedules?<br>So, 
                         people can know when & where to join your program.
                         click below for more info.
@@ -349,7 +363,7 @@
                         <ul class="cd-testimonials">
                             <li>
                                 <div class="testimonial-content">
-                                    <p>If you can't feed a hundred people, then feed just one.</p>
+                                    <p><i class="fa fa-quote-left"></i> If you can't feed a hundred people, then feed just one. <i class="fa fa-quote-right"></i></p>
                                     <div class="cd-author">
                                         <img src="files/mother.jpg" alt="Author image">
                                         <ul class="cd-author-info">
@@ -360,7 +374,7 @@
                             </li>
                             <li>
                                 <div class="testimonial-content">
-                                    <p>What you do makes a difference, and you have to decide what kind of difference you want to make.</p>
+                                    <p><i class="fa fa-quote-left"></i> What you do makes a difference, and you have to decide what kind of difference you want to make. <i class="fa fa-quote-right"></i></p>
                                     <div class="cd-author">
                                         <img src="files/jane.jpg" alt="Author image">
                                         <ul class="cd-author-info">
@@ -371,7 +385,7 @@
                             </li>
                             <li>
                                 <div class="testimonial-content">
-                                    <p>Sharing food with another human being is an intimate act that should not be indulged in lightly.</p>
+                                    <p><i class="fa fa-quote-left"></i>Sharing food with another human being is an intimate act that should not be indulged in lightly.<i class="fa fa-quote-right"></i></p>
                                     <div class="cd-author">
                                         <img src="files/fisher.jpg" alt="Author image">
                                         <ul class="cd-author-info">
@@ -398,30 +412,25 @@
             
             <div class="eighth">
                 <div class="getintouch">
-                    <p>Get in <br><span style="color: hsl(34, 100%, 60%);">Touch</span></p>
-                </div>
-                <div class="contactdetail">
+                    <p class="contactHead">Get in <span style="color: hsl(34, 100%, 60%);">Touch</span></p>
+                    <p>If any problems or any suggestion you can contact us through our message box or using the contact information below.</p>
+                    <br>
                     <ul>
-                        <li>Location : Bhaktapur - 10, Nepal</li>
-                        <li>Vist Us At : <a href="#">*******@gmail.com</a></li>
-                        <li>Contact No : 98********, 01-*******</li>
-                        <li>Time : 24 hrs Service</li>
+                        <li>&nbsp;&nbsp;<i class="fa fa-mobile fa-2x"></i> &nbsp;&nbsp;&nbsp;<span style="font-size: 20px;">:</span>&nbsp;&nbsp;+977-98********, 01-*******</li>
                         <br>
-                        <li class="media" style="word-spacing: 1rem;">
-                            <a href="#"><i class="fa fa-facebook fa-1x"></i></a>
-                            <a href="#"><i class="fa fa-instagram fa-1x"></i></a>
-                            <a href="#"><i class="fa fa-twitter fa-1x"></i></a>
-                            <a href="#"><i class="fa fa-google-plus"></i></a>
-                        </li>
+                        <li><a href=""><span style="font-size: 30px; font-weight: 600;">@</span>&nbsp;&nbsp;<span style="font-size: 20px;">:</span>&nbsp;&nbsp;*******@gmail.com</a></li>
+                        <br>
+                        <li>&nbsp;<i class="fa fa-map-marker fa-2x"></i> &nbsp;&nbsp;&nbsp;<span style="font-size: 20px;">:</span>&nbsp;&nbsp;Bhaktapur - 10, Nepal</li>
                     </ul>
                 </div>
+                
                 <div class="contactform">
                     <form action="">
-                        <input type="text" placeholder="Full Name">
+                        <input type="text" placeholder="Enter Your Name *">
                         <br>
-                        <input type="email" placeholder="Email">
+                        <input type="email" placeholder="Enter Your Email *">
                         <br>
-                        <textarea name="message" id="message" rows="4" placeholder="Message"></textarea>
+                        <textarea name="message" id="message" rows="4" placeholder="Enter Your Message *"></textarea>
                         <br>
                         <button type="submit">
                             <a href="#">Send Message</a>
@@ -430,13 +439,14 @@
                 </div>
             </div>
 
-            <div class="ninth">
+            <!-- <div class="ninth">
                 <p style="font-size: 40px;"><span style="color:aqua">In</span><span style="color: aquamarine;">Need.</span></p>
             </div>
-           
+            -->
         </div>
 
         <div class="tenth">
+            <hr>
             <ul>
                 <li><a href="#"><i class="fa fa-facebook fa-1x"></i></a></li>
                 <li><a href="#"><i class="fa fa-instagram fa-1x"></i></a></li>
@@ -461,6 +471,15 @@
                     menu.classList.remove("cus-nav");
                 }
             });
+
+            window.addEventListener("scroll",function(){
+                let up = document.getElementById('up');
+                if(window.pageYOffset>130){
+                    up.style.display="block";
+                }else{
+                    up.style.display="none"; 
+                }
+            })
         </script>
         
         <script src="js/mobileMenu.js"></script>

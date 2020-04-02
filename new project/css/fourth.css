@@ -8,11 +8,11 @@
     z-index: 4;
     margin: 0% 2%;
 }
-/* @media screen and ( max-width:765px){
+@media screen and ( max-width:765px){
     .container .fourth{
-        margin-top: 2.5rem;
+        margin-top: 5rem;
     }
-} */
+}
 
 .container .fourth .ourStory{
     padding-left: 6vw;
