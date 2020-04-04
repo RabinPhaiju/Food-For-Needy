@@ -83,6 +83,18 @@ $pos=@$_GET['pos'];
     .contains {
         margin-left:5px;
     }
+    .btnss{
+            transition: all .4s;
+            position: relative;
+        }
+        .btnss:hover{
+            transform: translateY(-2px);
+            box-shadow: 0 10p 20px rgba(0,0,0,0.6);
+        }
+        .btnss:active{
+            transform: translateY(-1px);
+            box-shadow: 0 10p 20px rgba(0,0,0,0.6);
+        }
     </style>
 </head>
 
@@ -237,14 +249,14 @@ $pos=@$_GET['pos'];
               <?php if($pos==null){$pos=0;}?>
               <?php if($pos>0){?>
               
-              <a style="float:left;" href="sent.php?pos=<?php echo $pos-10;?>"><i class="fa fa-chevron-left"></i></a>
+              <a style="float:left;" href="sent.php?pos=<?php echo $pos-10;?>"><i class="fa fa-chevron-left btnss"></i></a>
               <?php }else { ?>
-              <a style="float:left;"><i class="fa fa-chevron-left"></i></a>
+              <a style="float:left;"><i class="fa fa-chevron-left btnss"></i></a>
               <?php }
               if($pos<$total && $total-$pos>10){ ?>
-              <a style="float:left;" href="sent.php?pos=<?php echo $pos+10;?>"><i class="fa fa-chevron-right"></i></a>
+              <a style="float:left;" href="sent.php?pos=<?php echo $pos+10;?>"><i class="fa fa-chevron-right btnss"></i></a>
               <?php } else { ?>
-                <a style="float:left;"><i class="fa fa-chevron-right"></i></a>
+                <a style="float:left;"><i class="fa fa-chevron-right btnss"></i></a>
               <?php } ?>
               <p style="margin:8px 0 0 5px;"><?php echo ($pos+1)." - ".($pos+10);?> out of <?php echo $total?></p>
               </h2>

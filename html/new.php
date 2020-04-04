@@ -155,6 +155,18 @@ if (isset($_POST['send'])) {
 		    height:30px;
         }
     }
+    .btnss{
+            transition: all .4s;
+            position: relative;
+        }
+        .btnss:hover{
+            transform: translateY(-3px);
+            box-shadow: 0 10p 20px rgba(0,0,0,0.6);
+        }
+        .btnss:active{
+            transform: translateY(-1px);
+            box-shadow: 0 10p 20px rgba(0,0,0,0.6);
+        }
     </style>
 </head>
 
@@ -327,7 +339,7 @@ if (isset($_POST['send'])) {
                                         <textarea rows="3" name="message" required class="form-control" placeholder="Type Your Message"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <button class="btn btn-raised btn-block btn-danger" name="send">Send Message &rarr;</button>
+                                        <button class="btn btn-raised btn-block btn-danger btnss" name="send">Send Message &rarr;</button>
                                     </div>
                                 </form>
                             </div>

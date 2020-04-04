@@ -95,6 +95,18 @@ if (isset($_POST['submit'])) {
 .plus:hover .tooltiptext {
   display:inline;
 }
+.btnss{
+            transition: all .4s;
+            position: relative;
+        }
+        .btnss:hover{
+            transform: translateY(-2px);
+            box-shadow: 0 10p 20px rgba(0,0,0,0.6);
+        }
+        .btnss:active{
+            transform: translateY(-1px);
+            box-shadow: 0 10p 20px rgba(0,0,0,0.6);
+        }
     </style>
     
     <script>
@@ -249,14 +261,14 @@ if (isset($_POST['submit'])) {
                 <div class="panel profile-panel">
                 <div class="container">
                     <h3 style="margin:20px 0 -20px 100px;">Schedule
-                    <a class="plus class="btn btn-success data-toggle="modal" data-target="#popUpWindow" href="#"><i class="fa fa-plus fa-2x" aria-hidden="true"></i>
+                    <a class="plus class="btn btn-success data-toggle="modal" data-target="#popUpWindow" href="#"><i class="fa fa-plus fa-2x btnss" aria-hidden="true"></i>
                     <span class="tooltiptext">Add</span></a>
                     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                     <?php
                     if($pos>0){?>
-                        <a href="schedule.php?pos=<?php echo $pos-1;?>" style="color:black"><i class="fa fa-caret-square-o-left" aria-hidden="true"></i><a>
+                        <a href="schedule.php?pos=<?php echo $pos-1;?>" style="color:black"><i class="fa fa-caret-square-o-left btnss" aria-hidden="true"></i><a>
                 <?php    }else{?>
-                    <a href="#"><i class="fa fa-caret-square-o-left" aria-hidden="true"></i><a>
+                    <a href="#"><i class="fa fa-caret-square-o-left btnss" aria-hidden="true"></i><a>
               <?php  }
                     ?>
                     
@@ -272,7 +284,7 @@ if (isset($_POST['submit'])) {
                     
                     echo '<a style="color:black">Week :'.$currentWeekNumber.'</a>';
                     ?>
-                    <a href="schedule.php?pos=<?php echo $pos+1;?>" style="color:black"><i class="fa fa-caret-square-o-right" aria-hidden="true"></i></a>
+                    <a href="schedule.php?pos=<?php echo $pos+1;?>" style="color:black"><i class="fa fa-caret-square-o-right btnss" aria-hidden="true"></i></a>
                     </h3>
 
                     <!-- <div id="snackbar">Click Plus to add new Schedule</div>  -->
