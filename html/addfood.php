@@ -181,6 +181,18 @@ $bc = str_replace(' ', '', $b);
             font-size: 17px;
             cursor: pointer;
         }
+        .btnss{
+            transition: all .4s;
+            position: relative;
+        }
+        .btnss:hover{
+            transform: translateY(-3px);
+            box-shadow: 0 10p 20px rgba(0,0,0,0.6);
+        }
+        .btnss:active{
+            transform: translateY(-1px);
+            box-shadow: 0 10p 20px rgba(0,0,0,0.6);
+        }
     </style>
 </head>
 
@@ -394,7 +406,7 @@ $bc = str_replace(' ', '', $b);
                                                 </dl>
 
                                                 <div class="m-t-30">
-                                                    <button class="btn btn-primary btn-sm waves-effect" name="add_food">Save</button>
+                                                    <button class="btn btn-primary btn-sm waves-effect btnss" name="add_food">Save</button>
 
                                                 </div>
                                                 <br>

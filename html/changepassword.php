@@ -56,10 +56,10 @@ echo "Error updating record: " . mysqli_error($conn);
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
         <title>Add Food</title>
         <style>
-            #message,#messageVerify {
+            #message , #messageVerify {
     display: none;
     background: rgb(3,3,3,0.1);
-    border-radius=10px;
+    border-radius:10px;
     color: #000;
     position: absolute;
     margin-bottom: -3px;
@@ -98,6 +98,18 @@ echo "Error updating record: " . mysqli_error($conn);
     left: -35px;
     content: "✖";
 }
+.btnss{
+            transition: all .4s;
+            position: relative;
+        }
+        .btnss:hover{
+            transform: translateY(-3px);
+            box-shadow: 0 10p 20px rgba(0,0,0,0.6);
+        }
+        .btnss:active{
+            transform: translateY(-1px);
+            box-shadow: 0 10p 20px rgba(0,0,0,0.6);
+        }
         </style>
     </head>
 
@@ -300,7 +312,7 @@ echo "Error updating record: " . mysqli_error($conn);
                                                     </dl>
 
                                                     <div class="m-t-30">
-                                                        <button id="signbtn" class="btn btn-primary btn-sm waves-effect" name="change_password">Save</button>
+                                                        <button id="signbtn" class="btn btn-primary btn-sm waves-effect btnss" name="change_password">Save</button>
 
                                                     </div>
                                                     <br>

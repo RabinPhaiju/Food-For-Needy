@@ -225,6 +225,20 @@ else{
     <link rel="stylesheet" href="css/toast.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <Style>
+        .btnss{
+            transition: all .4s;
+            position: relative;
+        }
+        .btnss:hover{
+            transform: translateY(-3px);
+            box-shadow: 0 10p 20px rgba(0,0,0,0.6);
+        }
+        .btnss:active{
+            transform: translateY(-1px);
+            box-shadow: 0 10p 20px rgba(0,0,0,0.6);
+        }
+    </Style>
     
 </head>
 
@@ -279,7 +293,7 @@ else{
                 <div class="g-recaptcha" data-sitekey="6Lc5gOEUAAAAADokFsP3Xe8v9MPGqHwRffIrvFCp"></div>
                 <!-- 6LfVguEUAAAAADpXmcofx5m40kp_nwpHNzMZX3ns -->
                 <br/>
-                <button id="signupButton" name="signup" class="invalid1">Sign Up</button>
+                <button id="signupButton" name="signup" class="btnss" class="invalid1">Sign Up</button>
             </form>
 
         </div>
@@ -330,7 +344,7 @@ else{
                 <input type="text" name="username" placeholder="Email or Username" required/>
                 <input type="password" name="password" placeholder="Password" required/>
                 <a  href="#" onclick="forget()">Forgot your password?</a>
-                <button name="signin">Sign In</button>
+                <button class="btnss" name="signin">Sign In</button>
             </form>
         </div>
         <div class="overlay-container">
@@ -339,13 +353,13 @@ else{
                     <h1>Welcome Back!</h1>
                     <p>To keep connected with us please login with your personal info</p>
                     <br>
-                    <button class="ghost" id="signIn">Sign In</button>
+                    <button class="ghost btnss" id="signIn">Sign In</button>
                 </div>
                 <div class="overlay-panel overlay-right">
                     <h1>Hello, Friend!</h1>
                     <p>Enter your personal details and start journey with us</p>
                     <br>
-                    <button class="ghost" id="signUp">Sign Up</button>
+                    <button class="ghost btnss" id="signUp">Sign Up</button>
                     
                 </div>
             </div>

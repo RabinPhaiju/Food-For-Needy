@@ -60,6 +60,18 @@ if (isset($_POST['send'])) {
       .clear_hide{
         display:none;
       }
+      .btnss{
+            transition: all .4s;
+            position: relative;
+        }
+        .btnss:hover{
+            transform: translateY(-3px);
+            box-shadow: 0 10p 20px rgba(0,0,0,0.6);
+        }
+        .btnss:active{
+            transform: translateY(-1px);
+            box-shadow: 0 10p 20px rgba(0,0,0,0.6);
+        }
     </style>
     <script type="text/javascript">
 
@@ -254,7 +266,7 @@ if($result-> num_rows >0){
               $row2 = mysqli_fetch_assoc($result2);
               
               if($row2['pic']==null){?>
-                <img src="files/user.png" height=55px style="border-radius:50%" alt="avatar" />
+                <img class="btnss" src="files/user.png" height=55px style="border-radius:50%" alt="avatar" />
              <?php }else{
               ?>
         <img src="files/<?php echo $row2['pic'];?>" height=55px style="border-radius:50%"  alt="avatar" />
@@ -429,7 +441,7 @@ if($resulttotall-> num_rows >0){
       <form action="chat.php?session_name=<?=$pass_user?>" method="POST" enctype="multipart/form-data">
           <input type="text" name="sent_to" value="<?php echo $chat_users[1];?>" hidden>
           <textarea name="message-to-send" id="message-to-send" placeholder="<?php if($error!=null){echo $error." Type your message";}else{echo "Type your message";}?>" placeholder ="Type your message" rows="3"></textarea>
-          <button name="send">Send</button>
+          <button name="send" class="btnss">Send</button>
         </form>
         
 
