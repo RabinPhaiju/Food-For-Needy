@@ -19,3 +19,9 @@
     color: aquamarine;
     opacity: .5;
 }
+
+@media screen and ( max-width:1200px){
+    .container .scrollup{
+        margin-left: 85%;
+    }
+}
