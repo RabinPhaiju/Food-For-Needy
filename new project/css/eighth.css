@@ -62,7 +62,7 @@
 .container .eighth .contactform textarea:hover{
     border-color: hsl(34, 60%, 57%);
     background: transparent;
-    box-shadow: 0px 10px 20px -15px orange;
+    box-shadow: 0px 10px 20px -15px rgba(107, 104, 88, 0.123);
 }
 .container .eighth .contactform input::placeholder,
 .container .eighth .contactform textarea::placeholder{
