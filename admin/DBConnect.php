@@ -2,7 +2,7 @@
 $server = "localhost";
 $username = "root";
 $pwd = "";
-$db = "foodn";
+$db = "ffn";
 
 // Create connection
 $conn = mysqli_connect($server, $username, $pwd, $db);

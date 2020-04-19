@@ -11,7 +11,7 @@ if (isset($_POST['add_user'])) {
     echo '<script type="text/javascript">alert("Password & Confirm Password don\'t match.");</script>';
   }
 
-  $sql = "INSERT INTO `kpa_user` (`name`,`username`, `email`,`password`)
+  $sql = "INSERT INTO `user` (`name`,`username`, `email`,`password`)
 VALUES ('$n','$u', '$e', md5('$p'))";
 require_once('DBConnect.php');
 if (mysqli_query($conn, $sql)) {
@@ -180,7 +180,7 @@ mysqli_close($conn);
 
 require_once("DBConnect.php");
 
-$sql = "SELECT * FROM `kpa_user` WHERE 1 Limit 0, 10";
+$sql = "SELECT * FROM `user` WHERE 1 Limit 0, 10";
 $result = mysqli_query($conn, $sql);
 ?>
                 <table class="table table-striped">
