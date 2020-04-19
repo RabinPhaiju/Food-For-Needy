@@ -5,7 +5,7 @@ if (!isset($user_id)) {
 }
  
 require_once('DBConnect.php');
-$sql = "DELETE FROM `kpa_user` WHERE id='$user_id';";
+$sql = "DELETE FROM `user` WHERE id='$user_id';";
 
 if (mysqli_query($conn, $sql)) {
     // echo "Record deleted successfully";

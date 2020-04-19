@@ -4,7 +4,7 @@ if (!isset($user_id)) {
   header('Location: users.php');
 }
 require_once("DBConnect.php");
-$sql = "SELECT * FROM `kpa_user` WHERE `id`='$user_id' Limit 0, 10";
+$sql = "SELECT * FROM `user` WHERE `id`='$user_id' Limit 0, 10";
 $result = mysqli_query($conn, $sql);
 $prev_data = mysqli_fetch_assoc($result);
 
@@ -13,7 +13,7 @@ if (isset($_POST['edit_user'])) {
   $n=$_POST['name'];
   $u = $_POST['username'];
   $e = $_POST['email'];
-  $sql = "UPDATE `kpa_user` SET `name`='$n',`username`='$u', `email`='$e' WHERE `id`='$user_id';";
+  $sql = "UPDATE `user` SET `name`='$n',`username`='$u', `email`='$e' WHERE `id`='$user_id';";
 if (mysqli_query($conn, $sql)) {
     echo "<script>alert('Data edited successfully!');</script>";
             echo "<script>window.location='users.php';</script>";
@@ -33,7 +33,7 @@ mysqli_close($conn);
           </div>
         </a>
        <a href="user.php" class="simple-text logo-normal">
-          Naresh 
+          Niru
         </a>
       </div>
       <div class="sidebar-wrapper">
