@@ -220,7 +220,7 @@
                             <?php if($schedule_count==1){echo 'class="selected"';}?>>
                                 <h2><?php echo $row['title'];?></h2>
                                 <em><?php echo date('d', $schedule_date); echo " ";
-                                 echo date('l', $schedule_date);?>, <?php echo " "; echo date('Y', $schedule_date);?></em>
+                                 echo date('M', $schedule_date);?>, <?php echo " "; echo date('Y', $schedule_date);?></em>
                                 <p>	
                                 <?php echo $row['description'];?>
                                  </p>
