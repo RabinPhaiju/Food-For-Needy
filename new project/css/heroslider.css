@@ -29,7 +29,7 @@
     position: relative;
   }
   .carousel .card-carousel .my-card {
-    height: 20rem;
+    max-height: 200px;
     width: 170px;
     position: relative;
     z-index: 1;

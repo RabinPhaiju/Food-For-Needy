@@ -35,6 +35,14 @@
         html{
         scroll-behavior: smooth;
         }
+        .hero-card img{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 8px;
+        }
     </style>
 
     </head>
@@ -155,20 +163,32 @@
                     <div class="timeline">
                         <div class="events-wrapper">
                             <div class="events">
-                                <ol>
-                                    <li><a href="#0" data-date="16/01/2014" class="selected">16 Jan</a></li>
-                                    <li><a href="#0" data-date="28/02/2014">28 Feb</a></li>
-                                    <li><a href="#0" data-date="20/04/2014">20 Mar</a></li>
-                                    <li><a href="#0" data-date="20/05/2014">20 May</a></li>
-                                    <li><a href="#0" data-date="09/07/2014">09 Jul</a></li>
-                                    <li><a href="#0" data-date="30/08/2014">30 Aug</a></li>
-                                    <li><a href="#0" data-date="19/09/2014">19 Sep</a></li>
-                                    <li><a href="#0" data-date="01/11/2014">01 Nov</a></li>
-                                    <li><a href="#0" data-date="10/12/2014">10 Dec</a></li>
-                                    <li><a href="#0" data-date="19/01/2015">29 Jan</a></li>
-                                    <li><a href="#0" data-date="03/03/2015">3 Mar</a></li>
-                                </ol>
-                
+                               <ol>
+                               <?php
+                            $sql = "SELECT * from `schedule`";// where `verified`='1' AND `status`='1'";
+                            
+                            require_once("../html/DBConnect.php");
+                            $result = $conn-> query($sql);
+                            $total = mysqli_num_rows($result);
+                            $schedule_count=1;
+                            $schedule_date;
+
+                            if($result-> num_rows >0){
+                                while($row = $result-> fetch_assoc()){  
+                                    $schedule_date=strtotime($row['date']);
+                            ?>
+                                
+                                    <li><a href="#0" data-date="<?=date('d', $schedule_date);?>/<?=date('m', $schedule_date);?>/<?=date('Y', $schedule_date);?>" 
+                                    <?php if($schedule_count==1){echo 'class="selected"';}?>>
+                                    <?php echo date('d', $schedule_date); echo " "; echo date('D', $schedule_date);?></a></li>
+                                    <?php 
+                                    $schedule_count++;
+                                }
+                            
+                                } ?>
+                                    
+                                
+                            </ol>
                                 <span class="filling-line" aria-hidden="true"></span>
                             </div> <!-- .events -->
                         </div> <!-- .events-wrapper -->
@@ -180,94 +200,33 @@
                     </div> <!-- .timeline -->
                 
                     <div class="events-content">
-                        <ol>
-                            <li class="selected" data-date="16/01/2014">
-                                <h2>Horizontal Timeline</h2>
-                                <em>January 16th, 2014</em>
+                        <ol><?php
+                        $sql = "SELECT * from `schedule`";// where `verified`='1' AND `status`='1'";
+                            
+                            require_once("../html/DBConnect.php");
+                            $result = $conn-> query($sql);
+                            $total = mysqli_num_rows($result);
+                            $schedule_count=0;
+                            $schedule_date;
+
+                            if($result-> num_rows >0){?>
+                                <ol>
+                                    <?php
+                                while($row = $result-> fetch_assoc()){  
+                                    $schedule_count++;
+                                    $schedule_date=strtotime($row['date']); 
+                            ?>
+                            <li data-date="<?=date('d', $schedule_date);?>/<?=date('m', $schedule_date);?>/<?=date('Y', $schedule_date);?>"
+                            <?php if($schedule_count==1){echo 'class="selected"';}?>>
+                                <h2><?php echo $row['title'];?></h2>
+                                <em><?php echo date('d', $schedule_date); echo " ";
+                                 echo date('l', $schedule_date);?>, <?php echo " "; echo date('Y', $schedule_date);?></em>
                                 <p>	
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
-                                </p>
+                                <?php echo $row['description'];?>
+                                 </p>
                             </li>
-                
-                            <li data-date="28/02/2014">
-                                <h2>Event title here</h2>
-                                <em>February 28th, 2014</em>
-                                <p>	
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
-                                </p>
-                            </li>
-                
-                            <li data-date="20/04/2014">
-                                <h2>Event title here</h2>
-                                <em>March 20th, 2014</em>
-                                <p>	
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
-                                </p>
-                            </li>
-                
-                            <li data-date="20/05/2014">
-                                <h2>Event title here</h2>
-                                <em>May 20th, 2014</em>
-                                <p>	
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
-                                </p>
-                            </li>
-                
-                            <li data-date="09/07/2014">
-                                <h2>Event title here</h2>
-                                <em>July 9th, 2014</em>
-                                <p>	
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
-                                </p>
-                            </li>
-                
-                            <li data-date="30/08/2014">
-                                <h2>Event title here</h2>
-                                <em>August 30th, 2014</em>
-                                <p>	
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
-                                </p>
-                            </li>
-                
-                            <li data-date="15/09/2014">
-                                <h2>Event title here</h2>
-                                <em>September 15th, 2014</em>
-                                <p>	
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
-                                </p>
-                            </li>
-                
-                            <li data-date="01/11/2014">
-                                <h2>Event title here</h2>
-                                <em>November 1st, 2014</em>
-                                <p>	
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
-                                </p>
-                            </li>
-                
-                            <li data-date="10/12/2014">
-                                <h2>Event title here</h2>
-                                <em>December 10th, 2014</em>
-                                <p>	
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
-                                </p>
-                            </li>
-                
-                            <li data-date="19/01/2015">
-                                <h2>Event title here</h2>
-                                <em>January 19th, 2015</em>
-                                <p>	
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
-                                </p>
-                            </li>
-                
-                            <li data-date="03/03/2015">
-                                <h2>Event title here</h2>
-                                <em>March 3rd, 2015</em>
-                                <p>	
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
-                                </p>
-                            </li>
+                                <?php }} ?>
+
                         </ol>
                     </div> <!-- .events-content -->
                 </section>
@@ -326,15 +285,26 @@
                 </div>
                 <div class="carousel">
                     <div class="card-carousel">
-                        <div class="my-card" id="1">111</div>
-                        <div class="my-card" id="2">222</div>
-                        <div class="my-card" id="3">333</div>
-                        <div class="my-card" id="4">444</div>
-                        <div class="my-card" id="5">555</div>
-                        <div class="my-card" id="6">666</div>
-                        <div class="my-card" id="7">777</div>
-                        <div class="my-card" id="8">888</div>
-                        <div class="my-card" id="9">999</div>
+                        <?php
+                                $sql = "SELECT * from `register`";// where `verified`='1' AND `status`='1'";
+                                    require_once("../html/DBConnect.php");
+                                    $result = $conn-> query($sql);
+                                    $total = mysqli_num_rows($result);
+                                    $hero_count =0;
+
+                                if($result-> num_rows >0){
+                                while($row = $result-> fetch_assoc()){  
+                                  $filepath="../html/files/".$row["pic"];
+                                  if($row["pic"]!=null){
+                            ?>
+                        <div class="my-card hero-card" id="1"><img src="<?php echo $filepath; ?>"></div>
+                                <?php 
+                                $hero_count++;
+                            if($hero_count==10){
+                            break;
+                            }
+                            }}} ?>
+
                     </div>
                 </div>
                 <div class="joinIn">

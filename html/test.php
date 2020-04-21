@@ -8,8 +8,8 @@ $datediff = $now - $your_date;
 
 $timestamp = strtotime('2009-10-22');
 
-$day = date('l', $timestamp);
-// echo $day;
+$day = date('D', $timestamp);
+echo $day;
 
 $to_time = strtotime("10:42:00");
 $from_time = strtotime("10:21:00");
@@ -35,7 +35,7 @@ $email="rabinphaiju15@gmail.com";
     // the date 30 days from now.
     $i=12;
 $thirtyDays = date("Y-m-d", strtotime("$i days"));
-echo $thirtyDays;
+// echo $thirtyDays;
     
   
 //   ?>
