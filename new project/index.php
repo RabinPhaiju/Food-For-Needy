@@ -63,7 +63,7 @@
                             <li><a href="#">ABOUT US</a></li>
                             <li><a href="#">SCHEDULES</a></li>
                             <li><a href=""><i class="fa fa-dropbox" aria-hidden="true"></i> DONATE</a></li>
-                            <li><a href="html/login.html"><i class="fa fa-handshake-o" aria-hidden="true"></i> JOIN US</a></li>
+                            <li><a href="html/login.php"><i class="fa fa-handshake-o" aria-hidden="true"></i> JOIN US</a></li>
                             <li><a href=""><i class="fa fa-phone" aria-hidden="true"></i> CONTACT US</a></li>
                             <li>
                                 <a href="#">&#169;2020 Food For Needy. All right reserved.</a>
@@ -348,14 +348,35 @@
             </div>
 
             <div class="D-R-D-Counts">
+                <?php 
+                  $sql = "SELECT * from `food`";// where `verified`='1' AND `status`='1'";
+                  require_once("../html/DBConnect.php");
+                  $resulttotal = $conn-> query($sql);
+                  $total = mysqli_num_rows($resulttotal);
+                ?>
                 <div class="FoodRescued" data-aos="fade-up" data-aos-duration="2000">
-                    <p>Food Rescued</p>
+                    <p>No of Food Rescued</p>
+                    <h4 style="color:black"><?php echo $total;?></h4>
                 </div>
+                <?php 
+                  $sql = "SELECT * from `register`";// where `verified`='1' AND `status`='1'";
+                  require_once("../html/DBConnect.php");
+                  $resulttotal = $conn-> query($sql);
+                  $total = mysqli_num_rows($resulttotal);
+                ?>
                 <div class="NoOfUser" data-aos="fade-up" data-aos-duration="2000">
                     <p>No of Users</p>
+                    <h4 style="color:black"><?php echo $total;?></h4>
                 </div>
+                <?php 
+                  $sql = "SELECT * from `food` where `served`=1" ;// where `verified`='1' AND `status`='1'";
+                  require_once("../html/DBConnect.php");
+                  $resulttotal = $conn-> query($sql);
+                  $total = mysqli_num_rows($resulttotal);
+                ?>
                 <div class="MealServed" data-aos="fade-up" data-aos-duration="2000">   
                     <p>Meals Served</p>
+                    <h4 style="color:black"><?php echo $total;?></h4>
                 </div>
             </div>
             
