@@ -180,7 +180,7 @@
                                 
                                     <li><a href="#0" data-date="<?=date('d', $schedule_date);?>/<?=date('m', $schedule_date);?>/<?=date('Y', $schedule_date);?>" 
                                     <?php if($schedule_count==1){echo 'class="selected"';}?>>
-                                    <?php echo date('d', $schedule_date); echo " "; echo date('D', $schedule_date);?></a></li>
+                                    <?php echo date('d', $schedule_date); echo " "; echo date('M', $schedule_date);?></a></li>
                                     <?php 
                                     $schedule_count++;
                                 }
