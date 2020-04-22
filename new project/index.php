@@ -1,3 +1,15 @@
+<?php
+    if(isset($_POST['contact'])){
+        $a = $_POST['name'];
+        $b = $_POST['email'];
+        $c = $_POST['message'];
+
+    $sql = "INSERT INTO contact (`name`,`email`,`message`) VALUES ('$a', '$b', '$c')";
+	//echo $sql;
+	require_once('../html/DBConnect.php');
+	mysqli_query($conn, $sql);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -429,16 +441,14 @@
                 </div>
                 
                 <div class="contactform">
-                    <form action="">
-                        <input type="text" placeholder="Enter Your Name *">
+                    <form action="index.php" method="POST">
+                        <input type="text" name="name" placeholder="Enter Your Name" required>
                         <br>
-                        <input type="email" placeholder="Enter Your Email *">
+                        <input type="email" name="email" placeholder="Enter Your Email" required>
                         <br>
-                        <textarea name="message" id="message" rows="4" placeholder="Enter Your Message *"></textarea>
+                        <textarea name="message" id="message" rows="4" placeholder="Enter Your Message" required></textarea>
                         <br>
-                        <button type="submit">
-                            <a href="#">Send Message</a>
-                        </button>
+                        <button type="submit" name="contact"> Send Message</button>
                     </form>
                 </div>
             </div>
