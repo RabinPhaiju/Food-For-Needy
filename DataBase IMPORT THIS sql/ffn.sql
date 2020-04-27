@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2020 at 04:03 AM
--- Server version: 10.1.40-MariaDB
--- PHP Version: 7.3.5
+-- Generation Time: Apr 27, 2020 at 01:47 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,6 +24,27 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `contact`
+--
+
+CREATE TABLE `contact` (
+  `name` varchar(30) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `message` varchar(255) DEFAULT NULL,
+  `id` int(8) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `contact`
+--
+
+INSERT INTO `contact` (`name`, `email`, `message`, `id`) VALUES
+('sdf', 'sd@sdf.com', 'sdf', 1),
+('sdf', 'sd@sdf.com', 'sdf', 2);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `content`
 --
 
@@ -32,13 +52,13 @@ CREATE TABLE `content` (
   `id` int(11) NOT NULL,
   `title` varchar(50) NOT NULL,
   `description` text NOT NULL,
-  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `postby_id` int(6) DEFAULT NULL,
-  `is_verified` int(1) NOT NULL DEFAULT '0',
+  `is_verified` int(1) NOT NULL DEFAULT 0,
   `verifiedby_id` int(6) DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT NULL ON UPDATE current_timestamp(),
   `hits` int(6) DEFAULT NULL,
-  `status` int(1) NOT NULL DEFAULT '1'
+  `status` int(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -50,14 +70,14 @@ CREATE TABLE `content` (
 CREATE TABLE `file` (
   `id` int(6) NOT NULL,
   `title` varchar(255) NOT NULL,
-  `remarks` text,
-  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `postby_id` int(6) NOT NULL DEFAULT '1',
-  `is_verified` tinyint(1) NOT NULL DEFAULT '0',
-  `verifiedby_id` int(6) NOT NULL DEFAULT '1',
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
-  `hits` bigint(20) NOT NULL DEFAULT '1',
-  `status` tinyint(4) NOT NULL DEFAULT '1'
+  `remarks` text DEFAULT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `postby_id` int(6) NOT NULL DEFAULT 1,
+  `is_verified` tinyint(1) NOT NULL DEFAULT 0,
+  `verifiedby_id` int(6) NOT NULL DEFAULT 1,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE current_timestamp(),
+  `hits` bigint(20) NOT NULL DEFAULT 1,
+  `status` tinyint(4) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -72,33 +92,34 @@ CREATE TABLE `food` (
   `pic` varchar(255) DEFAULT NULL,
   `name` varchar(20) NOT NULL,
   `location` varchar(30) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `verified` tinyint(1) NOT NULL DEFAULT '1',
-  `verifiedby_id` int(6) NOT NULL DEFAULT '0' COMMENT 'Verified By',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT NULL ON UPDATE current_timestamp(),
+  `verified` tinyint(1) NOT NULL DEFAULT 1,
+  `verifiedby_id` int(6) NOT NULL DEFAULT 0 COMMENT 'Verified By',
   `remark` varchar(50) DEFAULT NULL,
-  `status` tinyint(4) DEFAULT '1',
+  `status` tinyint(4) DEFAULT 1,
   `quantity` varchar(10) DEFAULT NULL,
   `ExpDate` timestamp NULL DEFAULT NULL,
   `Description` varchar(50) NOT NULL,
-  `type` varchar(30) NOT NULL
+  `type` varchar(30) NOT NULL,
+  `served` int(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `food`
 --
 
-INSERT INTO `food` (`food_id`, `updated_by`, `pic`, `name`, `location`, `created_at`, `updated_at`, `verified`, `verifiedby_id`, `remark`, `status`, `quantity`, `ExpDate`, `Description`, `type`) VALUES
-(88, 44, 'Rice88.jpg', 'Rice', 'Bhaktapur', '2020-03-10 02:41:09', '2020-03-11 08:28:36', 1, 0, NULL, 1, '19', '2020-12-11 18:15:00', 'Basmati', 'Vegetable'),
-(89, 44, 'DalPulses89.jpg', 'Dal Pulses', 'Bhaktapur', '2020-03-10 02:46:36', '2020-03-10 08:31:36', 1, 0, NULL, 1, '40', '2019-12-31 18:15:00', 'pulses', 'Grains,Beans and Nuts'),
-(90, 44, 'oil90.jpg', 'oil', 'Bhaktapur', '2020-03-10 04:30:34', '2020-03-10 10:15:34', 1, 0, NULL, 1, '40', '2020-03-08 18:15:00', 'this is eadable oil', 'Dairy Foods'),
-(91, 44, 'milkpowder91.jpg', 'milk powder', 'Bhaktapur', '2020-03-10 04:31:43', '2020-03-10 10:16:43', 1, 0, NULL, 1, '30', '2020-03-09 18:15:00', 'this is milk powder', 'Dairy Foods'),
-(92, 44, 'nuts92.jpg', 'nuts', 'Bhaktapur', '2020-03-10 04:32:31', '2020-03-10 10:17:31', 1, 0, NULL, 1, '50', '2020-03-07 18:15:00', 'this is nuts', 'Grains,Beans and Nuts'),
-(93, 44, 'wheat93.jpg', 'wheat', 'Bhaktapur', '2020-03-10 04:39:16', '2020-03-10 10:24:16', 1, 0, NULL, 1, '60', '2020-03-16 18:15:00', 'this is wheat', 'Grains,Beans and Nuts'),
-(94, 44, 'honey94.jpg', 'honey', 'Bhaktapur', '2020-03-10 04:43:01', '2020-03-10 10:28:01', 1, 0, NULL, 1, '30', '2020-03-03 18:15:00', 'this is honey', 'Dairy Foods'),
-(95, 44, 'biscuit95.jpg', 'biscuit', 'Bhaktapur', '2020-03-10 04:48:48', '2020-03-10 10:33:48', 1, 0, NULL, 1, '80', '2020-03-09 18:15:00', 'marie biscuit', 'Dairy Foods'),
-(96, 44, 'noodle96.jpg', 'noodle', 'Bhaktapur', '2020-03-10 04:49:41', '2020-03-10 10:34:41', 1, 0, NULL, 1, '90', '2020-03-16 18:15:00', 'WAI WAI noodle', 'Grains,Beans and Nuts'),
-(97, 44, 'pickle97.jpg', 'pickle', 'Bhaktapur', '2020-03-10 04:51:23', '2020-03-10 10:36:23', 1, 0, NULL, 1, '35', '2020-03-17 18:15:00', 'this is pickle', 'Vegetable');
+INSERT INTO `food` (`food_id`, `updated_by`, `pic`, `name`, `location`, `created_at`, `updated_at`, `verified`, `verifiedby_id`, `remark`, `status`, `quantity`, `ExpDate`, `Description`, `type`, `served`) VALUES
+(88, 44, 'Rice88.jpg', 'Rice', 'Bhaktapur', '2020-03-10 02:41:09', '2020-03-11 08:28:36', 1, 0, NULL, 1, '19', '2020-12-11 18:15:00', 'Basmati', 'Vegetable', NULL),
+(89, 44, 'DalPulses89.jpg', 'Dal Pulses', 'Bhaktapur', '2020-03-10 02:46:36', '2020-03-10 08:31:36', 1, 0, NULL, 1, '40', '2019-12-31 18:15:00', 'pulses', 'Grains,Beans and Nuts', NULL),
+(90, 44, 'oil90.jpg', 'oil', 'Bhaktapur', '2020-03-10 04:30:34', '2020-03-10 10:15:34', 1, 0, NULL, 1, '40', '2020-03-08 18:15:00', 'this is eadable oil', 'Dairy Foods', NULL),
+(91, 44, 'milkpowder91.jpg', 'milk powder', 'Bhaktapur', '2020-03-10 04:31:43', '2020-03-10 10:16:43', 1, 0, NULL, 1, '30', '2020-03-09 18:15:00', 'this is milk powder', 'Dairy Foods', NULL),
+(92, 44, 'nuts92.jpg', 'nuts', 'Bhaktapur', '2020-03-10 04:32:31', '2020-03-10 10:17:31', 1, 0, NULL, 1, '50', '2020-03-07 18:15:00', 'this is nuts', 'Grains,Beans and Nuts', NULL),
+(93, 44, 'wheat93.jpg', 'wheat', 'Bhaktapur', '2020-03-10 04:39:16', '2020-03-10 10:24:16', 1, 0, NULL, 1, '60', '2020-03-16 18:15:00', 'this is wheat', 'Grains,Beans and Nuts', NULL),
+(94, 44, 'honey94.jpg', 'honey', 'Bhaktapur', '2020-03-10 04:43:01', '2020-03-10 10:28:01', 1, 0, NULL, 1, '30', '2020-03-03 18:15:00', 'this is honey', 'Dairy Foods', NULL),
+(95, 44, 'biscuit95.jpg', 'biscuit', 'Bhaktapur', '2020-03-10 04:48:48', '2020-03-10 10:33:48', 1, 0, NULL, 1, '80', '2020-03-09 18:15:00', 'marie biscuit', 'Dairy Foods', NULL),
+(96, 44, 'noodle96.jpg', 'noodle', 'Bhaktapur', '2020-03-10 04:49:41', '2020-03-10 10:34:41', 1, 0, NULL, 1, '90', '2020-03-16 18:15:00', 'WAI WAI noodle', 'Grains,Beans and Nuts', NULL),
+(97, 44, 'pickle97.jpg', 'pickle', 'Bhaktapur', '2020-03-10 04:51:23', '2020-03-10 10:36:23', 1, 0, NULL, 1, '35', '2020-03-17 18:15:00', 'this is pickle', 'Vegetable', NULL);
 
 -- --------------------------------------------------------
 
@@ -112,7 +133,7 @@ CREATE TABLE `messages` (
   `msg_from` varchar(20) DEFAULT NULL,
   `subject` varchar(30) DEFAULT NULL,
   `message` varchar(255) DEFAULT NULL,
-  `date` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `date` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -141,7 +162,7 @@ CREATE TABLE `records` (
   `record_id` int(10) UNSIGNED NOT NULL,
   `description` varchar(100) DEFAULT NULL,
   `reg_id` int(10) UNSIGNED DEFAULT NULL,
-  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `date` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -168,7 +189,10 @@ INSERT INTO `records` (`record_id`, `description`, `reg_id`, `date`) VALUES
 (132, 'rbnph schedule at Bhaktapur in Wednesday from 15:00 to 16:00 title: wed', 0, '2020-03-15 20:44:40'),
 (133, 'rbnph schedule at Bhaktapur in Monday from 10:00 to 11:00 title: mon', 0, '2020-03-15 20:47:10'),
 (134, 'rbnph schedule at Bhaktapur in Monday from 09:00 to 11:00 title: next monday', 0, '2020-03-15 21:55:31'),
-(135, 'rbnph schedule at Bhaktapur in Tuesday from 13:00 to 14:00 title: april 14', 0, '2020-03-15 21:56:06');
+(135, 'rbnph schedule at Bhaktapur in Tuesday from 13:00 to 14:00 title: april 14', 0, '2020-03-15 21:56:06'),
+(136, 'roshan schedule at Bhaktapur in Wednesday from 10:00 to 13:00 title: This is first ok', 0, '2020-04-21 12:41:54'),
+(137, 'roshan schedule at Bhaktapur in Thursday from 13:00 to 16:00 title: next one', 0, '2020-04-21 12:42:51'),
+(138, 'roshan schedule at Bhaktapur in Tuesday from 13:00 to 14:00 title: today', 0, '2020-04-21 12:53:04');
 
 -- --------------------------------------------------------
 
@@ -185,16 +209,16 @@ CREATE TABLE `register` (
   `lastname` varchar(20) NOT NULL,
   `email` varchar(40) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `location` varchar(30) DEFAULT NULL,
-  `contact` text CHARACTER SET utf8 COLLATE utf8_unicode_ci COMMENT 'Contact No',
+  `contact` text CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Contact No',
   `dob` date DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT NULL ON UPDATE current_timestamp(),
   `password` varchar(40) NOT NULL,
   `secret_key` varchar(6) DEFAULT NULL,
-  `verified` tinyint(1) NOT NULL DEFAULT '0',
-  `verifiedby_id` int(6) NOT NULL DEFAULT '0' COMMENT 'Verified By',
+  `verified` tinyint(1) NOT NULL DEFAULT 0,
+  `verifiedby_id` int(6) NOT NULL DEFAULT 0 COMMENT 'Verified By',
   `remark` varchar(50) DEFAULT NULL,
-  `status` tinyint(4) DEFAULT '1',
+  `status` tinyint(4) DEFAULT 1,
   `code` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -203,8 +227,8 @@ CREATE TABLE `register` (
 --
 
 INSERT INTO `register` (`reg_id`, `username`, `pic`, `user_type`, `firstname`, `lastname`, `email`, `location`, `contact`, `dob`, `created_at`, `updated_at`, `password`, `secret_key`, `verified`, `verifiedby_id`, `remark`, `status`, `code`) VALUES
-(44, 'roshan', NULL, NULL, 'roshan', 'ok', 'roshan@gmail.com', NULL, NULL, NULL, '2020-03-10 02:26:25', '2020-03-15 10:50:09', 'b0ad80266fc30c141ff3f8734a3897cd', NULL, 1, 0, NULL, 1, NULL),
-(51, 'rbnph', NULL, NULL, 'rabin', 'phaiju', 'rabinphaiju15@gmail.com', NULL, NULL, NULL, '2020-03-16 02:50:49', '2020-03-16 08:36:09', '279cb0d7637c74a0a9db05f9957462d9', NULL, 1, 0, NULL, 1, 'phaiju2313');
+(44, 'roshan', 'roshan.jpg', NULL, 'roshan', 'ok', 'roshan@gmail.com', NULL, NULL, NULL, '2020-03-10 02:26:25', '2020-04-21 12:24:01', 'b0ad80266fc30c141ff3f8734a3897cd', NULL, 1, 0, NULL, 1, NULL),
+(51, 'rbnph', 'rbnph.jpg', NULL, 'rabin', 'phaiju', 'rabinphaiju15@gmail.com', NULL, NULL, NULL, '2020-03-16 02:50:49', '2020-04-21 12:24:06', '279cb0d7637c74a0a9db05f9957462d9', NULL, 1, 0, NULL, 1, 'phaiju2313');
 
 -- --------------------------------------------------------
 
@@ -218,7 +242,7 @@ CREATE TABLE `schedule` (
   `day` varchar(10) DEFAULT NULL,
   `start_time` time DEFAULT NULL,
   `end_time` time DEFAULT NULL,
-  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date` date NOT NULL DEFAULT current_timestamp(),
   `title` varchar(40) DEFAULT NULL,
   `description` varchar(200) DEFAULT NULL,
   `location` varchar(30) DEFAULT NULL
@@ -229,14 +253,9 @@ CREATE TABLE `schedule` (
 --
 
 INSERT INTO `schedule` (`schedule_id`, `updated_by`, `day`, `start_time`, `end_time`, `date`, `title`, `description`, `location`) VALUES
-(28, 'rbnph', 'Friday', '15:00:00', '17:00:00', '2020-03-20 00:00:00', 'fri', 'Enter Schedule description.', 'Bhaktapur'),
-(29, 'rbnph', 'Saturday', '13:00:00', '15:00:00', '2020-03-21 00:00:00', 'sat', 'Enter Schedule description.', 'Bhaktapur'),
-(30, 'rbnph', 'Thursday', '11:00:00', '12:00:00', '2020-03-19 00:00:00', 'thu', 'Enter Schedule description.', 'Bhaktapur'),
-(32, 'rbnph', 'Tuesday', '12:00:00', '15:00:00', '2020-03-17 00:00:00', 'tue', 'Enter Schedule description.', 'Bhaktapur'),
-(33, 'rbnph', 'Wednesday', '15:00:00', '16:00:00', '2020-03-18 00:00:00', 'wed', 'Enter Schedule description.', 'Bhaktapur'),
-(34, 'rbnph', 'Monday', '10:00:00', '11:00:00', '2020-03-16 00:00:00', 'mon', 'Enter Schedule description.', 'Bhaktapur'),
-(35, 'rbnph', 'Monday', '09:00:00', '11:00:00', '2020-03-23 00:00:00', 'next monday', 'Enter Schedule description.', 'Bhaktapur'),
-(36, 'rbnph', 'Tuesday', '13:00:00', '14:00:00', '2020-04-14 00:00:00', 'april 14', 'Enter Schedule description.', 'Bhaktapur');
+(37, 'roshan', 'Wednesday', '10:00:00', '13:00:00', '2020-04-22', 'This is first ok', 'Enter Schedule description.', 'Bhaktapur'),
+(38, 'roshan', 'Thursday', '13:00:00', '16:00:00', '2020-05-05', 'next one', 'Enter Schedule description.', 'Bhaktapur'),
+(39, 'roshan', 'Tuesday', '13:00:00', '14:00:00', '2020-06-20', 'today', 'Enter Schedule description.', 'Bhaktapur');
 
 -- --------------------------------------------------------
 
@@ -257,12 +276,12 @@ CREATE TABLE `user` (
   `remarks` varchar(50) NOT NULL,
   `dob` date NOT NULL,
   `gender` int(1) NOT NULL,
-  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `postby_id` int(11) DEFAULT NULL,
-  `is_verified` int(11) NOT NULL DEFAULT '0',
+  `is_verified` int(11) NOT NULL DEFAULT 0,
   `verifiedby_id` int(6) DEFAULT NULL,
-  `updated_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
-  `status` int(11) NOT NULL DEFAULT '1'
+  `updated_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE current_timestamp(),
+  `status` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -277,6 +296,12 @@ INSERT INTO `user` (`id`, `name`, `username`, `usertype`, `email`, `phone`, `add
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `content`
@@ -331,6 +356,12 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `content`
 --
 ALTER TABLE `content`
@@ -358,7 +389,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `records`
 --
 ALTER TABLE `records`
-  MODIFY `record_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
+  MODIFY `record_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
 
 --
 -- AUTO_INCREMENT for table `register`
@@ -370,7 +401,7 @@ ALTER TABLE `register`
 -- AUTO_INCREMENT for table `schedule`
 --
 ALTER TABLE `schedule`
-  MODIFY `schedule_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `schedule_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `user`
