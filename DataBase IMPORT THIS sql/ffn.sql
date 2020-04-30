@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 27, 2020 at 01:47 PM
+-- Generation Time: Apr 30, 2020 at 07:51 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -192,7 +192,8 @@ INSERT INTO `records` (`record_id`, `description`, `reg_id`, `date`) VALUES
 (135, 'rbnph schedule at Bhaktapur in Tuesday from 13:00 to 14:00 title: april 14', 0, '2020-03-15 21:56:06'),
 (136, 'roshan schedule at Bhaktapur in Wednesday from 10:00 to 13:00 title: This is first ok', 0, '2020-04-21 12:41:54'),
 (137, 'roshan schedule at Bhaktapur in Thursday from 13:00 to 16:00 title: next one', 0, '2020-04-21 12:42:51'),
-(138, 'roshan schedule at Bhaktapur in Tuesday from 13:00 to 14:00 title: today', 0, '2020-04-21 12:53:04');
+(138, 'roshan schedule at Bhaktapur in Tuesday from 13:00 to 14:00 title: today', 0, '2020-04-21 12:53:04'),
+(139, 'roshan schedule at Bhaktapur in Thursday from 11:00 to 13:00 title: today, roshan', 0, '2020-04-30 11:36:21');
 
 -- --------------------------------------------------------
 
@@ -242,7 +243,7 @@ CREATE TABLE `schedule` (
   `day` varchar(10) DEFAULT NULL,
   `start_time` time DEFAULT NULL,
   `end_time` time DEFAULT NULL,
-  `date` date NOT NULL DEFAULT current_timestamp(),
+  `date` date DEFAULT NULL,
   `title` varchar(40) DEFAULT NULL,
   `description` varchar(200) DEFAULT NULL,
   `location` varchar(30) DEFAULT NULL
@@ -253,9 +254,9 @@ CREATE TABLE `schedule` (
 --
 
 INSERT INTO `schedule` (`schedule_id`, `updated_by`, `day`, `start_time`, `end_time`, `date`, `title`, `description`, `location`) VALUES
-(37, 'roshan', 'Wednesday', '10:00:00', '13:00:00', '2020-04-22', 'This is first ok', 'Enter Schedule description.', 'Bhaktapur'),
 (38, 'roshan', 'Thursday', '13:00:00', '16:00:00', '2020-05-05', 'next one', 'Enter Schedule description.', 'Bhaktapur'),
-(39, 'roshan', 'Tuesday', '13:00:00', '14:00:00', '2020-06-20', 'today', 'Enter Schedule description.', 'Bhaktapur');
+(39, 'roshan', 'Tuesday', '13:00:00', '14:00:00', '2020-06-20', 'today', 'Enter Schedule description.', 'Bhaktapur'),
+(40, 'roshan', 'Thursday', '11:00:00', '13:00:00', '2020-04-30', 'today, roshan', 'Enter Schedule description.', 'Bhaktapur');
 
 -- --------------------------------------------------------
 
@@ -389,7 +390,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `records`
 --
 ALTER TABLE `records`
-  MODIFY `record_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
+  MODIFY `record_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
 
 --
 -- AUTO_INCREMENT for table `register`
@@ -401,7 +402,7 @@ ALTER TABLE `register`
 -- AUTO_INCREMENT for table `schedule`
 --
 ALTER TABLE `schedule`
-  MODIFY `schedule_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `schedule_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `user`
