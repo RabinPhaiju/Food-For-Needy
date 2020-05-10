@@ -185,7 +185,7 @@ echo "Error updating record: " . mysqli_error($conn);
 
                     <div class="me userBg">
                         <div class="images">
-                            <img style="margin-top:22px" src="files/<?php if($_SESSION['pic']==null){echo 'user.png';}else{ echo $_SESSION['pic'];}?>" width="60" ;>
+                            <img style="margin-top:22px;border-radius:5%" src="files/<?php if($_SESSION['pic']==null){echo 'user.png';}else{ echo $_SESSION['pic'];}?>" width="60" ;>
                         </div>
 
                         <div class="myinfo">
@@ -265,7 +265,7 @@ echo "Error updating record: " . mysqli_error($conn);
 
                                     <div class="profile-details">
                                         <h2>Picture</h2>
-                                        <p><img style="margin-top:22px" src="files/<?php if($_SESSION['pic']==null){echo 'user.png';}else{ echo $_SESSION['pic'];}?>" width="180";>
+                                        <p><img style="margin-top:22px;border-radius:5%" src="files/<?php if($_SESSION['pic']==null){echo 'user.png';}else{ echo $_SESSION['pic'];}?>" width="180";>
                                         </p>
                                     </div>
 

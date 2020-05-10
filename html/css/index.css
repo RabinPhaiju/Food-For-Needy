@@ -6,6 +6,15 @@
     margin: 0px;
     box-sizing: border-box;
 }
+@font-face {
+    font-family: myFirstFont;
+    src: url(sansation_bold.woff);
+   font-weight: bold;
+ }
+ 
+ .new-font{
+    font-family: myFirstFont;
+ }
 
 body {
     font-family: "Quicksand", "SolaimanLipi", sans-serif;

@@ -40,7 +40,7 @@ $search=0;
     <link rel="stylesheet" href="css/card.css">
     <link rel="stylesheet" href="css/datetime.css">
 
-    <title>User Login</title>
+    <title>Dashboard</title>
 </head>
 
 <body>
@@ -135,7 +135,7 @@ $search=0;
                     
 
                     <div class="myinfo">
-                        <p class="name">Name :<?php echo $_SESSION['name']?></p>
+                        <p class="name new-font"><?php echo $_SESSION['name']?></p>
                         <!-- <p class="phone">Email<?php echo $_SESSION['email']?></p> -->
                     </div>
 
