@@ -1,3 +1,15 @@
+<?php
+    if(isset($_POST['contact'])){
+        $a = $_POST['name'];
+        $b = $_POST['email'];
+        $c = $_POST['message'];
+
+    $sql = "INSERT INTO contact (`name`,`email`,`message`) VALUES ('$a', '$b', '$c')";
+	//echo $sql;
+	require_once('../html/DBConnect.php');
+	mysqli_query($conn, $sql);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -33,7 +45,7 @@
     
     <style>
         html{
-            scroll-behavior: smooth;
+        scroll-behavior: smooth;
         }
         .hero-card img{
             display: block;
@@ -41,8 +53,7 @@
             margin-right: auto;
             border-radius: 8px;
             height:20rem;
-            z-index:99;
-        }   
+        }
     </style>
 
     </head>
@@ -71,7 +82,7 @@
                             <li><a href="#">ABOUT US</a></li>
                             <li><a href="#">SCHEDULES</a></li>
                             <li><a href=""><i class="fa fa-dropbox" aria-hidden="true"></i> DONATE</a></li>
-                            <li><a href="html/login.html"><i class="fa fa-handshake-o" aria-hidden="true"></i> JOIN US</a></li>
+                            <li><a href="html/login.php"><i class="fa fa-handshake-o" aria-hidden="true"></i> JOIN US</a></li>
                             <li><a href=""><i class="fa fa-phone" aria-hidden="true"></i> CONTACT US</a></li>
                             <li>
                                 <a href="#">&#169;2020 Food For Needy. All right reserved.</a>
@@ -163,8 +174,8 @@
                     <div class="timeline">
                         <div class="events-wrapper">
                             <div class="events">
-                                <ol>                        
-                                    <?php
+                               <ol>
+                               <?php
                             $sql = "SELECT * from `schedule`";// where `verified`='1' AND `status`='1'";
                             
                             require_once("../html/DBConnect.php");
@@ -186,9 +197,9 @@
                                 }
                             
                                 } ?>
-
-                                </ol>
-                
+                                    
+                                
+                            </ol>
                                 <span class="filling-line" aria-hidden="true"></span>
                             </div> <!-- .events -->
                         </div> <!-- .events-wrapper -->
@@ -200,8 +211,7 @@
                     </div> <!-- .timeline -->
                 
                     <div class="events-content">
-                        <ol>
-                        <?php
+                        <ol><?php
                         $sql = "SELECT * from `schedule`";// where `verified`='1' AND `status`='1'";
                             
                             require_once("../html/DBConnect.php");
@@ -286,16 +296,7 @@
                 </div>
                 <div class="carousel">
                     <div class="card-carousel">
-                        <!-- <div class="my-card" id="1">111</div>
-                        <div class="my-card" id="2">222</div>
-                        <div class="my-card" id="3">333</div>
-                        <div class="my-card" id="4">444</div>
-                        <div class="my-card" id="5">555</div>
-                        <div class="my-card" id="6">666</div>
-                        <div class="my-card" id="7">777</div>
-                        <div class="my-card" id="8">888</div>
-                        <div class="my-card" id="9">999</div> -->
-                         <?php
+                        <?php
                                 $sql = "SELECT * from `register`";// where `verified`='1' AND `status`='1'";
                                     require_once("../html/DBConnect.php");
                                     $result = $conn-> query($sql);
@@ -314,6 +315,7 @@
                             break;
                             }
                             }}} ?>
+
                     </div>
                 </div>
                 <!-- <div class="joinIn">
@@ -324,6 +326,39 @@
                         </button>
                     </p>
                 </div> -->
+            </div>
+
+            <div class="D-R-D-Counts">
+                <?php 
+                  $sql = "SELECT * from `food`";// where `verified`='1' AND `status`='1'";
+                  require_once("../html/DBConnect.php");
+                  $resulttotal = $conn-> query($sql);
+                  $total = mysqli_num_rows($resulttotal);
+                ?>
+                <div class="FoodRescued" data-aos="fade-up" data-aos-duration="2000">
+                    <p>No of Food Rescued</p>
+                    <h4 style="color:black"><?php echo $total;?></h4>
+                </div>
+                <?php 
+                  $sql = "SELECT * from `register`";// where `verified`='1' AND `status`='1'";
+                  require_once("../html/DBConnect.php");
+                  $resulttotal = $conn-> query($sql);
+                  $total = mysqli_num_rows($resulttotal);
+                ?>
+                <div class="NoOfUser" data-aos="fade-up" data-aos-duration="2000">
+                    <p>No of Users</p>
+                    <h4 style="color:black"><?php echo $total;?></h4>
+                </div>
+                <?php 
+                  $sql = "SELECT * from `food` where `served`=1" ;// where `verified`='1' AND `status`='1'";
+                  require_once("../html/DBConnect.php");
+                  $resulttotal = $conn-> query($sql);
+                  $total = mysqli_num_rows($resulttotal);
+                ?>
+                <div class="MealServed" data-aos="fade-up" data-aos-duration="2000">   
+                    <p>Meals Served</p>
+                    <h4 style="color:black"><?php echo $total;?></h4>
+                </div>
             </div>
             
             <div class="tojoin">
@@ -336,18 +371,6 @@
                 </div>
             </div>
             
-            <div class="D-R-D-Counts">
-                <div class="FoodRescued" data-aos="fade-up" data-aos-duration="2000">
-                    <p>Food Rescued</p>
-                </div>
-                <div class="NoOfUser" data-aos="fade-up" data-aos-duration="2000">
-                    <p>No of Users</p>
-                </div>
-                <div class="MealServed" data-aos="fade-up" data-aos-duration="2000">   
-                    <p>Meals Served</p>
-                </div>
-            </div>
-
             <div class="testimonial-container">
                 <h2>Testimonials</h2>
                 <div class="dk-container">
@@ -417,16 +440,14 @@
                 </div>
                 
                 <div class="contactform">
-                    <form action="">
-                        <input type="text" placeholder="Enter Your Name *">
+                    <form action="index.php" method="POST">
+                        <input type="text" name="name" placeholder="Enter Your Name" required>
                         <br>
-                        <input type="email" placeholder="Enter Your Email *">
+                        <input type="email" name="email" placeholder="Enter Your Email" required>
                         <br>
-                        <textarea name="message" id="message" rows="4" placeholder="Enter Your Message *"></textarea>
+                        <textarea name="message" id="message" rows="4" placeholder="Enter Your Message" required></textarea>
                         <br>
-                        <button type="submit">
-                            <a href="#">Send Message</a>
-                        </button>
+                        <button type="submit" name="contact"> Send Message</button>
                     </form>
                 </div>
             </div>
