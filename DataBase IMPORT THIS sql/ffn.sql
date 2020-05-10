@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 30, 2020 at 07:51 AM
+-- Generation Time: May 10, 2020 at 08:50 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -170,10 +170,6 @@ CREATE TABLE `records` (
 --
 
 INSERT INTO `records` (`record_id`, `description`, `reg_id`, `date`) VALUES
-(116, 'rbnph schedule at Bhaktapur in Friday from 13:00 to 15:00 title: hj', 0, '2020-03-13 16:59:39'),
-(117, 'rbnph schedule at Bhaktapur in Saturday from 13:00 to 15:00 title: sd', 0, '2020-03-13 17:00:26'),
-(118, 'rbnph schedule at Bhaktapur in Friday from 09:00 to 11:00 title: ioio', 0, '2020-03-13 17:02:29'),
-(119, 'rbnph schedule at Bhaktapur in Thursday from 09:00 to 12:00 title: april', 0, '2020-03-15 19:57:31'),
 (120, 'rbnph schedule at Bhaktapur in Tuesday from 09:00 to 12:00 title: april', 0, '2020-03-15 19:58:16'),
 (121, 'rbnph schedule at Bhaktapur in Monday from 09:00 to 11:00 title: voli', 0, '2020-03-15 20:16:16'),
 (122, 'rbnph schedule at Bhaktapur in Sunday from 09:00 to 10:00 title: today', 0, '2020-03-15 20:16:55'),
@@ -254,9 +250,7 @@ CREATE TABLE `schedule` (
 --
 
 INSERT INTO `schedule` (`schedule_id`, `updated_by`, `day`, `start_time`, `end_time`, `date`, `title`, `description`, `location`) VALUES
-(38, 'roshan', 'Thursday', '13:00:00', '16:00:00', '2020-05-05', 'next one', 'Enter Schedule description.', 'Bhaktapur'),
-(39, 'roshan', 'Tuesday', '13:00:00', '14:00:00', '2020-06-20', 'today', 'Enter Schedule description.', 'Bhaktapur'),
-(40, 'roshan', 'Thursday', '11:00:00', '13:00:00', '2020-04-30', 'today, roshan', 'Enter Schedule description.', 'Bhaktapur');
+(39, 'roshan', 'Tuesday', '13:00:00', '14:00:00', '2020-06-20', 'today', 'Enter Schedule description.', 'Bhaktapur');
 
 -- --------------------------------------------------------
 
