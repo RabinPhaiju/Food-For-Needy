@@ -16,7 +16,7 @@ include 'session.php';
     <link rel="stylesheet" href="css/index.css">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-    <title>Add Food</title>
+    <title>Records</title>
     <style>
         .input-files {
             position: relative;
@@ -62,7 +62,7 @@ include 'session.php';
 		.panel td, .panel th {
 		  border: 0px solid #dddddd;
 		  text-align: left;
-		  padding: 8px;
+		  padding: 10px;
 		}
 		.panel tr:nth-child(even) {
 		  background-color: #dddddd;
@@ -76,7 +76,7 @@ include 'session.php';
         }
     }
     .contains {
-        margin-left:5px;
+        margin-left:5%;
     }
     </style>
 </head>
@@ -153,7 +153,7 @@ include 'session.php';
 
                 <div class="me userBg">
                 <div class="images">
-                    <img style="margin-top:22px" src="files/<?php if($_SESSION['pic']==null){echo 'user.png';}else{ echo $_SESSION['pic'];}?>" width="60";>
+                    <img style="margin-top:22px;border-radius: 10%;" src="files/<?php if($_SESSION['pic']==null){echo 'user.png';}else{ echo $_SESSION['pic'];}?>" width="60";>
                     </div>
 
                     <div class="myinfo">
@@ -210,7 +210,7 @@ include 'session.php';
         </div>
 
         <div class="container">
-            <div class="col-md-6 col-sm-9 contains">
+            <div class="col-md-8 col-sm-9 contains">
                 <div class="panel profile-panel">
                     <!-- <div class="panel-heading">
                         <div class="text-left">
@@ -253,7 +253,7 @@ include 'session.php';
         
         
 		while($row = $result-> fetch_assoc()){
-    echo "<tr><td>".$count.") ".$row["description"]."</td></tr>";
+    echo "<tr><td>".$count."  ) ".$row["description"]."</td></tr>";
             $count++;
 				}}
 		

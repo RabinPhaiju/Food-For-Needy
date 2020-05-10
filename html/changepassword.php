@@ -295,7 +295,8 @@ echo "Error updating record: " . mysqli_error($conn);
                                                                       
                                                         </dd>
                                                     </dl>
-                                                    <br/>
+                                                    <!-- <br/> -->
+                                                    <hr class="blackLines">
                                                     <dl class="dl-horizontal">
                                                         <dt class="p-10">New Password</dt>
                                                         <dd>

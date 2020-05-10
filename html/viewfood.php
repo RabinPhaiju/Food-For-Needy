@@ -374,26 +374,32 @@ if (!isset($foodid)) {
                                                 <dt>Food Id</dt>
                                                 <dd><?php echo $row["food_id"];?></dd>
                                             </dl>
+                                            <hr class="blackLine">
                                             <dl class="dl-horizontal">
                                                 <dt>Food Type</dt>
                                                 <dd><?php echo $row["type"];?></dd>
                                             </dl>
+                                            <hr class="blackLine">
                                             <dl class="dl-horizontal">
                                                 <dt>Food Name</dt>
                                                 <dd><?php echo $row["name"];?></dd>
                                             </dl>
+                                            <hr class="blackLine">
                                             <dl class="dl-horizontal">
                                                 <dt>Quantity</dt>
                                                 <dd><?php echo $row["quantity"];?></dd>
                                             </dl>
+                                            <hr class="blackLine">
                                             <dl class="dl-horizontal">
                                                 <dt>Location</dt>
                                                 <dd><?php echo $row["location"];?></dd>
                                             </dl>
+                                            <hr class="blackLine">
                                             <dl class="dl-horizontal">
                                                 <dt>Description</dt>
                                                 <dd><?php echo $row["Description"];?></dd>
                                             </dl>
+                                            <hr class="blackLine">
                                             <dl class="dl-horizontal">
                                                 <dt>Exp Date</dt>
                                                 <dd><?php echo $row["ExpDate"];?></dd>
@@ -410,6 +416,7 @@ if (!isset($foodid)) {
                                                     </div>
                                                 </dd>
                                             </dl>
+                                            <hr class="blackLines">
                                             <dl class="dl-horizontal">
                                                 <dt class="p-10">Quantity</dt>
                                                 <dd>
@@ -418,6 +425,7 @@ if (!isset($foodid)) {
                                                     </div>
                                                 </dd>
                                             </dl>
+                                            <hr class="blackLines">
                                             <dl class="dl-horizontal">
                                                 <dt class="p-10">Food Type</dt>
                                                 <dd>
@@ -432,6 +440,7 @@ if (!isset($foodid)) {
                                                     </div>
                                                 </dd>
                                             </dl>
+                                            <hr class="blackLines">
                                             <dl class="dl-horizontal">
                                                 <dt class="p-10">Location</dt>
                                                 <dd>
@@ -444,6 +453,7 @@ if (!isset($foodid)) {
                                                     </div>
                                                 </dd>
                                             </dl>
+                                            <hr class="blackLines">
                                             <dl class="dl-horizontal">
                                                 <dt class="p-10">Description</dt>
                                                 <dd>
@@ -452,6 +462,7 @@ if (!isset($foodid)) {
                                                     </div>
                                                 </dd>
                                             </dl>
+                                            <hr class="blackLines">
                                             <dl class="dl-horizontal">
                                                 <dt class="p-10">Exp Date</dt>
                                                 <dd>
@@ -460,7 +471,7 @@ if (!isset($foodid)) {
                                                     </div>
                                                 </dd>
                                             </dl>
-
+                                            <hr class="blackLines">               
                                             <div class="m-t-30">
                                                 <button class="btn btn-primary btn-sm waves-effect" style="float:left" name="food_edit">Save</button>
                                                 <div class="button_delete"><a href="delete_food.php?food_id=<?= $row['food_id'];?>">Delete</a></div>

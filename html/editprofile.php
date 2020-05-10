@@ -332,7 +332,7 @@ $sql = " UPDATE `register` SET `pic`='$user' WHERE `reg_id`='$id'";
 <form action="editprofile.php" method="POST" enctype="multipart/form-data">
                                     <h2>Picture</h2>
                                     <!-- <p><img id="outputs" width="150" /></p> -->
-                                    <img id="outputs" src="files/<?php if($row["pic"]==null){echo 'user.png';}else{ echo $row["pic"];}?>" width="200">
+                                    <img id="outputs" src="files/<?php if($row["pic"]==null){echo 'user.png';}else{ echo $row["pic"];}?>" width="200" style="border-radius:10%">
 
                                     <div class="profile-details">
                                     
@@ -371,26 +371,32 @@ $sql = " UPDATE `register` SET `pic`='$user' WHERE `reg_id`='$id'";
                                                 <dt>User Name</dt>
                                                 <dd><?php echo $row["username"];?></dd>
                                             </dl>
+                                            <hr class="blackLine">
                                             <dl class="dl-horizontal">
                                                 <dt>User Type</dt>
                                                 <dd><?php echo $row["user_type"];?></dd>
                                             </dl>
+                                            <hr class="blackLine">
                                             <dl class="dl-horizontal">
                                                 <dt>Full Name</dt>
                                                 <dd><?php echo $row["firstname"]." ".$row["lastname"];?></dd>
                                             </dl>
+                                            <hr class="blackLine">
                                             <dl class="dl-horizontal">
                                                 <dt>Email</dt>
                                                 <dd><?php echo $row["email"];?></dd>
                                             </dl>
+                                            <hr class="blackLine">
                                             <dl class="dl-horizontal">
                                                 <dt>Location</dt>
                                                 <dd><?php echo $row["location"];?></dd>
                                             </dl>
+                                            <hr class="blackLine">
                                             <dl class="dl-horizontal">
                                                 <dt>Contact</dt>
                                                 <dd><?php echo $row["contact"];?></dd>
                                             </dl>
+                                            <hr class="blackLine">
                                             <dl class="dl-horizontal">
                                                 <dt>DoB</dt>
                                                 <dd><?php echo $row["dob"];?></dd>
@@ -406,6 +412,7 @@ $sql = " UPDATE `register` SET `pic`='$user' WHERE `reg_id`='$id'";
                                                     </div>
                                                 </dd>
                                             </dl>
+                                            <hr class="blackLines">
                                             <dl class="dl-horizontal">
                                                 <dt class="p-10">Last Name</dt>
                                                 <dd>
@@ -414,6 +421,7 @@ $sql = " UPDATE `register` SET `pic`='$user' WHERE `reg_id`='$id'";
                                                     </div>
                                                 </dd>
                                             </dl>
+                                            <hr class="blackLines">
                                             <dl class="dl-horizontal">
                                                 <dt class="p-10">User Type</dt>
                                                 <dd>
@@ -425,6 +433,7 @@ $sql = " UPDATE `register` SET `pic`='$user' WHERE `reg_id`='$id'";
                                                     </div>
                                                 </dd>
                                             </dl>
+                                            <hr class="blackLines">
                                             <dl class="dl-horizontal">
                                                 <dt class="p-10">Location</dt>
                                                 <dd>
@@ -437,6 +446,7 @@ $sql = " UPDATE `register` SET `pic`='$user' WHERE `reg_id`='$id'";
                                                     </div>
                                                 </dd>
                                             </dl>
+                                            <hr class="blackLines">
                                             <dl class="dl-horizontal">
                                                 <dt class="p-10">Contact</dt>
                                                 <dd>
@@ -445,6 +455,7 @@ $sql = " UPDATE `register` SET `pic`='$user' WHERE `reg_id`='$id'";
                                                     </div>
                                                 </dd>
                                             </dl>
+                                            <hr class="blackLines">
                                             <dl class="dl-horizontal">
                                                 <dt class="p-10">Email</dt>
                                                 <dd>
@@ -453,6 +464,7 @@ $sql = " UPDATE `register` SET `pic`='$user' WHERE `reg_id`='$id'";
                                                     </div>
                                                 </dd>
                                             </dl>
+                                            <hr class="blackLines">
                                             <dl class="dl-horizontal">
                                                 <dt class="p-10">DoB</dt>
                                                 <dd>
@@ -461,7 +473,7 @@ $sql = " UPDATE `register` SET `pic`='$user' WHERE `reg_id`='$id'";
                                                     </div>
                                                 </dd>
                                             </dl>
-
+                                            <hr class="blackLines">
                                             <div class="m-t-30">
                                                 <button class="btn btn-primary btn-sm waves-effect btnss" name="profile_edit">Save</button>
                                                 <button href="#" data-profile-action="reset" class="btn-link btn-cancel">Cancel</button>

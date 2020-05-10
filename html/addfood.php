@@ -353,6 +353,7 @@ $bc = str_replace(' ', '', $b);
                                                         </div>
                                                     </dd>
                                                 </dl>
+                                                <hr class="blackLines">
                                                 <dl class="dl-horizontal">
                                                     <dt class="p-10">Location</dt>
                                                     <dd>
@@ -365,6 +366,7 @@ $bc = str_replace(' ', '', $b);
                                                         </div>
                                                     </dd>
                                                 </dl>
+                                                <hr class="blackLines">
                                                 <dl class="dl-horizontal">
                                                     <dt class="p-10">Type</dt>
                                                     <dd>
@@ -380,6 +382,7 @@ $bc = str_replace(' ', '', $b);
                                                         </div>
                                                     </dd>
                                                 </dl>
+                                                <hr class="blackLines">
                                                 <dl class="dl-horizontal">
                                                     <dt class="p-10">Quanitity</dt>
                                                     <dd>
@@ -388,6 +391,7 @@ $bc = str_replace(' ', '', $b);
                                                         </div>
                                                     </dd>
                                                 </dl>
+                                                <hr class="blackLines">
                                                 <dl class="dl-horizontal">
                                                     <dt class="p-10">Description</dt>
                                                     <dd>
@@ -396,6 +400,7 @@ $bc = str_replace(' ', '', $b);
                                                         </div>
                                                     </dd>
                                                 </dl>
+                                                <hr class="blackLines">
                                                 <dl class="dl-horizontal">
                                                     <dt class="p-10">Exp. Date</dt>
                                                     <dd>
@@ -404,7 +409,7 @@ $bc = str_replace(' ', '', $b);
                                                         </div>
                                                     </dd>
                                                 </dl>
-
+                                                <hr class="blackLines">
                                                 <div class="m-t-30">
                                                     <button class="btn btn-primary btn-sm waves-effect btnss" name="add_food">Save</button>
 

@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 include 'session.php';
 $error=null;
 $errors=null;
@@ -378,7 +379,7 @@ if($result-> num_rows >0){
              <?php } ?>
         <div class="chat-about">
 
-          <div class="chat-with">Chat with  <?php echo $chat_users[1];?></div>
+          <div class="chat-with">Chat with  <i><?php echo $chat_users[1];?></i></div>
           <?php
           $message_from=$chat_users[0];
           $message_to=$chat_users[1];
@@ -387,7 +388,7 @@ if($result-> num_rows >0){
                             $resulttotall = $conn-> query($sqll);
                             $totall = mysqli_num_rows($resulttotall);
                             ?>
-          <div class="chat-num-messages"> <?php if($totall==0){echo "Start new conversation.";}else{?>already <?php echo $totall;?> messages <?php } ?> &nbsp&nbsp&nbsp<a href="chat.php?session_name=<?=$pass_user?>"><i class="fa fa-refresh fa-2x" aria-hidden="true"></i></a></div>
+          <div class="chat-num-messages"><p style="color:black"> <?php if($totall==0){echo "Start new conversation.";}else{?>already <?php echo $totall;?> messages <?php } ?> &nbsp&nbsp&nbsp<a href="chat.php?session_name=<?=$pass_user?>"><i class="fa fa-refresh fa-2x" aria-hidden="true"></i></a></p></div>
 
         </div>
 
