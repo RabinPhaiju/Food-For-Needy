@@ -63,7 +63,7 @@
 .wrapper .container .bottom .left {
     height: 100%;
     width: 100%;
-    background: #f4f4f4;
+    background: #b6b1b1;
     position: relative;
     float: left;
 }
@@ -88,7 +88,7 @@
     width: calc(30%);
     height: 40%;
     top: 0;
-    background: #f1f1f1;
+    background: #b6b1b1;
     /* transition: background 0.5s; */
     border-left: solid thin rgba(0, 0, 0, 0.1);
 }

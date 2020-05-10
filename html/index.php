@@ -135,7 +135,7 @@ $search=0;
                     
 
                     <div class="myinfo">
-                        <p class="name new-font"><?php echo $_SESSION['name']?></p>
+                        <p class="name"><?php echo $_SESSION['name']?></p>
                         <!-- <p class="phone">Email<?php echo $_SESSION['email']?></p> -->
                     </div>
 
@@ -256,9 +256,10 @@ $search=0;
                     <div class="bottom">
                         <div class="left">
                             <div class="details">
-                                <p><span style="font-weight:bold"><?php echo $row["name"];?></span></br>
-                                 <?php echo " By: ".$row1["username"];?><br>
-                                <?php echo $row["location"];?></p>
+                                <p style="font-weight:bold"><?php echo $row["name"];?></p>
+                                <hr class="blackLin">
+                                 <?php echo " By: ".$row1["username"];?>
+                                <?php echo $row["location"];?>
                             </div>
                             <div class="buy"><a href="viewfood.php?foodid=<?= $row['food_id'];?>"><i class="fa fa-eye" aria-hidden="true"></i></a>
                             <i><?php echo $row["quantity"];?></i>
