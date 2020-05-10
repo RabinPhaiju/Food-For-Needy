@@ -110,6 +110,7 @@
   padding: 1rem 0rem .5rem 0rem ;
   box-shadow: 0px 20px 6px -24px;
   /* for box shadow horizontal, vertical, blur, spread; */
+  background: linear-gradient(to top,rgb(255, 241, 194),rgb(255, 247, 221),#FFFFFF);
 }
 .container .second ul{
   list-style-type: none;
