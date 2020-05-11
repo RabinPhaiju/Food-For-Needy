@@ -119,6 +119,72 @@
 </nav>
          <div class="container">   
 
+        .container {
+            max-width: 100%; 
+        }}
+        @media (min-width: 992px){
+        .container {
+            max-width: 100%; 
+        }}
+
+        @media (min-width: 768px){
+        .container {
+            max-width: 100%; 
+        }}
+        @media (min-width: 576px){
+        .container {
+            max-width: 100%; 
+        }}
+        p{
+            margin-bottom: 2rem;
+        } 
+        h2{
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+<!-- page loader undo the comment when finish -->
+        <div class="loader_bg" style="margin-top:-4.1rem;z-index:99">
+            <div class="load">
+                <hr/><hr/><hr/><hr/>
+            </div>
+        </div>
+
+
+<nav class="navbar navbar-expand-lg navbar-mainbg">
+  <img src="files/mainlogo.jpg" style="margin-left:60px;border-radius:50%" alt="logo" height="50px">
+    <a class="navbar-brand navbar-logo" href="#"><strong style="margin-left:10px">Food for Needy</strong></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-bars text-white"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
+            <li class="nav-item active">
+                <a class="nav-link" href="#third"><i class="fas fa-home"></i>Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#contactform"><i class="far fa-address-book"></i>Contact Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#aboutus"><i class="far fa-clone"></i>About US</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../html/login.php"><i class="fas fa-sign-in-alt"></i>Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">&nbsp&nbsp&nbsp</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">&nbsp&nbsp&nbsp</a>
+            </li>
+           
+        </ul>
+    </div>
+</nav>
+         <div class="container">   
+
             <div class="third" id="third">
                 <div class="image">
                     <div class="whoweare">
@@ -386,9 +452,10 @@
                     </button>
                 </div>
             </div>
-            
+        
             <div class="testimonial-container">
                 <h2>Testimonials</h2>
+                <br>
                 <div class="dk-container">
                     <div class="cd-testimonials-wrapper cd-container">
                         <ul class="cd-testimonials">
@@ -462,7 +529,7 @@
                         <input type="email" name="email" placeholder="Enter Your Email" required>
                         <br>
                         <textarea name="message" id="message" rows="4" placeholder="Enter Your Message" required></textarea>
-                        <br>
+                        <br><br>
                         <button type="submit" name="contact"> Send Message</button>
                     </form>
                 </div>

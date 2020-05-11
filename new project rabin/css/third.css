@@ -3,8 +3,7 @@
 
 .container .third{
     width: 100%;
-    margin-top: 5%;
-    height: 25rem;
+    height:27rem;
     position: relative;
 }
 .container .third .image{
@@ -13,14 +12,14 @@
     background-size: cover;
     /* background-position: right; */
     background-attachment: fixed;
-    height: 25rem;
-    margin :5% 3%;
+    height: 27rem;
+    margin :5% 2%;
     /* background-color: aquamarine; */
 }
 
 .container .third .whoweare{
-    padding-top: 2%;
-    padding-left: 5vw;
+    padding-top: 3%;
+    padding-left: 7vw;
     width: 70vw;
 }
 .container .third .whoweare p.briefHead{
@@ -42,6 +41,9 @@
     .container .third{
         padding-top: 5rem;
         z-index: 2;
+    }
+    .container .third .image{
+        background: url('../files/5.jpg') no-repeat center;
     }
 }
 
