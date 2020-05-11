@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2020 at 08:50 AM
+-- Generation Time: May 11, 2020 at 09:31 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -119,7 +119,8 @@ INSERT INTO `food` (`food_id`, `updated_by`, `pic`, `name`, `location`, `created
 (94, 44, 'honey94.jpg', 'honey', 'Bhaktapur', '2020-03-10 04:43:01', '2020-03-10 10:28:01', 1, 0, NULL, 1, '30', '2020-03-03 18:15:00', 'this is honey', 'Dairy Foods', NULL),
 (95, 44, 'biscuit95.jpg', 'biscuit', 'Bhaktapur', '2020-03-10 04:48:48', '2020-03-10 10:33:48', 1, 0, NULL, 1, '80', '2020-03-09 18:15:00', 'marie biscuit', 'Dairy Foods', NULL),
 (96, 44, 'noodle96.jpg', 'noodle', 'Bhaktapur', '2020-03-10 04:49:41', '2020-03-10 10:34:41', 1, 0, NULL, 1, '90', '2020-03-16 18:15:00', 'WAI WAI noodle', 'Grains,Beans and Nuts', NULL),
-(97, 44, 'pickle97.jpg', 'pickle', 'Bhaktapur', '2020-03-10 04:51:23', '2020-03-10 10:36:23', 1, 0, NULL, 1, '35', '2020-03-17 18:15:00', 'this is pickle', 'Vegetable', NULL);
+(97, 44, 'pickle97.jpg', 'pickle', 'Bhaktapur', '2020-03-10 04:51:23', '2020-03-10 10:36:23', 1, 0, NULL, 1, '35', '2020-03-17 18:15:00', 'this is pickle', 'Vegetable', NULL),
+(98, 51, 'Dalmot98.jpg', 'Dalmot', 'Bhaktapur', '2020-05-11 04:57:44', '2020-05-11 10:42:44', 1, 0, NULL, 1, '12', '2020-05-27 18:15:00', 'dalmod', 'Vegetable', NULL);
 
 -- --------------------------------------------------------
 
@@ -150,7 +151,16 @@ INSERT INTO `messages` (`message_id`, `msg_to`, `msg_from`, `subject`, `message`
 (12, 'sabin', 'roshan', 'urgent', 'funny', '2020-03-11 12:17:30'),
 (13, 'sabin', 'roshan', 'timi', 'bina', '2020-03-11 12:17:40'),
 (14, 'sabin', 'roshan', 'good', 'evening', '2020-03-11 12:17:50'),
-(15, 'roshan', 'rbnph', 'hello', 'hello', '2020-03-15 02:05:54');
+(15, 'roshan', 'rbnph', 'hello', 'hello', '2020-03-15 02:05:54'),
+(16, 'rbnph', 'roshan', NULL, 'hello', '2020-05-11 01:53:18'),
+(17, 'rbnph', 'roshan', NULL, 'k xa', '2020-05-11 01:54:02'),
+(18, 'rbnph', 'roshan', NULL, 'ok', '2020-05-11 01:54:45'),
+(19, 'rbnph', 'roshan', NULL, 'k xa rabin', '2020-05-11 01:57:27'),
+(20, 'sabin', 'roshan', NULL, 'hello sabin', '2020-05-11 02:00:59'),
+(21, 'rbnph', 'roshan', NULL, 'what about today?\r\n', '2020-05-11 02:01:21'),
+(22, 'roshan', 'rbnph', NULL, 'Nothing special, what about you?', '2020-05-11 03:05:00'),
+(23, 'sapana', 'roshan', NULL, 'hi', '2020-05-11 03:24:44'),
+(24, 'Sarah', 'rbnph', NULL, 'hi', '2020-05-11 03:29:22');
 
 -- --------------------------------------------------------
 
@@ -170,9 +180,8 @@ CREATE TABLE `records` (
 --
 
 INSERT INTO `records` (`record_id`, `description`, `reg_id`, `date`) VALUES
-(120, 'rbnph schedule at Bhaktapur in Tuesday from 09:00 to 12:00 title: april', 0, '2020-03-15 19:58:16'),
-(121, 'rbnph schedule at Bhaktapur in Monday from 09:00 to 11:00 title: voli', 0, '2020-03-15 20:16:16'),
-(122, 'rbnph schedule at Bhaktapur in Sunday from 09:00 to 10:00 title: today', 0, '2020-03-15 20:16:55'),
+(121, 'rbnph schedule at Bhaktapur in Monday from 09:00 to 11:00', 0, '2020-03-15 20:16:16'),
+(122, 'rbnph schedule at Bhaktapur in Sunday from 09:00 to 10:00', 0, '2020-03-15 20:16:55'),
 (123, 'rbnph schedule at Bhaktapur in Sunday from 13:00 to 14:00 title: next sunday', 0, '2020-03-15 20:17:34'),
 (124, 'rbnph schedule at Bhaktapur in Sunday from 13:00 to 14:00 title: next sunday', 0, '2020-03-15 20:19:37'),
 (125, 'rbnph schedule at Bhaktapur in Wednesday from 11:00 to 13:00 title: wed', 0, '2020-03-15 20:20:02'),
@@ -189,7 +198,8 @@ INSERT INTO `records` (`record_id`, `description`, `reg_id`, `date`) VALUES
 (136, 'roshan schedule at Bhaktapur in Wednesday from 10:00 to 13:00 title: This is first ok', 0, '2020-04-21 12:41:54'),
 (137, 'roshan schedule at Bhaktapur in Thursday from 13:00 to 16:00 title: next one', 0, '2020-04-21 12:42:51'),
 (138, 'roshan schedule at Bhaktapur in Tuesday from 13:00 to 14:00 title: today', 0, '2020-04-21 12:53:04'),
-(139, 'roshan schedule at Bhaktapur in Thursday from 11:00 to 13:00 title: today, roshan', 0, '2020-04-30 11:36:21');
+(139, 'roshan schedule at Bhaktapur in Thursday from 11:00 to 13:00 title: today, roshan', 0, '2020-04-30 11:36:21'),
+(140, 'rbnph added Dalmot in Bhaktapur (12).', 51, '2020-05-11 10:42:44');
 
 -- --------------------------------------------------------
 
@@ -224,8 +234,11 @@ CREATE TABLE `register` (
 --
 
 INSERT INTO `register` (`reg_id`, `username`, `pic`, `user_type`, `firstname`, `lastname`, `email`, `location`, `contact`, `dob`, `created_at`, `updated_at`, `password`, `secret_key`, `verified`, `verifiedby_id`, `remark`, `status`, `code`) VALUES
-(44, 'roshan', 'roshan.jpg', NULL, 'roshan', 'ok', 'roshan@gmail.com', NULL, NULL, NULL, '2020-03-10 02:26:25', '2020-04-21 12:24:01', 'b0ad80266fc30c141ff3f8734a3897cd', NULL, 1, 0, NULL, 1, NULL),
-(51, 'rbnph', 'rbnph.jpg', NULL, 'rabin', 'phaiju', 'rabinphaiju15@gmail.com', NULL, NULL, NULL, '2020-03-16 02:50:49', '2020-04-21 12:24:06', '279cb0d7637c74a0a9db05f9957462d9', NULL, 1, 0, NULL, 1, 'phaiju2313');
+(44, 'roshan', 'roshan.jpg', 'Donor', 'Roshan', 'Dumaru', 'roshan@gmail.com', 'Kamalbinayek', '9999888877', NULL, '2020-03-10 02:26:25', '2020-05-11 11:24:25', 'b0ad80266fc30c141ff3f8734a3897cd', NULL, 1, 0, NULL, 1, NULL),
+(51, 'rbnph', 'rbnph.jpg', 'Donor', 'rabin', 'phaiju', 'rabinphaiju15@gmail.com', NULL, NULL, NULL, '2020-03-16 02:50:49', '2020-05-11 11:22:05', '279cb0d7637c74a0a9db05f9957462d9', NULL, 1, 0, NULL, 1, 'phaiju2313'),
+(52, 'sabin', '', 'Receiver', 'sabin', 'shrestha', 'sabinshrestha@gmail.com', NULL, NULL, NULL, '2020-03-10 02:26:25', '2020-05-11 11:15:32', 'b0ad80266fc30c141ff3f8734a3897cd', NULL, 1, 0, NULL, 1, NULL),
+(53, 'sapana', '', 'Sponser', 'sapana', 'thapa', 'sapanathapa@gmail.com', NULL, NULL, NULL, '2020-03-16 02:50:49', '2020-05-11 13:08:27', '279cb0d7637c74a0a9db05f9957462d9', NULL, 1, 0, NULL, 1, 'sapana2313'),
+(54, 'Sarah', '', 'Receiver', 'John', 'Marker', 'Markerjohn12@gmail.com', NULL, NULL, NULL, '2020-03-16 02:50:49', '2020-05-11 11:15:59', '279cb0d7637c74a0a9db05f9957462d9', NULL, 1, 0, NULL, 1, 'marker2313');
 
 -- --------------------------------------------------------
 
@@ -372,25 +385,25 @@ ALTER TABLE `file`
 -- AUTO_INCREMENT for table `food`
 --
 ALTER TABLE `food`
-  MODIFY `food_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
+  MODIFY `food_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
 
 --
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `message_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `message_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `records`
 --
 ALTER TABLE `records`
-  MODIFY `record_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
+  MODIFY `record_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
 
 --
 -- AUTO_INCREMENT for table `register`
 --
 ALTER TABLE `register`
-  MODIFY `reg_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `reg_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT for table `schedule`
