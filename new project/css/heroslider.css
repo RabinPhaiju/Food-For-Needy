@@ -16,6 +16,7 @@
   text-align: right;
 }
   .carousel {
+    transition: all 3s;
     padding-left: 5rem;
     width: 100%;
     display: flex;

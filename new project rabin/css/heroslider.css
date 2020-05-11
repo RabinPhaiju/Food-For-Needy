@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 .container .heroslider{
-    margin: 5%;
+    margin: 5% 3% 3% 3%;
     font-family: 'Montserrat', sans-serif;
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(25rem,3fr));
-    /* column-gap: 4rem; */
+    align-items: center;
 }
 .heroslider .herotitle{
     font-size: 3rem;
@@ -44,7 +44,7 @@
     pointer-events: none;
     background: #2e5266;
     background: linear-gradient(to top, #2e5266, #6e8898);
-    transition: 1s;
+    transition: 3s;
   }
   .carousel .card-carousel .my-card.active {
     z-index: 3;
@@ -58,7 +58,7 @@
     z-index: 2;
     opacity: 0.6;
     pointer-events: auto;
-    transition: 1s;
+    transition: 3s;
   }
   .carousel .card-carousel .my-card.prev {
     -webkit-transform: scale(0.8) translateY(-1rem) translateX(26rem);

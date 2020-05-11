@@ -12,15 +12,16 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>InNeed. &mdash; Website by Team D</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food For Needy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
     
     <link rel="stylesheet" href="css/botton.css">
     <link rel="stylesheet" href="css/style.css">
@@ -33,13 +34,15 @@
     <link rel="stylesheet" href="css/eighth.css">
     <link rel="stylesheet" href="css/ninth.css">
     <link rel="stylesheet" href="css/tenth.css">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/tojoin.css">
     <link rel="stylesheet" href="css/scrollup.css">
     <link rel="stylesheet" href="css/heroslider.css">
     <link rel="stylesheet" href="css/D-R-DCounts.css">
     <link rel="stylesheet" href="css/testimonials.css">
     <link rel="stylesheet" href="css/parallax.css">
+    <link rel="stylesheet" href="css/newrabin.css">
+
     
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     
@@ -54,56 +57,74 @@
             border-radius: 8px;
             height:20rem;
         }
+        @media (min-width: 1200px){
+        .container {
+            max-width: 100%; 
+        }}
+        @media (min-width: 992px){
+        .container {
+            max-width: 100%; 
+        }}
+
+        @media (min-width: 768px){
+        .container {
+            max-width: 100%; 
+        }}
+        @media (min-width: 576px){
+        .container {
+            max-width: 100%; 
+        }}
+        p{
+            margin-bottom: 2rem;
+        } 
+        h2{
+            margin-top: 5px;
+        }
     </style>
-
-    </head>
-
-    <body>
-        <!-- page loader undo the comment when finish -->
-        <!-- <div class="loader_bg">
+</head>
+<body>
+<!-- page loader undo the comment when finish -->
+        <div class="loader_bg" style="margin-top:-4.1rem;z-index:99">
             <div class="load">
                 <hr/><hr/><hr/><hr/>
             </div>
-        </div> -->
+        </div>
 
-        <div class="container">
-            <div class="first">
-                <div class="navbar-title">
-                    <p>InNeed<span style="color: aqua;">.</span></p>
-                </div>
-                
-                <div class="navbar-mobile">
-                    <div class="wrapper-nav">
-                        <nav>
-                        <div class="navbar">
-                            <i class="fa fa-align-right"></i>
-                        </div>
-                        <ul class="nav-links">
-                            <li><a href="#">ABOUT US</a></li>
-                            <li><a href="#">SCHEDULES</a></li>
-                            <li><a href=""><i class="fa fa-dropbox" aria-hidden="true"></i> DONATE</a></li>
-                            <li><a href="html/login.php"><i class="fa fa-handshake-o" aria-hidden="true"></i> JOIN US</a></li>
-                            <li><a href=""><i class="fa fa-phone" aria-hidden="true"></i> CONTACT US</a></li>
-                            <li>
-                                <a href="#">&#169;2020 Food For Needy. All right reserved.</a>
-                            </li>
-                        </ul>
-                        </nav>
-                    </div> 
-                </div>
-            </div>
-            
-            <div class="second" id="second">
-                <ul id="list">
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Schedules</a></li>
-                    <li><a href="#">Join Us</a></li>
-                    <li><a href="#">Donate</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
 
-            <div class="third">
+<nav class="navbar navbar-expand-lg navbar-mainbg">
+  <img src="files/mainlogo.jpg" style="margin-left:60px;border-radius:50%" alt="logo" height="50px">
+    <a class="navbar-brand navbar-logo" href="#"><strong style="margin-left:10px">Food for Needy</strong></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-bars text-white"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
+            <li class="nav-item active">
+                <a class="nav-link" href="#third"><i class="fas fa-home"></i>Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#contactform"><i class="far fa-address-book"></i>Contact Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#aboutus"><i class="far fa-clone"></i>About US</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../html/login.php"><i class="fas fa-sign-in-alt"></i>Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">&nbsp&nbsp&nbsp</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">&nbsp&nbsp&nbsp</a>
+            </li>
+           
+        </ul>
+    </div>
+</nav>
+         <div class="container">   
+
+            <div class="third" id="third">
                 <div class="image">
                     <div class="whoweare">
                         <p class="briefHead">
@@ -229,7 +250,7 @@
                             ?>
                             <li data-date="<?=date('d', $schedule_date);?>/<?=date('m', $schedule_date);?>/<?=date('Y', $schedule_date);?>"
                             <?php if($schedule_count==1){echo 'class="selected"';}?>>
-                                <h2><?php echo $row['title'];?></h2>
+                                <h2 style="margin-top:10px"><?php echo $row['title'];?></h2>
                                 <em><?php echo date('d', $schedule_date); echo " ";
                                  echo date('M', $schedule_date);?>, <?php echo " "; echo date('Y', $schedule_date);?></em>
                                 <p>	
@@ -253,7 +274,7 @@
                     </div>
                 </div>
             </div>
-            <div class="sixth">
+            <div class="sixth" id="aboutus">
                 <div class="aboutus">
                     <p class="abouthead">About <span style="color: hsl(34, 100%, 60%);">Us</span></p>
                     <p class="text">
@@ -370,9 +391,10 @@
                     </button>
                 </div>
             </div>
-            
+        
             <div class="testimonial-container">
                 <h2>Testimonials</h2>
+                <br>
                 <div class="dk-container">
                     <div class="cd-testimonials-wrapper cd-container">
                         <ul class="cd-testimonials">
@@ -439,26 +461,21 @@
                     </ul>
                 </div>
                 
-                <div class="contactform">
+                <div class="contactform" id="contactform">
                     <form action="index.php" method="POST">
                         <input type="text" name="name" placeholder="Enter Your Name" required>
                         <br>
                         <input type="email" name="email" placeholder="Enter Your Email" required>
                         <br>
                         <textarea name="message" id="message" rows="4" placeholder="Enter Your Message" required></textarea>
-                        <br>
+                        <br><br>
                         <button type="submit" name="contact"> Send Message</button>
                     </form>
                 </div>
             </div>
 
-            <!-- <div class="ninth">
-                <p style="font-size: 40px;"><span style="color:aqua">In</span><span style="color: aquamarine;">Need.</span></p>
-            </div>
-            -->
-        </div>
 
-        <div class="tenth">
+<div class="tenth">
             <hr>
             <ul>
                 <li><a href="#"><i class="fa fa-facebook fa-1x"></i></a></li>
@@ -468,9 +485,11 @@
             </ul>
             <p>Copyright &copy; 2020 All rights reserved by InNeed.</p>
         </div>
-        
-        <!-- the script below is for loading the at the beginning + navbar on scrolling -->
-        <script>
+</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
             setTimeout(function(){
                 $('.loader_bg').fadeToggle();
             }, 4000);
@@ -503,5 +522,52 @@
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.1/jquery.flexslider.min.js"></script>
         <script src="js/testimonials.js"></script>
-    </body>
+<script>
+    // ---------Responsive-navbar-active-animation-----------
+function test() {
+  var tabsNewAnim = $("#navbarSupportedContent");
+  var selectorNewAnim = $("#navbarSupportedContent").find("li").length;
+  var activeItemNewAnim = tabsNewAnim.find(".active");
+  var activeWidthNewAnimHeight = activeItemNewAnim.innerHeight();
+  var activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
+  var itemPosNewAnimTop = activeItemNewAnim.position();
+  var itemPosNewAnimLeft = activeItemNewAnim.position();
+  $(".hori-selector").css({
+    top: itemPosNewAnimTop.top + "px",
+    left: itemPosNewAnimLeft.left + "px",
+    height: activeWidthNewAnimHeight + "px",
+    width: activeWidthNewAnimWidth + "px"
+  });
+  $("#navbarSupportedContent").on("click", "li", function (e) {
+    $("#navbarSupportedContent ul li").removeClass("active");
+    $(this).addClass("active");
+    var activeWidthNewAnimHeight = $(this).innerHeight();
+    var activeWidthNewAnimWidth = $(this).innerWidth();
+    var itemPosNewAnimTop = $(this).position();
+    var itemPosNewAnimLeft = $(this).position();
+    $(".hori-selector").css({
+      top: itemPosNewAnimTop.top + "px",
+      left: itemPosNewAnimLeft.left + "px",
+      height: activeWidthNewAnimHeight + "px",
+      width: activeWidthNewAnimWidth + "px"
+    });
+  });
+}
+$(document).ready(function () {
+  setTimeout(function () {
+    test();
+  });
+});
+$(window).on("resize", function () {
+  setTimeout(function () {
+    test();
+  }, 500);
+});
+$(".navbar-toggler").click(function () {
+  setTimeout(function () {
+    test();
+  });
+});
+
+</script>
 </html>

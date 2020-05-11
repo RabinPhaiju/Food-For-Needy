@@ -1,6 +1,6 @@
 .container .fifth{
     font-family: 'Montserrat', sans-serif;
-    margin: 0rem 3% -3rem 3%;
+    margin: 5% 3%;
 }
 .container .fifth li{
     list-style-type: none;
@@ -15,6 +15,7 @@
     font-size: 3.5rem;
     font-weight: 700;
     color: hsl(34, 100%, 60%);
+    margin-bottom: -5%;
 }
 
 .container .fifth .schedule1{
