@@ -37,14 +37,14 @@
                             </div>
                         </li>
 
-                        <li class="item" id="messages">
+                        <!-- <li class="item" id="messages">
                             <a href="#messages" class="btn"><i class="far fa-envelope"></i>Messages</a>
                             <div class="smenu">
                                 <a href="new.php">New</a>
                                 <a href="inbox.php">Inbox</a>
                                 <a href="sent.php">Sent</a>
                             </div>
-                        </li>
+                        </li> -->
 
                         <li class="item" id="settings">
                             <a href="#settings" class="btn"><i class="fas fa-cog"></i>Food List</a>
@@ -109,14 +109,14 @@
                         <li class="active_child"><a href="post.php"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Your List</span></a></li>
                     </ul>
                 </li>
-                <li class="dropdown ">
+                <!-- <li class="dropdown ">
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Messages</span></a>
                     <ul>
                         <li><a href="new.php"><span class="icon"></span><span>New</span></a></li>
                         <li><a href="inbox.php"><span class="icon"></span><span>Inbox</span></a></li>
                         <li class=""><a href="sent.php"><span class="icon"></span><span>Sent</span></a></li>
                     </ul>
-                </li>
+                </li> -->
                 <li class="dropdown">
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Product</span></a>
                     <ul>

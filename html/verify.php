@@ -275,14 +275,14 @@ else{
                             <a class="btn" href="#"><i class="fas fa-commenting"></i>Conversation</a>
                         </li>
 
-                        <li class="item" id="messages">
+                        <!-- <li class="item" id="messages">
                             <a href="#messages" class="btn"><i class="far fa-envelope"></i>Messages</a>
                             <div class="smenu">
                                 <a href="#">New</a>
                                 <a href="#">Inbox</a>
                                 <a href="#">Sent</a>
                             </div>
-                        </li>
+                        </li> -->
 
                         <li class="item" id="settings">
                             <a href="#settings" class="btn"><i class="fas fa-cog"></i>Food List</a>
@@ -355,20 +355,20 @@ else{
                     </ul>
                 </li>
                 <li><a href="chat.php"><span class="icon"><i class="fa fa-commenting"></i></span><span>Conversation</span></a></li>
-                <li class="dropdown ">
+                <!-- <li class="dropdown ">
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Messages</span></a>
                     <ul>
                         <li><a href="#"><span class="icon"></span><span>New</span></a></li>
                         <li><a href="#"><span class="icon"></span><span>Inbox</span></a></li>
                         <li class=""><a href="#"><span class="icon"></span><span>Sent</span></a></li>
                     </ul>
-                </li>
+                </li> -->
                 <li class="dropdown">
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Member</span></a>
                     <ul>
-                        <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Sponser</span></a></li>
-                        <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Donor</span></a></li>
-                        <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Receiver</span></a></li>
+                        <li><a href="sponser.php"><span class="icon"><i class="fa fa-user"></i></span><span>Sponser</span></a></li>
+                        <li><a href="donor.php"><span class="icon"><i class="fa fa-user"></i></span><span>Donor</span></a></li>
+                        <li><a href="receiver.php"><span class="icon"><i class="fa fa-user"></i></span><span>Receiver</span></a></li>
                     </ul>
                     </li>
                 <li><a href="#"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>

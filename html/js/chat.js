@@ -83,7 +83,7 @@
         options: { valueNames: ['name'] },
         init: function() {
             var userList = new List('people-list', this.options);
-            var noItems = $('<li id="no-items-found">No items found</li>');
+            var noItems = $('<li id="no-items-found"><p style="color:white">User not found.</p></li>');
 
             userList.on('updated', function(list) {
                 if (list.matchingItems.length === 0) {

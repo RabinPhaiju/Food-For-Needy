@@ -70,14 +70,14 @@ $search=0;
                             <a class="btn" href="chat.php"><i class="fas fa-commenting"></i>Conversation</a>
                         </li>
 
-                        <li class="item" id="messages">
+                        <!-- <li class="item" id="messages">
                             <a href="#messages" class="btn"><i class="far fa-envelope"></i>Messages</a>
                             <div class="smenu">
                                 <a href="new.php">New</a>
                                 <a href="inbox.php">Inbox</a>
                                 <a href="sent.php">Sent</a>
                             </div>
-                        </li>
+                        </li> -->
 
                         <li class="item" id="settings">
                             <a href="#settings" class="btn"><i class="fas fa-cog"></i>Food List</a>
@@ -166,20 +166,20 @@ $search=0;
                     </ul>
                 </li>
                 <li><a href="chat.php"><span class="icon"><i class="fa fa-commenting"></i></span><span>Conversation</span></a></li>
-                <li class="dropdown">
+                <!-- <li class="dropdown">
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Messages</span></a>
                     <ul>
                         <li><a href="new.php"><span class="icon"></span><span>New</span></a></li>
                         <li><a href="inbox.php"><span class="icon"></span><span>Inbox</span></a></li>
                         <li class=""><a href="sent.php"><span class="icon"></span><span>Sent</span></a></li>
                     </ul>
-                </li>
+                </li> -->
                 <li class="dropdown">
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Member</span></a>
                     <ul>
-                        <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Sponser</span></a></li>
-                        <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Donor</span></a></li>
-                        <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Receiver</span></a></li>
+                        <li><a href="sponser.php"><span class="icon"><i class="fa fa-user"></i></span><span>Sponser</span></a></li>
+                        <li><a href="donor.php"><span class="icon"><i class="fa fa-user"></i></span><span>Donor</span></a></li>
+                        <li><a href="receiver.php"><span class="icon"><i class="fa fa-user"></i></span><span>Receiver</span></a></li>
                     </ul>
                     </li>
                 <li><a href="records.php"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>
@@ -191,7 +191,7 @@ $search=0;
         <form action="index.php" method="POST">
         <div class="wrap">
             <div class="search">
-                <input type="text" class="searchTerm" placeholder="Search" name="search" required="required">
+                <input type="text" style="color:black" class="searchTerm" placeholder="Search" name="search" required="required">
                 <button type="submit" name="searchsubmit" class="searchButton">
                  <i class="fa fa-search"></i>
                  </button>
@@ -209,7 +209,7 @@ $search=0;
               <a class="navileft" href="index.php?pos=<?php echo $pos-10;?>"><i class="fa fa-chevron-left"></i></a>
               <?php }else { ?>
               <a class="navileft"><i class="fa fa-chevron-left"></i></a>
-              <?php } if($pos<$total){ ?>
+              <?php } if(($pos+10)<$total){ ?>
               <a class="naviright" href="index.php?pos=<?php echo $pos+10;?>"><i class="fa fa-chevron-right"></i></a>
               <?php } else { ?>
                 <a class="naviright"><i class="fa fa-chevron-right"></i></a>

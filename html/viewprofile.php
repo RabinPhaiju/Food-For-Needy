@@ -1,11 +1,10 @@
 <?php
 include 'session.php';
-$pos=null;
-$pos_count=1;
-if(@$_GET['pos']){
-$pos=@$_GET['pos'];
+$view_user= @$_GET['view'];
+if($view_user==null){
+    echo "<script>window.location='chat.php';</script>";
 }
- ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,81 +20,8 @@ $pos=@$_GET['pos'];
     <link rel="stylesheet" href="css/index.css">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-    <title>Add Food</title>
-    <style>
-        .input-files {
-            position: relative;
-            overflow: hidden;
-            width: 150px;
-            height: 40px;
-            border: none;
-            background-color: #0077CC;
-            border-radius: 3px;
-            box-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
-            cursor: pointer;
-            transition: background-color .3s ease;
-            margin-bottom:5px;
-        }
-        
-        .input-files:hover {
-            background-color: #1788d8;
-        }
-        
-        .input-files [type=file] {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            cursor: pointer;
-        }
-        
-        .input-files label {
-            font-family: 'arial';
-            color: #F1F1F1;
-            font-weight: bold;
-            font-size: 17px;
-            cursor: pointer;
-        }
-        .panel table {
-			margin-top: 18px;
-		  font-family: arial, sans-serif;
-		  border-collapse: collapse;
-		  width: 100%;
-		}
-		.panel td, .panel th {
-		  border: 0px solid #dddddd;
-		  text-align: left;
-		  padding: 8px;
-		}
-		.panel tr:nth-child(even) {
-		  background-color: #dddddd;
-		}
-		@media only screen and (max-width: 1300px) {
-            .panel td,.panel th{
-					font-size: 8px;
-				}
-				.panel img{
-		    height:30px;
-        }
-    }
-    .contains {
-        margin-left:5px;
-    }
-    .btnss{
-            transition: all .4s;
-            position: relative;
-        }
-        .btnss:hover{
-            transform: translateY(-2px);
-            box-shadow: 0 10p 20px rgba(0,0,0,0.6);
-        }
-        .btnss:active{
-            transform: translateY(-1px);
-            box-shadow: 0 10p 20px rgba(0,0,0,0.6);
-        }
-    </style>
+    <title><?php echo $view_user;?></title>
+   
 </head>
 
 <body>
@@ -104,7 +30,7 @@ $pos=@$_GET['pos'];
             <a href="../index.html"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
         </div>
         <div class="navbars1">
-            <div class="nav3"><i class="fa fa-user fa-3x"></i>
+            <div class="nav3"><i class="fa fa-user fa-3x" aria-hidden="true"></i>
                 <div class="middle">
                     <div class="menu">
                     <li class="item" id='dashboard'>
@@ -116,27 +42,27 @@ $pos=@$_GET['pos'];
                         <li class="item" id='profile'>
                             <a href="#profile" class="btn"><i class="far fa-user"></i>Profile</a>
                             <div class="smenu">
-                                <a href="changepassword.php">Change Password</a>
-                                <a href="editprofile.php">Edit Profile</a>
+                            <a href="changepassword.php">Change Password</a>
+                                <a href="#">Edit Profile</a>
                             </div>
                         </li>
                         <li class="item">
                             <a class="btn" href="chat.php"><i class="fas fa-commenting"></i>Conversation</a>
                         </li>
 
-                        <li class="item" id="messages">
+                        <!-- <li class="item" id="messages">
                             <a href="#messages" class="btn"><i class="far fa-envelope"></i>Messages</a>
                             <div class="smenu">
                                 <a href="new.php">New</a>
                                 <a href="inbox.php">Inbox</a>
                                 <a href="sent.php">Sent</a>
                             </div>
-                        </li>
+                        </li> -->
 
                         <li class="item" id="settings">
                             <a href="#settings" class="btn"><i class="fas fa-cog"></i>Food List</a>
                             <div class="smenu">
-                                <a href="#">Add Food</a>
+                                <a href="addfood.php">Add Food</a>
                                 <a href="post.php">Your List</a>
                             </div>
                         </li>
@@ -170,7 +96,7 @@ $pos=@$_GET['pos'];
 
                 <div class="me userBg">
                 <div class="images">
-                    <img style="margin-top:22px" src="files/<?php if($_SESSION['pic']==null){echo 'user.png';}else{ echo $_SESSION['pic'];}?>" width="60";>
+                    <img style="margin-top:22px;border-radius:5%" src="files/<?php if($_SESSION['pic']==null){echo 'user.png';}else{ echo $_SESSION['pic'];}?>" width="60";>
                     </div>
 
                     <div class="myinfo">
@@ -179,10 +105,11 @@ $pos=@$_GET['pos'];
                     </div>
 
                     <button class="setting">
-                        <a href="editprofile.php"><i class="fa fa-cog" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-cog" aria-hidden="true"></i></a>
                     </button>
                     <a id="hide" href="#" onclick="closeNav()"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
                     <a id="show" href="#" onclick="openNav()"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+
                     <button class="cloud">
                         <a href="index.php">DashBoard</a>
                     </button>
@@ -193,7 +120,7 @@ $pos=@$_GET['pos'];
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Profile</span></a>
                     <ul>
                         <li><a href="changepassword.php"><span class="icon"></span><span>Change Password</span></a></li>
-                        <li class=""><a href="editprofile.php"><span class="icon"></span><span>Edit Profile</span></a></li>
+                        <li class=""><a href="#"><span class="icon"></span><span>Edit Profile</span></a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -204,15 +131,15 @@ $pos=@$_GET['pos'];
                     </ul>
                 </li>
                 <li><a href="chat.php"><span class="icon"><i class="fa fa-commenting"></i></span><span>Conversation</span></a></li>
-                <li class="dropdown active">
+                <!-- <li class="dropdown ">
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Messages</span></a>
                     <ul>
                         <li><a href="new.php"><span class="icon"></span><span>New</span></a></li>
-                        <li><a href="#"><span class="icon"></span><span>Inbox</span></a></li>
+                        <li><a href="inbox.php"><span class="icon"></span><span>Inbox</span></a></li>
                         <li class=""><a href="sent.php"><span class="icon"></span><span>Sent</span></a></li>
                     </ul>
-                </li>
-                <li class="dropdown">
+                </li> -->
+                <li class="dropdown active">
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Member</span></a>
                     <ul>
                         <li><a href="sponser.php"><span class="icon"><i class="fa fa-user"></i></span><span>Sponser</span></a></li>
@@ -227,79 +154,109 @@ $pos=@$_GET['pos'];
         </div>
 
         <div class="container">
-            <div class="col-md-6 col-sm-9 contains">
-            <h3 style="margin-left:20px;"><i class="fa fa-inbox" aria-hidden="true"></i> Inbox Messages.</h3>
+            <div class="col-md-8 col-sm-9">
                 <div class="panel profile-panel">
-                <h2>
-                    <?php
-                    $from=$_SESSION['username'];
-                          $sql = "SELECT * from `messages` where `msg_to`='$from'";// where `verified`='1' AND `status`='1'";
-                            require_once("DBConnect.php");
-                            $resulttotal = $conn-> query($sql);
-                            $total = mysqli_num_rows($resulttotal);?>
-                            
-
-              <?php if($pos==null){$pos=0;}?>
-              <?php if($pos>0){?>
-              
-              <a style="float:left;" href="sent.php?pos=<?php echo $pos-10;?>"><i class="fa fa-chevron-left btnss"></i></a>
-              <?php }else { ?>
-              <a style="float:left;"><i class="fa fa-chevron-left btnss"></i></a>
-              <?php }
-              if($pos<$total && $total-$pos>10){ ?>
-              <a style="float:left;" href="sent.php?pos=<?php echo $pos+10;?>"><i class="fa fa-chevron-right btnss"></i></a>
-              <?php } else { ?>
-                <a style="float:left;"><i class="fa fa-chevron-right btnss"></i></a>
-              <?php } ?>
-              <p style="margin:8px 0 0 5px;"><?php echo ($pos+1)." - ".($pos+10);?> out of <?php echo $total?></p>
-              </h2>
-                    <table>
-    <?php
-    $count=1;
-    require_once("DBConnect.php");
-	if($conn-> connect_error){
-		die("Connection failed:". $conn-> connect_error);
-    }
-    $session_reg_id=$_SESSION['reg_id'];
-    $from=$_SESSION['username'];
-        $sql = "SELECT * from `messages` WHERE `msg_to`='$from' ORDER BY `message_id` DESC";
-	$result = $conn-> query($sql);
-    // echo $result-> num_rows;
-	if($result-> num_rows >0){
-        if($pos!=null){
-            while($row = $result-> fetch_assoc() && $pos_count<$pos){
-                $pos_count++;
-            }
-        }
-            $del_count=0;
-            while($del_count<20 &&  $row = $result-> fetch_assoc()){
-                echo "<tr><td>".$count.") Subject : ".$row["subject"].". Message : ".$row["message"]." From : ".$row["msg_from"]." "."</td>";
-                ?>
-                 <td>
-                <a onclick="return confirm('Are you sure you want to delete this message?')" href="delete_message.php?msgid_inbox=<?= $row['message_id'];?>"><i style="color: red;" class="fa fa-trash" aria-hidden="true"></i></a>
-            </td></tr>
-            <?php
-                $count++;
-               $del_count++;
-            }}else{
-                echo "<tr><td>No Messages</td></tr>";
-            }
-        echo "</table>";
-    
-        ?>
+                    <!-- <div class="panel-heading">
+                        <div class="text-left">
+                            <h2>Joe Doe</h2>
+                        </div>
+                    </div> -->
+                    <!-- panel body -->
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="figure-wrapper">
+                                    <!-- <figure>
+                                        <img src="http://i2.imgbus.com/doimg/5co1mm5on9b50e7.jpg" alt="">
+                                    </figure> -->
+                                </div>
+                                <div class="profile-details">
+                                    <!-- <h2>Contact</h2>
+                                    <ul>
+                                        <li><i class="fa fa-tasks"></i> Business development</li>
+                                        <li><i class="fa fa-users"></i> DHL</li>
+                                        <li><i class="fa fa-phone"></i> 00971 12345678</li>
+                                        <li><i class="fa fa-envelope"></i> joedoe@gmail.com</li>
+                                    </ul> -->
+                                    <?php
+   $sql = "SELECT * from `register` WHERE `username`='$view_user'";// where `verified`='1' AND `status`='1'";
+   require_once("DBConnect.php");
+   $result = mysqli_query($conn, $sql);
+   $row = mysqli_fetch_assoc($result);
+    ?>
+                                    <h2>Picture</h2>
+                                    <!-- <p><img id="outputs" width="150" /></p> -->
+                                    <img id="outputs" src="files/<?php if($row["pic"]==null){echo 'user.png';}else{ echo $row["pic"];}?>" width="200" style="border-radius:10%">
+                                    <!-- upload pic -->
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="profile-block">
+                                    <header class="profile-header">
+                                        <h2><i class="fa fa-user"></i> Information</h2>
+                                        <ul class="actions">
+                                            <li class="dropdown">
+                                                <ul class="dropdown-menu dropdown-menu-right">
+                                                    <li>
+                                                        <a data-profile-action="edit" href="#" onclick="showbuttom()">Edit</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </header>
+                                    <div class="profile-body">
+                                        <div class="profile-view">
+                                        <dl class="dl-horizontal">
+                                                <dt>User Name</dt>
+                                                <dd><strong><?php echo $row["username"];?></strong></dd>
+                                            </dl>
+                                            <hr class="blackLine">
+                                            <dl class="dl-horizontal">
+                                                <dt>User Type</dt>
+                                                <dd><strong><?php echo $row["user_type"];?></strong></dd>
+                                            </dl>
+                                            <hr class="blackLine">
+                                            <dl class="dl-horizontal">
+                                                <dt>Full Name</dt>
+                                                <dd><strong><?php echo $row["firstname"]." ".$row["lastname"];?></strong></dd>
+                                            </dl>
+                                            <hr class="blackLine">
+                                            <dl class="dl-horizontal">
+                                                <dt>Email</dt>
+                                                <dd><strong><?php echo $row["email"];?></strong></dd>
+                                            </dl>
+                                            <hr class="blackLine">
+                                            <dl class="dl-horizontal">
+                                                <dt>Location</dt>
+                                                <dd><strong><?php echo $row["location"];?></strong></dd>
+                                            </dl>
+                                            <hr class="blackLine">
+                                            <dl class="dl-horizontal">
+                                                <dt>Contact</dt>
+                                                <dd><strong><?php echo $row["contact"];?></strong></dd>
+                                            </dl>
+                                            <hr class="blackLine">
+                                            <dl class="dl-horizontal">
+                                                <dt>DoB</dt>
+                                                <dd><strong><?php echo $row["dob"];?></strong></dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!-- end panel body -->
                 </div>
             </div>
         </div>
     </div>
-    <script>
-</script>
+    
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="js/editprofile.js"></script>
-
     <script src="js/index1.js"></script>
-
+    <script src="js/editprofile.js"></script>
 
 </body>
 

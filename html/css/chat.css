@@ -65,12 +65,13 @@
 }
 
 .chat {
-    width: 490px;
+    width: 530px;
     float: left;
     background: #F2F5F8;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     color: #3f4146;
+    margin-left: -40px;
 }
 
 .chat .chat-header {
@@ -115,6 +116,7 @@
 
 .chat .chat-history .message-data {
     margin-bottom: 15px;
+    margin-left: 5px;
 }
 
 .chat .chat-history .message-data-time {
@@ -196,7 +198,6 @@
 .chat .chat-message button:hover {
     color: #75b1e8;
 }
-
 
 /* .online,
 .offline,

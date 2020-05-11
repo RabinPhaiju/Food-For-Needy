@@ -14,10 +14,15 @@ include 'session.php';
     <link rel="stylesheet" href="../css/loginindex.css">
     <link rel="stylesheet" href="css/editprofile.css">
     <link rel="stylesheet" href="css/index.css">
-
+    
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
     <title>Records</title>
     <style>
+               body {
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.25;
+}
         .input-files {
             position: relative;
             overflow: hidden;
@@ -53,20 +58,40 @@ include 'session.php';
             font-size: 17px;
             cursor: pointer;
         }
-        .panel table {
-			margin-top: 18px;
-		  font-family: arial, sans-serif;
-		  border-collapse: collapse;
-		  width: 100%;
-		}
-		.panel td, .panel th {
-		  border: 0px solid #dddddd;
-		  text-align: left;
-		  padding: 10px;
-		}
-		.panel tr:nth-child(even) {
-		  background-color: #dddddd;
-		}
+.panel table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  table-layout: fixed;
+  /* width: 100%; */
+}
+.panel table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+}
+.panel table tr {
+  border: 1px solid #ddd;
+  padding: .35em;
+}
+.panel table tr:nth-child(even) {
+  background: #f8f8f8;  
+}
+.panel table th,
+.panel table td {
+  padding: .625em;
+  text-align: left;
+}
+.panel table th {
+  background: #999;
+  color: #fff;
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.panel table td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 		@media only screen and (max-width: 1300px) {
             .panel td,.panel th{
 					font-size: 14px;
@@ -107,14 +132,14 @@ include 'session.php';
                             <a class="btn" href="chat.php"><i class="fas fa-commenting"></i>Conversation</a>
                         </li>
 
-                        <li class="item" id="messages">
+                        <!-- <li class="item" id="messages">
                             <a href="#messages" class="btn"><i class="far fa-envelope"></i>Messages</a>
                             <div class="smenu">
                                 <a href="new.php">New</a>
                                 <a href="inbox.php">Inbox</a>
                                 <a href="sent.php">Sent</a>
                             </div>
-                        </li>
+                        </li> -->
 
                         <li class="item" id="settings">
                             <a href="#settings" class="btn"><i class="fas fa-cog"></i>Food List</a>
@@ -187,20 +212,20 @@ include 'session.php';
                     </ul>
                 </li>
                 <li><a href="chat.php"><span class="icon"><i class="fa fa-commenting"></i></span><span>Conversation</span></a></li>
-                <li class="dropdown ">
+                <!-- <li class="dropdown ">
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Messages</span></a>
                     <ul>
                         <li><a href="new.php"><span class="icon"></span><span>New</span></a></li>
                         <li><a href="inbox.php"><span class="icon"></span><span>Inbox</span></a></li>
                         <li class=""><a href="sent.php"><span class="icon"></span><span>Sent</span></a></li>
                     </ul>
-                </li>
+                </li> -->
                 <li class="dropdown">
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Member</span></a>
                     <ul>
-                        <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Sponser</span></a></li>
-                        <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Donor</span></a></li>
-                        <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Receiver</span></a></li>
+                        <li><a href="sponser.php"><span class="icon"><i class="fa fa-user"></i></span><span>Sponser</span></a></li>
+                        <li><a href="donor.php"><span class="icon"><i class="fa fa-user"></i></span><span>Donor</span></a></li>
+                        <li><a href="receiver.php"><span class="icon"><i class="fa fa-user"></i></span><span>Receiver</span></a></li>
                     </ul>
                     </li>
                 <li><a href="records.php"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>
@@ -218,13 +243,6 @@ include 'session.php';
                         </div>
                     </div> -->
                     <!-- panel body -->
-                    <table>
-	<tr>
-		<td><b style="font-size:25px">Recent Records (20)</b></td>
-		<!-- <td><b>Address</b></td>
-		<td><b>Phone</b></td>
-		<td><b>Bloodtype</b></td> -->
-	</tr>
     <?php
     $count=1;
     require_once("DBConnect.php");
@@ -250,14 +268,26 @@ include 'session.php';
             }}
             $sql = "SELECT * from records ORDER BY `date` DESC ";
             $result = $conn-> query($sql);
+        ?>
+        <table>
+        <caption><b style="font-size:25px">Recent Records (20)</b></caption>
+        <thead>
+            <th scope="col"><strong>Sn.</strong></th>
+            <th scope="col"><strong>Detail</strong></th>
+        </thead>
+        <tbody>
+    <?php
         
-        
-		while($row = $result-> fetch_assoc()){
-    echo "<tr><td>".$count."  ) ".$row["description"]."</td></tr>";
-            $count++;
+        while($row = $result-> fetch_assoc()){?>
+    <tr>
+    <td scope="row"><?=$count?></td>
+    <td><?=$row["description"]?></td>
+    </tr>
+
+         <?php   $count++;
 				}}
 		
-        echo "</table>";
+        echo "</tbody></table>";
     
         ?>
                     <!-- end panel body -->

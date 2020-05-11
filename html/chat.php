@@ -22,7 +22,7 @@ if (isset($_POST['send'])) {
         require_once("DBConnect.php");
       $sql="INSERT INTO `messages` (`msg_to`,`msg_from`,`message`) VALUES ('$a','$b','$d')";
       if(mysqli_query($conn, $sql)){
-        echo "<script>window.location='chat.php';</script>";
+        echo "<script>window.location='chat.php?session_name=$pass_user';</script>";
       }
       else {
         echo "Error updating record: " . mysqli_error($conn);
@@ -118,14 +118,14 @@ function myFunction() {
                             <a class="btn" href="chat.php"><i class="fas fa-commenting"></i>Conversation</a>
                         </li>
 
-                        <li class="item" id="messages">
+                        <!-- <li class="item" id="messages">
                             <a href="#messages" class="btn"><i class="far fa-envelope"></i>Messages</a>
                             <div class="smenu">
                                 <a href="new.php">New</a>
                                 <a href="inbox.php">Inbox</a>
                                 <a href="sent.php">Sent</a>
                             </div>
-                        </li>
+                        </li> -->
 
                         <li class="item" id="settings">
                             <a href="#settings" class="btn"><i class="fas fa-cog"></i>Food List</a>
@@ -197,21 +197,21 @@ function myFunction() {
                         <li class="active_child"><a href="post.php"><span class="icon"></span><span>Your List</span></a></li>
                     </ul>
                 </li>
-                <li><a href="#"><span class="icon"><i class="fa fa-commenting"></i></span><span>Conversation</span></a></li>
-                <li class="dropdown active">
+                <li class="active"><a href="#"><span class="icon"><i class="fa fa-commenting"></i></span><span>Conversation</span></a></li>
+                <!-- <li class="dropdown active">
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Messages</span></a>
                     <ul>
                         <li><a href="#"><span class="icon"></span><span>New</span></a></li>
                         <li><a href="inbox.php"><span class="icon"></span><span>Inbox</span></a></li>
                         <li class=""><a href="sent.php"><span class="icon"></span><span>Sent</span></a></li>
                     </ul>
-                </li>
+                </li> -->
                 <li class="dropdown">
                     <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Member</span></a>
                     <ul>
-                        <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Sponser</span></a></li>
-                        <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Donor</span></a></li>
-                        <li><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Receiver</span></a></li>
+                        <li><a href="sponser.php"><span class="icon"><i class="fa fa-user"></i></span><span>Sponser</span></a></li>
+                        <li><a href="donor.php"><span class="icon"><i class="fa fa-user"></i></span><span>Donor</span></a></li>
+                        <li><a href="receiver.php"><span class="icon"><i class="fa fa-user"></i></span><span>Receiver</span></a></li>
                     </ul>
                     </li>
                 <li><a href="records.php"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>
@@ -227,11 +227,11 @@ function myFunction() {
     <div class="people-list" id="people-list">
                                                                          
       <div class="search">
-        <input type="text" placeholder="search" id="fsearch" name="username" onkeyup="myFunction()"/>
+        <input type="text" style="color:black;width:80%" placeholder="search" id="fsearch" name="username" onkeyup="myFunction()"/>
         <i class="fa fa-search"></i>
       </div>
-      <span style="color:white; margin:-5px 0 0px 10px">Conversation</span>
-      <hr style="margin:-2px 0 15px 0; width:86%">
+      <strong style="color:white; margin:-5px 0 0px 10px">Conversation</strong>
+      <hr style="margin:0 0 0px 10px; width:74%">
       <ul class="list">
     <?php
         $current_userid=$_SESSION['reg_id'];
@@ -267,10 +267,10 @@ if($result-> num_rows >0){
               $row2 = mysqli_fetch_assoc($result2);
               
               if($row2['pic']==null){?>
-                <img class="btnss" src="files/user.png" height=55px style="border-radius:50%" alt="avatar" />
+                <img class="btnss" src="files/user.png" height=55px style="border-radius:50%;margin-bottom: 5px" alt="avatar"/>
              <?php }else{
               ?>
-        <img src="files/<?php echo $row2['pic'];?>" height=55px style="border-radius:50%"  alt="avatar" />
+        <img class="btnss" src="files/<?php echo $row2['pic'];?>" height=55px style="border-radius:50%;margin-bottom:5px"  alt="avatar" />
              <?php } ?>
           <div class="about">
             <div class="name"><p style="color:white"><?php echo $row['msg_to'];?></p></div>
@@ -279,12 +279,12 @@ if($result-> num_rows >0){
             </div>
           </div>
           </a>
-
         </li>  
+          <hr class="blackLine">
     <?php } } }?>
     <div class="clear_hide" id="fname"> 
-    <span style="color:white; margin:-5px 0 0px -5px">Search</span>
-      <hr style="margin:-2px 0 15px -10px; width:93%">
+    <strong style="color:white; margin:-5px 0 0px 5px">Search</strong>
+    <hr style="margin:0 0 0px 5px; width:74%">
                                                 <?php
                                                 require_once("DBConnect.php");
                                                 $sql_s = "SELECT * from register ORDER BY `username` ASC ";
@@ -296,15 +296,15 @@ if($result-> num_rows >0){
                                                     }else  if(in_array($search_user,$chat_users)){
                                                       continue;
                                                   }else{  ?>
-
+              
               <li class="clearfix">
               <a href="chat.php?session_name=<?=$search_user?>">
                 <?php
               if($row_s['pic']==null){?>
-                <img src="files/user.png" height=55px style="border-radius:50%" alt="avatar" />
+                <img src="files/user.png" class="btnss" height=55px style="border-radius:50%;margin-top:4px" alt="avatar" />
              <?php }else{
               ?>
-        <img src="files/<?php echo $row_s['pic'];?>" height=55px style="border-radius:50%"  alt="avatar" />
+        <img src="files/<?php echo $row_s['pic'];?>" class="btnss" height=55px style="border-radius:50%;margin-top:4px"  alt="avatar" />
              <?php } ?>
             <div class="about">
             <div class="name"><p style="color:white"><?php echo $search_user;?></p></div>
@@ -314,6 +314,7 @@ if($result-> num_rows >0){
             </div>
              </a>
           </li>
+          <hr style="margin:0 0 0px 5px; width:74%">
              <?php }} ?>  
 
     </div>
@@ -354,7 +355,7 @@ if($result-> num_rows >0){
           </div>
           </a>
         </li>
-                    
+        <hr style="margin:0 0 0px 5px; width:74%">           
     <?php } } } ?>
       </ul>
     </div>
@@ -379,7 +380,7 @@ if($result-> num_rows >0){
              <?php } ?>
         <div class="chat-about">
 
-          <div class="chat-with">Chat with  <i><?php echo $chat_users[1];?></i></div>
+          <div class="chat-with">Chat with  <i><a href="viewprofile.php?view=<?php echo $chat_users[1];?>"><?php echo $chat_users[1];?></a></i></div>
           <?php
           $message_from=$chat_users[0];
           $message_to=$chat_users[1];
@@ -403,7 +404,7 @@ if($resulttotall-> num_rows >0){
     while($rowl = $resulttotall-> fetch_assoc()){
         $chat_date=$rowl['date'];
         $timestamp = strtotime($chat_date);
-        $day = date('l', $timestamp);
+        $day = date('d', $timestamp);
         $month=date('F',$timestamp);
         $time = date("H:i:s",strtotime($chat_date));
 
