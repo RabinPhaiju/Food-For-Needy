@@ -1,0 +1,27 @@
+
+.container .scrollup{
+    position: fixed;
+    width: 4rem;
+    background-image: linear-gradient(to left top,#ff7e5f,#feb47b);
+    padding: 1rem;
+    border-radius: 2rem;
+    margin-left: 93%;
+    z-index: 5;
+    display: none;
+}
+
+.container .scrollup a{
+    text-decoration: none;
+    color: white;
+}
+
+.container .scrollup:hover a{
+    color: aquamarine;
+    opacity: .5;
+}
+
+@media screen and ( max-width:1200px){
+    .container .scrollup{
+        margin-left: 85%;
+    }
+}

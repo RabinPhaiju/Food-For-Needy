@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+.container .seventh{
+    margin: 2% 9%;
+    padding-bottom: 4rem;
+}
+.container .seventh .logo{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(6rem,1fr));
+    grid-gap: 3rem;
+}
+
+.container .seventh p{
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container .seventh .logo .image1{
+    background: url(../files/13.jpg) no-repeat;
+    background-size: cover;
+    height:100px ; width: 100px;
+}
+.container .seventh .logo .image2{
+    background: url(../files/12.png) no-repeat;
+    background-size: cover;
+    height:100px ; width: 100px;
+}
+.container .seventh .logo .image3{
+    background: url(../files/11.jpg) no-repeat;
+    background-size: cover;
+    height:100px ; width: 100px;
+}
+.container .seventh .logo .image4{
+    background: url(../files/10.jpg) no-repeat;
+    background-size: cover;
+    height:100px ; width: 100px;
+}
+.container .seventh .logo .image5{
+    background: url(../files/14.jpg) no-repeat;
+    background-size: cover;
+    height:100px ; width: 100px;
+}

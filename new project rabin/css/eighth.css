@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+.container .eighth{
+    font-family: 'Montserrat', sans-serif;
+    background-color: rgb(247, 247, 247);
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(15rem,1fr));
+    grid-gap: 1rem;
+    align-items: center;
+    padding: 2rem 0rem;
+}
+
+.container .eighth .getintouch p.contactHead{
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 1vw 5vw;
+}
+.container .eighth .getintouch p{
+    font-size: 1rem;
+    margin: 1vw 5vw;
+}
+.container .eighth .getintouch ul{
+    list-style: none;
+    margin: 1vw 5vw;
+}
+.container .eighth .getintouch a{
+    text-decoration: none;
+    color: black;
+}
+.container .eighth .getintouch a:hover{
+    color: hsl(34, 100%, 60%);
+}
+
+/* contact form */
+.container .eighth .contactform{
+    align-self: center;
+    text-align: center;
+    border: 1px solid transparent;
+    border-radius: 10px 0px 0px 10px;
+    background-color: white;
+    padding: 2rem 0rem;
+    margin: 2rem 0rem;
+}
+
+.container .eighth .contactform input,
+.container .eighth .contactform textarea{
+    width: 20rem;
+    padding-top: .8rem;
+    padding-bottom: .8rem;
+    padding-left: 1rem;
+    margin-top:1rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid grey;
+    border-radius: 2px;
+    box-shadow: 0px 10px 20px -15px;
+    background: transparent;
+}
+
+.container .eighth .contactform input:hover,
+.container .eighth .contactform textarea:hover{
+    border-color: hsl(34, 60%, 57%);
+    background: transparent;
+    box-shadow: 0px 10px 20px -15px rgba(107, 104, 88, 0.123);
+}
+.container .eighth .contactform input::placeholder,
+.container .eighth .contactform textarea::placeholder{
+    color: grey;
+}
+
+@media screen and (max-width: 765px){
+    .container .eighth .contactform {
+        /* margin: 4%;
+        border-radius: 10px; */
+        background-color: rgb(247, 247, 247);
+    }
+}
