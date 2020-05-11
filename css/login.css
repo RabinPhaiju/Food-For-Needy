@@ -45,7 +45,8 @@ body {
 }
 
 .navbar .navbar1 a:hover {
-    background-color: rgb(66, 147, 69);
+    /* background-color: rgb(66, 147, 69); */
+    background-image: linear-gradient(to left top,#ff7e5f,#feb47b);
     border-radius: 5%;
     color: white;
 }
@@ -113,8 +114,10 @@ a {
 
 button {
     border-radius: 20px;
-    border: 2px solid #4CAF50;
-    background-color: #4CAF50;
+    /* border: 2px solid #4CAF50; */
+    border:2px solid #feb47b;
+    /* background-color: #4CAF50; */
+    background-image: linear-gradient(to left top,#ff7e5f,#feb47b);
     color: #FFFFFF;
     font-size: 12px;
     font-weight: bold;
@@ -130,7 +133,8 @@ button:active {
 
 button:hover {
     cursor: pointer;
-    background-color: rgb(59, 152, 62);
+    /* background-color: rgb(59, 152, 62); */
+    background-image: linear-gradient(to left top,#ff7e5f,#feb47b);
 }
 
 button:focus {
@@ -253,7 +257,8 @@ input {
 }
 
 .overlay {
-    background: linear-gradient(to right, rgb(27, 140, 237), rgb(81, 154, 238));
+    /* background: linear-gradient(to right, rgb(27, 140, 237), rgb(81, 154, 238)); */
+    background-image: linear-gradient(to left top,#f79448,#feb47b);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 0;

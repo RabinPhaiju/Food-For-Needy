@@ -279,14 +279,16 @@
     flex-wrap: wrap-reverse;
     font-size: 1.1rem;
     justify-content: space-around;
-    background: #2c3e50;
+    /* background: #2c3e50; */
+    background: #457fca;  /* fallback for old browsers */
     /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #3498db, #41586f);
+    /* background: -webkit-linear-gradient(to left, #3498db, #41586f); */
     /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #3498db, #41586f);
+    /* background: linear-gradient(to left, #3498db, #41586f); */
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     padding-top: 10px;
-    height: 45px;
+    padding-bottom: 5px;
+    height: 50px;
     /* margin-top: -2%; */
     /* margin-bottom: -10%; */
 }
@@ -306,7 +308,9 @@
 .navbars a {
     /* margin-top: 10px; */
     text-decoration: none;
-    color: black;
+    /* color: black; */
+    color: rgb(43, 42, 42);
+        border-radius: 8%;
     font-size: 1.6rem;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding: 6px;
@@ -320,15 +324,25 @@
     /* color: white; */
     color: #000;
 }
+.navbars .nav1 a,
+    .navbars .nav2 a,
+    .navbars .nav4 a{
+        background-color: rgba(107, 81, 57, 0.271);
+    }
 
 .navbars>div {
-    margin: 2px;
-    margin-bottom: 10px;
+    margin-left: -20px;
     margin-right: 1%;
-    margin-top: 4px;
+    margin-top: 6px;
     text-align: center;
     font-size: 0.8rem;
     z-index: 999;
+}
+.navbars .nav1:hover,
+.navbars .nav2:hover,
+.navbars .nav4:hover{
+    transform: translateY(-5px);
+    transition-duration: 0.5s;
 }
 
 .navbars .nav3,
@@ -347,10 +361,10 @@
     z-index: 2;
 }
 
-.navbars .nav0:hover {
+/* .navbars .nav0:hover {
     transform: scale(1.2);
     transition-duration: 0.5s;
-}
+} */
 
 @media only screen and (max-width: 1300px) {
     .navbars,

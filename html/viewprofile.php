@@ -26,8 +26,8 @@ if($view_user==null){
 
 <body>
     <div class="navbars">
-        <div class="nav0">
-            <a href="../index.html"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
+    <div class="nav0">
+            <a href="../index.html"><img src="files/mainlogo.jpg" style="border-radius: 20%;" width="40px" alt="Food for Needy">&nbsp;</a>
         </div>
         <div class="navbars1">
             <div class="nav3"><i class="fa fa-user fa-3x" aria-hidden="true"></i>
@@ -80,11 +80,11 @@ if($view_user==null){
                     </div>
                 </div>
             </div>
-            <div class="nav4"><a href="">CONTACT US</a></div>
+            <div class="nav4">&nbsp&nbsp&nbsp&nbsp<a href=""><span style="font-family:sans-serif"><i class="fas fa-address-book"></i> CONTACT US</span></a></div>
 
-            <div class="nav2"><a href="login.php">JOIN US</a></div>
+            <div class="nav2">&nbsp&nbsp&nbsp&nbsp<a href="login.php"><span style="font-family:sans-serif"><i class="fab fa-earlybirds"></i> JOIN US</span></a></div>
 
-            <div class="nav1"><a href="">DONATE</a></div>
+            <div class="nav1"><a href=""><span style="font-family:sans-serif"><i class="fas fa-hands-helping"></i> DONATE</span></a></div>
         </div>
 
 

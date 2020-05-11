@@ -93,11 +93,16 @@
         flex-wrap: wrap-reverse;
         font-size: 1.1rem;
         justify-content: space-around;
-        background: #2c3e50;
+        background: #457fca;  /* fallback for old browsers */
+       
+
+
+        
+        /* background: #2c3e50; */
         /* fallback for old browsers */
-        background: -webkit-linear-gradient(to left, #3498db, #41586f);
+        /* background: -webkit-linear-gradient(to left, #3498db, #41586f); */
         /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to left, #3498db, #41586f);
+        /* background: linear-gradient(to left, #3498db, #41586f); */
         /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         padding-top: 8px;
         /* padding-bottom: -5px; */
@@ -118,10 +123,17 @@
     
     .navbar a {
         text-decoration: none;
-        color: black;
+        color: rgb(43, 42, 42);
+        border-radius: 8%;
         font-size: 1.01rem;
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         padding: 6px;
+    }
+
+    .navbar .nav1 a,
+    .navbar .nav2 a,
+    .navbar .nav4 a{
+        background-color: rgba(107, 81, 57, 0.271);
     }
     
     .navbar .navbar1 a:hover {
@@ -131,10 +143,9 @@
     }
     
     .navbar>div {
-        margin: 2px;
-        margin-bottom: 10px;
+        margin-left: -20px;
         margin-right: 1%;
-        margin-top: 4px;
+        margin-top: 6px;
         text-align: center;
         font-size: 0.8rem;
         z-index: 999;
@@ -146,6 +157,12 @@
         cursor: pointer;
         position: relative;
         z-index: 3;
+    }
+    .navbar .nav1:hover,
+    .navbar .nav2:hover,
+    .navbar .nav4:hover{
+        transform: translateY(-5px);
+        transition-duration: 0.5s;
     }
     
     .navbar .nav0 {
@@ -161,10 +178,10 @@
         z-index: 2;
     }
     
-    .navbar .nav0:hover {
-        transform: scale(1.2);
+    /* .navbar .nav0:hover {
+        transform: translateY(-5px);
         transition-duration: 0.5s;
-    }
+    } */
     
     @media only screen and (max-width: 380px) {
         .navbar {
