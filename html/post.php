@@ -15,7 +15,7 @@ $search=0;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="../css/loginindex.css">
+    <link rel="stylesheet" href="css/loginindex.css">
     <link rel="stylesheet" href="css/editprofile.css">
     <link rel="stylesheet" href="css/indexsearch.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
@@ -26,7 +26,7 @@ $search=0;
 
 <body>
     <div class="navbar">
-    <div class="nav0">
+        <div class="nav0">
             <a href="../index.html"><img src="files/mainlogo.jpg" style="border-radius: 20%;" width="40px" alt="Food for Needy">&nbsp;</a>
         </div>
         <div class="navbar1">
@@ -90,68 +90,7 @@ $search=0;
 
     </div>
     <div class="body_wrapper">
-        <div class="sidemenu" id="mySidebar">
-            <ul>
-                <!-- <li><a href="#"><span class="icon"><i class="fa fa-tachometer"></i></span><span></span></a></li> -->
-
-                <div class="me userBg">
-                <div class="images">
-                    <img style="margin-top:22px" src="files/<?php if($_SESSION['pic']==null){echo 'user.png';}else{ echo $_SESSION['pic'];}?>" width="60";>
-                    </div>
-
-                    <div class="myinfo">
-                        <p class="name">Name :<?php echo $_SESSION['name']?></p>
-                        <!-- <p class="phone">Email<?php echo $_SESSION['email']?></p> -->
-                    </div>
-
-                    <button class="setting">
-                        <a href="editprofile.php"><i class="fa fa-cog" aria-hidden="true"></i></a>
-                    </button>
-                    <a id="hide" href="#" onclick="closeNav()"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
-                    <a id="show" href="#" onclick="openNav()"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-
-                    <button class="cloud">
-                        <a href="index.php">DashBoard</a>
-                    </button>
-                </div>
-
-                <!-- <li><a href="#"><span class="icon"><i class="fa fa-compass"></i></span><span>Brand</span></a></li> -->
-                <li class="dropdown">
-                    <a href="editprofile.php"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Profile</span></a>
-                    <ul>
-                        <li><a href="changepassword.php"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Change Password</span></a></li>
-                        <li class=""><a href="editprofile.php"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Edit Profile</span></a></li>
-                    </ul>
-                </li>
-                <li class="dropdown active">
-                    <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Food List</span></a>
-                    <ul>
-                        <li><a href="addfood.php"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Add to List</span></a></li>
-                        <li class="active_child"><a href="#"><span class="icon"><i class="fa fa-sticky-note-o"></i></span><span>Your List</span></a></li>
-                    </ul>
-                </li>
-                <li><a href="chat.php"><span class="icon"><i class="fa fa-commenting"></i></span><span>Conversation</span></a></li>
-                <!-- <li class="dropdown ">
-                    <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Messages</span></a>
-                    <ul>
-                        <li><a href="new.php"><span class="icon"></span><span>New</span></a></li>
-                        <li><a href="inbox.php"><span class="icon"></span><span>Inbox</span></a></li>
-                        <li class=""><a href="sent.php"><span class="icon"></span><span>Sent</span></a></li>
-                    </ul>
-                </li> -->
-                <li class="dropdown">
-                    <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Member</span></a>
-                    <ul>
-                        <li><a href="sponser.php"><span class="icon"><i class="fa fa-user"></i></span><span>Sponser</span></a></li>
-                        <li><a href="donor.php"><span class="icon"><i class="fa fa-user"></i></span><span>Donor</span></a></li>
-                        <li><a href="receiver.php"><span class="icon"><i class="fa fa-user"></i></span><span>Receiver</span></a></li>
-                    </ul>
-                    </li>
-                <li><a href="records.php"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>
-                <li><a href="schedule.php"><span class="icon"><i class="fa fa-calendar"></i></span><span>Schedule</span></a></li>
-
-            </ul>
-        </div>
+    <?php include 'navbar2.html';?>
 
         <form action="post.php" method="POST">
         <div class="wrap">

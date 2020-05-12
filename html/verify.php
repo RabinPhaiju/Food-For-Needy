@@ -178,7 +178,7 @@ else{
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/loginindex.css">
+    <link rel="stylesheet" href="css/loginindex.css">
     <link rel="stylesheet" href="css/editprofile.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/toast.css">

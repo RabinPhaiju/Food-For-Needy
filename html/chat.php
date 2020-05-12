@@ -46,7 +46,7 @@ if (isset($_POST['send'])) {
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> -->
     
-    <link rel="stylesheet" href="../css/loginindex.css">
+    <link rel="stylesheet" href="css/loginindex.css">
     
     <link rel="stylesheet" href="css/editprofile.css">
     
@@ -93,132 +93,9 @@ function myFunction() {
 </head>
 
 <body>
-    <div class="navbars">
-    <div class="nav0">
-            <a href="../index.html"><img src="files/mainlogo.jpg" style="border-radius: 20%;" width="40px" alt="Food for Needy">&nbsp;</a>
-        </div>
-        <div class="navbars1">
-            <div class="nav3">&nbsp;&nbsp;&nbsp;<i class="fa fa-user-cog fa-3x"></i>
-                <div class="middle">
-                    <div class="menu">
-                    <li class="item" id='dashboard'>
-                            <a href="#dashboard" class="btn"><i class="fa fa-home"></i>Dashboard</a>
-                            <div class="smenu">
-                            <a href="index.php">Home</a>
-                            </div>
-                        </li>
-                        <li class="item" id='profile'>
-                            <a href="#profile" class="btn"><i class="far fa-user"></i>Profile</a>
-                            <div class="smenu">
-                                <a href="changepassword.php">Change Password</a>
-                                <a href="editprofile.php">Edit Profile</a>
-                            </div>
-                        </li>
-                        <li class="item">
-                            <a class="btn" href="chat.php"><i class="fas fa-commenting"></i>Conversation</a>
-                        </li>
-
-                        <!-- <li class="item" id="messages">
-                            <a href="#messages" class="btn"><i class="far fa-envelope"></i>Messages</a>
-                            <div class="smenu">
-                                <a href="new.php">New</a>
-                                <a href="inbox.php">Inbox</a>
-                                <a href="sent.php">Sent</a>
-                            </div>
-                        </li> -->
-
-                        <li class="item" id="settings">
-                            <a href="#settings" class="btn"><i class="fas fa-cog"></i>Food List</a>
-                            <div class="smenu">
-                                <a href="#">Add Food</a>
-                                <a href="post.php">Your List</a>
-                            </div>
-                        </li>
-                        <li class="item">
-                            <a class="btn" href="records.php"><i class="fas fa-compass"></i>Records</a>
-                        </li>
-
-                        <li class="item">
-                            <a class="btn" href="schedule.php"><i class="fas fa-calendar"></i>Schedule</a>
-                        </li>
-
-                        <li class="item">
-                            <a class="btn" href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
-                        </li>
-                    </div>
-                </div>
-            </div>
-            <div class="nav4">&nbsp&nbsp&nbsp&nbsp<a href=""><span style="font-family:sans-serif"><i class="fas fa-address-book"></i> CONTACT US</span></a></div>
-
-            <div class="nav2">&nbsp&nbsp&nbsp&nbsp<a href="login.php"><span style="font-family:sans-serif"><i class="fab fa-earlybirds"></i> JOIN US</span></a></div>
-
-            <div class="nav1"><a href=""><span style="font-family:sans-serif"><i class="fas fa-hands-helping"></i> DONATE</span></a></div>
-        </div>
-
-
-    </div>
+<?php include 'navbar1.html';?>
     <div class="body_wrapper">
-        <div class="sidemenu" id="mySidebar">
-            <ul>
-                <!-- <li><a href="#"><span class="icon"><i class="fa fa-tachometer"></i></span><span></span></a></li> -->
-
-                <div class="me userBg">
-                <div class="images">
-                    <img style="margin-top:22px;border-radius:5%" src="files/<?php if($_SESSION['pic']==null){echo 'user.png';}else{ echo $_SESSION['pic'];}?>" width="60";>
-                    </div>
-
-                    <div class="myinfo">
-                        <p class="name">Name :<?php echo $_SESSION['name']?></p>
-                        <!-- <p class="phone">Email<?php echo $_SESSION['email']?></p> -->
-                    </div>
-
-                    <button class="setting">
-                        <a href="editprofile.php"><i class="fa fa-cog" aria-hidden="true"></i></a>
-                    </button>
-                    <a id="hide" href="#" onclick="closeNav()"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
-                    <a id="show" href="#" onclick="openNav()"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-                    <button class="cloud">
-                        <a href="index.php">DashBoard</a>
-                    </button>
-                </div>
-
-                <!-- <li><a href="#"><span class="icon"><i class="fa fa-compass"></i></span><span>Brand</span></a></li> -->
-                <li class="dropdown">
-                    <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Profile</span></a>
-                    <ul>
-                        <li><a href="changepassword.php"><span class="icon"></span><span>Change Password</span></a></li>
-                        <li class=""><a href="editprofile.php"><span class="icon"></span><span>Edit Profile</span></a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Food List</span></a>
-                    <ul>
-                        <li><a href="addfood.php"><span class="icon"></span><span>Add to List</span></a></li>
-                        <li class="active_child"><a href="post.php"><span class="icon"></span><span>Your List</span></a></li>
-                    </ul>
-                </li>
-                <li class="active"><a href="#"><span class="icon"><i class="fa fa-commenting"></i></span><span>Conversation</span></a></li>
-                <!-- <li class="dropdown active">
-                    <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Messages</span></a>
-                    <ul>
-                        <li><a href="#"><span class="icon"></span><span>New</span></a></li>
-                        <li><a href="inbox.php"><span class="icon"></span><span>Inbox</span></a></li>
-                        <li class=""><a href="sent.php"><span class="icon"></span><span>Sent</span></a></li>
-                    </ul>
-                </li> -->
-                <li class="dropdown">
-                    <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Member</span></a>
-                    <ul>
-                        <li><a href="sponser.php"><span class="icon"><i class="fa fa-user"></i></span><span>Sponser</span></a></li>
-                        <li><a href="donor.php"><span class="icon"><i class="fa fa-user"></i></span><span>Donor</span></a></li>
-                        <li><a href="receiver.php"><span class="icon"><i class="fa fa-user"></i></span><span>Receiver</span></a></li>
-                    </ul>
-                    </li>
-                <li><a href="records.php"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>
-                <li><a href="schedule.php"><span class="icon"><i class="fa fa-calendar"></i></span><span>Schedule</span></a></li>
-
-            </ul>
-        </div>
+    <?php include 'navbar2.html';?>
 
         <div class="container">
             <div class="col-md-9 col-sm-9 contains">

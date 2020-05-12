@@ -6,7 +6,7 @@
 
     $sql = "INSERT INTO contact (`name`,`email`,`message`) VALUES ('$a', '$b', '$c')";
 	//echo $sql;
-	require_once('../html/DBConnect.php');
+	require_once('html/DBConnect.php');
 	mysqli_query($conn, $sql);
 }
 ?>
@@ -41,7 +41,7 @@
     <link rel="stylesheet" href="css/D-R-DCounts.css">
     <link rel="stylesheet" href="css/testimonials.css">
     <link rel="stylesheet" href="css/parallax.css">
-    <link rel="stylesheet" href="css/newrabin.css">
+    <link rel="stylesheet" href="css/newnavs.css">
 
     
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -110,7 +110,7 @@
                 <a class="nav-link" href="#aboutus"><i class="far fa-clone"></i>About US</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../html/login.php"><i class="fas fa-sign-in-alt"></i>Login</a>
+                <a class="nav-link" href="html/login.php"><i class="fas fa-sign-in-alt"></i>Login</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">&nbsp&nbsp&nbsp</a>
@@ -199,7 +199,7 @@
                                <?php
                             $sql = "SELECT * from `schedule`";// where `verified`='1' AND `status`='1'";
                             
-                            require_once("../html/DBConnect.php");
+                            require_once("html/DBConnect.php");
                             $result = $conn-> query($sql);
                             $total = mysqli_num_rows($result);
                             $schedule_count=1;
@@ -235,7 +235,7 @@
                         <ol><?php
                         $sql = "SELECT * from `schedule`";// where `verified`='1' AND `status`='1'";
                             
-                            require_once("../html/DBConnect.php");
+                            require_once("html/DBConnect.php");
                             $result = $conn-> query($sql);
                             $total = mysqli_num_rows($result);
                             $schedule_count=0;
@@ -318,15 +318,15 @@
                 <div class="carousel">
                     <div class="card-carousel">
                         <?php
-                                $sql = "SELECT * from `register`";// where `verified`='1' AND `status`='1'";
-                                    require_once("../html/DBConnect.php");
+                                $sql = "SELECT * from `register` WHERE `user_type`='Volunteer'";// where `verified`='1' AND `status`='1'";
+                                    require_once("html/DBConnect.php");
                                     $result = $conn-> query($sql);
                                     $total = mysqli_num_rows($result);
                                     $hero_count =0;
 
                                 if($result-> num_rows >0){
                                 while($row = $result-> fetch_assoc()){  
-                                  $filepath="../html/files/".$row["pic"];
+                                  $filepath="html/files/".$row["pic"];
                                   if($row["pic"]!=null){
                             ?>
                         <div class="my-card hero-card" id="1"><img src="<?php echo $filepath; ?>"></div>
@@ -352,7 +352,7 @@
             <div class="D-R-D-Counts">
                 <?php 
                   $sql = "SELECT * from `food`";// where `verified`='1' AND `status`='1'";
-                  require_once("../html/DBConnect.php");
+                  require_once("html/DBConnect.php");
                   $resulttotal = $conn-> query($sql);
                   $total = mysqli_num_rows($resulttotal);
                 ?>
@@ -362,7 +362,7 @@
                 </div>
                 <?php 
                   $sql = "SELECT * from `register`";// where `verified`='1' AND `status`='1'";
-                  require_once("../html/DBConnect.php");
+                  require_once("html/DBConnect.php");
                   $resulttotal = $conn-> query($sql);
                   $total = mysqli_num_rows($resulttotal);
                 ?>
@@ -372,7 +372,7 @@
                 </div>
                 <?php 
                   $sql = "SELECT * from `food` where `served`=1" ;// where `verified`='1' AND `status`='1'";
-                  require_once("../html/DBConnect.php");
+                  require_once("html/DBConnect.php");
                   $resulttotal = $conn-> query($sql);
                   $total = mysqli_num_rows($resulttotal);
                 ?>
