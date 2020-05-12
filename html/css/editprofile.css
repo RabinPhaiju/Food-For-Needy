@@ -309,7 +309,8 @@
     /* margin-top: 10px; */
     text-decoration: none;
     /* color: black; */
-    color: rgb(43, 42, 42);
+    /* color: rgb(43, 42, 42); */
+    color: #ddd;
         border-radius: 8%;
     font-size: 1.6rem;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -319,7 +320,8 @@
 
 .navbars .navbars1 a:hover {
     /* background-color: #4CAF50; */
-    background-color: rgb(42, 127, 45);
+    /* background-color: rgb(42, 127, 45); */
+    background-color: #5CB85C;
     border-radius: 5%;
     /* color: white; */
     color: #000;
