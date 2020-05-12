@@ -50,6 +50,7 @@ if(isset($_POST['signin'])){
         $_SESSION['name']=" ".$row['firstname']." ".$row['lastname'];
         $_SESSION['email']=$row['email'];
         $_SESSION['pic']=$row['pic'];
+        $_SESSION['user_type']=$row['user_type'];
 		if(!empty($_POST["remember_me"])) {
 				setcookie ("login",$_POST["username"],time()+(60 * 60)); /* expire in 1 hour */
 			} else {

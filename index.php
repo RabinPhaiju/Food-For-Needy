@@ -323,7 +323,7 @@
                 <div class="carousel">
                     <div class="card-carousel">
                         <?php
-                                $sql = "SELECT * from `register` WHERE `user_type`='Donor'";// where `verified`='1' AND `status`='1'";
+                                $sql = "SELECT * from `register` WHERE `user_type`='Volunteer'";// where `verified`='1' AND `status`='1'";
                                     require_once("html/DBConnect.php");
                                     $result = $conn-> query($sql);
                                     $total = mysqli_num_rows($result);

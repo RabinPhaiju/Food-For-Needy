@@ -28,8 +28,8 @@
     font-size: 1em;
     display: block;
     position: relative;
-    width: 8em;
-    height: 8em;
+    width: 6em;
+    height:6em;
     background-color: #fff;
     box-shadow: 0 0 0 1px #e6e6e6, 0 2px 0 #bdbdbd;
     overflow: hidden;
@@ -54,7 +54,7 @@
 
 .icons strong {
     top: 0;
-    padding: 0.5em 0;
+    /* padding: 0.3em 0; */
     color: #fff;
     background-color: #43B4FA;
 }
@@ -67,7 +67,7 @@
 }
 
 .icons h6 {
-    font-size: 2.8em;
+    /* font-size: 2.8em; */
     top: 45%;
     color: #2f2f2f;
 }
