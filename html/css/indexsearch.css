@@ -1,13 +1,13 @@
 .search,
 .navi {
-    width: 100%;
+    width: 95%;
     position: relative;
     display: flex;
     margin-left: 15px;
 }
 
 .searchTerm {
-    width: 60%;
+    width: 40%;
     border: 3px solid rgb(134, 135, 135);
     border-right: none;
     padding: 15px;

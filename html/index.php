@@ -116,7 +116,7 @@ $search=0;
     <?php include 'navbar2.html';?>
 
         <form action="index.php" method="POST">
-        <div class="wrap">
+            <div class="wrap">
             <div class="search">
                 <input type="text" style="color:black" class="searchTerm" placeholder="Search" name="search" required="required">
                 <button type="submit" name="searchsubmit" class="searchButton">

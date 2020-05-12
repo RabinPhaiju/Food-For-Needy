@@ -23,21 +23,22 @@
         </div>
 
         <!-- <li><a href="#"><span class="icon"><i class="fa fa-compass"></i></span><span>Brand</span></a></li> -->
-        <li class="dropdown">
-            <a href="editprofile.php"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Profile</span></a>
+        <li class="dropdown <?php if(strpos($_SERVER['REQUEST_URI'], 'editprofile') || strpos($_SERVER['REQUEST_URI'], 'changepassword')){echo 'active';}?>">
+            <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Profile</span></a>
             <ul>
                 <li><a href="changepassword.php"><span class="icon"></span><span>Change Password</span></a></li>
                 <li class=""><a href="editprofile.php"><span class="icon"></span><span>Edit Profile</span></a></li>
             </ul>
         </li>
-        <li class="dropdown active">
+        <li class="dropdown <?php if(strpos($_SERVER['REQUEST_URI'], 'addfood') || strpos($_SERVER['REQUEST_URI'], 'post')){echo 'active';}?>">
             <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Food List</span></a>
             <ul>
-                <li class="active_child"><a href="#"><span class="icon"></span><span>Add to List</span></a></li>
+                <li class="active_child"><a href="addfood.php"><span class="icon"></span><span>Add to List</span></a></li>
                 <li><a href="post.php"><span class="icon"></span><span>Your List</span></a></li>
             </ul>
         </li>
-        <li><a href="chat.php"><span class="icon"><i class="fa fa-commenting"></i></span><span>Conversation</span></a></li>
+        <li class="<?php if(strpos($_SERVER['REQUEST_URI'], 'chat')){echo 'active';}?>">
+            <a href="chat.php"><span class="icon"><i class="fa fa-commenting"></i></span><span>Conversation</span></a></li>
         <!-- <li class="dropdown ">
             <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Messages</span></a>
             <ul>
@@ -46,7 +47,7 @@
                 <li class=""><a href="sent.php"><span class="icon"></span><span>Sent</span></a></li>
             </ul>
         </li> -->
-        <li class="dropdown">
+        <li class="dropdown <?php if(strpos($_SERVER['REQUEST_URI'], 'sponser') || strpos($_SERVER['REQUEST_URI'], 'donor') || strpos($_SERVER['REQUEST_URI'], 'receiver') || strpos($_SERVER['REQUEST_URI'], 'volunteer')){echo 'active';}?>">
             <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Member</span></a>
             <ul>
                 <li><a href="sponser.php"><span class="icon"><i class="fa fa-user"></i></span><span>Sponser</span></a></li>
@@ -54,8 +55,10 @@
                 <li><a href="receiver.php"><span class="icon"><i class="fa fa-user"></i></span><span>Receiver</span></a></li>
             </ul>
             </li>
-        <li><a href="records.php"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>
-        <li><a href="schedule.php"><span class="icon"><i class="fa fa-calendar"></i></span><span>Schedule</span></a></li>
+        <li class="<?php if(strpos($_SERVER['REQUEST_URI'], 'records')){echo 'active';}?>">
+            <a href="records.php"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>
+        <li class="<?php if(strpos($_SERVER['REQUEST_URI'], 'schedule')){echo 'active';}?>">
+            <a href="schedule.php"><span class="icon"><i class="fa fa-calendar"></i></span><span>Schedule</span></a></li>
 
     </ul>
 </div>

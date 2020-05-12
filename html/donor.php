@@ -74,7 +74,7 @@ if($pos==9999){
 }
 
 .searchTerm {
-    width: 60%;
+    width: 30%;
     border: 3px solid rgb(134, 135, 135);
     border-right: none;
     padding: 15px;
@@ -89,7 +89,7 @@ if($pos==9999){
 }
 
 .searchButton {
-    width: 80px;
+    width: 40px;
     height: 36px;
     border: 1px solid rgb(134, 135, 135);
     background: rgb(134, 135, 135);
@@ -195,7 +195,7 @@ if($pos==9999){
               <?php } else { ?>
                 <a class="naviright"><i class="fa fa-chevron-right"></i></a>
               <?php } ?>
-              <p style="margin:8px 0 0 5px"><?php echo ($pos+1)." - ".($pos+10);?> of <?php echo $total?></p>
+              <p style="margin:8px 0 0 5px"><?php echo ($pos+1)." - ".($pos+10);?> out of <?php echo $total?></p>
                                         <!-- </div> -->
             </div>
     </form>
