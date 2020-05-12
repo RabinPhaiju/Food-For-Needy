@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 .container .heroslider{
-    margin: 5% 3% 3% 3%;
+    margin: -2% 3% 0 3%;
+    padding: 2% 0;
     font-family: 'Montserrat', sans-serif;
+    background-color: rgba(243, 116, 53, 0.223);
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(25rem,3fr));
     align-items: center;

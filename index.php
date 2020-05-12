@@ -84,11 +84,12 @@
 </head>
 <body>
 <!-- page loader undo the comment when finish -->
-        <div class="loader_bg" style="margin-top:-4.1rem;z-index:99">
+
+        <!-- <div class="loader_bg" style="margin-top:-4.1rem;z-index:99">
             <div class="load">
                 <hr/><hr/><hr/><hr/>
             </div>
-        </div>
+        </div> -->
 
 
 <nav class="navbar navbar-expand-lg navbar-mainbg">
@@ -101,13 +102,14 @@
         <ul class="navbar-nav ml-auto">
             <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
             <li class="nav-item active">
-                <a class="nav-link" href="#third"><i class="fas fa-home"></i>Home</a>
+                <a class="nav-link" href="#home"><i class="fas fa-home"></i>Home</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="#aboutus"><i class="far fa-clone"></i>About US</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#contactform"><i class="far fa-address-book"></i>Contact Us</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#aboutus"><i class="far fa-clone"></i>About US</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="html/login.php"><i class="fas fa-sign-in-alt"></i>Login</a>
@@ -122,9 +124,12 @@
         </ul>
     </div>
 </nav>
+<div  id="home" style="margin: -4px 0">
+.
+</div>
          <div class="container">   
 
-            <div class="third" id="third">
+            <div class="third">
                 <div class="image">
                     <div class="whoweare">
                         <p class="briefHead">
@@ -137,7 +142,7 @@
                             i.e. what a user can donate or <br> get.                       <br>
                         </p>
                         <button>
-                        <a href="#">More Info &nbsp; <i class="fa fa-arrow-right"></i></a>
+                        <a href="#"><strong>More Info</strong> &nbsp; <i class="fa fa-arrow-right"></i></a>
                         </button>
                     </div>
                 </div>               
@@ -226,8 +231,8 @@
                         </div> <!-- .events-wrapper -->
                             
                         <ul class="cd-timeline-navigation">
-                            <li><a href="#0" class="prev inactive">Prev</a></li>
-                            <li><a href="#0" class="next">Next</a></li>
+                            <li><a href="#0" class="prev inactive"><i class="fas fa-angle-right fa-2x"></i></a></li>
+                            <li><a href="#0" class="next"><i class="fas fa-angle-right fa-2x"></i></a></li>
                         </ul> <!-- .cd-timeline-navigation -->
                     </div> <!-- .timeline -->
                 
@@ -318,7 +323,7 @@
                 <div class="carousel">
                     <div class="card-carousel">
                         <?php
-                                $sql = "SELECT * from `register` WHERE `user_type`='Volunteer'";// where `verified`='1' AND `status`='1'";
+                                $sql = "SELECT * from `register` WHERE `user_type`='Donor'";// where `verified`='1' AND `status`='1'";
                                     require_once("html/DBConnect.php");
                                     $result = $conn-> query($sql);
                                     $total = mysqli_num_rows($result);

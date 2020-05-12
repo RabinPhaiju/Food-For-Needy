@@ -2,10 +2,12 @@
 
 .container .eighth{
     font-family: 'Montserrat', sans-serif;
-    background-color: rgb(247, 247, 247);
+    /* background-color: rgb(247, 247, 247); */
+    background-color: rgba(243, 116, 53, 0.223);
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(15rem,1fr));
     grid-gap: 1rem;
+    margin: 0 3%;
     align-items: center;
     padding: 2rem 0rem;
 }
@@ -37,7 +39,7 @@
     text-align: center;
     border: 1px solid transparent;
     border-radius: 10px 0px 0px 10px;
-    background-color: white;
+    /* background-color: white; */
     padding: 2rem 0rem;
     margin: 2rem 0rem;
 }

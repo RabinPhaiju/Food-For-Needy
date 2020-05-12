@@ -1,15 +1,18 @@
 .testimonial-container {
-	background-color: rgba(245, 245, 245, 1);
-	width: 100%;
-	margin-top: 5%;
+	/* background-color: rgba(245, 245, 245, 1); */
+	background-color: rgba(243, 116, 53, 0.223);
+	/* width: 100%; */
+	margin: 0 3% 0 3%;
+	margin-top: 2%;
 }
 
 .cd-testimonials-wrapper {
 	position: relative;
-	width: 100%;
-	max-width: 100%;
-	margin: 0 auto;
-	background-color: rgba(245, 245, 245, 1);
+	/* width: 100%; */
+	/* max-width: 100%; */
+	margin: 3% auto;
+	/* background-color: rgba(245, 245, 245, 1); */
+	/* background-color: rgba(243, 116, 53, 0.223); */
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	z-index: 1;
@@ -124,6 +127,9 @@
 ul.cd-author-info {
 	list-style: none;
 }
+ul.flex-direction-nav {
+    list-style-type: none;
+}
 
 ul.cd-author-info li span:before {
 	font-family: 'FontAwesome';
@@ -162,7 +168,7 @@ ul.cd-author-info li span {
 
 .flex-direction-nav a {
 	text-decoration: none;
-	display: block;
+	display: none;
 	width: 50px;
 	height: 100%;
 	margin: 0px 0 0;
@@ -171,9 +177,9 @@ ul.cd-author-info li span {
 	top: 0;
 	overflow: hidden;
 	opacity: 1;
-	background: rgba(245, 245, 245, 1);
+	/* background: rgba(245, 245, 245, 1); */
 	cursor: pointer;
-	color: rgba(255, 255, 255, .5);
+	/* color: rgba(255, 255, 255, .5); */
 	text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
 	-webkit-transition: all 0.3s ease-in-out;
 	-moz-transition: all 0.3s ease-in-out;
@@ -262,7 +268,7 @@ ul.cd-author-info li span {
 }
 
 .flex-control-nav {
-	bottom: 30px;
+	bottom: 3px;
 	position: absolute;
 	margin: 0 auto;
 	padding: 0;
