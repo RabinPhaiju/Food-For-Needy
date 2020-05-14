@@ -257,8 +257,8 @@ input {
 }
 
 .overlay {
-    /* background: linear-gradient(to right, rgb(27, 140, 237), rgb(81, 154, 238)); */
-    background-image: linear-gradient(to left top,#f79448,#feb47b);
+    background: linear-gradient(to right, rgb(27, 140, 237), rgb(81, 154, 238));
+    /* background-image: linear-gradient(to left top,#f79448,#feb47b); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 0 0;
