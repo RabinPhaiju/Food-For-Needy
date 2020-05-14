@@ -231,8 +231,8 @@
                         </div> <!-- .events-wrapper -->
                             
                         <ul class="cd-timeline-navigation">
-                            <li><a href="#0" class="prev inactive"><i class="fas fa-angle-right fa-2x"></i></a></li>
-                            <li><a href="#0" class="next"><i class="fas fa-angle-right fa-2x"></i></a></li>
+                            <li><a href="#0" class="prev inactive"><i class="fas fa-angle-right fa-3x"></i></a></li>
+                            <li><a href="#0" class="next"><i class="fas fa-angle-right fa-3x"></i></a></li>
                         </ul> <!-- .cd-timeline-navigation -->
                     </div> <!-- .timeline -->
                 
