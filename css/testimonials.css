@@ -1,8 +1,8 @@
 .testimonial-container {
 	/* background-color: rgba(245, 245, 245, 1); */
-	background-color: rgba(243, 116, 53, 0.223);
+	background: linear-gradient(to bottom right,rgba(255, 255, 255, 0.223),rgba(243, 116, 53, 0.223));
 	/* width: 100%; */
-	margin: 0 3% 0 3%;
+	margin: 0 2% 0 2%;
 	margin-top: 2%;
 }
 
@@ -22,7 +22,7 @@
 	text-align: center;
 	width: 100%;
 	padding-top: 2rem;
-	margin-bottom: -.5rem;
+	margin-bottom: -2rem;
     color: hsl(34, 100%, 60%);
     font-size: 3rem;
     font-family: 'Montserrat', sans-serif;
@@ -44,7 +44,7 @@
 .testimonial-content {
 	max-width: 1000px;
 	width: 80%;
-	margin: 0 auto 30px auto;
+	margin: 0 auto 60px auto;
 }
 
 .cd-testimonials {
@@ -275,7 +275,6 @@ ul.cd-author-info li span {
 	text-align: center;
 	width: 100%;
 }
-
 .flex-control-nav li {
 	display: inline-block;
 	padding: 0px 5px 0px 5px;

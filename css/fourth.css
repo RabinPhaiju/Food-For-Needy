@@ -2,11 +2,10 @@
 @import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond&display=swap');
 
 .container .fourth{
-    background-color: rgb(247, 247, 247);
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(25rem,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(20rem,1fr));
     z-index: 4;
-    margin: auto 2%;
+    margin: 2% 2%;
 }
 @media screen and ( max-width:765px){
     .container .fourth{
@@ -18,10 +17,9 @@
 }
 
 .container .fourth .ourStory{
-    padding-left: 6vw;
-    padding-right: 2rem;
     font-family: 'Montserrat', sans-serif;
     align-self: center;
+    margin-left: 6vw;
 }
 .container .fourth .ourStory p.storyHead{
     font-size: 3.5rem;
@@ -31,33 +29,38 @@
 
 .container .fourth .ourStory p.story{
     font-weight: 5;
-    margin-top: -3rem;
+    margin-top: -2rem;
+    font-size: 1.2rem;
+    font-weight: 500;
 }
 
 .container .fourth .choice{
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(10rem,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(10rem,2fr));
     grid-gap: 1rem;
     font-family: 'Montserrat', sans-serif;
     text-align: left;
     align-content: center;
-    margin: 2rem;
+    margin: 1rem;
+    width: 100%;
 }
 
 .container .fourth .choice .choicetitle{
-    font-size: 18px;
+    font-size: 1.5rem;
     font-weight: 700;
 }
 
 .container .fourth .choice .choicetext{
-    font-size: 14px;
-    font-weight: 5;
+    font-size: 1rem;
+    font-weight: 500;
 }
 
 .container .fourth .choice .donor,
 .container .fourth .choice .volunteer,
 .container .fourth .choice .distributor{
     padding: 1vw 1vw;
+    border-radius: 5px;
+    background: linear-gradient(to bottom right,rgba(255, 255, 255, 0.223),rgba(243, 116, 53, 0.223));
 }
 
 .container .fourth .choice .donor:hover #iconpart,

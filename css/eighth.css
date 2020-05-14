@@ -3,11 +3,12 @@
 .container .eighth{
     font-family: 'Montserrat', sans-serif;
     /* background-color: rgb(247, 247, 247); */
-    background-color: rgba(243, 116, 53, 0.223);
+    /* background-color: rgba(243, 116, 53, 0.223); */
+    background: linear-gradient(to bottom right,rgba(255, 255, 255, 0.223),rgba(243, 116, 53, 0.223));
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(15rem,1fr));
     grid-gap: 1rem;
-    margin: 0 3%;
+    margin: 0 2%;
     align-items: center;
     padding: 2rem 0rem;
 }

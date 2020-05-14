@@ -8,13 +8,10 @@
 }
 .container .third .image{
     background: url('../files/5-2.jpg') no-repeat center;
-    /* background-size: 50vw 31rem; */
     background-size: cover;
-    /* background-position: right; */
     background-attachment: fixed;
     height: 27rem;
     margin :5% 2%;
-    /* background-color: aquamarine; */
 }
 
 .container .third .whoweare{
@@ -23,13 +20,13 @@
     width: 70vw;
 }
 .container .third .whoweare p.briefHead{
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-family: 'Montserrat', sans-serif;
     font-weight: 800;
     margin-bottom: 1.5rem;
 }
 .container .third .whoweare p.brief{
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     line-height: 1.75rem;

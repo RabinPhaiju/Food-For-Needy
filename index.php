@@ -94,7 +94,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-mainbg">
   <img src="files/mainlogo.jpg" style="margin-left:60px;border-radius:50%" alt="logo" height="50px">
-    <a class="navbar-brand navbar-logo" href="#"><strong style="margin-left:10px">Food for Needy</strong></a>
+    <a class="navbar-brand navbar-logo" href="#"><strong style="margin-left:10px;">Food for Needy</strong></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <i class="fas fa-bars text-white"></i>
     </button>
@@ -139,10 +139,10 @@
                         <p class="brief">
                             InNeed is an online platform.<br>
                             That shares informations
-                            i.e. what a user can donate or <br> get.                       <br>
+                            i.e. what a <br> user can donate or get.<br>
                         </p>
                         <button>
-                        <a href="#"><strong>More Info</strong> &nbsp; <i class="fa fa-arrow-right"></i></a>
+                        <a href="#aboutus"><strong>More Info</strong> &nbsp; <i class="fa fa-arrow-right"></i></a>
                         </button>
                     </div>
                 </div>               
@@ -392,7 +392,7 @@
                     <p class="no1">Become a Volunteer</p>
                     <p class="no2">Be a part of a team to make a real difference</p>
                     <button>
-                        <a href="#">Join In &nbsp; <i class="fa fa-arrow-right"></i></a>
+                        <a href="html/login.php">Join In &nbsp; <i class="fa fa-arrow-right"></i></a>
                     </button>
                 </div>
             </div>
