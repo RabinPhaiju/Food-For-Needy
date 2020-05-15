@@ -9,7 +9,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(15rem,1fr));
     column-gap: 3rem;
-    padding: 4vw 5vw 0vw 5vw;
+    padding: 4vw 5vw 2vw 5vw;
 }
 
 .container .sixth .aboutus{

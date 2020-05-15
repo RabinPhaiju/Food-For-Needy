@@ -3,7 +3,7 @@
 
 .container .fourth{
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(20rem,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(25rem,1fr));
     z-index: 4;
     margin: 2% 2%;
 }
@@ -20,6 +20,7 @@
     font-family: 'Montserrat', sans-serif;
     align-self: center;
     margin-left: 6vw;
+    transition: ease-in-out 2s;
 }
 .container .fourth .ourStory p.storyHead{
     font-size: 3.5rem;
@@ -36,7 +37,7 @@
 
 .container .fourth .choice{
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(10rem,2fr));
+    grid-template-columns: repeat(auto-fit,minmax(12rem,1fr));
     grid-gap: 1rem;
     font-family: 'Montserrat', sans-serif;
     text-align: left;
@@ -68,6 +69,18 @@
 .container .fourth .choice .distributor:hover #iconpart{
     color: hsl(34, 100%, 60%);
 }
-/* .container .fourth .choice .donor:hover{
-    background-color:hsl(34, 100%, 60%);
-} */
+
+/* hidden part */
+.container .fourth .ourStory .showpart p.hideWhoweare{
+    font-size: 1.2rem;
+    font-weight: 500;
+} 
+.container .fourth .ourStory .showpart ul.hideWhoweare{
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-left: 4rem;
+}
+
+.container .fourth .ourStory .showpart{
+    display: none;
+}

@@ -45,7 +45,6 @@
 
     
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    
     <style>
         html{
         scroll-behavior: smooth;
@@ -160,11 +159,36 @@
                     <p class="story">
                         InNeed's primary goal is to provide such a platform to a user that provide schedule information & where they can donate and request.  
                     </p>
-                    <button>
-                        <a href="#">More Info &nbsp; <i class="fa fa-arrow-right"></i></a>
-                    </button>
+
+                    <div class="hidepart" id="hidepart">
+                        <button onclick="show();">
+                            <a href="#0" onclick="show();">More Info &nbsp; <i class="fa fa-arrow-right"></i></a>
+                        </button>
+                    </div>                    
+
+                    <div class="showpart" id="showpart">
+                        <button onclick="hide();">
+                            <a href="#0" onclick="hide();">Hide &nbsp; <i class="fa fa-arrow-up"></i></a>
+                        </button>
+                        <br>
+                        <br>
+                        <p class="hideWhoweare">
+                            In sort, The things we do is to share information to end-user/people about the information about foods :
+                        </p>
+                        <ul class="hideWhoweare" type="disc">
+                            <li>That the donor/provider have donated. </li>
+                            <li>That the receiver/distributor can get.</li>
+                        </ul>
+                        <br>
+                        <p class="hideWhoweare">
+                            And through this website we provide a chance to become volunteer who are willing to put their effort for the betterment of society.
+                            <br>
+                            <br>
+                            In overall, we are trying to make a small effort/difference that can prevent food waste and help people in need.
+                        </p>
+                    </div>
                 </div>
-                <div class="choice">
+                <div class="choice" id="choice">
                     <div class="donor">
                         <i class="fa fa-dropbox fa-4x" id="iconpart"></i>
                         <p class="choicetitle">Make <span style="color: hsl(34, 100%, 60%);">Donation</span></p>
@@ -575,4 +599,6 @@ $(".navbar-toggler").click(function () {
 });
 
 </script>
+<script src="js/hideandshow.js"></script>
+
 </html>
