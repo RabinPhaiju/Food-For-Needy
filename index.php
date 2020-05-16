@@ -161,14 +161,14 @@
                     </p>
 
                     <div class="hidepart" id="hidepart">
-                        <button onclick="show();">
-                            <a href="#0" onclick="show();">More Info &nbsp; <i class="fa fa-arrow-right"></i></a>
+                        <button class="hides" onclick="show();">
+                            <a href="#0">More Info &nbsp; <i class="fa fa-arrow-right"></i></a>
                         </button>
                     </div>                    
 
                     <div class="showpart" id="showpart">
-                        <button onclick="hide();">
-                            <a href="#0" onclick="hide();">Hide &nbsp; <i class="fa fa-arrow-up"></i></a>
+                        <button class="shows" onclick="hide();">
+                            <a href="#0" onclick="hide();"><strong> Hide</strong> &nbsp; <i class="fa fa-arrow-up"></i></a>
                         </button>
                         <br>
                         <br>

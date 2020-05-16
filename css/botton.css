@@ -14,10 +14,15 @@ button a{
     font-weight: 5;
 }
 button:hover{
+    padding: .6rem 1.15rem;
     background-image: linear-gradient(white,white);
-    border: 1px solid hsl(34, 100%, 60%);;
-    opacity: .6;
+    border: 3px solid hsl(34, 100%, 60%);
+    color:black;
+    opacity: .8;
 }
 button:hover a{
     color: black;
+    text-decoration: none;
+    font-weight: bolder;
+    
 }
