@@ -83,9 +83,11 @@
 
 .container .fourth .ourStory .showpart{
     opacity: 0;
+    display: none;
 }
 .container .fourth .ourStory .show{
     animation: mymove 2s;
+    display: block;
     opacity: 1;
 }
 @keyframes mymove {
@@ -100,4 +102,5 @@
   }
 .container .fourth .ourStory .hide{
     opacity: 0;
+    display: none;
 }
