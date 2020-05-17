@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 17, 2020 at 01:28 PM
+-- Generation Time: May 17, 2020 at 01:43 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -32,7 +32,7 @@ CREATE TABLE `contact` (
   `email` varchar(50) DEFAULT NULL,
   `message` varchar(255) DEFAULT NULL,
   `id` int(8) NOT NULL,
-  `date` date DEFAULT current_timestamp()
+  `date` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -40,9 +40,9 @@ CREATE TABLE `contact` (
 --
 
 INSERT INTO `contact` (`name`, `email`, `message`, `id`, `date`) VALUES
-('sdf', 'sd@sdf.com', 'sdf', 1, '2020-05-17'),
-('sdf', 'sd@sdf.com', 'sdf', 2, '2020-05-17'),
-('rabin', 'rabin@gmail.com', 'kehe xnea', 3, '2020-05-17');
+('sdf', 'sd@sdf.com', 'sdf', 1, '2020-05-16 18:15:00'),
+('sdf', 'sd@sdf.com', 'sdf', 2, '2020-05-16 18:15:00'),
+('rabin', 'rabin@gmail.com', 'kehe xnea', 3, '2020-05-16 18:15:00');
 
 -- --------------------------------------------------------
 
