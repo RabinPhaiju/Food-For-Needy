@@ -1,3 +1,4 @@
+<?php include 'session.php';?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,17 +42,17 @@
           
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src="../images/user.jpg" alt="profile"/>
-              <span class="nav-profile-name">User Name</span>
+            
+              <img src="../images/<?php if($_SESSION['pic']!=null){echo 'user.png';}else{ echo $_SESSION['pic'];}?>";>
+              <span class="nav-profile-name"><?=$_SESSION['username']?></span>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
               <!-- <a class="dropdown-item">
                 <i class="mdi mdi-settings text-primary"></i>
                 Settings
               </a> -->
-              <a class="dropdown-item">
-                <i class="mdi mdi-logout text-primary"></i>
-                Logout
+              <a class="dropdown-item" href="logout.php">
+                <h5 class="mdi mdi-logout text-primary"> Logout</h5>
               </a>
             </div>
           </li>
@@ -130,87 +131,76 @@
               <span class="menu-title">Schedule</span>
             </a>
           </li>
-
-
         </ul>
       </nav>
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-          
-          <div class="row">
-            <div class="col-md-12 grid-margin">
-              <div class="d-flex justify-content-between flex-wrap">
-                <div class="d-flex align-items-end flex-wrap">
-                  <div class="mr-md-3 mr-xl-5">
-                    <h1>Welcome back,</h1>
-                    <p class="mb-md-0">Your analytics</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
           <div class="row">
             <!-- overview--slaes --purchases  -->
             <div class="col-md-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body dashboard-tabs p-0">
+               
                   <ul class="nav nav-tabs px-4" role="tablist">
+                    
                     <li class="nav-item">
-                      <a class="nav-link active" id="overview-tab" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Overview</a>
+                      <a class="nav-link active" id="overview-tab" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Food</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" id="sales-tab" data-toggle="tab" href="#sales" role="tab" aria-controls="sales" aria-selected="false">Sales</a>
+                      <a class="nav-link" id="sales-tab" data-toggle="tab" href="#sales" role="tab" aria-controls="sales" aria-selected="false">User</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" id="purchases-tab" data-toggle="tab" href="#purchases" role="tab" aria-controls="purchases" aria-selected="false">Purchases</a>
+                      <a class="nav-link" id="purchases-tab" data-toggle="tab" href="#purchases" role="tab" aria-controls="purchases" aria-selected="false">Schedule</a>
                     </li>
                   </ul>
                   <div class="tab-content py-0 px-0">
                     <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
                       <div class="d-flex flex-wrap justify-content-xl-between">
                         <div class="d-none d-xl-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
-                          <i class="mdi mdi-calendar-heart icon-lg mr-3 text-primary"></i>
+                          <i class="mdi mdi-clipboard-text icon-lg mr-3 text-primary"></i>
                           <div class="d-flex flex-column justify-content-around">
-                            <small class="mb-1 text-muted">Start date</small>
-                            <div class="dropdown">
-                              <a class="btn btn-secondary dropdown-toggle p-0 bg-transparent border-0 text-dark shadow-none font-weight-medium" href="#" role="button" id="dropdownMenuLinkA" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <h5 class="mb-0 d-inline-block">26 Jul 2018</h5>
-                              </a>
-                              <div class="dropdown-menu" aria-labelledby="dropdownMenuLinkA">
-                                <a class="dropdown-item" href="#">12 Aug 2018</a>
-                                <a class="dropdown-item" href="#">22 Sep 2018</a>
-                                <a class="dropdown-item" href="#">21 Oct 2018</a>
-                              </div>
-                            </div>
+                            <small class="mb-1 text-muted">Total Food</small>
+                             <?php 
+                             $sum=0;
+                                   require_once("DBConnect.php");
+                                  $sql1="SELECT * from `food`";
+                                  $result1 = mysqli_query($conn, $sql1);
+                                  $total = mysqli_num_rows($result1);
+                                  while($row = $result1-> fetch_assoc()){ 
+                                    $sum = $sum + $row['quantity'];
+                                  }
+                                  ?>
+                                <h5 class="mb-0 d-inline-block"><?=$total?></h5>
+                             
                           </div>
                         </div>
                         <div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
-                          <i class="mdi mdi-currency-usd mr-3 icon-lg text-danger"></i>
+                          <i class="mdi mdi-database mr-3 icon-lg text-danger"></i>
                           <div class="d-flex flex-column justify-content-around">
-                            <small class="mb-1 text-muted">Revenue</small>
-                            <h5 class="mr-2 mb-0">$577545</h5>
+                            <small class="mb-1 text-muted">Total Quantity</small>
+                            <h5 class="mr-2 mb-0"><?=$sum;?></h5>
                           </div>
                         </div>
                         <div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
-                          <i class="mdi mdi-eye mr-3 icon-lg text-success"></i>
+                          <!-- <i class="mdi mdi-eye mr-3 icon-lg text-success"></i> -->
                           <div class="d-flex flex-column justify-content-around">
-                            <small class="mb-1 text-muted">Total views</small>
-                            <h5 class="mr-2 mb-0">9833550</h5>
+                            <!-- <small class="mb-1 text-muted">Total views</small>
+                            <h5 class="mr-2 mb-0">9833550</h5> -->
                           </div>
                         </div>
                         <div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
-                          <i class="mdi mdi-download mr-3 icon-lg text-warning"></i>
+                          <!-- <i class="mdi mdi-download mr-3 icon-lg text-warning"></i> -->
                           <div class="d-flex flex-column justify-content-around">
-                            <small class="mb-1 text-muted">Downloads</small>
-                            <h5 class="mr-2 mb-0">2233783</h5>
+                            <!-- <small class="mb-1 text-muted">Downloads</small>
+                            <h5 class="mr-2 mb-0">2233783</h5> -->
                           </div>
                         </div>
                         <div class="d-flex py-3 border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
-                          <i class="mdi mdi-flag mr-3 icon-lg text-danger"></i>
+                          <!-- <i class="mdi mdi-flag mr-3 icon-lg text-danger"></i> -->
                           <div class="d-flex flex-column justify-content-around">
-                            <small class="mb-1 text-muted">Flagged</small>
-                            <h5 class="mr-2 mb-0">3497843</h5>
+                            <!-- <small class="mb-1 text-muted">Flagged</small>
+                            <h5 class="mr-2 mb-0">3497843</h5> -->
                           </div>
                         </div>
                       </div>
@@ -320,10 +310,7 @@
             <div class="menu">
            
 
-
-
-
-              <div class="wrapper">
+            <div class="wrapper">
                 <div class="cards">
                   <figure class="card">             
                     <img src="../images/food.png" />             
@@ -347,17 +334,7 @@
                   </figure>            
                 </div>             
               </div>
-
-
-
-
-
-
-
-
-
-          </div>
-            
+          </div>    
           </div>
           <div class="row">
             <div class="col-md-12 stretch-card">
@@ -368,32 +345,34 @@
                     <table id="recent-purchases-listing" class="table">
                       <thead>
                         <tr>
+                          <th>S.N</th>
                             <th>Name</th>
                             <th>Location</th>
+                            <th>Type</th>
                             <th>Quantity</th>
-                            <th>By</th>
-                            <th>Date</th>
-                            <th>Details</th>
+                            <th>Exp. Date</th>
+                            <th>Description</th>
                         </tr>
                       </thead>
                       <tbody>
+                        <?php
+                        $count=1;
+                      require_once("DBConnect.php");
+                      $sql = "SELECT * from food ";
+                        $result = $conn-> query($sql);
+                        if($result-> num_rows >0){  
+                          while($row = $result-> fetch_assoc()){      
+                      ?>
                         <tr>
-                            <td>Jeremy Ortega</td>
-                            <td>Levelled up</td>
-                            <td>Catalinaborough</td>
-                            <td>$790</td>
-                            <td>06 Jan 2018</td>
-                            <td>$2274253</td>
+                          <td><?=$count?></td>
+                            <td><?=$row['name']?></td>
+                            <td><?=$row['location']?></td>
+                            <td><?=$row['type']?></td>
+                            <td><?=$row['quantity']?></td>
+                            <td><?=$row['ExpDate']?></td>
+                            <td><?=$row['Description']?></td>
                         </tr>
-                        <tr>
-                            <td>Alvin Fisher</td>
-                            <td>Ui design completed</td>
-                            <td>East Mayra</td>
-                            <td>$23230</td>
-                            <td>18 Jul 2018</td>
-                            <td>$83127</td>
-                        </tr>
-                    
+                          <?php $count++; }} ?>
                       </tbody>
                     </table>
                   </div>

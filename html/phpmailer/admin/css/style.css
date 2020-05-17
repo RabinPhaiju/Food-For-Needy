@@ -21106,7 +21106,7 @@ dl li {
 }
 
 .content-wrapper {
-  background: #f3f3f3;
+  /* background: #f3f3f3; */
   padding: 2.1rem 1.04rem;
   width: 100%;
   -webkit-flex-grow: 1;
@@ -21126,7 +21126,7 @@ dl li {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   padding: 0;
-  width: 257px;
+  /* width: 257px; */
   z-index: 11;
   transition: width 0.25s ease, background 0.25s ease;
   -webkit-transition: width 0.25s ease, background 0.25s ease;
@@ -21891,3 +21891,12 @@ dl li {
 }
 
 /*# sourceMappingURL=maps/style.css.map */
+.login-signin{
+  padding-left: 10%;
+}
+.login-favicon{
+  margin-left: 30%;
+}
+.background-login{
+  background-image: url(../images/background.jpg);
+}
