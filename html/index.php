@@ -1,6 +1,7 @@
 <?php
 include 'session.php';     
 // echo $_SESSION['username'].$_SESSION['reg_id'];
+$admin = false;
 $search=1;
 $searchEmail=1;
 $all=0;
@@ -46,7 +47,7 @@ $search=0;
 <body>
     <div class="navbar">
         <div class="nav0">
-            <a href="../index.html"><img src="files/mainlogo.jpg" style="border-radius: 20%;" width="40px" alt="Food for Needy">&nbsp;</a>
+            <a href="../index.php"><img src="files/mainlogo.jpg" style="border-radius: 20%;" width="40px" alt="Food for Needy">&nbsp;</a>
         </div>
     
         <div class="navbar1">
@@ -170,9 +171,11 @@ $search=0;
 	if($result-> num_rows >0 && $search==1){
 		while($row = $result-> fetch_assoc()){  
             $ids=$row["updated_by"];
+            if($ids==0 || $ids==1 || $ids==2){$admin=true;}else{
             $sql1="SELECT * from `register` where `reg_id`='$ids'";
             $result1 = mysqli_query($conn, $sql1);
             $row1 = mysqli_fetch_assoc($result1);
+            }
             ?>
             
             <div class="wrapper">
@@ -186,7 +189,7 @@ $search=0;
                             <div class="details">
                                 <p style="font-weight:bold"><?php echo $row["name"];?></p>
                                 <hr class="blackLin">
-                                 <?php echo " By: ".$row1["username"];?>
+                                <?php if($admin==true){echo "By : admin";}else{ echo " By: ".$row1["username"];}?><br>
                                 <?php echo $row["location"];?>
                             </div>
                             <div class="buy"><a href="viewfood.php?foodid=<?= $row['food_id'];?>"><i class="fa fa-eye" aria-hidden="true"></i></a>
@@ -235,9 +238,11 @@ $search=0;
              if($result-> num_rows >0 && $search==0){
                 while($row = $result-> fetch_assoc()){  
                     $ids=$row["updated_by"];
+                    if($ids==0 || $ids==1 || $ids==2){$admin=true;}else{
              $sql1="SELECT * from `register` where `reg_id`='$ids'";
              $result1 = mysqli_query($conn, $sql1);
              $row1 = mysqli_fetch_assoc($result1);
+                    }
                     ?>
                 
                     <div class="wrapper">
@@ -250,7 +255,7 @@ $search=0;
                                 <div class="left">
                                 <div class="details">
                                 <p><span style="font-weight:bold"><?php echo $row["name"];?></span></br>
-                                 <?php echo " By: ".$row1["username"];?><br>
+                                 <?php if($admin==true){echo "By : admin";}else{ echo " By: ".$row1["username"];}?><br>
                                 <?php echo $row["location"];?></p>
                             </div>
                                     <div class="buy"><a href="viewfood.php?foodid=<?= $row['food_id'];?>"><i class="fa fa-eye" aria-hidden="true"></i></a>

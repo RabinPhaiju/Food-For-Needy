@@ -136,9 +136,11 @@
                         Are
                         </p>
                         <p class="brief">
-                            InNeed is an online platform.<br>
-                            That shares informations
-                            i.e. what a <br> user can donate or get.<br>
+                            <?php  require_once("html/DBConnect.php");
+                                $sql = "SELECT * FROM `content` WHERE `title`='brief'";
+                                    $result = mysqli_query($conn, $sql);
+                                    $row = mysqli_fetch_assoc($result);
+                                        echo $row["description"];?>
                         </p>
                         <button>
                         <a href="#aboutus"><strong>More Info</strong> &nbsp; <i class="fa fa-arrow-right"></i></a>
@@ -157,7 +159,12 @@
                 <div class="ourStory">
                     <p class="storyHead">What We <span style="color: hsl(34, 100%, 60%);">Do</span></p>
                     <p class="story">
-                        InNeed's primary goal is to provide such a platform to a user that provide schedule information & where they can donate and request.  
+                          
+                        <?php  require_once("html/DBConnect.php");
+                                $sql = "SELECT * FROM `content` WHERE `title`='story'";
+                                    $result = mysqli_query($conn, $sql);
+                                    $row = mysqli_fetch_assoc($result);
+                                        echo $row["description"];?>
                     </p>
 
                     <div class="hidepart" id="hidepart">
@@ -173,18 +180,26 @@
                         <br>
                         <br>
                         <p class="hideWhoweare">
-                            In sort, The things we do is to share information to end-user/people about the information about foods :
+                        <?php  require_once("html/DBConnect.php");
+                                $sql = "SELECT * FROM `content` WHERE `title`='hideWhoweare'";
+                                    $result = mysqli_query($conn, $sql);
+                                    $row = mysqli_fetch_assoc($result);
+                                        echo $row["description"];?>
                         </p>
                         <ul class="hideWhoweare" type="disc">
-                            <li>That the donor/provider have donated. </li>
-                            <li>That the receiver/distributor can get.</li>
+                        <?php  require_once("html/DBConnect.php");
+                                $sql = "SELECT * FROM `content` WHERE `title`='disc'";
+                                    $result = mysqli_query($conn, $sql);
+                                    $row = mysqli_fetch_assoc($result);
+                                        echo $row["description"];?>
                         </ul>
                         <br>
                         <p class="hideWhoweare">
-                            And through this website we provide a chance to become volunteer who are willing to put their effort for the betterment of society.
-                            <br>
-                            <br>
-                            In overall, we are trying to make a small effort/difference that can prevent food waste and help people in need.
+                        <?php  require_once("html/DBConnect.php");
+                                $sql = "SELECT * FROM `content` WHERE `title`='hideWhoweare1'";
+                                    $result = mysqli_query($conn, $sql);
+                                    $row = mysqli_fetch_assoc($result);
+                                        echo $row["description"];?>
                         </p>
                     </div>
                 </div>
@@ -193,24 +208,33 @@
                         <i class="fa fa-dropbox fa-4x" id="iconpart"></i>
                         <p class="choicetitle">Make <span style="color: hsl(34, 100%, 60%);">Donation</span></p>
                         <p class="choicetext">
-                            Are you an Organization  
-                            with excess perishable food to donate? 
+                        <?php  require_once("html/DBConnect.php");
+                                $sql = "SELECT * FROM `content` WHERE `title`='donation'";
+                                    $result = mysqli_query($conn, $sql);
+                                    $row = mysqli_fetch_assoc($result);
+                                        echo $row["description"];?>
                         </p>
                     </div>
                     <div class="volunteer">
                         <i class="fa fa-vimeo fa-4x" id="iconpart"></i>
                         <p class="choicetitle">Become A <span style="color: hsl(34, 100%, 60%);">Volunteer</span></p>
                         <p class="choicetext">
-                            Are you Person looking to rescue surplus food 
-                            using our Site on your device?
+                        <?php  require_once("html/DBConnect.php");
+                                $sql = "SELECT * FROM `content` WHERE `title`='volunteer'";
+                                    $result = mysqli_query($conn, $sql);
+                                    $row = mysqli_fetch_assoc($result);
+                                        echo $row["description"];?>
                         </p>
                     </div>
                     <div class="distributor">
                         <i class="fa fa-users fa-4x" id="iconpart"></i>
                         <p class="choicetitle">Become A <span style="color: hsl(34, 100%, 60%);">Distributor</span></p>
                         <p class="choicetext">
-                            Are you a Non-Profit Organization who could 
-                            feed the hungry? 
+                        <?php  require_once("html/DBConnect.php");
+                                $sql = "SELECT * FROM `content` WHERE `title`='distributor'";
+                                    $result = mysqli_query($conn, $sql);
+                                    $row = mysqli_fetch_assoc($result);
+                                        echo $row["description"];?>
                         </p>
                     </div>
                 </div>
@@ -293,9 +317,12 @@
                 </section>
                 <div class="schedule1">
                     <div class="box">
-                        <p class="scheduletext">Want to add your own Schedules?<br>So, 
-                            people can know when & where to join your program.
-                            click below for more info.
+                        <p class="scheduletext">
+                        <?php  require_once("html/DBConnect.php");
+                                $sql = "SELECT * FROM `content` WHERE `title`='scheduletext'";
+                                    $result = mysqli_query($conn, $sql);
+                                    $row = mysqli_fetch_assoc($result);
+                                        echo $row["description"];?>
                         </p>
                         <button>
                             <a href="#">More Info &nbsp; <i class="fa fa-arrow-right"></i></a>
@@ -307,27 +334,20 @@
                 <div class="aboutus">
                     <p class="abouthead">About <span style="color: hsl(34, 100%, 60%);">Us</span></p>
                     <p class="text">
-                        InNeed came from an idea in 2019 Nepal 
-                        from the students of KHEC, having the aim to 
-                        prohibits food waste by supermarkets throwing 
-                        away or destroying unsold food and requesting 
-                        them instead to donate it to charities and food 
-                        banks. 
+                    <?php  require_once("html/DBConnect.php");
+                                $sql = "SELECT * FROM `content` WHERE `title`='aboutus'";
+                                    $result = mysqli_query($conn, $sql);
+                                    $row = mysqli_fetch_assoc($result);
+                                        echo $row["description"];?>
                     </p>
                 </div>
                 <div class="aboutus2">
                     <p class="text">
-                        InNeed is Nepal's first online food rescue platform  
-                        which lets you to donate & distribute information to the users. 
-                        This new platform takes a local approach, giving food donors 
-                        a simple and fast system to connect directly with social 
-                        service programs in local communities.<br>
-                        <br>
-                        Although we in our initial stage & there is still a 
-                        long way to achieve our aim. So, InNeedy is ready 
-                        and something big is coming!!.<br>
-                        <br>
-                        That's what InNeedy is all about.
+                    <?php  require_once("html/DBConnect.php");
+                                $sql = "SELECT * FROM `content` WHERE `title`='aboutus2'";
+                                    $result = mysqli_query($conn, $sql);
+                                    $row = mysqli_fetch_assoc($result);
+                                        echo $row["description"];?>
                     </p>
                 </div>
             </div>
@@ -479,7 +499,13 @@
             <div class="eighth">
                 <div class="getintouch">
                     <p class="contactHead">Get in <span style="color: hsl(34, 100%, 60%);">Touch</span></p>
-                    <p>If any problems or any suggestion you can contact us through our message box or using the contact information below.</p>
+                    <p>
+                    <?php  require_once("html/DBConnect.php");
+                                $sql = "SELECT * FROM `content` WHERE `title`='getintouch'";
+                                    $result = mysqli_query($conn, $sql);
+                                    $row = mysqli_fetch_assoc($result);
+                                        echo $row["description"];?>
+                    </p>
                     <br>
                     <ul>
                         <li>&nbsp;&nbsp;<i class="fa fa-mobile fa-2x"></i> &nbsp;&nbsp;&nbsp;<span style="font-size: 20px;">:</span>&nbsp;&nbsp;+977-98********, 01-*******</li>

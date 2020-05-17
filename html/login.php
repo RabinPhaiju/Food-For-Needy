@@ -248,7 +248,7 @@ else{
         <img src="../files/background.jpg" alt="">
         <div class="navbar">
             <div class="nav0">
-                <a href="../index.html"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
+                <a href="../index.php"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
             </div>
             <div class="navbar1">
                 <div class="nav3"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></div>

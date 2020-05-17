@@ -19,7 +19,7 @@
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="navbar-brand-wrapper d-flex justify-content-center">
         <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">  
-          <a class="" href="index.html"><img src="../images/favicon.jpg" width="50px" alt="logo"/></a>
+          <a class="" href="index.php"><img src="../images/favicon.jpg" width="35px" alt="logo"/></a>
           <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
             <span class="mdi mdi-sort-variant"></span>
           </button>
@@ -43,7 +43,7 @@
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
             
-              <img src="../images/<?php if($_SESSION['pic']!=null){echo 'user.png';}else{ echo $_SESSION['pic'];}?>";>
+              <img src="../images/<?php if($_SESSION['pic']==null){echo 'user.png';}else{ echo $_SESSION['pic'];}?>";>
               <span class="nav-profile-name"><?=$_SESSION['username']?></span>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
@@ -68,66 +68,41 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="index.php">
               <i class="mdi mdi-home menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="ui-features/buttons.html">
-              <i class="mdi mdi-home menu-icon"></i>
-              <span class="menu-title">Buttons</span>
-            </a>
-          </li>
          
-          <li class="nav-item">
-            <a class="nav-link" href="forms/basic_elements.html">
-              <i class="mdi mdi-view-headline menu-icon"></i>
-              <span class="menu-title">Form elements</span>
-            </a>
-          </li>
-          
-          <li class="nav-item">
-            <a class="nav-link" href="tables/basic-table.html">
-              <i class="mdi mdi-grid-large menu-icon"></i>
-              <span class="menu-title">Tables</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="samples/login.html">
-              <i class="mdi mdi-grid-large menu-icon"></i>
-              <span class="menu-title">login</span>
-            </a>
-          </li>
 
 
           <li class="nav-item">
-            <a class="nav-link" href="samples/login.html">
-              <i class="mdi mdi-grid-large menu-icon"></i>
+            <a class="nav-link" href="food.php">
+              <i class="mdi mdi-food-apple menu-icon"></i>
               <span class="menu-title">Food</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="samples/login.html">
-              <i class="mdi mdi-grid-large menu-icon"></i>
+            <a class="nav-link" href="user.php">
+              <i class="mdi mdi-account menu-icon"></i>
               <span class="menu-title">User</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="samples/login.html">
-              <i class="mdi mdi-grid-large menu-icon"></i>
+            <a class="nav-link" href="content.php">
+              <i class="mdi mdi-file-cloud menu-icon"></i>
               <span class="menu-title">Content</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="samples/login.html">
-              <i class="mdi mdi-grid-large menu-icon"></i>
+            <a class="nav-link" href="message.php">
+              <i class="mdi mdi-message-reply-text menu-icon"></i>
               <span class="menu-title">Message</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="samples/login.html">
-              <i class="mdi mdi-grid-large menu-icon"></i>
+            <a class="nav-link" href="schedule.php">
+              <i class="mdi mdi-calendar-clock menu-icon"></i>
               <span class="menu-title">Schedule</span>
             </a>
           </li>
@@ -145,10 +120,10 @@
                   <ul class="nav nav-tabs px-4" role="tablist">
                     
                     <li class="nav-item">
-                      <a class="nav-link active" id="overview-tab" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Food</a>
+                      <a class="nav-link active" id="overview-tab" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">User</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" id="sales-tab" data-toggle="tab" href="#sales" role="tab" aria-controls="sales" aria-selected="false">User</a>
+                      <a class="nav-link" id="sales-tab" data-toggle="tab" href="#sales" role="tab" aria-controls="sales" aria-selected="false">Food</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" id="purchases-tab" data-toggle="tab" href="#purchases" role="tab" aria-controls="purchases" aria-selected="false">Schedule</a>
@@ -156,13 +131,85 @@
                   </ul>
                   <div class="tab-content py-0 px-0">
                     <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
+                    <div class="d-flex flex-wrap justify-content-xl-between">
+                        <div class="d-none d-xl-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
+                          <i class="mdi mdi-account-circle icon-lg mr-3 text-primary"></i>
+                          <div class="d-flex flex-column justify-content-around">
+                            <small class="mb-1 text-muted">Total User</small>
+                            
+                                <?php
+                                   require_once("DBConnect.php");
+                                  $sql1="SELECT * from `register`";
+                                  $result1 = mysqli_query($conn, $sql1);
+                                  $total = mysqli_num_rows($result1);
+                                  ?>
+                                <h5 class="mb-0 d-inline-block"><?=$total?></h5>
+                             
+                          </div>
+                        </div>
+                        <div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
+                          <i class="mdi mdi-account-plus mr-3 icon-lg text-warning"></i>
+                          <div class="d-flex flex-column justify-content-around">
+                            <small class="mb-1 text-muted">Donor</small>
+                            <?php
+                                   require_once("DBConnect.php");
+                                  $sql1="SELECT * from `register` where `user_type`='Donor'";
+                                  $result1 = mysqli_query($conn, $sql1);
+                                  $total = mysqli_num_rows($result1);
+                                  ?>
+                            <h5 class="mr-2 mb-0"><?=$total?></h5>
+                          </div>
+                        </div>
+                        <div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
+                          <i class="mdi mdi-account-minus mr-3 icon-lg text-success"></i>
+                          <div class="d-flex flex-column justify-content-around">
+                            <small class="mb-1 text-muted">Receiver</small>
+                            <?php
+                                   require_once("DBConnect.php");
+                                  $sql1="SELECT * from `register` where `user_type`='Receiver'";
+                                  $result1 = mysqli_query($conn, $sql1);
+                                  $total = mysqli_num_rows($result1);
+                                  ?>
+                            <h5 class="mr-2 mb-0"><?=$total?></h5>
+                          </div>
+                        </div>
+                        <div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
+                          <i class="mdi mdi-account-outline mr-3 icon-lg text-danger"></i>
+                          <div class="d-flex flex-column justify-content-around">
+                            <small class="mb-1 text-muted">Sponser</small>
+                            <?php
+                                   require_once("DBConnect.php");
+                                  $sql1="SELECT * from `register` where `user_type`='Sponser'";
+                                  $result1 = mysqli_query($conn, $sql1);
+                                  $total = mysqli_num_rows($result1);
+                                  ?>
+                            <h5 class="mr-2 mb-0"><?=$total?></h5>
+                          </div>
+                        </div>
+                        <div class="d-flex py-3 border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
+                          <i class="mdi mdi-account-multiple mr-3 icon-lg text-danger"></i>
+                          <div class="d-flex flex-column justify-content-around">
+                            <small class="mb-1 text-muted">Volunteer</small>
+                            <?php
+                                   require_once("DBConnect.php");
+                                  $sql1="SELECT * from `register` where `user_type`='Volunteer'";
+                                  $result1 = mysqli_query($conn, $sql1);
+                                  $total = mysqli_num_rows($result1);
+                                  ?>
+                            <h5 class="mr-2 mb-0"><?=$total?></h5>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="sales" role="tabpanel" aria-labelledby="sales-tab">
+                      
                       <div class="d-flex flex-wrap justify-content-xl-between">
                         <div class="d-none d-xl-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
                           <i class="mdi mdi-clipboard-text icon-lg mr-3 text-primary"></i>
                           <div class="d-flex flex-column justify-content-around">
                             <small class="mb-1 text-muted">Total Food</small>
                              <?php 
-                             $sum=0;
+                                  $sum=0;
                                    require_once("DBConnect.php");
                                   $sql1="SELECT * from `food`";
                                   $result1 = mysqli_query($conn, $sql1);
@@ -205,98 +252,68 @@
                         </div>
                       </div>
                     </div>
-                    <div class="tab-pane fade" id="sales" role="tabpanel" aria-labelledby="sales-tab">
-                      <div class="d-flex flex-wrap justify-content-xl-between">
-                        <div class="d-none d-xl-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
-                          <i class="mdi mdi-calendar-heart icon-lg mr-3 text-primary"></i>
-                          <div class="d-flex flex-column justify-content-around">
-                            <small class="mb-1 text-muted">Start date</small>
-                            <div class="dropdown">
-                              <a class="btn btn-secondary dropdown-toggle p-0 bg-transparent border-0 text-dark shadow-none font-weight-medium" href="#" role="button" id="dropdownMenuLinkA" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <h5 class="mb-0 d-inline-block">26 Jul 2018</h5>
-                              </a>
-                              <div class="dropdown-menu" aria-labelledby="dropdownMenuLinkA">
-                                <a class="dropdown-item" href="#">12 Aug 2018</a>
-                                <a class="dropdown-item" href="#">22 Sep 2018</a>
-                                <a class="dropdown-item" href="#">21 Oct 2018</a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
-                          <i class="mdi mdi-download mr-3 icon-lg text-warning"></i>
-                          <div class="d-flex flex-column justify-content-around">
-                            <small class="mb-1 text-muted">Downloads</small>
-                            <h5 class="mr-2 mb-0">2233783</h5>
-                          </div>
-                        </div>
-                        <div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
-                          <i class="mdi mdi-eye mr-3 icon-lg text-success"></i>
-                          <div class="d-flex flex-column justify-content-around">
-                            <small class="mb-1 text-muted">Total views</small>
-                            <h5 class="mr-2 mb-0">9833550</h5>
-                          </div>
-                        </div>
-                        <div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
-                          <i class="mdi mdi-currency-usd mr-3 icon-lg text-danger"></i>
-                          <div class="d-flex flex-column justify-content-around">
-                            <small class="mb-1 text-muted">Revenue</small>
-                            <h5 class="mr-2 mb-0">$577545</h5>
-                          </div>
-                        </div>
-                        <div class="d-flex py-3 border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
-                          <i class="mdi mdi-flag mr-3 icon-lg text-danger"></i>
-                          <div class="d-flex flex-column justify-content-around">
-                            <small class="mb-1 text-muted">Flagged</small>
-                            <h5 class="mr-2 mb-0">3497843</h5>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                     <div class="tab-pane fade" id="purchases" role="tabpanel" aria-labelledby="purchases-tab">
                       <div class="d-flex flex-wrap justify-content-xl-between">
                         <div class="d-none d-xl-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
                           <i class="mdi mdi-calendar-heart icon-lg mr-3 text-primary"></i>
                           <div class="d-flex flex-column justify-content-around">
-                            <small class="mb-1 text-muted">Start date</small>
+                            <small class="mb-1 text-muted">Date</small>
                             <div class="dropdown">
                               <a class="btn btn-secondary dropdown-toggle p-0 bg-transparent border-0 text-dark shadow-none font-weight-medium" href="#" role="button" id="dropdownMenuLinkA" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <h5 class="mb-0 d-inline-block">26 Jul 2018</h5>
+                            <?php
+                              require_once("DBConnect.php");
+                      $sql = "SELECT * from schedule ";
+                        $result = $conn-> query($sql);
+                        if($result-> num_rows >0){  
+                          while($row = $result-> fetch_assoc()){  ?>
+                                <h5 class="mb-0 d-inline-block"><?=$row['date']?></h5>
+                          <?php break;}} ?>
                               </a>
                               <div class="dropdown-menu" aria-labelledby="dropdownMenuLinkA">
-                                <a class="dropdown-item" href="#">12 Aug 2018</a>
-                                <a class="dropdown-item" href="#">22 Sep 2018</a>
-                                <a class="dropdown-item" href="#">21 Oct 2018</a>
+                              <?php
+                              require_once("DBConnect.php");
+                      $sql = "SELECT * from schedule ";
+                        $result = $conn-> query($sql);
+                        if($result-> num_rows >0){  
+                          while($row = $result-> fetch_assoc()){  ?>
+                                <a class="dropdown-item" href="#"><?=$row['date']?></a>
+                                <?php } } ?>
                               </div>
                             </div>
                           </div>
                         </div>
                         <div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
-                          <i class="mdi mdi-currency-usd mr-3 icon-lg text-danger"></i>
+                          <i class="mdi mdi-file-chart mr-3 icon-lg text-danger"></i>
                           <div class="d-flex flex-column justify-content-around">
-                            <small class="mb-1 text-muted">Revenue</small>
-                            <h5 class="mr-2 mb-0">$577545</h5>
+                            <small class="mb-1 text-muted">Total Schedule</small>
+                            <?php
+                                   require_once("DBConnect.php");
+                                  $sql1="SELECT * from `schedule`";
+                                  $result1 = mysqli_query($conn, $sql1);
+                                  $total = mysqli_num_rows($result1);
+                                  ?>
+                            <h5 class="mr-2 mb-0"><?=$total?></h5>
                           </div>
                         </div>
                         <div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
-                          <i class="mdi mdi-eye mr-3 icon-lg text-success"></i>
+                          <!-- <i class="mdi mdi-eye mr-3 icon-lg text-success"></i> -->
                           <div class="d-flex flex-column justify-content-around">
-                            <small class="mb-1 text-muted">Total views</small>
-                            <h5 class="mr-2 mb-0">9833550</h5>
+                            <!-- <small class="mb-1 text-muted">Total views</small>
+                            <h5 class="mr-2 mb-0">9833550</h5> -->
                           </div>
                         </div>
                         <div class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
-                          <i class="mdi mdi-download mr-3 icon-lg text-warning"></i>
+                          <!-- <i class="mdi mdi-download mr-3 icon-lg text-warning"></i> -->
                           <div class="d-flex flex-column justify-content-around">
-                            <small class="mb-1 text-muted">Downloads</small>
-                            <h5 class="mr-2 mb-0">2233783</h5>
+                            <!-- <small class="mb-1 text-muted">Downloads</small>
+                            <h5 class="mr-2 mb-0">2233783</h5> -->
                           </div>
                         </div>
                         <div class="d-flex py-3 border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
-                          <i class="mdi mdi-flag mr-3 icon-lg text-danger"></i>
+                          <!-- <i class="mdi mdi-flag mr-3 icon-lg text-danger"></i> -->
                           <div class="d-flex flex-column justify-content-around">
-                            <small class="mb-1 text-muted">Flagged</small>
-                            <h5 class="mr-2 mb-0">3497843</h5>
+                            <!-- <small class="mb-1 text-muted">Flagged</small>
+                            <h5 class="mr-2 mb-0">3497843</h5> -->
                           </div>
                         </div>
                       </div>
@@ -312,26 +329,31 @@
 
             <div class="wrapper">
                 <div class="cards">
+                  <a href="food.php">
                   <figure class="card">             
                     <img src="../images/food.png" />             
                     <figcaption>Food</figcaption>            
-                  </figure>           
+                  </figure>  </a>       
+                  <a href="user.php">  
                   <figure class="card">            
                     <img src="../images/register.jpg" />            
                     <figcaption>User</figcaption>          
-                  </figure>         
+                  </figure>    </a>
+                  <a href="content.php">     
                   <figure class="card">         
                     <img src="../images/content.png" />         
                     <figcaption>Content</figcaption>      
-                  </figure>       
+                  </figure>   </a>
+                  <a href="message.php">    
                   <figure class="card">              
                     <img src="../images/message.png" />             
                     <figcaption>Message</figcaption>             
-                  </figure>  
+                  </figure>  </a>
+                  <a href="schedule.php">
                   <figure class="card">              
                     <img src="../images/schedule.png" />             
                     <figcaption>Schedule</figcaption>             
-                  </figure>            
+                  </figure>     </a>       
                 </div>             
               </div>
           </div>    

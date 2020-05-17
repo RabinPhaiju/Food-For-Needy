@@ -22,7 +22,7 @@ if(isset($_POST['submit'])){
    			session_start();
 		$_SESSION['username'] = $u;
 		$row = mysqli_fetch_assoc($result);
-	
+	$_SESSION['reg_id']=$row['id'];
     $_SESSION['u_id'] = $row['id'];
     $_SESSION['pic'] = $row['pic'];
 		if(!empty($_POST["remember_me"])) {
