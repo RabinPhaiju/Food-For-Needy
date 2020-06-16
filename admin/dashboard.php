@@ -152,17 +152,17 @@
                 <div class="row">
                   <div class="col-5 col-md-4">
                     <div class="icon-big text-center icon-warning">
-                      <img src="img/proj.png">
+                      <img src="img/food.jpg">
                     </div>
                   </div>
-                  <!--<div class="card-footer ">
+                  <div class="card-footer ">
                 <hr>
                 <div class="stats">
-                  <a href="users.php" style="text-decoration: none;"><i class="fa fa-plus"></i> Add Food</a>
+                  <a href="addfood.php" style="text-decoration: none;"><i class="fa fa-plus"></i> Add Food</a>
                 </div>
               </div>
             </div>
-          </div>-->
+          </div>
          
                   <div class="col-7 col-md-8">
                     <div class="numbers">
