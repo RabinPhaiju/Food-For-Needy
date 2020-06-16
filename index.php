@@ -79,6 +79,12 @@
        h2{
          margin-top: 5px;
        }
+
+       .size-pos{
+           margin-left:2%;
+        height: 400px;
+        width: 96%;
+       }
     </style>
 </head>
 <body>
@@ -508,14 +514,14 @@
                     </p>
                     <br>
                     <ul>
-                        <li>&nbsp;&nbsp;<i class="fa fa-mobile fa-2x"></i> &nbsp;&nbsp;&nbsp;<span style="font-size: 20px;">:</span>&nbsp;&nbsp;+977-98********, 01-*******</li>
+                        <li>&nbsp;&nbsp;<i class="fa fa-mobile fa-2x"></i> &nbsp;&nbsp;&nbsp;<span style="font-size: 20px;">:</span>&nbsp;&nbsp;+977-9823652307, 01-5543901</li>
                         <br>
-                        <li><a href=""><span style="font-size: 30px; font-weight: 600;">@</span>&nbsp;&nbsp;<span style="font-size: 20px;">:</span>&nbsp;&nbsp;*******@gmail.com</a></li>
+                        <li><a href=""><span style="font-size: 30px; font-weight: 600;">@</span>&nbsp;&nbsp;<span style="font-size: 20px;">:</span>&nbsp;&nbsp;foodforneedy@gmail.com</a></li>
                         <br>
-                        <li>&nbsp;<i class="fa fa-map-marker fa-2x"></i> &nbsp;&nbsp;&nbsp;<span style="font-size: 20px;">:</span>&nbsp;&nbsp;Bhaktapur - 10, Nepal</li>
+                        <li >&nbsp;<i class="fa fa-map-marker fa-2x"></i> &nbsp;&nbsp;&nbsp;<span style="font-size: 20px;">:</span>&nbsp;&nbsp;Bhaktapur - 10, Nepal</li>
                     </ul>
                 </div>
-                
+
                 <div class="contactform" id="contactform">
                     <form action="index.php" method="POST">
                         <input type="text" name="name" placeholder="Enter Your Name" required>
@@ -529,6 +535,7 @@
                 </div>
             </div>
 
+            <iframe class="size-pos" src="html/Map.php"></iframe>
 
 <div class="tenth">
             <hr>

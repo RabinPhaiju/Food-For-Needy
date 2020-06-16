@@ -142,6 +142,18 @@ if($pos==9999){
     cursor: pointer;
     font-size: 20px;
 }
+.position{
+    top: 20px;
+    left:-250px
+}
+.size-pos{
+    height: 600px;
+    width:800px;
+}
+.modal-header {
+    padding: 15px;
+    border-bottom: 1px solid #94666600;
+}
     </style>
 </head>
 
@@ -237,7 +249,7 @@ if($pos==9999){
             <a href="viewprofile.php?view=<?=$row['username']?>"><span class="label label-warning">View Profile</span></a>
             <a><span class="label label-default">Last Seen: Today</span></a>
             <a href="chat.php?session_name=<?=$row['username']?>"><span class="label label-success">Send Message</span></a>
-            <!-- <a href="#"><span class="label label-warning">Remove</span></a> -->
+            <a href="#" class="plus class="btn btn-success data-toggle="modal" data-target="#popUpWindow"><span class="label label-primary" >View in Map</span></a>
         </div>
     </div>
 </div>
@@ -249,6 +261,22 @@ if($pos==9999){
             </div>
         </div>
     </div>
+    <div class="modal fade position" id="popUpWindow">
+                            <div class="modal-dialog">
+                            <div class="modal-content size-pos">
+                                <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h3 class="modal-title">Member Map</h3>
+                                </div>
+                              
+                                    <iframe class="size-pos" src="Map.php"></iframe>
+                               
+                                <div class="modal-header">
+                                              
+                                </div>   
+                            </div>
+                            </div>
+                        </div>
     <script>
 </script>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
