@@ -257,7 +257,9 @@
                     ?>
                     <p class="scheduletitle"><?php if ($total ==0){echo "Become a Sponser";}else{ echo 'Schedule';}?></p>
                 </div>
+                
                 <section class="cd-horizontal-timeline">
+                <?php if($total !=0){ ?>
                     <div class="timeline">
                         <div class="events-wrapper">
                             <div class="events">
@@ -296,7 +298,7 @@
                             <li><a href="#0" class="next"><i class="fas fa-angle-right fa-3x"></i></a></li>
                         </ul> <!-- .cd-timeline-navigation -->
                     </div> <!-- .timeline -->
-                
+                    <?php } ?>
                     <div class="events-content">
                         <ol><?php
                         $sql = "SELECT * from `schedule`";// where `verified`='1' AND `status`='1'";
@@ -328,6 +330,7 @@
                         </ol>
                     </div> <!-- .events-content -->
                 </section>
+                                
                 <div class="schedule1">
                     <div class="box">
                         <p class="scheduletext">
