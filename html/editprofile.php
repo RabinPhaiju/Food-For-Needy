@@ -199,13 +199,13 @@ $sql = " UPDATE `register` SET `pic`='$user' WHERE `reg_id`='$id'";
                                         <li><i class="fa fa-envelope"></i> joedoe@gmail.com</li>
                                     </ul> -->
                                     <?php
-    $id=$_SESSION['reg_id'];
-   $sql = "SELECT * from `register` WHERE `reg_id`='$id'";// where `verified`='1' AND `status`='1'";
-   require_once("DBConnect.php");
-   $result = mysqli_query($conn, $sql);
-   $row = mysqli_fetch_assoc($result);
-    ?>
-<form action="editprofile.php" method="POST" enctype="multipart/form-data">
+                                        $id=$_SESSION['reg_id'];
+                                    $sql = "SELECT * from `register` WHERE `reg_id`='$id'";// where `verified`='1' AND `status`='1'";
+                                    require_once("DBConnect.php");
+                                    $result = mysqli_query($conn, $sql);
+                                    $row = mysqli_fetch_assoc($result);
+                                        ?>
+                            <form action="editprofile.php" method="POST" enctype="multipart/form-data">
                                     <h2>Picture</h2>
                                     <!-- <p><img id="outputs" width="150" /></p> -->
                                     <img id="outputs" src="files/<?php if($row["pic"]==null){echo 'user.png';}else{ echo $row["pic"];}?>" width="200" style="border-radius:10%">
@@ -213,7 +213,7 @@ $sql = " UPDATE `register` SET `pic`='$user' WHERE `reg_id`='$id'";
                                     <div class="profile-details">
                                     
                                     <button class="input-files" id="uploadpic">
-                                        <input type="file" name="img" onchange="loadFile(event)"  accept="image/jpg, image/jpeg, image/png" id="file-inputs file" required="required">
+                                        <input type="file" name="img" onchange="loadFile(event)" value="files/<?php if($row["pic"]!=null){ echo $row["pic"];}?>" accept="image/jpg, image/jpeg, image/png" id="file-inputs file" required="required">
                                         <label for="file-inputs">UPLOAD</label>
                                       </button>
                                 </div>
@@ -264,10 +264,16 @@ $sql = " UPDATE `register` SET `pic`='$user' WHERE `reg_id`='$id'";
                                             </dl>
                                             <hr class="blackLine">
                                             <dl class="dl-horizontal">
-                                                <dt>Location</dt>
+                                                <dt>Address</dt>
                                                 <dd><?php echo $row["location"];?></dd>
                                             </dl>
                                             <hr class="blackLine">
+                                            <dl class="dl-horizontal">
+                                                <dt>Location</dt>
+                                                <dd><?php echo $row["lan"]." , ".$row["log"];?></dd>
+                                            </dl>
+                                            <hr class="blackLine">
+
                                             <dl class="dl-horizontal">
                                                 <dt>Contact</dt>
                                                 <dd><?php echo $row["contact"];?></dd>
@@ -307,6 +313,19 @@ $sql = " UPDATE `register` SET `pic`='$user' WHERE `reg_id`='$id'";
                                                                           <option value="Receiver">Receiver</option>
                                                                           <option value="Sponser">Sponser</option>
                                                                           <option value="Volunteer">Volunteer</option>
+                                                                      </select>
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                            <hr class="blackLines">
+                                            <dl class="dl-horizontal">
+                                                <dt class="p-10">Address</dt>
+                                                <dd>
+                                                    <div class="fg-line">
+                                                        <select class="form-control" name="location" required="required">
+                                                                          <option value="Bhaktapur">Bhaktapur</option>
+                                                                          <option value="Kathmandu">kathmandu</option>
+                                                                          <option value="Lalitpur">Lalitpur</option>
                                                                       </select>
                                                     </div>
                                                 </dd>

@@ -87,7 +87,7 @@
        }
     </style>
 </head>
-<body>
+<body onload="test()">
 <!-- page loader undo the comment when finish -->
 
         <!-- <div class="loader_bg" style="margin-top:-4.1rem;z-index:99">
