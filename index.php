@@ -90,11 +90,11 @@
 <body onload="test()">
 <!-- page loader undo the comment when finish -->
 
-        <!-- <div class="loader_bg" style="margin-top:-4.1rem;z-index:99">
+        <div class="loader_bg" style="margin-top:-4.1rem;z-index:99">
             <div class="load">
                 <hr/><hr/><hr/><hr/>
             </div>
-        </div> -->
+        </div>
 
 
 <nav class="navbar navbar-expand-lg navbar-mainbg">
@@ -248,7 +248,14 @@
 
             <div class="fifth">
                 <div class="schedule">
-                    <p class="scheduletitle">Schedule</p>
+                    <?php
+                    $sql = "SELECT * from `schedule`";// where `verified`='1' AND `status`='1'";
+                            
+                    require_once("html/DBConnect.php");
+                    $result = $conn-> query($sql);
+                    $total = mysqli_num_rows($result);
+                    ?>
+                    <p class="scheduletitle"><?php if ($total ==0){echo "Become a Sponser";}else{ echo 'Schedule';}?></p>
                 </div>
                 <section class="cd-horizontal-timeline">
                     <div class="timeline">
@@ -264,7 +271,7 @@
                             $schedule_count=1;
                             $schedule_date;
 
-                            if($result-> num_rows >0){
+                            if($result-> num_rows >0 && $total>0){
                                 while($row = $result-> fetch_assoc()){  
                                     $schedule_date=strtotime($row['date']);
                             ?>
@@ -276,7 +283,7 @@
                                     $schedule_count++;
                                 }
                             
-                                } ?>
+                                }?>
                                     
                                 
                             </ol>

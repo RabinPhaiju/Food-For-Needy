@@ -4,7 +4,7 @@
 .loader_bg{
     position: fixed;
     width: 100%;
-    height: 100vh;
+    height: 120%;
     background-color: #fff;
     z-index: 999;
 }
