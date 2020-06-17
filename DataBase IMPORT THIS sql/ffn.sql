@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 20, 2020 at 08:36 AM
+-- Generation Time: Jun 17, 2020 at 07:39 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -239,6 +239,8 @@ CREATE TABLE `register` (
   `lastname` varchar(20) NOT NULL,
   `email` varchar(40) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `location` varchar(30) DEFAULT NULL,
+  `lan` float DEFAULT NULL,
+  `log` float DEFAULT NULL,
   `contact` text CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Contact No',
   `dob` date DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -256,14 +258,14 @@ CREATE TABLE `register` (
 -- Dumping data for table `register`
 --
 
-INSERT INTO `register` (`reg_id`, `username`, `pic`, `user_type`, `firstname`, `lastname`, `email`, `location`, `contact`, `dob`, `created_at`, `updated_at`, `password`, `secret_key`, `verified`, `verifiedby_id`, `remark`, `status`, `code`) VALUES
-(44, 'roshan', 'roshan.jpg', 'Donor', 'roshan', 'dumaru', 'roshandumaru@gmail.com', NULL, NULL, NULL, '2020-03-16 02:50:49', '2020-05-17 14:28:30', '279cb0d7637c74a0a9db05f9957462d9', NULL, 1, 0, NULL, 1, 'rohsan123'),
-(51, 'rbnph', 'rabin.jpg', 'Donator', 'rabin', 'phaiju', 'rabinphaiju15@gmail.com', 'Bhaktapur', '9988776654', '2020-05-18', '2020-03-16 02:50:49', '2020-05-17 16:23:26', '279cb0d7637c74a0a9db05f9957462d9', NULL, 1, 0, NULL, 1, 'phaiju2313'),
-(52, 'sabin', '', 'Receiver', 'sabin', 'shrestha', 'sabinshrestha@gmail.com', NULL, NULL, NULL, '2020-03-10 02:26:25', '2020-05-11 11:15:32', 'b0ad80266fc30c141ff3f8734a3897cd', NULL, 1, 0, NULL, 1, NULL),
-(53, 'sapana', '', 'Sponser', 'sapana', 'thapa', 'sapanathapa@gmail.com', NULL, NULL, NULL, '2020-03-16 02:50:49', '2020-05-11 13:08:27', '279cb0d7637c74a0a9db05f9957462d9', NULL, 1, 0, NULL, 1, 'sapana2313'),
-(54, 'Sarah', '', 'Receiver', 'John', 'Marker', 'Markerjohn12@gmail.com', NULL, NULL, NULL, '2020-03-16 02:50:49', '2020-05-11 11:15:59', '279cb0d7637c74a0a9db05f9957462d9', NULL, 1, 0, NULL, 1, 'marker2313'),
-(71, 'ram2', 'ram2.jpg', 'Volunteer', 'Ram', 'Kumar', 'ramkumar2@gmail.com', NULL, NULL, NULL, '2020-03-16 02:50:49', '2020-05-12 12:15:25', '279cb0d7637c74a0a9db05f9957462d9', NULL, 1, 0, NULL, 1, 'marker2313'),
-(72, 'david3', 'david3.jpg', 'Volunteer', 'David', 'Cater', 'davidcarter2@gmail.com', NULL, NULL, NULL, '2020-03-16 02:50:49', '2020-05-12 12:15:32', '279cb0d7637c74a0a9db05f9957462d9', NULL, 1, 0, NULL, 1, 'marker2313');
+INSERT INTO `register` (`reg_id`, `username`, `pic`, `user_type`, `firstname`, `lastname`, `email`, `location`, `lan`, `log`, `contact`, `dob`, `created_at`, `updated_at`, `password`, `secret_key`, `verified`, `verifiedby_id`, `remark`, `status`, `code`) VALUES
+(44, 'roshan', 'roshan.jpg', 'Donor', 'roshan', 'dumaru', 'roshandumaru@gmail.com', NULL, 27.6768, 85.4403, NULL, NULL, '2020-03-16 02:50:49', '2020-06-16 12:29:51', '279cb0d7637c74a0a9db05f9957462d9', NULL, 1, 0, NULL, 1, 'rohsan123'),
+(51, 'rbnph', 'rabin.jpg', 'Donator', 'rabin', 'phaiju', 'rabinphaiju15@gmail.com', 'Bhaktapur', 27.6748, 85.4389, '9988776654', '2020-05-18', '2020-03-16 02:50:49', '2020-06-16 12:30:22', '279cb0d7637c74a0a9db05f9957462d9', NULL, 1, 0, NULL, 1, 'phaiju2313'),
+(52, 'sabin', '', 'Receiver', 'sabin', 'shrestha', 'sabinshrestha@gmail.com', NULL, 27.6654, 85.4248, NULL, NULL, '2020-03-10 02:26:25', '2020-06-16 12:30:59', 'b0ad80266fc30c141ff3f8734a3897cd', NULL, 1, 0, NULL, 1, NULL),
+(53, 'sapana', '', 'Sponser', 'sapana', 'thapa', 'sapanathapa@gmail.com', NULL, 27.6702, 85.4224, NULL, NULL, '2020-03-16 02:50:49', '2020-06-16 12:31:34', '279cb0d7637c74a0a9db05f9957462d9', NULL, 1, 0, NULL, 1, 'sapana2313'),
+(54, 'Sarah', '', 'Receiver', 'John', 'Marker', 'Markerjohn12@gmail.com', NULL, 27.6646, 85.4416, NULL, NULL, '2020-03-16 02:50:49', '2020-06-16 12:32:00', '279cb0d7637c74a0a9db05f9957462d9', NULL, 1, 0, NULL, 1, 'marker2313'),
+(71, 'ram2', 'ram2.jpg', 'Volunteer', 'Ram', 'Kumar', 'ramkumar2@gmail.com', NULL, 27.6704, 85.4423, NULL, NULL, '2020-03-16 02:50:49', '2020-06-16 12:32:21', '279cb0d7637c74a0a9db05f9957462d9', NULL, 1, 0, NULL, 1, 'marker2313'),
+(72, 'david3', 'david3.jpg', 'Volunteer', 'David', 'Cater', 'davidcarter2@gmail.com', NULL, 27.676, 85.446, NULL, NULL, '2020-03-16 02:50:49', '2020-06-16 12:32:39', '279cb0d7637c74a0a9db05f9957462d9', NULL, 1, 0, NULL, 1, 'marker2313');
 
 -- --------------------------------------------------------
 
@@ -282,13 +284,6 @@ CREATE TABLE `schedule` (
   `description` varchar(200) DEFAULT NULL,
   `location` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `schedule`
---
-
-INSERT INTO `schedule` (`schedule_id`, `updated_by`, `day`, `start_time`, `end_time`, `date`, `title`, `description`, `location`) VALUES
-(44, 'rbnph', 'Saturday', '10:00:00', '11:00:00', '2020-05-23', 'its holiday', 'come on Enter Schedule description.', 'Bhaktapur');
 
 -- --------------------------------------------------------
 
