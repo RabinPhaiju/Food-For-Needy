@@ -1,5 +1,8 @@
 <?php include 'session.php';?>
-	<?php
+    <?php
+    if($_SESSION['reg_id']>3){
+        echo "<script>window.location='schedule.php';</script>";
+      }
 $schedule_id= @$_GET['id'];
 
 if (isset($schedule_id)) {

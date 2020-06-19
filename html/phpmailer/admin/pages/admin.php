@@ -1,13 +1,18 @@
 <?php include 'session.php';?>
 <?php
 $admin=false;
-if (isset($_POST['add_food'])) {
+if (isset($_POST['add_admin'])) {
     $b = $_POST['name'];
-    $c = $_POST['location'];
-    $d = $_POST['quantity'];
-    $e = $_POST['ExpDate'];
-    $f = $_POST['Description'];
-    $g = $_POST['type'];
+    $c = $_POST['username'];
+    $d = $_POST['usertype'];
+    $e = $_POST['email'];
+    $f = $_POST['phone'];
+    $g = $_POST['address'];
+    $h = $_POST['dob'];
+    $i = $_POST['gender'];
+    $j = $_POST['password'];
+
+
     // file
     $errors= array();
     $file_name =$_FILES['img']['name'];
@@ -35,7 +40,8 @@ if (isset($_POST['add_food'])) {
     
     // $b=$_SESSION['username'];
     $a=$_SESSION['reg_id'];
-    $sql = "INSERT INTO `food` (`updated_by`,`name`,`location`,`quantity`,`ExpDate`,`Description`,`type`) VALUES('$a','$b','$c','$d','$e','$f','$g')";
+    $sql = "INSERT INTO `user` (`name`,`username`,`usertype`,`email`,`phone`,`address`,`dob`,`gender`,`password`,`verifiedby_id`) 
+    VALUES('$b','$c','$d','$e','$f','$g','$h','$i',md5('$j'),'$a')";
     // echo $sql;exit;
   
     // Create connection
@@ -43,30 +49,31 @@ if (isset($_POST['add_food'])) {
     
     if (mysqli_query($conn, $sql)) {
         
-    // echo "Record updated successfully";
+    echo "Record updated successfully";
     // echo "<script>alert('Update Changes Successfully!');</script>";
     //echo "<script>window.location='index.php';</script>";
     } else {
     echo "Error updating record: " . mysqli_error($conn);
     }
     
-    $sql="SELECT * FROM `food` WHERE `name`='$b'and`location`='$c' and `quantity`='$d' and `ExpDate`='$e' and `type`='$g'";
+    $sql="SELECT * FROM `user` WHERE `name`='$b'and`username`='$c' and `usertype`='$d' and `email`='$e' and `phone`='$f'";
     
     require_once("DBConnect.php");
     $resultpic = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($resultpic);
     $bc = str_replace(' ', '', $b);
-        $bbb=$bc.$row["food_id"];//foodname + id
+        $bbb=$bc.$row["id"];//foodname + id
     
         $bname=$bbb.".jpg";
         if(empty($errors)==true){
            move_uploaded_file($file_tmp,"../../../files/".$bname);
      
-           $sql= "UPDATE `food` SET `pic`='$bname' WHERE `name`='$b'and`location`='$c' and `quantity`='$d' and `ExpDate`='$e' and `type`='$g'";
+           $sql= "UPDATE `user` SET `pic`='$bname' WHERE `name`='$b'and`username`='$c' and `usertype`='$d' and `email`='$e' and `phone`='$f'";
            require_once("DBConnect.php");
     
           if (mysqli_query($conn, $sql)) {
-               echo "<script>window.location='food.php';</script>";
+               echo "<script>window.location='admin.php';</script>";
+            // exit();
           } else {
               echo "Error: " . $sql . "<br>" . mysqli_error($conn);
           } 
@@ -86,10 +93,8 @@ if (isset($_POST['add_food'])) {
   <link rel="stylesheet" href="../css/custom.min.css">
   <link rel="stylesheet" href="../css/material.css">
 
- 
-  <link rel="stylesheet" href="../css/menu.css">
+<link rel="stylesheet" href="../css/menu.css">
   <link rel="stylesheet" href="../css/style.css">
-  
   <link rel="shortcut icon" href="../images/favicon.jpg" />
 </head>
 <body>
@@ -152,7 +157,7 @@ if (isset($_POST['add_food'])) {
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
-         
+          
 
 
           <li class="nav-item">
@@ -173,7 +178,7 @@ if (isset($_POST['add_food'])) {
               <span class="menu-title">Content</span>
             </a>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="message.php">
               <i class="mdi mdi-message-reply-text menu-icon"></i>
               <span class="menu-title">Message</span>
@@ -188,7 +193,7 @@ if (isset($_POST['add_food'])) {
           <?php
          if($_SESSION['reg_id']<4){
            ?>
-              <li class="nav-item">
+              <li class="nav-item active">
             <a class="nav-link" href="admin.php">
               <i class="mdi mdi-security menu-icon"></i>
               <span class="menu-title">Admin</span>
@@ -201,40 +206,167 @@ if (isset($_POST['add_food'])) {
       </nav>
       <!-- partial -->
       <div class="main-panel">
-        
+          <div class="row">
+          <div class="col-md-12 stretch-card">
+              <div class="card">
+                <div class="card-body">
+                 
+                  <div class="table-responsive">
+      <a class="plus class="btn btn-success data-toggle="modal" data-target="#popUpWindow" href="#"><button class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;Add&nbsp;&nbsp;&nbsp;&nbsp;</button><i class="fa fa-plus fa-2x btnss" aria-hidden="true"></i></a>
+            <div class="modal fade" id="popUpWindow">
+                            <div class="modal-dialog">
+                            <div class="modal-content">
+                                <!-- header -->
+                                <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <!-- <h3 class="modal-title">Login Form</h3> -->
+                                </div>
+                                <!-- body -->
+                                <div class="col-md-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Add Admin-User</h4>
+                 
+                  <form action="admin.php" class="forms-sample" method="POST" enctype="multipart/form-data">
+
+
+                  
+
+
+
+                      <div class="input-group col-sm-12">
+                        
+                        <input type="file" placeholder="Upload Image" class="form-control " name="img"  required="required">
+                         
+                        
+                      </div>
+
+
+
+
+                    <div class="form-group row">
+                      <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Admin</label>
+                      <div class="col-sm-4">
+                        <input type="text" class="form-control" name="name" id="exampleInputUsername2" placeholder="Admin Name" require>
+                      </div>
+                      <div class="col-sm-4">
+                        <input type="text" class="form-control" name="username" id="exampleInputUsername2" placeholder="User Name" require>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="exampleInputEmail2" class="col-sm-3 col-form-label">User Type</label>
+                      <div class="fg-line">
+                                                            <select class="form-control" name="usertype">
+                                                                          <option value="Staff">Staff</option>
+                                                                          <option value="Other">Other</option>
+                                                                      </select>
+                                                        </div>
+                    </div>
+                    <div class="form-group row">
+                      <div class="col-sm-6">
+                        <input type="email" name="email" class="form-control" id="exampleInputPassword2" placeholder="Enter Email" required>
+                      </div>
+                      <div class="col-sm-4">
+                        <input type="number" name="phone" class="form-control" id="exampleInputPassword2" placeholder="Enter Phone" required>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <!-- <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label">Address</label> -->
+                      <div class="col-sm-6">
+                        <input type="text" class="form-control" name="address" id="exampleInputConfirmPassword2" placeholder="Enter address" require>
+                      </div>
+                      <div class="col-sm-4">
+                      <select class="form-control" name="gender">
+                                                                          <option value="Male">Male</option>
+                                                                          <option value="Female">Female</option>
+                                                                          <option value="Other">Other</option>
+                                                                      </select>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label">DoB</label>
+                      <div class="col-sm-9">
+                        <input type="date" class="form-control" name="dob" id="exampleInputConfirmPassword2" require>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="exampleInputConfirmPassword2" class="col-sm-3 col-form-label">Password</label>
+                      <div class="col-sm-9">
+                        <input type="password" class="form-control" name="password" id="exampleInputConfirmPassword2" placeholder="Enter password" require>
+                      </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary mr-2" name="add_admin">Save</button>
+                    <button class="btn btn-light close" data-dismiss="modal">Cancel</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+                            </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div></div></div></div></div>
 
       <div class="row">
             <div class="col-md-12 stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <p class="card-title">Recent Food</p>
+                  <p class="card-title">Admins</p>
                   <div class="x_content">
                     <table id="datatable" class="table table-striped table-bordered">
                       <thead>
                         <tr>
-                          <th>S.N</th>
-                          <th>Name</th>
-                          <th>Email</th>
-                          <th>Message</th>
-                          <th>Date</th>
+                          <th>S.N</th><th>Reg.Id</th><th>username</th><th>Name</th><th>Picture</th><th>Type</th>
+                          <th>Email</th><th>Phone</th><th>Address</th><th>Gender</th><th>Action</th>
                         </tr>
                       </thead>
                       <tbody>
                         <?php
                         $count=1;
                       require_once("DBConnect.php");
-                      $sql = "SELECT * from contact ";
+                      $sql = "SELECT * from user ";
                         $result = $conn-> query($sql);
                         if($result-> num_rows >0){  
                           while($row = $result-> fetch_assoc()){      
                       ?>
                         <tr>
-                          <td><?=$count?> </td>
-                          <td><?=$row['name']?></td>
+                          <td><?=$count?>  </td>
+                          <td><?=$row['id']?></td>
+                            <td><?=$row['username']?></td>
+                            <th><?= $row['name']?></th>
+                           
+                           <td><img src="../../../files/<?=$row['pic']?>" alt=""></td>
+                           <td><?=$row['usertype']?></td>
                             <td><?=$row['email']?></td>
-                            <th><?= $row['message']?></th>
-                            <th><?= $row['date']?></th>
-                         
+                            <td><?=$row['phone']?></td>
+                            <td><?=$row['address']?></td>
+                            <td><?=$row['gender']?></td>
+                            <th>
+                            <?php
+                            if($row['id']>3){
+                                ?>
+<a href="editadmin.php?id=<?=$row['id']?>"><button type="button" class=" btn btn-secondary mdi mdi-lead-pencil"></button></a>
+                            <a onclick="return confirm('Are you sure you want to delete this entry?')" href="deleteadmin.php?id=<?=$row['id']?>"><button type="button" class="btn btn-danger mdi mdi-delete-forever"></button></a>				
+                            
+                                <?php
+                            }
+                            ?>
+                            
+                        </th>
                         </tr>
                           <?php $count++; }} ?>
                       </tbody>
@@ -260,14 +392,12 @@ if (isset($_POST['add_food'])) {
   <!-- container-scroller -->
 
   <!-- plugins:js -->
-  <!-- <script src="../js/jquery.min.js"></script> -->
   <script src="../js/base.js"></script>
   
   <script src="../js/template.js"></script>
   <script src="../js/datatable.js"></script>
   <script src="../js/custom.min.js"></script>
-  
-
+ >
  
   <!-- End custom js for this page-->
 </body>

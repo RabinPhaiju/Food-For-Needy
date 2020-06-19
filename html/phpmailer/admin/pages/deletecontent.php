@@ -1,5 +1,9 @@
 <?php include 'session.php';?>
-	<?php
+    <?php
+    if($_SESSION['reg_id']>3){
+        echo "<script>window.location='content.php';</script>";
+      }
+
 $content_id= @$_GET['id'];
 
 if (isset($content_id)) {

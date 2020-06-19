@@ -108,6 +108,19 @@
               <span class="menu-title">Schedule</span>
             </a>
           </li>
+          <?php
+         if($_SESSION['reg_id']<4){
+           ?>
+              <li class="nav-item">
+            <a class="nav-link" href="admin.php">
+              <i class="mdi mdi-security menu-icon"></i>
+              <span class="menu-title">Admin</span>
+            </a>
+          </li>
+           <?php
+         }
+          ?>
+          
         </ul>
       </nav>
       <!-- partial -->

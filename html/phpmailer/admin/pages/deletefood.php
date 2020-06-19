@@ -1,5 +1,9 @@
 <?php include 'session.php';?>
-	<?php
+    <?php
+    if($_SESSION['reg_id']>3){
+        echo "<script>window.location='food.php';</script>";
+      }
+    
 $food_id= @$_GET['id'];
 
 if (isset($food_id)) {

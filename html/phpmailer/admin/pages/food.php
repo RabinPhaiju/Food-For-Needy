@@ -183,6 +183,18 @@ if (isset($_POST['add_food'])) {
               <span class="menu-title">Schedule</span>
             </a>
           </li>
+          <?php
+         if($_SESSION['reg_id']<4){
+           ?>
+              <li class="nav-item">
+            <a class="nav-link" href="admin.php">
+              <i class="mdi mdi-security menu-icon"></i>
+              <span class="menu-title">Admin</span>
+            </a>
+          </li>
+           <?php
+         }
+          ?>
         </ul>
       </nav>
       <!-- partial -->
@@ -314,8 +326,8 @@ if (isset($_POST['add_food'])) {
                             <th>Type</th>
                             <th>Quantity</th>
                             <th>Exp. Date</th>
-                            <th>Description</th>
-                            <th>Action</th>
+                            <th>Description</th><?php if($_SESSION['reg_id']<4){?>
+                            <th>Action</th><?php } ?>
                         </tr>
                       </thead>
                       <tbody>
@@ -328,7 +340,12 @@ if (isset($_POST['add_food'])) {
                           while($row = $result-> fetch_assoc()){      
                       ?>
                         <tr>
-                          <td><?=$count?>  <a href="editfood.php?id=<?=$row['food_id']?>"><button type="button" class="btn btn-info mdi mdi-image-filter-center-focus-weak"></button></a></td>
+                          
+
+                          
+                          <td><?=$count?>  <?php if($_SESSION['reg_id']<4){
+                            ?><a href="editfood.php?id=<?=$row['food_id']?>"><button type="button" class="btn btn-info mdi mdi-image-filter-center-focus-weak"></button></a><?php } ?></td>
+                              
                             <td><?=$row['name']?></td>
                             <?php
                             $id= $row['updated_by'];
@@ -345,10 +362,12 @@ if (isset($_POST['add_food'])) {
                             <td><?=$row['quantity']?></td>
                             <td><?=$row['ExpDate']?></td>
                             <td><?=$row['Description']?></td>
-                            <th>
+                            <?php if($_SESSION['reg_id']<4){?>
+                              <th>
                             <a href="editfood.php?id=<?=$row['food_id']?>"><button type="button" class=" btn btn-secondary mdi mdi-lead-pencil"></button></a>
                             <a onclick="return confirm('Are you sure you want to delete this entry?')" href="deletefood.php?id=<?=$row['food_id']?>"><button type="button" class="btn btn-danger mdi mdi-delete-forever"></button></a>				
                             </th>
+                            <?php } ?>
                         </tr>
                           <?php $count++; }} ?>
                       </tbody>

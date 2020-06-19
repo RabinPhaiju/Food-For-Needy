@@ -132,6 +132,18 @@ if (isset($_POST['add_content'])) {
               <span class="menu-title">Schedule</span>
             </a>
           </li>
+          <?php
+         if($_SESSION['reg_id']<4){
+           ?>
+              <li class="nav-item">
+            <a class="nav-link" href="admin.php">
+              <i class="mdi mdi-security menu-icon"></i>
+              <span class="menu-title">Admin</span>
+            </a>
+          </li>
+           <?php
+         }
+          ?>
         </ul>
       </nav>
       <!-- partial -->
@@ -214,8 +226,8 @@ if (isset($_POST['add_content'])) {
                           <th>Title</th>
                           <th>Description</th>
                           <th>Created At</th>
-                          <th>Status</th>
-                            <th>Action</th>
+                          <th>Status</th><?php if($_SESSION['reg_id']<4){?>
+                          <th>Action</th><?php } ?>
                         </tr>
                       </thead>
                       <tbody>
@@ -245,10 +257,12 @@ if (isset($_POST['add_content'])) {
                           
                             <th><?= $row['created_at']?></th>
                             <td><?=$row['status']?></td>
+                            <?php if($_SESSION['reg_id']<4){?>
                             <th>
                             <a href="editcontent.php?id=<?=$row['id']?>"><button type="button" class=" btn btn-secondary mdi mdi-lead-pencil"></button></a>
                             <a onclick="return confirm('Are you sure you want to delete this entry?')" href="deletecontent.php?id=<?=$row['id']?>"><button type="button" class="btn btn-danger mdi mdi-delete-forever"></button></a>				
                             </th>
+                            <?php } ?>
                         </tr>
                           <?php $count++; }} ?>
                       </tbody>
