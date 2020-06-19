@@ -83,6 +83,7 @@ if (isset($_POST['add_food'])) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>FFN Admin</title>
+  <link rel="stylesheet" href="../css/custom.min.css">
   <link rel="stylesheet" href="../css/material.css">
 
 <link rel="stylesheet" href="../css/menu.css">
@@ -302,8 +303,8 @@ if (isset($_POST['add_food'])) {
               <div class="card">
                 <div class="card-body">
                   <p class="card-title">Recent Food</p>
-                  <div class="table-responsive">
-                    <table id="recent-purchases-listing" class="table">
+                  <div class="x_content">
+                    <table id="datatable" class="table table-striped table-bordered">
                       <thead>
                         <tr>
                           <th>S.N</th>
@@ -376,7 +377,8 @@ if (isset($_POST['add_food'])) {
   <script src="../js/base.js"></script>
   
   <script src="../js/template.js"></script>
- >
+  <script src="../js/datatable.js"></script>
+  <script src="../js/custom.min.js"></script>
  
   <!-- End custom js for this page-->
 </body>
