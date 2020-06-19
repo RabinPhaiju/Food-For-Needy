@@ -39,9 +39,9 @@
     <link rel="stylesheet" href="css/scrollup.css">
     <link rel="stylesheet" href="css/heroslider.css">
     <link rel="stylesheet" href="css/D-R-DCounts.css">
-    <link rel="stylesheet" href="css/testimonials.css">
     <link rel="stylesheet" href="css/parallax.css">
     <link rel="stylesheet" href="css/newnavs.css">
+    <link rel="stylesheet" href="css/testimonials.css">
 
     
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -589,9 +589,8 @@
         <script src="js/mobileMenu.js"></script>
         <script src=" https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="js/slider.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="js/timeline.js"></script>
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.1/jquery.flexslider.min.js"></script>
         <script src="js/testimonials.js"></script>
 <script>

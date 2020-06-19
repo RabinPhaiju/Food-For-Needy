@@ -4,7 +4,7 @@ jQuery(document).ready(function($) {
 		selector: ".cd-testimonials > li",
 		animation: "slide",
 		controlNav: true,
-		slideshow: false,
+		slideshow: true,
 		smoothHeight: true,
 		start: function() {
 			$('.cd-testimonials').children('li').css({
