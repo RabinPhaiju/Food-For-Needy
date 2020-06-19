@@ -41,7 +41,7 @@ if (isset($_POST['send'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+    <link rel="icon" href="files/mainlogo.jpg" type="image/gif" sizes="16x16">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> -->
@@ -54,9 +54,10 @@ if (isset($_POST['send'])) {
     
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-    
+    <link rel="stylesheet" href="css/datetime.css">
+
     <link rel="stylesheet" href="css/chat.css">
-    <title>Add Food</title>
+    <title>Conversation</title>
     <style>
       .clear_hide{
         display:none;
@@ -73,6 +74,15 @@ if (isset($_POST['send'])) {
             transform: translateY(-1px);
             box-shadow: 0 10p 20px rgba(0,0,0,0.6);
         }
+        .icons h6 {
+top: 35%;
+}
+.icons h5 {
+    bottom: -10px;
+}
+.icons strong {
+    padding: 0.1em 0;
+}
     </style>
     <script type="text/javascript">
 
@@ -107,7 +117,7 @@ function myFunction() {
         <input type="text" style="color:black;width:80%" placeholder="search" id="fsearch" name="username" onkeyup="myFunction()"/>
         <i class="fa fa-search"></i>
       </div>
-      <strong style="color:white; margin:-5px 0 0px 10px">Conversation</strong>
+      <span style="color:white; margin:-5px 0 0px 10px">Conversation</span>
       <hr style="margin:0 0 0px 10px; width:74%">
       <ul class="list">
     <?php
@@ -160,7 +170,7 @@ if($result-> num_rows >0){
           <hr class="blackLine">
     <?php } } }?>
     <div class="clear_hide" id="fname"> 
-    <strong style="color:white; margin:-5px 0 0px 5px">Search</strong>
+    <span style="color:white; margin:-5px 0 0px 5px">Search</span>
     <hr style="margin:0 0 0px 5px; width:74%">
                                                 <?php
                                                 require_once("DBConnect.php");
@@ -367,6 +377,7 @@ if($resulttotall-> num_rows >0){
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.0/handlebars.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js"></script>
     <script src="js/chat.js"></script>
+    <script src="js/datetime.js"></script>
 
 
 </body>

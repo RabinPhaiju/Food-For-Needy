@@ -21,7 +21,7 @@ if($pos==9999){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+    <link rel="icon" href="files/mainlogo.jpg" type="image/gif" sizes="16x16">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <!-- <link rel="stylesheet" href="css/schedule.css"> -->
@@ -31,6 +31,8 @@ if($pos==9999){
     
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="css/datetime.css">
+
     <title>Sponser</title>
     <style>
                body {
@@ -155,6 +157,15 @@ if($pos==9999){
     padding: 15px;
     border-bottom: 1px solid #94666600;
 }
+.icons h6 {
+top: 35%;
+}
+.icons h5 {
+    bottom: -10px;
+}
+.icons strong {
+    padding: 0.1em 0;
+}
     </style>
 </head>
 
@@ -168,7 +179,7 @@ if($pos==9999){
                 <div class="panel profile-panel">
    
         
-        <caption><b style="font-size:25px;">Food For Needy - Sponser</b></caption>
+        <caption><b style="font-size:25px;">Sponser</b></caption>
         <br>
         <form action="sponser.php" method="POST">
        
@@ -241,10 +252,10 @@ if($pos==9999){
             <img class="media-object dp img-circle" src="<?php if($row['pic']==null){?>files/user.png<?php }else{?> files/<?php echo $row['pic'];}?>" style="width: 80px;height:80px;">
         </a>
         <div class="media-body">
-            <h4 class="media-heading">Name :<strong> <?=$row['firstname']." ".$row['lastname']?></strong></h4>
-            <h5>Email: <?=$row['email']?></h5>
-            <h6>Location: <?=$row['location']?></h6>
-            <h6>Contact: <?=$row['contact']?></h6>
+            <h4 class="media-heading">Name :<span> <?=$row['firstname']." ".$row['lastname']?></span></h4>
+            <p>Email: <?=$row['email']?></p>
+            <p>Location: <?=$row['location']?></p>
+            <p>Contact: <?=$row['contact']?></p>
             <hr class="blackLine">
             <!-- <br> -->
             <a href="viewprofile.php?view=<?=$row['username']?>"><span class="label label-warning">View Profile</span></a>
@@ -287,6 +298,8 @@ if($pos==9999){
     <script src="js/editprofile.js"></script>
 
     <script src="js/index1.js"></script>
+    <script src="js/datetime.js"></script>
+
 
 
 </body>

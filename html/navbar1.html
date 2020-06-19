@@ -6,12 +6,7 @@
             <div class="nav3">&nbsp;&nbsp;&nbsp;<i class="fa fa-user-cog fa-3x"></i>
                 <div class="middle">
                     <div class="menu">
-                    <li class="item" id='dashboard'>
-                            <a href="#dashboard" class="btn"><i class="fa fa-home"></i>Dashboard</a>
-                            <div class="smenu">
-                            <a href="index.php">Home</a>
-                            </div>
-                        </li>
+                    
                         <li class="item" id='profile'>
                             <a href="#profile" class="btn"><i class="far fa-user"></i>Profile</a>
                             <div class="smenu">
@@ -19,9 +14,7 @@
                                 <a href="editprofile.php">Edit Profile</a>
                             </div>
                         </li>
-                        <li class="item">
-                            <a class="btn" href="chat.php"><i class="fas fa-commenting"></i>Conversation</a>
-                        </li>
+                       
 
                         <li class="item" id="messages">
                             <a href="#messages" class="btn"><i class="fas fa-user-tie"></i>Member</a>
@@ -44,9 +37,7 @@
                             <a class="btn" href="records.php"><i class="fas fa-compass"></i>Records</a>
                         </li>
 
-                        <li class="item">
-                            <a class="btn" href="schedule.php"><i class="fas fa-calendar"></i>Schedule</a>
-                        </li>
+                       
 
                         <li class="item">
                             <a class="btn" href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
@@ -54,11 +45,13 @@
                     </div>
                 </div>
             </div>
-            <div class="nav4">&nbsp&nbsp&nbsp&nbsp<a href="#"><span style="font-family:sans-serif"><i class="fas fa-address-book"></i> CONTACT US</span></a></div>
+            <div class="nav1">&nbsp&nbsp&nbsp&nbsp<a href="index.php"><span style="font-family:sans-serif"><i class="fa fa-home" aria-hidden="true"></i> Home</span></a></div>
 
-            <div class="nav2">&nbsp&nbsp&nbsp&nbsp<a href="login.php"><span style="font-family:sans-serif"><i class="fab fa-earlybirds"></i> JOIN US</span></a></div>
+            <div class="nav4">&nbsp&nbsp&nbsp&nbsp<a href="editprofile.php"><span style="font-family:sans-serif"><i class="fa fa-user-circle" aria-hidden="true"></i><?php echo $_SESSION['name'];?> </span></a></div>
 
-            <div class="nav1"><a href="#"><span style="font-family:sans-serif"><i class="fas fa-hands-helping"></i> DONATE</span></a></div>
+            <div class="nav2">&nbsp&nbsp&nbsp&nbsp<a href="chat.php"><span style="font-family:sans-serif"><i class="fa fa-envelope" aria-hidden="true"></i> Message</span></a></div>
+
+            <div class="nav1"><a href="schedule.php"><span style="font-family:sans-serif"><i class="fa fa-calendar" aria-hidden="true"></i> Schedule</span></a></div>
         </div>
 
 

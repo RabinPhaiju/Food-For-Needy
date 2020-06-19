@@ -30,6 +30,7 @@ $search=0;
 <html lang="en">
 
 <head>
+    <link rel="icon" href="files/mainlogo.jpg" type="image/gif" sizes="16x16">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -41,7 +42,7 @@ $search=0;
     <link rel="stylesheet" href="css/card.css">
     <link rel="stylesheet" href="css/datetime.css">
 
-    <title>Dashboard</title>
+    <title>Food For Needy</title>
 </head>
 
 <body>
@@ -105,11 +106,14 @@ $search=0;
                     </div>
                 </div>
             </div>
-            <div class="nav4">&nbsp&nbsp&nbsp&nbsp<a href=""><span style="font-family:sans-serif"><i class="fas fa-address-book"></i> CONTACT US</span></a></div>
+            <div class="nav1">&nbsp&nbsp&nbsp&nbsp<a href="index.php"><span style="font-family:sans-serif"><i class="fa fa-home" aria-hidden="true"></i> Home</span></a></div>
 
-            <div class="nav2">&nbsp&nbsp&nbsp&nbsp<a href="login.php"><span style="font-family:sans-serif"><i class="fab fa-earlybirds"></i> JOIN US</span></a></div>
+            <div class="nav4">&nbsp&nbsp&nbsp&nbsp<a href="editprofile.php"><span style="font-family:sans-serif"><i class="fa fa-user-circle" aria-hidden="true"></i><?php echo $_SESSION['name'];?> </span></a></div>
 
-            <div class="nav1"><a href=""><span style="font-family:sans-serif"><i class="fas fa-hands-helping"></i> DONATE</span></a></div>
+            <div class="nav2">&nbsp&nbsp&nbsp&nbsp<a href="chat.php"><span style="font-family:sans-serif"><i class="fa fa-envelope" aria-hidden="true"></i> Message</span></a></div>
+
+            <div class="nav1"><a href="schedule.php"><span style="font-family:sans-serif"><i class="fa fa-calendar" aria-hidden="true"></i> Schedule</span></a></div>
+        
         </div>
 
 

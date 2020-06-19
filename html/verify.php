@@ -184,7 +184,9 @@ else{
     <link rel="stylesheet" href="css/toast.css">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-    <title>Add Food</title>
+    <link rel="stylesheet" href="css/datetime.css">
+
+    <title>Verify User</title>
     <style>
         .input-files {
             position: relative;
@@ -246,6 +248,15 @@ else{
     .contains {
         margin-left:20px;
     }
+    .icons h6 {
+top: 35%;
+}
+.icons h5 {
+    bottom: -10px;
+}
+.icons strong {
+    padding: 0.1em 0;
+}
     </style>
 </head>
 
@@ -549,8 +560,10 @@ else{
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="js/editprofile.js"></script>
-
+    <link rel="icon" href="files/mainlogo.jpg" type="image/gif" sizes="16x16">
     <script src="js/index1.js"></script>
+    <script src="js/datetime.js"></script>
+
     <script src="js/toast.js"></script>
     <script>
     function showbuttom(){

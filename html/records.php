@@ -8,15 +8,15 @@ include 'session.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+    <link rel="icon" href="files/mainlogo.jpg" type="image/gif" sizes="16x16">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/loginindex.css">
     <link rel="stylesheet" href="css/editprofile.css">
     <link rel="stylesheet" href="css/index.css">
-    
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="css/datetime.css">
     <title>Records</title>
     <style>
                body {
@@ -102,10 +102,18 @@ include 'session.php';
     }
     .contains {
         margin-left:5%;
-    }
+}
+.icons h6 {
+top: 35%;
+}
+.icons h5 {
+    bottom: -10px;
+}
+.icons strong {
+    padding: 0.1em 0;
+}
     </style>
 </head>
-
 <body>
 <?php include 'navbar1.html';?>
     <div class="body_wrapper">
@@ -149,8 +157,8 @@ include 'session.php';
         <table>
         <caption><b style="font-size:25px">Recent Records (20)</b></caption>
         <thead>
-            <th scope="col"><strong>Sn.</strong></th>
-            <th scope="col"><strong>Detail</strong></th>
+            <th scope="col"><span>Sn.</span></th>
+            <th scope="col"><span>Detail</span></th>
         </thead>
         <tbody>
     <?php
@@ -177,10 +185,8 @@ include 'session.php';
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="js/editprofile.js"></script>
-
     <script src="js/index1.js"></script>
-
-
+    <script src="js/datetime.js"></script>
 </body>
 
 </html>

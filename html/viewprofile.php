@@ -12,7 +12,7 @@ if($view_user==null){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+    <link rel="icon" href="files/mainlogo.jpg" type="image/gif" sizes="16x16">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/loginindex.css">
@@ -20,8 +20,20 @@ if($view_user==null){
     <link rel="stylesheet" href="css/index.css">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <link rel="stylesheet" href="css/datetime.css">
+
     <title><?php echo $view_user;?></title>
-   
+   <style>
+       .icons h6 {
+top: 35%;
+}
+.icons h5 {
+    bottom: -10px;
+}
+.icons strong {
+    padding: 0.1em 0;
+}
+   </style>
 </head>
 
 <body>
@@ -84,37 +96,37 @@ if($view_user==null){
                                         <div class="profile-view">
                                         <dl class="dl-horizontal">
                                                 <dt>User Name</dt>
-                                                <dd><strong><?php echo $row["username"];?></strong></dd>
+                                                <dd><span><?php echo $row["username"];?></span></dd>
                                             </dl>
                                             <hr class="blackLine">
                                             <dl class="dl-horizontal">
                                                 <dt>User Type</dt>
-                                                <dd><strong><?php echo $row["user_type"];?></strong></dd>
+                                                <dd><span><?php echo $row["user_type"];?></span></dd>
                                             </dl>
                                             <hr class="blackLine">
                                             <dl class="dl-horizontal">
                                                 <dt>Full Name</dt>
-                                                <dd><strong><?php echo $row["firstname"]." ".$row["lastname"];?></strong></dd>
+                                                <dd><span><?php echo $row["firstname"]." ".$row["lastname"];?></span></dd>
                                             </dl>
                                             <hr class="blackLine">
                                             <dl class="dl-horizontal">
                                                 <dt>Email</dt>
-                                                <dd><strong><?php echo $row["email"];?></strong></dd>
+                                                <dd><span><?php echo $row["email"];?></span></dd>
                                             </dl>
                                             <hr class="blackLine">
                                             <dl class="dl-horizontal">
                                                 <dt>Location</dt>
-                                                <dd><strong><?php echo $row["location"];?></strong></dd>
+                                                <dd><span><?php echo $row["location"];?></span></dd>
                                             </dl>
                                             <hr class="blackLine">
                                             <dl class="dl-horizontal">
                                                 <dt>Contact</dt>
-                                                <dd><strong><?php echo $row["contact"];?></strong></dd>
+                                                <dd><span><?php echo $row["contact"];?></span></dd>
                                             </dl>
                                             <hr class="blackLine">
                                             <dl class="dl-horizontal">
                                                 <dt>DoB</dt>
-                                                <dd><strong><?php echo $row["dob"];?></strong></dd>
+                                                <dd><span><?php echo $row["dob"];?></span></dd>
                                             </dl>
                                         </div>
                                     </div>
@@ -133,6 +145,7 @@ if($view_user==null){
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="js/index1.js"></script>
     <script src="js/editprofile.js"></script>
+    <script src="js/datetime.js"></script>
 
 </body>
 

@@ -46,7 +46,7 @@ echo "Error updating record: " . mysqli_error($conn);
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+        <link rel="icon" href="files/mainlogo.jpg" type="image/gif" sizes="16x16">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/loginindex.css">
@@ -54,7 +54,9 @@ echo "Error updating record: " . mysqli_error($conn);
         <link rel="stylesheet" href="css/index.css">
 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-        <title>Add Food</title>
+        <link rel="stylesheet" href="css/datetime.css">
+
+        <title>Change Password</title>
         <style>
             #message , #messageVerify {
     display: none;
@@ -110,6 +112,15 @@ echo "Error updating record: " . mysqli_error($conn);
             transform: translateY(-1px);
             box-shadow: 0 10p 20px rgba(0,0,0,0.6);
         }
+        .icons h6 {
+top: 35%;
+}
+.icons h5 {
+    bottom: -10px;
+}
+.icons strong {
+    padding: 0.1em 0;
+}
         </style>
     </head>
 
@@ -321,6 +332,7 @@ var data = calcMD5(myInputVerify.value);
 
         <script src="js/index1.js"></script>
         <script src="js/jsmd5.js"></script>
+        <script src="js/datetime.js"></script>
 
 
         </body>

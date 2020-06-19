@@ -1,42 +1,40 @@
 <div class="sidemenu" id="mySidebar">
     <ul>
-        <!-- <li><a href="#"><span class="icon"><i class="fa fa-tachometer"></i></span><span></span></a></li> -->
+        <li>
 
-        <div class="me userBg">
-        <div class="images">
-                <?php if(strpos($_SERVER['REQUEST_URI'],'index')|| strpos($_SERVER['REQUEST_URI'],'schedule')){?>
+            <div class="me userBg">
+                <div class="images">
+
                     <div class="holders">
-                        <a href="schedule.php"> 
-                                    <div class="cells">
-                                    <time class="icons" id="four">
+                        <a href="schedule.php">
+                            <div class="cells">
+                                <time class="icons" id="four">
                                         <strong></strong>
                                         <h6></h6>
                                         <h5></h5>
                                     </time>
-                                    </div>
-                                    
-                                    </a>
-                                    </div>
-              <?php  }else{?>
-            <img style="margin-top:22px;border-radius:5%" src="files/<?php if($_SESSION['pic']==null){echo 'user.png';}else{ echo $_SESSION['pic'];}?>" width="60";>
-                <?php } ?>
-            </div>
+                            </div>
 
-            <div class="myinfo">
+                        </a>
+                    </div>
+
+                </div>
+
+                <!--  <div class="myinfo">
                 <p class="name">Name :<?php echo $_SESSION['name']?></p>
                 <p class="name">Type&nbsp;&nbsp; : <?php echo $_SESSION['user_type']?></p>
-            </div>
+            </div> -->
 
-            <button class="setting">
-                <a href="editprofile.php"><i class="fa fa-cog" aria-hidden="true"></i></a>
-            </button>
-            <a id="hide" href="#" onclick="closeNav()"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
-            <a id="show" href="#" onclick="openNav()"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-            <button class="cloud">
+                <!-- <button class="setting">
+               <a href="editprofile.php"><i class="fa fa-cog" aria-hidden="true"></i></a>
+            </button> -->
+                <a id="hide" href="#" onclick="closeNav()"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                <a id="show" href="#" onclick="openNav()"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                <!-- <button class="cloud">
                 <a href="index.php">DashBoard</a>
-            </button>
-        </div>
-
+            </button> -->
+            </div>
+        </li>
         <!-- <li><a href="#"><span class="icon"><i class="fa fa-compass"></i></span><span>Brand</span></a></li> -->
         <li class="dropdown <?php if(strpos($_SERVER['REQUEST_URI'], 'editprofile') || strpos($_SERVER['REQUEST_URI'], 'changepassword')){echo 'active';}?>">
             <a href="#"><span class="icon"><i class="fa fa-window-restore"></i></span><span>Profile</span></a>
@@ -70,7 +68,7 @@
                 <li><a href="receiver.php"><span class="icon"><i class="fa fa-user"></i></span><span>Receiver</span></a></li>
                 <li><a href="volunteer.php"><span class="icon"><i class="fa fa-user"></i></span><span>Volunteer</span></a></li>
             </ul>
-            </li>
+        </li>
         <li class="<?php if(strpos($_SERVER['REQUEST_URI'], 'records')){echo 'active';}?>">
             <a href="records.php"><span class="icon"><i class="fa fa-compass"></i></span><span>Records</span></a></li>
         <li class="<?php if(strpos($_SERVER['REQUEST_URI'], 'schedule')){echo 'active';}?>">

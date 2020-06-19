@@ -5,7 +5,7 @@
 .me {
     position: relative;
     width: calc(100% - 50px);
-    height: 140px;
+    height: 85px;
     /* background: #419fd9; */
     padding: 15px 25px;
     margin-bottom: 15px;
@@ -280,7 +280,8 @@
     font-size: 1.1rem;
     justify-content: space-around;
     /* background: #2c3e50; */
-    background: #457fca;  /* fallback for old browsers */
+    background: #457fca;
+    /* fallback for old browsers */
     /* fallback for old browsers */
     /* background: -webkit-linear-gradient(to left, #3498db, #41586f); */
     /* Chrome 10-25, Safari 5.1-6 */
@@ -310,7 +311,7 @@
     text-decoration: none;
     color: black;
     /* color: rgb(43, 42, 42); */
-        border-radius: 8%;
+    border-radius: 8%;
     font-size: 1.6rem;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding: 6px;
@@ -325,11 +326,12 @@
     /* color: white; */
     color: #000;
 }
+
 .navbars .nav1 a,
-    .navbars .nav2 a,
-    .navbars .nav4 a{
-        background-color: rgba(107, 81, 57, 0.271);
-    }
+.navbars .nav2 a,
+.navbars .nav4 a {
+    background-color: rgba(107, 81, 57, 0.271);
+}
 
 .navbars>div {
     margin-left: -20px;
@@ -339,9 +341,10 @@
     font-size: 0.8rem;
     z-index: 999;
 }
+
 .navbars .nav1:hover,
 .navbars .nav2:hover,
-.navbars .nav4:hover{
+.navbars .nav4:hover {
     transform: translateY(-5px);
     transition-duration: 0.5s;
 }
@@ -361,6 +364,7 @@
     display: block;
     z-index: 2;
 }
+
 
 /* .navbars .nav0:hover {
     transform: scale(1.2);
