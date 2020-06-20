@@ -10,137 +10,167 @@
 	mysqli_query($conn, $sql);
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="icon" href="html/files/mainlogo.jpg" type="image/gif" sizes="16x16">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food For Needy</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <!DOCTYPE html>
+    <html lang="en">
 
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
-    
-    <link rel="stylesheet" href="css/botton.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/navbar-mobile.css">
-    <link rel="stylesheet" href="css/third.css">
-    <link rel="stylesheet" href="css/fourth.css">
-    <link rel="stylesheet" href="css/fifth.css">
-    <link rel="stylesheet" href="css/sixth.css">
-    <link rel="stylesheet" href="css/seventh.css">
-    <link rel="stylesheet" href="css/eighth.css">
-    <link rel="stylesheet" href="css/ninth.css">
-    <link rel="stylesheet" href="css/tenth.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/tojoin.css">
-    <link rel="stylesheet" href="css/scrollup.css">
-    <link rel="stylesheet" href="css/heroslider.css">
-    <link rel="stylesheet" href="css/D-R-DCounts.css">
-    <link rel="stylesheet" href="css/parallax.css">
-    <link rel="stylesheet" href="css/newnavs.css">
-    <link rel="stylesheet" href="css/testimonials.css">
+    <head>
+        <link rel="icon" href="html/files/mainlogo.jpg" type="image/gif" sizes="16x16">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Food For Needy</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <style>
-        html{
-        scroll-behavior: smooth;
-        }
-        .hero-card img{
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            border-radius: 8px;
-            height:20rem;
-        }
-        @media (min-width: 1200px){
-.container {
-    max-width: 100%; 
-}}
-@media (min-width: 992px){
-.container {
-     max-width: 100%; 
-}}
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="css/nprogress/nprogress.css" rel="stylesheet">
 
-@media (min-width: 768px){
-.container {
-     max-width: 100%; 
-}}
-@media (min-width: 576px){
-.container {
-     max-width: 100%; 
-}}
-       p{
-         margin-bottom: 2rem;
-       } 
-       h2{
-         margin-top: 5px;
-       }
+        <link rel="stylesheet" href="css/botton.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/navbar-mobile.css">
+        <link rel="stylesheet" href="css/third.css">
+        <link rel="stylesheet" href="css/fourth.css">
+        <link rel="stylesheet" href="css/fifth.css">
+        <link rel="stylesheet" href="css/sixth.css">
+        <link rel="stylesheet" href="css/seventh.css">
+        <link rel="stylesheet" href="css/eighth.css">
+        <link rel="stylesheet" href="css/ninth.css">
+        <link rel="stylesheet" href="css/tenth.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/tojoin.css">
+        <link rel="stylesheet" href="css/scrollup.css">
+        <link rel="stylesheet" href="css/heroslider.css">
+        <link rel="stylesheet" href="css/D-R-DCounts.css">
+        <link rel="stylesheet" href="css/parallax.css">
+        <link rel="stylesheet" href="css/newnavs.css">
+        <link rel="stylesheet" href="css/testimonials.css">
 
-       .size-pos{
-           margin-left:2%;
-        height: 400px;
-        width: 96%;
-       }
-    </style>
-</head>
-<body onload="test()">
-<!-- page loader undo the comment when finish -->
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <style>
+            html {
+                scroll-behavior: smooth;
+            }
+            
+            .hero-card img {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                border-radius: 8px;
+                height: 20rem;
+            }
+            
+            @media (min-width: 1200px) {
+                .container {
+                    max-width: 100%;
+                }
+            }
+            
+            @media (min-width: 992px) {
+                .container {
+                    max-width: 100%;
+                }
+            }
+            
+            @media (min-width: 768px) {
+                .container {
+                    max-width: 100%;
+                }
+            }
+            
+            @media (min-width: 576px) {
+                .container {
+                    max-width: 100%;
+                }
+            }
+            
+            p {
+                margin-bottom: 2rem;
+            }
+            
+            h2 {
+                margin-top: 5px;
+            }
+            
+            .size-pos {
+                margin-left: 2%;
+                height: 400px;
+                width: 96%;
+            }
+            
+            #nprogress .bar {
+                height: 4px;
+            }
+            
+            #nprogress .bar {
+                background: rgb(21, 128, 7);
+            }
+            
+            #nprogress .spinner-icon {
+                border-top-color: white;
+                border-left-color: orange;
+            }
+        </style>
+    </head>
+
+    <body onload="test()">
+        <!-- page loader undo the comment when finish -->
 
         <div class="loader_bg" style="margin-top:-4.1rem;z-index:99">
             <div class="load">
-                <hr/><hr/><hr/><hr/>
+                <hr/>
+                <hr/>
+                <hr/>
+                <hr/>
             </div>
         </div>
 
 
-<nav class="navbar navbar-expand-lg navbar-mainbg">
-  <img src="files/mainlogo.jpg" style="margin-left:60px;border-radius:50%" alt="logo" height="50px">
-    <a class="navbar-brand navbar-logo" href="#"><strong style="margin-left:10px;">Food for Needy</strong></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <nav class="navbar navbar-expand-lg navbar-mainbg">
+            <img src="files/mainlogo.jpg" style="margin-left:60px;border-radius:50%" alt="logo" height="50px">
+            <a class="navbar-brand navbar-logo" href="#"><strong style="margin-left:10px;">Food for Needy</strong></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <i class="fas fa-bars text-white"></i>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-            <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
-            <li class="nav-item active">
-                <a class="nav-link" href="#home"><i class="fas fa-home"></i>Home</a>
-            </li>
-            
-            <li class="nav-item">
-                <a class="nav-link" href="#aboutus"><i class="far fa-clone"></i>About US</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#contactform"><i class="far fa-address-book"></i>Contact Us</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="html/login.php"><i class="fas fa-sign-in-alt"></i>Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">&nbsp&nbsp&nbsp</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">&nbsp&nbsp&nbsp</a>
-            </li>
-           
-        </ul>
-    </div>
-</nav>
-<div  id="home" style="margin: -4px 0">
-.
-</div>
-         <div class="container">   
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <div class="hori-selector">
+                        <div class="left"></div>
+                        <div class="right"></div>
+                    </div>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#home"><i class="fas fa-home"></i>Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#aboutus"><i class="far fa-clone"></i>About US</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contactform"><i class="far fa-address-book"></i>Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="html/login.php"><i class="fas fa-sign-in-alt"></i>Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">&nbsp&nbsp&nbsp</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">&nbsp&nbsp&nbsp</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+        <div id="home" style="margin: -4px 0">
+            .
+        </div>
+        <div class="container">
 
             <div class="third">
                 <div class="image">
                     <div class="whoweare">
                         <p class="briefHead">
-                        Who <span style="color: hsl(34, 100%, 60%);">We</span><br>
-                        Are
+                            Who <span style="color: hsl(34, 100%, 60%);">We</span><br> Are
                         </p>
                         <p class="brief">
                             <?php  require_once("html/DBConnect.php");
@@ -153,7 +183,7 @@
                         <a href="#aboutus"><strong>More Info</strong> &nbsp; <i class="fa fa-arrow-right"></i></a>
                         </button>
                     </div>
-                </div>               
+                </div>
             </div>
 
             <div class="scrollup" id="up">
@@ -166,7 +196,7 @@
                 <div class="ourStory">
                     <p class="storyHead">What We <span style="color: hsl(34, 100%, 60%);">Do</span></p>
                     <p class="story">
-                          
+
                         <?php  require_once("html/DBConnect.php");
                                 $sql = "SELECT * FROM `content` WHERE `title`='story'";
                                     $result = mysqli_query($conn, $sql);
@@ -178,7 +208,7 @@
                         <button class="hides" onclick="show();">
                             <a href="#0">More Info &nbsp; <i class="fa fa-arrow-right"></i></a>
                         </button>
-                    </div>                    
+                    </div>
 
                     <div class="showpart" id="showpart">
                         <button class="shows" onclick="hide();">
@@ -187,14 +217,14 @@
                         <br>
                         <br>
                         <p class="hideWhoweare">
-                        <?php  require_once("html/DBConnect.php");
+                            <?php  require_once("html/DBConnect.php");
                                 $sql = "SELECT * FROM `content` WHERE `title`='hideWhoweare'";
                                     $result = mysqli_query($conn, $sql);
                                     $row = mysqli_fetch_assoc($result);
                                         echo $row["description"];?>
                         </p>
                         <ul class="hideWhoweare" type="disc">
-                        <?php  require_once("html/DBConnect.php");
+                            <?php  require_once("html/DBConnect.php");
                                 $sql = "SELECT * FROM `content` WHERE `title`='disc'";
                                     $result = mysqli_query($conn, $sql);
                                     $row = mysqli_fetch_assoc($result);
@@ -202,7 +232,7 @@
                         </ul>
                         <br>
                         <p class="hideWhoweare">
-                        <?php  require_once("html/DBConnect.php");
+                            <?php  require_once("html/DBConnect.php");
                                 $sql = "SELECT * FROM `content` WHERE `title`='hideWhoweare1'";
                                     $result = mysqli_query($conn, $sql);
                                     $row = mysqli_fetch_assoc($result);
@@ -215,7 +245,7 @@
                         <i class="fa fa-dropbox fa-4x" id="iconpart"></i>
                         <p class="choicetitle">Make <span style="color: hsl(34, 100%, 60%);">Donation</span></p>
                         <p class="choicetext">
-                        <?php  require_once("html/DBConnect.php");
+                            <?php  require_once("html/DBConnect.php");
                                 $sql = "SELECT * FROM `content` WHERE `title`='donation'";
                                     $result = mysqli_query($conn, $sql);
                                     $row = mysqli_fetch_assoc($result);
@@ -226,7 +256,7 @@
                         <i class="fa fa-vimeo fa-4x" id="iconpart"></i>
                         <p class="choicetitle">Become A <span style="color: hsl(34, 100%, 60%);">Volunteer</span></p>
                         <p class="choicetext">
-                        <?php  require_once("html/DBConnect.php");
+                            <?php  require_once("html/DBConnect.php");
                                 $sql = "SELECT * FROM `content` WHERE `title`='volunteer'";
                                     $result = mysqli_query($conn, $sql);
                                     $row = mysqli_fetch_assoc($result);
@@ -237,7 +267,7 @@
                         <i class="fa fa-users fa-4x" id="iconpart"></i>
                         <p class="choicetitle">Become A <span style="color: hsl(34, 100%, 60%);">Distributor</span></p>
                         <p class="choicetext">
-                        <?php  require_once("html/DBConnect.php");
+                            <?php  require_once("html/DBConnect.php");
                                 $sql = "SELECT * FROM `content` WHERE `title`='distributor'";
                                     $result = mysqli_query($conn, $sql);
                                     $row = mysqli_fetch_assoc($result);
@@ -256,16 +286,18 @@
                     $result = $conn-> query($sql);
                     $total = mysqli_num_rows($result);
                     ?>
-                    <p class="scheduletitle"><?php if ($total ==0){echo "Become a Sponser";}else{ echo 'Schedule';}?></p>
+                        <p class="scheduletitle">
+                            <?php if ($total ==0){echo "Become a Sponser";}else{ echo 'Schedule';}?>
+                        </p>
                 </div>
-                
+
                 <section class="cd-horizontal-timeline">
-                <?php if($total !=0){ ?>
+                    <?php if($total !=0){ ?>
                     <div class="timeline">
                         <div class="events-wrapper">
                             <div class="events">
-                               <ol>
-                               <?php
+                                <ol>
+                                    <?php
                             $sql = "SELECT * from `schedule`";// where `verified`='1' AND `status`='1'";
                             
                             require_once("html/DBConnect.php");
@@ -278,30 +310,34 @@
                                 while($row = $result-> fetch_assoc()){  
                                     $schedule_date=strtotime($row['date']);
                             ?>
-                                
-                                    <li><a href="#0" data-date="<?=date('d', $schedule_date);?>/<?=date('m', $schedule_date);?>/<?=date('Y', $schedule_date);?>" 
-                                    <?php if($schedule_count==1){echo 'class="selected"';}?>>
+
+                                        <li><a href="#0" data-date="<?=date('d', $schedule_date);?>/<?=date('m', $schedule_date);?>/<?=date('Y', $schedule_date);?>" <?php if($schedule_count==1){echo 'class="selected"';}?>>
                                     <?php echo date('d', $schedule_date); echo " "; echo date('M', $schedule_date);?></a></li>
-                                    <?php 
+                                        <?php 
                                     $schedule_count++;
                                 }
                             
                                 }?>
-                                    
-                                
-                            </ol>
+
+
+                                </ol>
                                 <span class="filling-line" aria-hidden="true"></span>
-                            </div> <!-- .events -->
-                        </div> <!-- .events-wrapper -->
-                            
+                            </div>
+                            <!-- .events -->
+                        </div>
+                        <!-- .events-wrapper -->
+
                         <ul class="cd-timeline-navigation">
                             <li><a href="#0" class="prev inactive"><i class="fas fa-angle-right fa-3x"></i></a></li>
                             <li><a href="#0" class="next"><i class="fas fa-angle-right fa-3x"></i></a></li>
-                        </ul> <!-- .cd-timeline-navigation -->
-                    </div> <!-- .timeline -->
+                        </ul>
+                        <!-- .cd-timeline-navigation -->
+                    </div>
+                    <!-- .timeline -->
                     <?php } ?>
                     <div class="events-content">
-                        <ol><?php
+                        <ol>
+                            <?php
                         $sql = "SELECT * from `schedule`";// where `verified`='1' AND `status`='1'";
                             
                             require_once("html/DBConnect.php");
@@ -317,25 +353,27 @@
                                     $schedule_count++;
                                     $schedule_date=strtotime($row['date']); 
                             ?>
-                            <li data-date="<?=date('d', $schedule_date);?>/<?=date('m', $schedule_date);?>/<?=date('Y', $schedule_date);?>"
-                            <?php if($schedule_count==1){echo 'class="selected"';}?>>
-                                <h2 style="margin-top:10px"><?php echo $row['title'];?></h2>
-                                <em><?php echo date('d', $schedule_date); echo " ";
+                                        <li data-date="<?=date('d', $schedule_date);?>/<?=date('m', $schedule_date);?>/<?=date('Y', $schedule_date);?>" <?php if($schedule_count==1){echo 'class="selected"';}?>>
+                                            <h2 style="margin-top:10px">
+                                                <?php echo $row['title'];?>
+                                            </h2>
+                                            <em><?php echo date('d', $schedule_date); echo " ";
                                  echo date('M', $schedule_date);?>, <?php echo " "; echo date('Y', $schedule_date);?></em>
-                                <p>	
-                                <?php echo $row['description'];?>
-                                 </p>
-                            </li>
-                                <?php }} ?>
+                                            <p>
+                                                <?php echo $row['description'];?>
+                                            </p>
+                                        </li>
+                                        <?php }} ?>
 
-                        </ol>
-                    </div> <!-- .events-content -->
+                                </ol>
+                    </div>
+                    <!-- .events-content -->
                 </section>
-                                
+
                 <div class="schedule1">
                     <div class="box">
                         <p class="scheduletext">
-                        <?php  require_once("html/DBConnect.php");
+                            <?php  require_once("html/DBConnect.php");
                                 $sql = "SELECT * FROM `content` WHERE `title`='scheduletext'";
                                     $result = mysqli_query($conn, $sql);
                                     $row = mysqli_fetch_assoc($result);
@@ -351,7 +389,7 @@
                 <div class="aboutus">
                     <p class="abouthead">About <span style="color: hsl(34, 100%, 60%);">Us</span></p>
                     <p class="text">
-                    <?php  require_once("html/DBConnect.php");
+                        <?php  require_once("html/DBConnect.php");
                                 $sql = "SELECT * FROM `content` WHERE `title`='aboutus'";
                                     $result = mysqli_query($conn, $sql);
                                     $row = mysqli_fetch_assoc($result);
@@ -360,7 +398,7 @@
                 </div>
                 <div class="aboutus2">
                     <p class="text">
-                    <?php  require_once("html/DBConnect.php");
+                        <?php  require_once("html/DBConnect.php");
                                 $sql = "SELECT * FROM `content` WHERE `title`='aboutus2'";
                                     $result = mysqli_query($conn, $sql);
                                     $row = mysqli_fetch_assoc($result);
@@ -368,7 +406,7 @@
                     </p>
                 </div>
             </div>
-            
+
             <!-- <div class="parallax1">
                    <p data-aos="zoom-in-down" data-aos-duration="2000" >
                        " <span class="parallax-text">THE BEST </span><br>
@@ -395,8 +433,8 @@
                                   $filepath="html/files/".$row["pic"];
                                   if($row["pic"]!=null){
                             ?>
-                        <div class="my-card hero-card" id="1"><img src="<?php echo $filepath; ?>"></div>
-                                <?php 
+                            <div class="my-card hero-card" id="1"><img src="<?php echo $filepath; ?>"></div>
+                            <?php 
                                 $hero_count++;
                             if($hero_count==10){
                             break;
@@ -424,7 +462,9 @@
                 ?>
                 <div class="FoodRescued" data-aos="fade-up" data-aos-duration="2000">
                     <p>No of Food Rescued</p>
-                    <h4 style="color:black"><?php echo $total;?></h4>
+                    <h4 style="color:black">
+                        <?php echo $total;?>
+                    </h4>
                 </div>
                 <?php 
                   $sql = "SELECT * from `register`";// where `verified`='1' AND `status`='1'";
@@ -434,7 +474,9 @@
                 ?>
                 <div class="NoOfUser" data-aos="fade-up" data-aos-duration="2000">
                     <p>No of Users</p>
-                    <h4 style="color:black"><?php echo $total;?></h4>
+                    <h4 style="color:black">
+                        <?php echo $total;?>
+                    </h4>
                 </div>
                 <?php 
                   $sql = "SELECT * from `food` where `served`=1" ;// where `verified`='1' AND `status`='1'";
@@ -442,12 +484,14 @@
                   $resulttotal = $conn-> query($sql);
                   $total = mysqli_num_rows($resulttotal);
                 ?>
-                <div class="MealServed" data-aos="fade-up" data-aos-duration="2000">   
+                <div class="MealServed" data-aos="fade-up" data-aos-duration="2000">
                     <p>Meals Served</p>
-                    <h4 style="color:black"><?php echo $total;?></h4>
+                    <h4 style="color:black">
+                        <?php echo $total;?>
+                    </h4>
                 </div>
             </div>
-            
+
             <div class="tojoin">
                 <div class="box">
                     <p class="no1">Become a Volunteer</p>
@@ -457,7 +501,7 @@
                     </button>
                 </div>
             </div>
-        
+
             <div class="testimonial-container">
                 <h2>Testimonials</h2>
                 <br>
@@ -512,12 +556,12 @@
                     <div class="image5"></div>
                 </div>
             </div>
-            
+
             <div class="eighth">
                 <div class="getintouch">
                     <p class="contactHead">Get in <span style="color: hsl(34, 100%, 60%);">Touch</span></p>
                     <p>
-                    <?php  require_once("html/DBConnect.php");
+                        <?php  require_once("html/DBConnect.php");
                                 $sql = "SELECT * FROM `content` WHERE `title`='getintouch'";
                                     $result = mysqli_query($conn, $sql);
                                     $row = mysqli_fetch_assoc($result);
@@ -529,7 +573,7 @@
                         <br>
                         <li><a href=""><span style="font-size: 30px; font-weight: 600;">@</span>&nbsp;&nbsp;<span style="font-size: 20px;">:</span>&nbsp;&nbsp;foodforneedy@gmail.com</a></li>
                         <br>
-                        <li >&nbsp;<i class="fa fa-map-marker fa-2x"></i> &nbsp;&nbsp;&nbsp;<span style="font-size: 20px;">:</span>&nbsp;&nbsp;Bhaktapur - 10, Nepal</li>
+                        <li>&nbsp;<i class="fa fa-map-marker fa-2x"></i> &nbsp;&nbsp;&nbsp;<span style="font-size: 20px;">:</span>&nbsp;&nbsp;Bhaktapur - 10, Nepal</li>
                     </ul>
                 </div>
 
@@ -548,100 +592,118 @@
 
             <iframe class="size-pos" src="html/Map.php"></iframe>
 
-<div class="tenth">
-            <hr>
-            <ul>
-                <li><a href="#"><i class="fa fa-facebook fa-1x"></i></a></li>
-                <li><a href="#"><i class="fa fa-instagram fa-1x"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter fa-1x"></i></a></li>
-                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-            </ul>
-            <p>Copyright &copy; 2020 All rights reserved by InNeed.</p>
+            <div class="tenth">
+                <hr>
+                <ul>
+                    <li><a href="#"><i class="fa fa-facebook fa-1x"></i></a></li>
+                    <li><a href="#"><i class="fa fa-instagram fa-1x"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter fa-1x"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                </ul>
+                <p>Copyright &copy; 2020 All rights reserved by InNeed.</p>
+            </div>
         </div>
-</div>
-</body>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script>
-            setTimeout(function(){
-                $('.loader_bg').fadeToggle();
-            }, 2000);
+    </body>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        setTimeout(function() {
+            $('.loader_bg').fadeToggle();
+        }, 500);
 
-            
-            window.addEventListener("scroll",function(){
-                let menu = document.getElementById('second');
-                if(window.pageYOffset>105){
-                    menu.classList.add("cus-nav");
-                }else{
-                    menu.classList.remove("cus-nav");
-                }
+
+        window.addEventListener("scroll", function() {
+            let menu = document.getElementById('second');
+            if (window.pageYOffset > 105) {
+                menu.classList.add("cus-nav");
+            } else {
+                menu.classList.remove("cus-nav");
+            }
+        });
+
+        window.addEventListener("scroll", function() {
+            let up = document.getElementById('up');
+            if (window.pageYOffset > 130) {
+                up.style.display = "block";
+            } else {
+                up.style.display = "none";
+            }
+        })
+    </script>
+
+    <script src="js/mobileMenu.js"></script>
+    <script src=" https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/timeline.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.1/jquery.flexslider.min.js"></script>
+    <script src="js/testimonials.js"></script>
+    <script src="css/nprogress/nprogress.js"></script>
+
+    <script>
+        // ---------Responsive-navbar-active-animation-----------
+        function test() {
+            var tabsNewAnim = $("#navbarSupportedContent");
+            var selectorNewAnim = $("#navbarSupportedContent").find("li").length;
+            var activeItemNewAnim = tabsNewAnim.find(".active");
+            var activeWidthNewAnimHeight = activeItemNewAnim.innerHeight();
+            var activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
+            var itemPosNewAnimTop = activeItemNewAnim.position();
+            var itemPosNewAnimLeft = activeItemNewAnim.position();
+            $(".hori-selector").css({
+                top: itemPosNewAnimTop.top + "px",
+                left: itemPosNewAnimLeft.left + "px",
+                height: activeWidthNewAnimHeight + "px",
+                width: activeWidthNewAnimWidth + "px"
             });
+            $("#navbarSupportedContent").on("click", "li", function(e) {
+                $("#navbarSupportedContent ul li").removeClass("active");
+                $(this).addClass("active");
+                var activeWidthNewAnimHeight = $(this).innerHeight();
+                var activeWidthNewAnimWidth = $(this).innerWidth();
+                var itemPosNewAnimTop = $(this).position();
+                var itemPosNewAnimLeft = $(this).position();
+                $(".hori-selector").css({
+                    top: itemPosNewAnimTop.top + "px",
+                    left: itemPosNewAnimLeft.left + "px",
+                    height: activeWidthNewAnimHeight + "px",
+                    width: activeWidthNewAnimWidth + "px"
+                });
+            });
+        }
+        $(document).ready(function() {
+            setTimeout(function() {
+                test();
+            });
+        });
+        $(window).on("resize", function() {
+            setTimeout(function() {
+                test();
+            }, 500);
+        });
+        $(".navbar-toggler").click(function() {
+            setTimeout(function() {
+                test();
+            });
+        });
+        NProgress.start(); // start    
+        NProgress.set(0.8); // To set a progress percentage, call .set(n), where n is a number between 0..1
+        NProgress.inc(); // To increment the progress bar, just use .inc(). This increments it with a random amount. This will never get to 100%: use it for every image load (or similar).If you want to increment by a specific value, you can pass that as a parameter
+        NProgress.configure({
+            ease: 'ease',
+            speed: 1000
+        }); // Adjust animation settings using easing (a CSS easing string) and speed (in ms). (default: ease and 200)
+        NProgress.configure({
+            trickleSpeed: 100
+        }); //Adjust how often to trickle/increment, in ms.
+        NProgress.configure({
+            showSpinner: true
+        }); //Turn off loading spinner by setting it to false. (default: true)
+        NProgress.configure({
+            parent: '#container'
+        }); //specify this to change the parent container. (default: body)
+        NProgress.done(); // end
+    </script>
+    <script src="js/hideandshow.js"></script>
 
-            window.addEventListener("scroll",function(){
-                let up = document.getElementById('up');
-                if(window.pageYOffset>130){
-                    up.style.display="block";
-                }else{
-                    up.style.display="none"; 
-                }
-            })
-        </script>
-        
-        <script src="js/mobileMenu.js"></script>
-        <script src=" https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script src="js/slider.js"></script>
-        <script src="js/timeline.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.6.1/jquery.flexslider.min.js"></script>
-        <script src="js/testimonials.js"></script>
-<script>
-    // ---------Responsive-navbar-active-animation-----------
-function test() {
-  var tabsNewAnim = $("#navbarSupportedContent");
-  var selectorNewAnim = $("#navbarSupportedContent").find("li").length;
-  var activeItemNewAnim = tabsNewAnim.find(".active");
-  var activeWidthNewAnimHeight = activeItemNewAnim.innerHeight();
-  var activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
-  var itemPosNewAnimTop = activeItemNewAnim.position();
-  var itemPosNewAnimLeft = activeItemNewAnim.position();
-  $(".hori-selector").css({
-    top: itemPosNewAnimTop.top + "px",
-    left: itemPosNewAnimLeft.left + "px",
-    height: activeWidthNewAnimHeight + "px",
-    width: activeWidthNewAnimWidth + "px"
-  });
-  $("#navbarSupportedContent").on("click", "li", function (e) {
-    $("#navbarSupportedContent ul li").removeClass("active");
-    $(this).addClass("active");
-    var activeWidthNewAnimHeight = $(this).innerHeight();
-    var activeWidthNewAnimWidth = $(this).innerWidth();
-    var itemPosNewAnimTop = $(this).position();
-    var itemPosNewAnimLeft = $(this).position();
-    $(".hori-selector").css({
-      top: itemPosNewAnimTop.top + "px",
-      left: itemPosNewAnimLeft.left + "px",
-      height: activeWidthNewAnimHeight + "px",
-      width: activeWidthNewAnimWidth + "px"
-    });
-  });
-}
-$(document).ready(function () {
-  setTimeout(function () {
-    test();
-  });
-});
-$(window).on("resize", function () {
-  setTimeout(function () {
-    test();
-  }, 500);
-});
-$(".navbar-toggler").click(function () {
-  setTimeout(function () {
-    test();
-  });
-});
-
-</script>
-<script src="js/hideandshow.js"></script>
-
-</html>
+    </html>
