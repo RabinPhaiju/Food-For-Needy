@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
-.container .heroslider{
+.container .donorslider{
     margin: 0% 2% 0 2%;
     padding: 2% 0;
     font-family: 'Montserrat', sans-serif;
@@ -9,15 +9,15 @@
     grid-template-columns: repeat(auto-fit,minmax(25rem,3fr));
     align-items: center;
 }
-.heroslider .herotitle{
+.donorslider .donortitle{
     font-size: 3rem;
     font-weight: 600;
-    margin-right: 10vw;
+    margin-left: 10vw;
 }
-.heroslider .herotitle p{
-  text-align: right;
+.donorslider .donortitle p{
+  text-align: left;
 }
-.heroslider .carousel {
+.donorslider .carousel-1 {
     padding-left: 5rem;
     width: 100%;
     display: flex;
@@ -28,13 +28,13 @@
     overflow-x: hidden;
     position: relative;
   }
-  .heroslider .carousel .card-carousel {
+  .donorslider  .carousel-1 .card-carousel-1 {
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
   }
-  .heroslider .carousel .card-carousel .my-card {
+  .donorslider  .carousel-1 .card-carousel-1 .my-card {
     max-height: 20rem;
     width: 170px;
     position: relative;
@@ -48,7 +48,7 @@
     background: linear-gradient(to top, #2e5266, #6e8898);
     transition: 3s;
   }
-  .heroslider .carousel .card-carousel .my-card.active {
+  .donorslider .carousel-1 .card-carousel-1 .my-card.active {
     z-index: 3;
     -webkit-transform: scale(1) translateY(0) translateX(0);
     transform: scale(1) translateY(0) translateX(0);
@@ -56,22 +56,18 @@
     pointer-events: auto;
     transition: 3s;
   }
-  .heroslider .carousel .card-carousel .my-card.prev,.heroslider .carousel .card-carousel .my-card.next {
+  .donorslider .carousel-1 .card-carousel-1 .my-card.prev,.donorslider .carousel-1 .card-carousel-1 .my-card.next {
     z-index: 2;
     opacity: 0.6;
     pointer-events: auto;
     transition: 3s;
   }
-  .heroslider .carousel .card-carousel .my-card.prev {
+  .donorslider .carousel-1 .card-carousel-1 .my-card.prev {
     -webkit-transform: scale(0.8) translateY(-1rem) translateX(26rem);
     transform: scale(0.8) translateY(-1rem) translateX(26rem);
   }
-  .heroslider .carousel .card-carousel .my-card.next {
+  .donorslider .carousel-1 .card-carousel-1 .my-card.next {
     -webkit-transform: scale(0.8) translateY(-1rem) translateX(-26rem);
     transform: scale(0.8) translateY(-1rem) translateX(-26rem);
   }
   
-  .heroslider .joinIn{
-    font-size: 3rem;
-    font-weight: 500;  
-  }

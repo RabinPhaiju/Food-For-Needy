@@ -39,6 +39,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/tojoin.css">
         <link rel="stylesheet" href="css/scrollup.css">
+        <link rel="stylesheet" href="css/donorslider.css">
         <link rel="stylesheet" href="css/heroslider.css">
         <link rel="stylesheet" href="css/D-R-DCounts.css">
         <link rel="stylesheet" href="css/parallax.css">
@@ -415,10 +416,44 @@
                        TO MANY OTHERS. "
                     </p>
             </div> -->
+
+            <div class ="donorslider">
+            <div class="carousel-1">
+                    <div class="card-carousel-1">
+                        <?php
+                                $sql = "SELECT * from `register` WHERE `user_type`='Donator'";// where `verified`='1' AND `status`='1'";
+                                    require_once("html/DBConnect.php");
+                                    $result = $conn-> query($sql);
+                                    $total = mysqli_num_rows($result);
+                                    $hero_count =0;
+
+                                if($result-> num_rows >0){
+                                while($row = $result-> fetch_assoc()){  
+                                  $filepath="html/files/".$row["pic"];
+                                  if($row["pic"]!=null){
+                            ?>
+                            <div class="my-card hero-card" id="1"><img src="<?php echo $filepath; ?>"></div>
+                            <?php 
+                                $hero_count++;
+                            if($hero_count==10){
+                            break;
+                            }
+                            }}} ?>
+
+                    </div>
+                </div>
+                <div class="donortitle">
+                    <p>Food <br>Rescue <br><span style="color: hsl(34, 100%, 60%);">Donor</span></p>
+                </div>
+            </div>
+
+            <br>
+
             <div class="heroslider">
                 <div class="herotitle">
                     <p>Food <br>Rescue <br><span style="color: hsl(34, 100%, 60%);">Volunteer</span></p>
                 </div>
+                
                 <div class="carousel">
                     <div class="card-carousel">
                         <?php
@@ -443,14 +478,6 @@
 
                     </div>
                 </div>
-                <!-- <div class="joinIn">
-                    <p>Want to become a <span style="color: hsl(34, 100%, 60%);">Volunteer ?</span>
-                        <br>
-                        <button>
-                            <a href="#">More Info &nbsp; <i class="fa fa-arrow-right"></i></a>
-                        </button>
-                    </p>
-                </div> -->
             </div>
 
             <div class="D-R-D-Counts">
