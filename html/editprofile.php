@@ -5,6 +5,8 @@ $b = $_POST['firstname'];
 $c = $_POST['lastname'];
 $d = $_POST['user_type'];
 $e = $_POST['location'];
+$lan = $_POST['lan'];
+$log = $_POST['log'];
 $f = $_POST['contact'];
 // $g = $_POST['email'];
 $h = $_POST['dob'];
@@ -41,7 +43,7 @@ if(isset($_SESSION['usergoogle'])){
         else{
 
 // $b=$_SESSION['username'];
-$sql = " UPDATE `register` SET `user_type`='$d',`firstname`='$b',`lastname`='$c',`location`='$e',`contact`='$f',`dob`='$h' WHERE `reg_id`='$id'";
+$sql = " UPDATE `register` SET `user_type`='$d',`firstname`='$b',`lastname`='$c',`location`='$e',`lan`='$lan',`log`='$log',`contact`='$f',`dob`='$h' WHERE `reg_id`='$id'";
 // echo $sql;exit;
 }
 $_SESSION['name']=" ".$b." ".$c;
@@ -346,11 +348,8 @@ top: 35%;
                                                 <dt class="p-10">Location</dt>
                                                 <dd>
                                                     <div class="fg-line">
-                                                        <select class="form-control" name="location" required="required">
-                                                                          <option value="Bhaktapur">Bhaktapur</option>
-                                                                          <option value="Kathmandu">kathmandu</option>
-                                                                          <option value="Lalitpur">Lalitpur</option>
-                                                                      </select>
+                                                        <input type="number" step=0.0001 name="lan" class="form-control" value="<?php echo $row["lan"];?>" required placeholder="latitude">
+                                                        <input type="number" step=0.0001 name="log" class="form-control" value="<?php echo $row["log"];?>" required placeholder="longitude">
                                                     </div>
                                                 </dd>
                                             </dl>
