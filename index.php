@@ -59,6 +59,7 @@
                 margin-right: auto;
                 border-radius: 8px;
                 height: 20rem;
+                width: 20rem
             }
             
             @media (min-width: 1200px) {
@@ -416,6 +417,8 @@
                        TO MANY OTHERS. "
                     </p>
             </div> -->
+            
+            <br>
 
             <div class ="donorslider">
             <div class="carousel-1">
