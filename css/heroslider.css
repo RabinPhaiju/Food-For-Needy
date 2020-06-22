@@ -75,3 +75,13 @@
     font-size: 3rem;
     font-weight: 500;  
   }
+
+  @media screen and (max-width: 765px){ 
+    .heroslider .herotitle {
+      padding-top: 2rem;
+      padding-bottom: .5rem;
+    }  
+    .heroslider .carousel{
+      padding-bottom: 2rem;
+    }
+  }

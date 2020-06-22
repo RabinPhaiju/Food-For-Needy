@@ -71,3 +71,9 @@
     transform: scale(0.8) translateY(-1rem) translateX(-26rem);
   }
   
+  @media screen and (max-width: 765px){ 
+    .donorslider .carousel-1 {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }  
+  }
