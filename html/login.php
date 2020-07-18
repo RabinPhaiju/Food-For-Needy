@@ -292,7 +292,7 @@ else{
                     <p id="match" class="invalid">Matched</p>
                 </div></td>
                 </tr></table>
-                <div class="g-recaptcha" data-sitekey="6Lc5gOEUAAAAADokFsP3Xe8v9MPGqHwRffIrvFCp"></div>
+                <!-- <div class="g-recaptcha" data-sitekey="6LfT66cZAAAAAISsj0soTiDZi8OnQMFNNIoJ815U"></div> -->
                 <!-- 6LfVguEUAAAAADpXmcofx5m40kp_nwpHNzMZX3ns -->
                 <br/>
                 <button id="signupButton" name="signup" class="btnss" class="invalid1">Sign Up</button>
