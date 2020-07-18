@@ -359,10 +359,39 @@
                                             <h2 style="margin-top:10px">
                                                 <?php echo $row['title'];?>
                                             </h2>
-                                            <em><?php echo date('d', $schedule_date); echo " ";
-                                 echo date('M', $schedule_date);?>, <?php echo " "; echo date('Y', $schedule_date);?></em>
+                                            <em><?php $post_date=strtotime($row['current_date']); 
+                                            echo date('d', $post_date); echo " ";
+                                 echo date('M', $post_date);?>, <?php echo " "; echo date('Y', $post_date);?></em>
                                             <p>
                                                 <?php echo $row['description'];?>
+                                                
+                                                <br><br>Location : <?php echo $row['location'];?>
+                                                <br>Date : <?php echo $row ['day']?>, <?php echo $row['date']?> 
+                                                
+                                                <br>Time : <?php 
+                                                $time_start = $row['start_time'];
+                                                if($time_start <= "12:00:00")
+                                                    {echo date("h",strtotime($time_start));
+                                                    echo(":");
+                                                    echo date("i",strtotime($time_start));
+                                                    echo('am');}
+                                                else{echo date("h",strtotime($time_start));
+                                                    echo(":");
+                                                    echo date("i",strtotime($time_start));
+                                                    echo('pm');}
+                                                ?> - 
+                                                <?php 
+                                                $time_end = $row['end_time'];
+                                                if($time_end <= "12:00:00")
+                                                    {echo date("h",strtotime($time_end));
+                                                    echo(":");
+                                                    echo date("i",strtotime($time_end));  
+                                                    echo('am');}
+                                                else{echo date("h",strtotime($time_end));
+                                                    echo(":");
+                                                    echo date("i",strtotime($time_end));echo('pm');}
+                                                ?>
+                                                
                                             </p>
                                         </li>
                                         <?php }} ?>
@@ -421,7 +450,7 @@
             <br>
 
             <div class ="donorslider">
-            <div class="carousel-1">
+                <div class="carousel-1">
                     <div class="card-carousel-1">
                         <?php
                                 $sql = "SELECT * from `register` WHERE `user_type`='Donator'";// where `verified`='1' AND `status`='1'";

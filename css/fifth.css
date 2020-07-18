@@ -283,7 +283,7 @@ a {
 .cd-horizontal-timeline .events-content {
   position: relative;
   width: 100%;
-  margin: 2em 0;
+  margin: 2rem 0;
   overflow: hidden;
   -webkit-transition: height 0.4s;
   -moz-transition: height 0.4s;
@@ -314,7 +314,7 @@ a {
   position: relative;
   z-index: 2;
   opacity: 1;
-  margin-top: -1.5rem;
+  margin-top: -1rem;
   -webkit-transform: translateX(0);
   -moz-transform: translateX(0);
   -ms-transform: translateX(0);

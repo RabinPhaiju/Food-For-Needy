@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 17, 2020 at 07:39 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.4
+-- Generation Time: Jun 27, 2020 at 03:05 PM
+-- Server version: 10.1.39-MariaDB
+-- PHP Version: 7.3.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -32,7 +33,7 @@ CREATE TABLE `contact` (
   `email` varchar(50) DEFAULT NULL,
   `message` varchar(255) DEFAULT NULL,
   `id` int(8) NOT NULL,
-  `date` datetime DEFAULT current_timestamp()
+  `date` datetime DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -53,14 +54,14 @@ INSERT INTO `contact` (`name`, `email`, `message`, `id`, `date`) VALUES
 CREATE TABLE `content` (
   `id` int(10) NOT NULL,
   `title` varchar(50) NOT NULL,
-  `description` text DEFAULT NULL,
-  `created_at` datetime DEFAULT current_timestamp(),
+  `description` text,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
   `postby_id` int(10) DEFAULT NULL,
-  `is_verified` int(1) DEFAULT 0,
+  `is_verified` int(1) DEFAULT '0',
   `verifiedby_id` int(10) DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL ON UPDATE current_timestamp(),
+  `updated_at` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `hits` int(6) DEFAULT NULL,
-  `status` int(1) DEFAULT 1
+  `status` int(1) DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -90,14 +91,14 @@ INSERT INTO `content` (`id`, `title`, `description`, `created_at`, `postby_id`, 
 CREATE TABLE `file` (
   `id` int(6) NOT NULL,
   `title` varchar(255) NOT NULL,
-  `remarks` text DEFAULT NULL,
-  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
-  `postby_id` int(6) NOT NULL DEFAULT 1,
-  `is_verified` tinyint(1) NOT NULL DEFAULT 0,
-  `verifiedby_id` int(6) NOT NULL DEFAULT 1,
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE current_timestamp(),
-  `hits` bigint(20) NOT NULL DEFAULT 1,
-  `status` tinyint(4) NOT NULL DEFAULT 1
+  `remarks` text,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `postby_id` int(6) NOT NULL DEFAULT '1',
+  `is_verified` tinyint(1) NOT NULL DEFAULT '0',
+  `verifiedby_id` int(6) NOT NULL DEFAULT '1',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `hits` bigint(20) NOT NULL DEFAULT '1',
+  `status` tinyint(4) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -112,12 +113,12 @@ CREATE TABLE `food` (
   `pic` varchar(255) DEFAULT NULL,
   `name` varchar(20) NOT NULL,
   `location` varchar(30) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` datetime DEFAULT NULL ON UPDATE current_timestamp(),
-  `verified` tinyint(1) NOT NULL DEFAULT 1,
-  `verifiedby_id` int(6) NOT NULL DEFAULT 0 COMMENT 'Verified By',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `verified` tinyint(1) NOT NULL DEFAULT '1',
+  `verifiedby_id` int(6) NOT NULL DEFAULT '0' COMMENT 'Verified By',
   `remark` varchar(50) DEFAULT NULL,
-  `status` tinyint(4) DEFAULT 1,
+  `status` tinyint(4) DEFAULT '1',
   `quantity` varchar(10) DEFAULT NULL,
   `ExpDate` timestamp NULL DEFAULT NULL,
   `Description` varchar(50) NOT NULL,
@@ -155,7 +156,7 @@ CREATE TABLE `messages` (
   `msg_from` varchar(20) DEFAULT NULL,
   `subject` varchar(30) DEFAULT NULL,
   `message` varchar(255) DEFAULT NULL,
-  `date` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `date` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -195,7 +196,7 @@ CREATE TABLE `records` (
   `record_id` int(10) UNSIGNED NOT NULL,
   `description` varchar(100) DEFAULT NULL,
   `reg_id` int(10) UNSIGNED DEFAULT NULL,
-  `date` datetime NOT NULL DEFAULT current_timestamp()
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -222,7 +223,10 @@ INSERT INTO `records` (`record_id`, `description`, `reg_id`, `date`) VALUES
 (137, 'roshan schedule at Bhaktapur in Thursday from 13:00 to 16:00 title: next one', 0, '2020-04-21 12:42:51'),
 (138, 'roshan schedule at Bhaktapur in Tuesday from 13:00 to 14:00 title: today', 0, '2020-04-21 12:53:04'),
 (139, 'roshan schedule at Bhaktapur in Thursday from 11:00 to 13:00 title: today, roshan', 0, '2020-04-30 11:36:21'),
-(140, 'rbnph added Dalmot in Bhaktapur (12).', 51, '2020-05-11 10:42:44');
+(140, 'rbnph added Dalmot in Bhaktapur (12).', 51, '2020-05-11 10:42:44'),
+(141, 'uramud schedule at Bhaktapur in Tuesday from 10:30 to 14:00 title: Aid for people affected by Corona', 0, '2020-06-26 19:43:25'),
+(142, 'uramud schedule at Bhaktapur in Tuesday from 10:30 to 14:00 title: Aid for people affected by Corona', 0, '2020-06-26 19:43:37'),
+(143, 'uramud schedule at Bhaktapur in Tuesday from 10:30 to 14:30 title: Corona Aid', 0, '2020-06-27 17:23:29');
 
 -- --------------------------------------------------------
 
@@ -241,16 +245,16 @@ CREATE TABLE `register` (
   `location` varchar(30) DEFAULT NULL,
   `lan` float DEFAULT NULL,
   `log` float DEFAULT NULL,
-  `contact` text CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Contact No',
+  `contact` text CHARACTER SET utf8 COLLATE utf8_unicode_ci COMMENT 'Contact No',
   `dob` date DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` datetime DEFAULT NULL ON UPDATE current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `password` varchar(40) NOT NULL,
   `secret_key` varchar(6) DEFAULT NULL,
-  `verified` tinyint(1) NOT NULL DEFAULT 0,
-  `verifiedby_id` int(6) NOT NULL DEFAULT 0 COMMENT 'Verified By',
+  `verified` tinyint(1) NOT NULL DEFAULT '0',
+  `verifiedby_id` int(6) NOT NULL DEFAULT '0' COMMENT 'Verified By',
   `remark` varchar(50) DEFAULT NULL,
-  `status` tinyint(4) DEFAULT 1,
+  `status` tinyint(4) DEFAULT '1',
   `code` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -265,7 +269,8 @@ INSERT INTO `register` (`reg_id`, `username`, `pic`, `user_type`, `firstname`, `
 (53, 'sapana', '', 'Sponser', 'sapana', 'thapa', 'sapanathapa@gmail.com', NULL, 27.6702, 85.4224, NULL, NULL, '2020-03-16 02:50:49', '2020-06-16 12:31:34', '279cb0d7637c74a0a9db05f9957462d9', NULL, 1, 0, NULL, 1, 'sapana2313'),
 (54, 'Sarah', '', 'Receiver', 'John', 'Marker', 'Markerjohn12@gmail.com', NULL, 27.6646, 85.4416, NULL, NULL, '2020-03-16 02:50:49', '2020-06-16 12:32:00', '279cb0d7637c74a0a9db05f9957462d9', NULL, 1, 0, NULL, 1, 'marker2313'),
 (71, 'ram2', 'ram2.jpg', 'Volunteer', 'Ram', 'Kumar', 'ramkumar2@gmail.com', NULL, 27.6704, 85.4423, NULL, NULL, '2020-03-16 02:50:49', '2020-06-16 12:32:21', '279cb0d7637c74a0a9db05f9957462d9', NULL, 1, 0, NULL, 1, 'marker2313'),
-(72, 'david3', 'david3.jpg', 'Volunteer', 'David', 'Cater', 'davidcarter2@gmail.com', NULL, 27.676, 85.446, NULL, NULL, '2020-03-16 02:50:49', '2020-06-16 12:32:39', '279cb0d7637c74a0a9db05f9957462d9', NULL, 1, 0, NULL, 1, 'marker2313');
+(72, 'david3', 'david3.jpg', 'Volunteer', 'David', 'Cater', 'davidcarter2@gmail.com', NULL, 27.676, 85.446, NULL, NULL, '2020-03-16 02:50:49', '2020-06-16 12:32:39', '279cb0d7637c74a0a9db05f9957462d9', NULL, 1, 0, NULL, 1, 'marker2313'),
+(73, 'uramud', 'uramud.jpg', 'Donator', 'Roshan', 'Dumaru', 'uramud07@gmail.com', 'Bhaktapur', 27.6768, 85.4402, '9841215692', '1999-03-07', '2020-06-22 07:19:12', '2020-06-22 15:05:24', '74b83418ce5c62946a3dc4c5fe7fc4d1', NULL, 1, 0, NULL, 1, '1592811250');
 
 -- --------------------------------------------------------
 
@@ -282,8 +287,17 @@ CREATE TABLE `schedule` (
   `date` date DEFAULT NULL,
   `title` varchar(40) DEFAULT NULL,
   `description` varchar(200) DEFAULT NULL,
-  `location` varchar(30) DEFAULT NULL
+  `location` varchar(50) DEFAULT NULL,
+  `current_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `schedule`
+--
+
+INSERT INTO `schedule` (`schedule_id`, `updated_by`, `day`, `start_time`, `end_time`, `date`, `title`, `description`, `location`, `current_date`) VALUES
+(2, 'uramud', 'Tuesday', '10:30:00', '14:00:00', '2020-07-08', 'Aid for people affected by Corona', 'We the member of Leo Club are helding and food distribution program in upcoming days as per schedule. So, please share this information to many people as much as possible.', 'Bhaktapur', '2020-06-27 17:21:13'),
+(3, 'uramud', 'Tuesday', '10:30:00', '14:30:00', '2020-07-07', 'Corona Aid', 'We the member of Leo Club are helding and food distribution program in upcoming days as per schedule. So, please share this information to many people as much as possible.\r\n\r\n', 'Bhaktapur', '2020-06-27 17:23:29');
 
 -- --------------------------------------------------------
 
@@ -305,12 +319,12 @@ CREATE TABLE `user` (
   `remarks` varchar(50) NOT NULL,
   `dob` date NOT NULL,
   `gender` int(1) NOT NULL,
-  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `postby_id` int(11) DEFAULT NULL,
-  `is_verified` int(11) NOT NULL DEFAULT 0,
+  `is_verified` int(11) NOT NULL DEFAULT '0',
   `verifiedby_id` int(6) DEFAULT NULL,
-  `updated_at` datetime NOT NULL DEFAULT current_timestamp(),
-  `status` int(11) NOT NULL DEFAULT 1
+  `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `status` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -418,7 +432,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `records`
 --
 ALTER TABLE `records`
-  MODIFY `record_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
+  MODIFY `record_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=144;
 
 --
 -- AUTO_INCREMENT for table `register`
@@ -430,13 +444,13 @@ ALTER TABLE `register`
 -- AUTO_INCREMENT for table `schedule`
 --
 ALTER TABLE `schedule`
-  MODIFY `schedule_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `schedule_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
