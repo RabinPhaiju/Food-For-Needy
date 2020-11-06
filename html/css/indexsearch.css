@@ -8,7 +8,7 @@
 
 .searchTerm {
     width: 40%;
-    border: 3px solid rgb(134, 135, 135);
+    border: 1px solid #FF5511;
     border-right: none;
     padding: 15px;
     height: 20px;
@@ -23,28 +23,34 @@
 
 .searchButton {
     width: 50px;
-    height: 36px;
-    border: 1px solid rgb(134, 135, 135);
-    background: rgb(134, 135, 135);
+    height: 31.5px;
+    background-color: #FF5511;
     text-align: center;
     color: #fff;
     border-radius: 0 5px 5px 0;
     cursor: pointer;
     font-size: 20px;
+    border: none
+}
+
+.fa-chevron-right {
+    text-align: center;
 }
 
 .naviright {
     margin-left: 5px;
-    padding-top: 5px;
     width: 40px;
     height: 36px;
-    border: 1px solid rgb(134, 135, 135);
-    background: rgb(134, 135, 135);
-    text-align: center;
+    /* border: 1px solid rgb(134, 135, 135); */
+    background-color: #FF5511;
     color: #fff;
     border-radius: 0 5px 5px 0;
     cursor: pointer;
     font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* transform: translate(-50%, -50%); */
 }
 
 .navileft {
@@ -52,8 +58,7 @@
     width: 40px;
     height: 36px;
     margin-left: 100px;
-    border: 1px solid rgb(134, 135, 135);
-    background: rgb(134, 135, 135);
+    background-color: #FF5511;
     text-align: center;
     color: #fff;
     border-radius: 5px 0 0 5px;
@@ -68,8 +73,7 @@
     width: 40px;
     height: 36px;
     margin-left: 100px;
-    border: 1px solid rgb(134, 135, 135);
-    background: rgb(134, 135, 135);
+    background-color: #FF5511;
     text-align: center;
     color: #fff;
     border-radius: 5px 5px 5px 5px;

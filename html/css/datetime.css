@@ -25,11 +25,11 @@
 /*cal*/
 
 .icons {
-    font-size: 1em;
     display: block;
     position: relative;
-    width: 6em;
-    height:6em;
+    width: 250px;
+    height:80px;
+    /* padding:10px; */
     background-color: #fff;
     box-shadow: 0 0 0 1px #e6e6e6, 0 2px 0 #bdbdbd;
     overflow: hidden;
@@ -37,7 +37,9 @@
     transition: all 0.1s linear;
     margin: 0px auto;
 }
-
+.icons_mths{
+    font-size: 14px;
+}
 .icons:hover {
     cursor: default;
 }

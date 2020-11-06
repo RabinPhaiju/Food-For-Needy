@@ -93,18 +93,19 @@
         flex-wrap: wrap-reverse;
         font-size: 1.1rem;
         justify-content: space-around;
-        background: #457fca;  /* fallback for old browsers */
-       
-
-
-        
+        background-color: #ff7e5f;
+        /* fallback for old browsers */
+        display: flex;
+        /* justify-content:center; */
+        align-items: center;
+        z-index: 0;
         /* background: #2c3e50; */
         /* fallback for old browsers */
         /* background: -webkit-linear-gradient(to left, #3498db, #41586f); */
         /* Chrome 10-25, Safari 5.1-6 */
         /* background: linear-gradient(to left, #3498db, #41586f); */
         /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        padding-top: 8px;
+        padding: 10px 0;
         /* padding-bottom: -5px; */
         /* margin-bottom: -1%; */
     }
@@ -130,17 +131,20 @@
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         padding: 6px;
     }
-
+    
     .navbar .nav1 a,
     .navbar .nav2 a,
-    .navbar .nav4 a{
-        background-color: rgba(107, 81, 57, 0.271);
+    .navbar .nav4 a {
+        /* background-color: rgba(107, 81, 57, 0.271); */
+        font-weight: 700;
+        border: 1px solid transparent;
     }
     
     .navbar .navbar1 a:hover {
         /* background-color: rgb(42, 127, 45); */
-        background-color: #5CB85C;
+        /* background-color: #5CB85C; */
         border-radius: 5%;
+        border: 1px solid #333333;
         /* color: white; */
     }
     
@@ -160,10 +164,11 @@
         position: relative;
         z-index: 3;
     }
+    
     .navbar .nav1:hover,
     .navbar .nav2:hover,
-    .navbar .nav4:hover{
-        transform: translateY(-5px);
+    .navbar .nav4:hover {
+        /* transform: translateY(-3px); */
         transition-duration: 0.5s;
     }
     
@@ -180,7 +185,6 @@
         display: block;
         z-index: 2;
     }
-    
     /* .navbar .nav0:hover {
         transform: translateY(-5px);
         transition-duration: 0.5s;

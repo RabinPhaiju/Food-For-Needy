@@ -37,7 +37,7 @@ hr.blackLin {
 .body_wrapper {
     width: 100%;
     height: 100%;
-    background: #cac7c7;
+    background: #ffffff;
     overflow: hidden;
     /* margin-top: -6%; */
 }
@@ -287,11 +287,13 @@ hr.blackLin {
 
 .sidemenu {
     float: left;
-    width: 200px;
+    width: 280px;
     height: calc(100vh - 10px);
-    background: #909bb0;
+    z-index: 100;
+    background: #2f3542;
     /* overflow-y: auto; */
     scrollbar-width: none;
+    padding: 10px 0;
 }
 
 .sidemenu::-webkit-scrollbar {
@@ -302,12 +304,15 @@ hr.blackLin {
     background: #3f4d67;
 }
 
+
+/* background-color: #ff7e5f; */
+
 .sidemenu::-webkit-scrollbar-thumb {
     background: #e6e0e0;
 }
 
 .sidemenu>ul {
-    background: #666d78;
+    background: #2f3542;
 }
 
 .sidemenu>ul>li>a {
@@ -315,8 +320,8 @@ hr.blackLin {
     position: relative;
     color: #fff;
     text-decoration: none;
-    padding: 15px;
-    background: rgba(87, 83, 83, 0.5);
+    padding: 15px 30px;
+    background: rgba(87, 83, 83, 0.01);
 }
 
 .sidemenu>ul>li>a:hover {

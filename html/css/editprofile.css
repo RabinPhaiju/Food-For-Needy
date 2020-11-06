@@ -90,13 +90,18 @@
 
 .profile-panel {
     margin-top: 2%;
-    background-color: rgb(190, 192, 192);
+    border: 1px solid #dcdadb;
+    background-color: #f1f2f6;
 }
 
 .profile-panel .panel-heading {
     padding: 10px 25px;
     /* background: #4bb515; */
     border-radius: 0;
+}
+
+#outputs {
+    border: 1px solid #dcdadb
 }
 
 .profile-panel .panel-heading h2 {
@@ -236,8 +241,8 @@
 .btn:hover,
 .btn:active,
 .btn:focus {
-    background: #164b06;
-    border-color: #164b06;
+    background: #FF7E5F;
+    border-color: #FF7E5F;
 }
 
 .btn.btn-outline {
@@ -279,19 +284,21 @@
     flex-wrap: wrap-reverse;
     font-size: 1.1rem;
     justify-content: space-around;
-    /* background: #2c3e50; */
-    background: #457fca;
+    background-color: #ff7e5f;
     /* fallback for old browsers */
+    display: flex;
+    /* justify-content:center; */
+    align-items: center;
+    z-index: 0;
+    /* background: #2c3e50; */
     /* fallback for old browsers */
     /* background: -webkit-linear-gradient(to left, #3498db, #41586f); */
     /* Chrome 10-25, Safari 5.1-6 */
     /* background: linear-gradient(to left, #3498db, #41586f); */
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    padding-top: 10px;
-    padding-bottom: 5px;
-    height: 50px;
-    /* margin-top: -2%; */
-    /* margin-bottom: -10%; */
+    padding: 10px 0;
+    /* padding-bottom: -5px; */
+    /* margin-bottom: -1%; */
 }
 
 .navbars1 {
@@ -307,30 +314,31 @@
 }
 
 .navbars a {
-    /* margin-top: 10px; */
     text-decoration: none;
-    color: black;
     /* color: rgb(43, 42, 42); */
+    color: black;
     border-radius: 8%;
-    font-size: 1.6rem;
+    font-size: 18px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding: 6px;
-    /* font-size: 13px; */
 }
 
 .navbars .navbars1 a:hover {
     /* background-color: #4CAF50; */
     /* background-color: rgb(42, 127, 45); */
-    background-color: #5CB85C;
+    /* background-color: #5CB85C; */
     border-radius: 5%;
     /* color: white; */
     color: #000;
+    border: 1px solid #333333;
 }
 
 .navbars .nav1 a,
 .navbars .nav2 a,
 .navbars .nav4 a {
-    background-color: rgba(107, 81, 57, 0.271);
+    font-weight: 700;
+    border: 1px solid transparent;
+    /* background-color: rgba(107, 81, 57, 0.271); */
 }
 
 .navbars>div {
@@ -345,8 +353,9 @@
 .navbars .nav1:hover,
 .navbars .nav2:hover,
 .navbars .nav4:hover {
-    transform: translateY(-5px);
-    transition-duration: 0.5s;
+    border-radius: 5%;
+    /* transform: translateY(-5px);
+    transition-duration: 0.5s; */
 }
 
 .navbars .nav3,

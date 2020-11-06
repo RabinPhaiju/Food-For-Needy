@@ -76,7 +76,7 @@ if($pos==9999){
 
 .searchTerm {
     width: 30%;
-    border: 3px solid rgb(134, 135, 135);
+    border: 1px solid #FF5511;
     border-right: none;
     padding: 15px;
     height: 20px;
@@ -91,9 +91,9 @@ if($pos==9999){
 
 .searchButton {
     width: 40px;
-    height: 36px;
-    border: 1px solid rgb(134, 135, 135);
-    background: rgb(134, 135, 135);
+    height: 32.5px;
+    border: 1px solid #FF5511;
+    background: #FF5511;
     text-align: center;
     color: #fff;
     border-radius: 0 5px 5px 0;
@@ -105,8 +105,8 @@ if($pos==9999){
     padding-top: 5px;
     width: 40px;
     height: 36px;
-    border: 1px solid rgb(134, 135, 135);
-    background: rgb(134, 135, 135);
+    
+    background: #FF5511;
     text-align: center;
     color: #fff;
     border-radius: 0 5px 5px 0;
@@ -119,8 +119,8 @@ if($pos==9999){
     width: 40px;
     height: 36px;
     margin-left: 100px;
-    border: 1px solid rgb(134, 135, 135);
-    background: rgb(134, 135, 135);
+    
+    background:#FF5511;
     text-align: center;
     color: #fff;
     border-radius: 5px 0 0 5px;
@@ -135,8 +135,8 @@ if($pos==9999){
     width: 40px;
     height: 36px;
     margin-left: 100px;
-    border: 1px solid rgb(134, 135, 135);
-    background: rgb(134, 135, 135);
+    
+    background: #FF5511;
     text-align: center;
     color: #fff;
     border-radius: 5px 5px 5px 5px;

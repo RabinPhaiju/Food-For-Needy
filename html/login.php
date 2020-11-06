@@ -18,15 +18,15 @@ $error="";
 $sentmails=@$_GET['sentmails'];
 // echo $sentmails;
 
-if(isset($_POST['signup'])) {
-    $captcha=$_POST["g-recaptcha-response"];
-    $secretkey="6Lc5gOEUAAAAAIpiTS11QAncgeDmGL0zA06I369a";
-    // 6LfVguEUAAAAAOFeDAHrPb-0xy3hnSRFG7Os6l4H
-    $url='https://www.google.com/recaptcha/api/siteverify?secret='.urldecode($secretkey).'&response='.urldecode($captcha).'';
-    $response=file_get_contents($url);
-    $responseKey= json_decode($response,TRUE);
-    // print_r($responseKey);
-}
+// if(isset($_POST['signup'])) {
+//     $captcha=$_POST["g-recaptcha-response"];
+//     $secretkey="6Lc5gOEUAAAAAIpiTS11QAncgeDmGL0zA06I369a";
+//     // 6LfVguEUAAAAAOFeDAHrPb-0xy3hnSRFG7Os6l4H
+//     $url='https://www.google.com/recaptcha/api/siteverify?secret='.urldecode($secretkey).'&response='.urldecode($captcha).'';
+//     $response=file_get_contents($url);
+//     $responseKey= json_decode($response,TRUE);
+//     // print_r($responseKey);
+// }
 
 
 if(isset($_POST['signin'])){
@@ -122,7 +122,7 @@ if($p1==$p2){
 }
 
 }else if(isset($_POST['signup'])) {
-    if($responseKey["success"]){
+   
 $aa=$_POST['username'];
 $a=strtolower($aa);
 $b=$_POST['firstname'];
@@ -207,9 +207,7 @@ else{
     }
     // echo '<script type="text/JavaScript" >container.classList.add("right-panel-active");</script>';
     // echo "<script>alert('Username or Password Incorrect111!');</script>";
-    }else{
-        $error="Enter captcha!";
-    }
+   
 }else{
 }    
 ?>

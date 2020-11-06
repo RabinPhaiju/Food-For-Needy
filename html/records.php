@@ -81,7 +81,7 @@ include 'session.php';
   text-align: left;
 }
 .panel table th {
-  background: #999;
+  background: #FF7E5F;
   color: #fff;
   font-size: .85em;
   letter-spacing: .1em;

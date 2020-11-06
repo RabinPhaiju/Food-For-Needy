@@ -77,7 +77,7 @@
 .chat .chat-header {
     padding: 20px;
     border-bottom: 2px solid white;
-    background-color: #7c7f88;
+    background-color: #ff7f5ff5;
 }
 
 .chat .chat-header img {
@@ -198,6 +198,7 @@
 .chat .chat-message button:hover {
     color: #75b1e8;
 }
+
 
 /* .online,
 .offline,
