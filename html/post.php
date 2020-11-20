@@ -30,7 +30,7 @@ $search=0;
 <body>
     <div class="navbar">
         <div class="nav0">
-            <a href="../index.html"><img src="files/mainlogo.jpg" style="border-radius: 20%;" width="40px" alt="Food for Needy">&nbsp;</a>
+            <a href="../index.php"><img src="files/mainlogo.jpg" style="border-radius: 20%;" width="40px" alt="Food for Needy">&nbsp;</a>
         </div>
         <div class="navbar1">
             <div class="nav3">&nbsp;&nbsp;&nbsp;<i class="fa fa-user-cog fa-2x" aria-hidden="true"></i>

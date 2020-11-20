@@ -75,6 +75,19 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="css/datetime.css">
     <link rel="stylesheet" href="css/toast.css">
     <style>
+       .fas-fa-times{
+               background-color:transparent;     
+               float:left;
+               color:orange;
+               border-color:transparent;
+               margin:-22px 0 0 -10px;
+            }
+            a>.fas-fa-times{
+
+            }
+            .fas-fa-times:hover{
+                color:red;
+            }
     .plus {
         margin-left:30px;
         color:#4286f4; 
@@ -259,6 +272,7 @@ if (isset($_POST['submit'])) {
             }
             
             $i=0;
+              $current_user = $_SESSION['username'];
             while($i!=7){
                 $today_time = date("Y-m-d", strtotime("$inc_date days"));
                 //  echo $today_time;
@@ -267,17 +281,19 @@ if (isset($_POST['submit'])) {
                     <div class="cd-schedule__top-info"><span><?php echo "&nbsp&nbsp&nbsp".$weeks[$i]."<br>".$today_time;?></span></div>
                     <ul>
                     <?php 
-                $sql="SELECT * FROM `schedule` WHERE `date`='$today_time' and `day`='$weeks[$i]' ";
+                $sql="SELECT * FROM `schedule` WHERE `date`='$today_time' and `day`='$weeks[$i]' and `updated_by`='$current_user' ";
                 require_once("DBConnect.php");
 	            $result = $conn-> query($sql);
 	            if($result-> num_rows >0){
                     while($row = $result-> fetch_assoc()){ 
+                           $current_schedule_id = $row['schedule_id'];
                          ?>
                         <li class="cd-schedule__event">
-                            <a data-start="<?=$row["start_time"]?>" data-end="<?=$row["end_time"]?>" data-content="event-abs-circuit" data-event="event-1" href="#0">
-                                <em class="cd-schedule__name"><?=$row["title"]?></em>
-                                <em class="cd-schedule__content"><?=$row["description"]?></em>
-                            </a>
+                            <a onclick="return confirm('Are you sure you want to delete this schedule')" data-start="<?=$row["start_time"]?>" data-end="<?=$row["end_time"]?>" data-content="event-abs-circuit" data-event="event-1" href="deleteschedule.php?id=<?=$current_schedule_id?>">
+                                                <i class="fas fa-times fas-fa-times"></i>
+                                                    <em class="cd-schedule__name"><?=$row["title"]?></em>
+                                                    <em class="cd-schedule__content"><?=$row["description"]?></em>
+                                                </a>
                         </li>
                     <?php
                  } }?>

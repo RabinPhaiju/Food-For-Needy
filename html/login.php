@@ -84,30 +84,30 @@ if($p1==$p2){
 				$sqlforget="UPDATE `register` SET `password`='$psws' WHERE (`username`='$u' OR `email`='$u') AND `code`='$code'";
                 if(mysqli_query($conn, $sqlforget)){
                     $done="Password Changed Successfully";
-                    require('phpmailer/class.phpmailer.php');
-                    require('phpmailer/class.smtp.php');
-                    $email=$u;
+                    // require('phpmailer/class.phpmailer.php');
+                    // require('phpmailer/class.smtp.php');
+                    // $email=$u;
                 
-                    $message_body = "Password successfully changed. :<br/><br/>";
-                    $mail = new PHPMailer();
-                    $mail->IsSMTP();
-                    $mail->SMTPDebug = 0;
-                    $mail->SMTPAuth = TRUE;
-                    $mail->SMTPSecure = 'tls'; // tls or ssl
-                    $mail->Port     = "587";
-                    $mail->Username = "fforneedy@gmail.com";
-                    $mail->Password = "FOODISLIFE2020";
-                    $mail->Host     = "smtp.gmail.com";
-                    $mail->Mailer   = "smtp";
-                    $mail->SetFrom("fforneedy@gmail.com", "Food for needy");
-                    $mail->AddAddress($email);
-                    $mail->Subject = "Password change successfully";
-                    $mail->MsgHTML($message_body);
-                    $mail->IsHTML(true);		
-                    $result = $mail->Send();
+                    // $message_body = "Password successfully changed. :<br/><br/>";
+                    // $mail = new PHPMailer();
+                    // $mail->IsSMTP();
+                    // $mail->SMTPDebug = 0;
+                    // $mail->SMTPAuth = TRUE;
+                    // $mail->SMTPSecure = 'tls'; // tls or ssl
+                    // $mail->Port     = "587";
+                    // $mail->Username = "fforneedy@gmail.com";
+                    // $mail->Password = "FOODISLIFE2020";
+                    // $mail->Host     = "smtp.gmail.com";
+                    // $mail->Mailer   = "smtp";
+                    // $mail->SetFrom("fforneedy@gmail.com", "Food for needy");
+                    // $mail->AddAddress($email);
+                    // $mail->Subject = "Password change successfully";
+                    // $mail->MsgHTML($message_body);
+                    // $mail->IsHTML(true);		
+                    // $result = $mail->Send();
                     echo "<script>window.location='login.php';</script>";	
                 }else{
-                    echo "Error1";
+                    // echo "Error1";
                 }
 	}else{
         // echo "<script>alert('Username or Password Incorrect111!');</script>";
@@ -174,32 +174,32 @@ else{
 	if(mysqli_query($conn, $sql)){
         $signupmessage="Registration Successfull";
 
-            require('phpmailer/class.phpmailer.php');
-            require('phpmailer/class.smtp.php');
-            $email=$d;
+            // require('phpmailer/class.phpmailer.php');
+            // require('phpmailer/class.smtp.php');
+            // $email=$d;
         
-            $message_body = "Thank you  $b  $c for registering Raktasanchar. Use this key ".$k." to verify your email.<br> OR Login and  
-            <a href='http://localhost/Food-For-Needy/html/verify.php?code=$k'>Click here to verify</a>";
-            // <a href='http://foodforneedy.000webhostapp.com/html/verify.php?code=$k'>Click here to verify</a>";
-            $mail = new PHPMailer();
-            $mail->IsSMTP();
-            $mail->SMTPDebug = 0;
-            $mail->SMTPAuth = TRUE;
-            $mail->SMTPSecure = 'tls'; // tls or ssl
-            $mail->Port     = "587";
-            $mail->Username = "fforneedy@gmail.com";
-            $mail->Password = "FOODISLIFE2020";
-            $mail->Host     = "smtp.gmail.com";
-            $mail->Mailer   = "smtp";
-            $mail->SetFrom("fforneedy@gmail.com", "Food for needy");
-            $mail->AddAddress($email);
-            $mail->Subject = "Registration Successfull";
-            $mail->MsgHTML($message_body);
-            $mail->IsHTML(true);		
-            $result = $mail->Send();
+            // $message_body = "Thank you  $b  $c for registering Raktasanchar. Use this key ".$k." to verify your email.<br> OR Login and  
+            // <a href='http://localhost/Food-For-Needy/html/verify.php?code=$k'>Click here to verify</a>";
+            // // <a href='http://foodforneedy.000webhostapp.com/html/verify.php?code=$k'>Click here to verify</a>";
+            // $mail = new PHPMailer();
+            // $mail->IsSMTP();
+            // $mail->SMTPDebug = 0;
+            // $mail->SMTPAuth = TRUE;
+            // $mail->SMTPSecure = 'tls'; // tls or ssl
+            // $mail->Port     = "587";
+            // $mail->Username = "fforneedy@gmail.com";
+            // $mail->Password = "FOODISLIFE2020";
+            // $mail->Host     = "smtp.gmail.com";
+            // $mail->Mailer   = "smtp";
+            // $mail->SetFrom("fforneedy@gmail.com", "Food for needy");
+            // $mail->AddAddress($email);
+            // $mail->Subject = "Registration Successfull";
+            // $mail->MsgHTML($message_body);
+            // $mail->IsHTML(true);		
+            // $result = $mail->Send();
 		}
 		else{
-            echo "Error1";
+            // echo "Error1";
             
             
 		}
@@ -251,11 +251,11 @@ else{
             </div>
             <div class="navbar1">
                 <div class="nav3"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></div>
-                <div class="nav4"><a href="">CONTACT US</a></div>
+                <!--<div class="nav4"><a href="">CONTACT US</a></div>-->
 
-                <div class="nav2"><a href="login.php">JOIN US</a></div>
+                <!--<div class="nav2"><a href="login.php">JOIN US</a></div>-->
 
-                <div class="nav1"><a href="">DONATE</a></div>
+                <!--<div class="nav1"><a href="">DONATE</a></div>-->
             </div>
         </div>
     </div>

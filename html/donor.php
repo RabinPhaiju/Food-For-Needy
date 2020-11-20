@@ -229,9 +229,9 @@ top: 35%;
          die("Connection failed:". $conn-> connect_error);
      }
          if($search==1){
-             $sql = "SELECT * from register WHERE `user_type`='Donor' AND `firstname`='$search_name' ";
+             $sql = "SELECT * from register WHERE `user_type`='Donator' AND `firstname`='$search_name' ";
          }else{
-         $sql = "SELECT * from register WHERE `user_type`='Donor' AND 1 Limit $pos, $pos10";
+         $sql = "SELECT * from register WHERE `user_type`='Donator' AND 1 Limit $pos, $pos10";
          }
      $result = $conn-> query($sql);
      // echo $result-> num_rows;

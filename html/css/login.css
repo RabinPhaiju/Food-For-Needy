@@ -13,6 +13,10 @@ body {
     height: 100vh;
     margin: -20px 0 50px;
 }
+.fa-home {
+    color: tomato;
+    /* background: tomato; */
+}
 
 .navbar {
     display: flex;
@@ -20,7 +24,7 @@ body {
     flex-wrap: wrap-reverse;
     font-size: 1.5rem;
     justify-content: space-around;
-    background-color: #3c3a3a88;
+    /*background-color: #3c3a3a88;*/
     padding-top: 10px;
     margin-bottom: -10%;
 }

@@ -359,9 +359,13 @@
                                             <h2 style="margin-top:10px">
                                                 <?php echo $row['title'];?>
                                             </h2>
-                                            <em><?php $post_date=strtotime($row['current_date']); 
+                                            <em><?php 
+                                            $post_date=strtotime($row['date']); 
                                             echo date('d', $post_date); echo " ";
-                                 echo date('M', $post_date);?>, <?php echo " "; echo date('Y', $post_date);?></em>
+                                 echo date('M', $post_date);
+                                ?>
+                                 <?php echo " "; echo date('Y', $post_date);?>
+                                 </em>
                                             <p>
                                                 <?php echo $row['description'];?>
                                                 
@@ -520,31 +524,31 @@
                   $total = mysqli_num_rows($resulttotal);
                 ?>
                 <div class="FoodRescued" data-aos="fade-up" data-aos-duration="2000">
-                    <p>No of Food Rescued</p>
+                    <p>No of Donated Food</p>
                     <h4 style="color:black">
                         <?php echo $total;?>
                     </h4>
                 </div>
                 <?php 
-                  $sql = "SELECT * from `register`";// where `verified`='1' AND `status`='1'";
+                  $sql = "SELECT * from `register` where `user_type`='Donor' || `user_type`='Donator'";// where `verified`='1' AND `status`='1'";
                   require_once("html/DBConnect.php");
                   $resulttotal = $conn-> query($sql);
                   $total = mysqli_num_rows($resulttotal);
                 ?>
                 <div class="NoOfUser" data-aos="fade-up" data-aos-duration="2000">
-                    <p>No of Users</p>
+                    <p>No of Donor</p>
                     <h4 style="color:black">
                         <?php echo $total;?>
                     </h4>
                 </div>
                 <?php 
-                  $sql = "SELECT * from `food` where `served`=1" ;// where `verified`='1' AND `status`='1'";
+                  $sql = "SELECT * from `register` where `user_type`='Volunteer'";// where `verified`='1' AND `status`='1'";
                   require_once("html/DBConnect.php");
                   $resulttotal = $conn-> query($sql);
                   $total = mysqli_num_rows($resulttotal);
                 ?>
                 <div class="MealServed" data-aos="fade-up" data-aos-duration="2000">
-                    <p>Meals Served</p>
+                    <p>No of Volunteer</p>
                     <h4 style="color:black">
                         <?php echo $total;?>
                     </h4>

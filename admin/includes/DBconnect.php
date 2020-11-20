@@ -1,13 +1,12 @@
 <?php
 $server = "localhost";
 $username = "root";
-$password = "";
-$database = "foodn";
+$pwd = "";
+$db = "ffn";
 
-//connection
-$conn = mysqli_connect($server, $username, $password, $database);
+// Create connection
+$conn = mysqli_connect($server, $username, $pwd, $db);
+// Check connection
 if (!$conn) {
-	//connection failed msg
-	die("Connection faile : " . mysqli_connect_error());
+    die("Connection failed: " . mysqli_connect_error());
 }
-?>

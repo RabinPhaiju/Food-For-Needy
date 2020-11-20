@@ -15,6 +15,19 @@
   <link rel="stylesheet" href="../css/style.css">
   <link rel="shortcut icon" href="../images/favicon.jpg" />
 </head>
+<style>
+        .wrapper .cards .card img {
+            opacity: 0.6;
+        }
+        
+        .wrapper .cards .card figcaption {
+            font-weight: 500;
+            font-size: 20px;
+            color: #f34c0a;
+            margin-left: -5px;
+            text-shadow: 1px 1px #000;
+        }
+    </style>
 <body>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
@@ -168,7 +181,7 @@
                             <small class="mb-1 text-muted">Donor</small>
                             <?php
                                    require_once("DBConnect.php");
-                                  $sql1="SELECT * from `register` where `user_type`='Donor'";
+                                  $sql1="SELECT * from `register` where `user_type`='Donor' || `user_type`='Donator'";
                                   $result1 = mysqli_query($conn, $sql1);
                                   $total = mysqli_num_rows($result1);
                                   ?>

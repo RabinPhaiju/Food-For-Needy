@@ -326,6 +326,7 @@ if (isset($_POST['add_food'])) {
                           <th>Picture</th>
                           
                             <th>user_type</th>
+                            <th>verified</th>
                             <th>Location</th>
                             <th>dob</th>
                             <th>contact</th>
@@ -350,6 +351,12 @@ if (isset($_POST['add_food'])) {
                            
                            <td><img src="../../../files/<?=$row['pic']?>" alt=""></td>
                            <td><?=$row['user_type']?></td>
+
+                           <td><?php if($row['verified']==0){?>
+                             
+                             <a type="button" class=" btn btn-secondary" href="userverifyadmin.php?id=<?=$row['reg_id']?>">Verify</a>
+                           <?php }else{?>Verified<?php }  ?></td>
+                           
                             <td><?=$row['location']?></td>
                             <td><?=$row['dob']?></td>
                             <td><?=$row['contact']?></td>

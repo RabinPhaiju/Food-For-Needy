@@ -264,7 +264,7 @@ if (isset($_POST['add_schedule'])) {
                             <td><?=$row['date']?></td>
                             <td><?=$row['title']?></td>
                             
-                            <td><?=$row['description']?></td>
+                             <td><?=substr($row['description'],0,50).' ...' ?></td>
                             <td><?=$row['location']?></td>
                             <?php if($_SESSION['reg_id']<4){?>
                             <th>
